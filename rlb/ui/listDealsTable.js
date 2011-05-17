@@ -1,11 +1,11 @@
 (function() {
   root.dealsTable = Titanium.UI.createTableView({
     data: [],
-    backgroundColor: 'transparent'
+    backgroundColor: '#fff'
   });
   root.dealsTable.addEventListener('click', function(e) {
     root.cargarDeal(e.row.deal);
-    return root.tabGroup.activeTab.open(root.dealWindow, {
+    return root.tabGroup.activeTab.open(root.oneDealWindow, {
       animated: true
     });
   });

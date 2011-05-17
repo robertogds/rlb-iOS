@@ -1,4 +1,4 @@
-class RowDeal
+class ListDealsRow
   constructor: (deal) ->
     @row = Ti.UI.createTableViewRow
       hasChild: true
@@ -58,4 +58,4 @@ class RowDeal
       top: 55
     @row.add(roomTypeLabel)
 
-root.RowDeal = RowDeal
+root.listDealsRow = ListDealsRow

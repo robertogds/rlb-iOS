@@ -8,7 +8,7 @@
         backgroundColor: '#fff'
       });
       label = Titanium.UI.createLabel({
-        color: '#999',
+        color: '#000',
         text: theText,
         font: {
           fontSize: 20,

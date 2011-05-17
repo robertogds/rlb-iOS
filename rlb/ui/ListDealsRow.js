@@ -1,7 +1,7 @@
 (function() {
-  var RowDeal;
-  RowDeal = (function() {
-    function RowDeal(deal) {
+  var ListDealsRow;
+  ListDealsRow = (function() {
+    function ListDealsRow(deal) {
       var hotelLabel, image, normalPriceLabel, priceLabel, roomTypeLabel;
       this.row = Ti.UI.createTableViewRow({
         hasChild: true,
@@ -69,7 +69,7 @@
       });
       this.row.add(roomTypeLabel);
     }
-    return RowDeal;
+    return ListDealsRow;
   })();
-  root.RowDeal = RowDeal;
+  root.listDealsRow = ListDealsRow;
 }).call(this);
