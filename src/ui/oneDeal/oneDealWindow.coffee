@@ -1,4 +1,6 @@
-root.oneDealWindow = Ti.UI.createWindow({title:'Empty',backgroundColor:'#fff'})
+root.oneDealWindow = Ti.UI.createWindow
+  title:'Empty'
+  backgroundColor:'#fff'
 
 label = Titanium.UI.createLabel
 	color: '#999'

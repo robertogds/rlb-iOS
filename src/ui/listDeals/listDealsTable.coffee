@@ -3,7 +3,7 @@ root.dealsTable = Titanium.UI.createTableView
   backgroundColor: '#fff'
 
 root.dealsTable.addEventListener 'click', (e) ->
-  root.cargarDeal(e.row.deal)
+  root.showDealView(e.row.deal)
   root.tabGroup.activeTab.open(root.oneDealWindow,{animated:true});
 
 

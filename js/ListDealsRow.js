@@ -13,7 +13,7 @@
         color: '#000'
       });
       image = Titanium.UI.createImageView({
-        image: deal.image1,
+        image: deal.mainImageSmall,
         left: 4,
         width: 140,
         height: 110

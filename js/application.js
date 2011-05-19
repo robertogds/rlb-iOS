@@ -1,8 +1,10 @@
 (function() {
   Titanium.UI.setBackgroundColor('#fff');
   root.listDealsWindow = new root.GenericWindow('Madrid', 'Cargando Ofertas Disponibles...');
-  root.bookWindow = new root.GenericWindow('Tus Reservas', 'Página de reservas');
-  root.configWindow = new root.GenericWindow('Configuración', 'Página de configuración');
+  root.bookWindow = new root.GenericWindow('Tus Reservas', 'Mis Reservas');
+  root.accountWindow = new root.GenericWindow('Perfil', 'Mi Perfil');
+  root.oneDealWindow = new root.GenericWindow('', '').win;
+  root.bookWindow = new root.GenericWindow('Confirmar Reserva', '').win;
   root.tabGroup = Titanium.UI.createTabGroup({
     barColor: '#000'
   });
@@ -16,13 +18,13 @@
     title: 'Reservas',
     window: root.bookWindow.win
   });
-  root.tabConfig = Titanium.UI.createTab({
-    icon: 'icons/ico_conf.png',
+  root.accountTab = Titanium.UI.createTab({
+    icon: 'icons/ico_user.png',
     title: 'Ajustes',
-    window: root.configWindow.win
+    window: root.accountWindow.win
   });
   root.tabGroup.addTab(root.dealsTab);
   root.tabGroup.addTab(root.bookTab);
-  root.tabGroup.addTab(root.tabConfig);
+  root.tabGroup.addTab(root.accountTab);
   root.tabGroup.open();
 }).call(this);
