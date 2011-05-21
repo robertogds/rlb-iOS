@@ -5,10 +5,18 @@
     width: 320,
     top: 0
   });
+  root.bookWindow.add(root.bookView);
   root.showBookView = function(deal) {
     root.bookWindow.add(root.bookView);
-    return root.tabGroup.activeTab.open(root.bookWindow, {
-      animated: true
-    });
+    if (Titanium.Facebook.loggedIn) {
+      root.tabGroup.activeTab.open(root.bookWindow, {
+        animated: true
+      });
+    } else {
+      root.tabGroup.activeTab.open(root.accountWindow, {
+        animated: true
+      });
+    }
+    return 1;
   };
 }).call(this);

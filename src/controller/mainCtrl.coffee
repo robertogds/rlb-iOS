@@ -6,6 +6,7 @@ Ti.include(
   'js/oneDealView.js'
   'js/accountView.js'
   'js/bookView.js'
+  'js/testView.js'
 )
 # This will handle the JSON
 xhrDeals = Titanium.Network.createHTTPClient()

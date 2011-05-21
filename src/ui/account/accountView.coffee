@@ -1,5 +1,5 @@
 root.accountView = Titanium.UI.createView
-  background: 'transparent'
+  background: '#000'
   borderWidth: 0
   width:320
   top: 1
@@ -19,4 +19,4 @@ root.facebookButton = Titanium.Facebook.createLoginButton
   style: 'wide'
 
 root.accountView.add(root.facebookButton)
-root.accountWindow.win.add(root.accountView)
+root.accountWindow.add(root.accountView)
