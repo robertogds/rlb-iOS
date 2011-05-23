@@ -7,13 +7,30 @@
         hasChild: true,
         identionLevel: 200,
         height: 120,
-        backgroundColor: '#fff',
+        backgroundGradient: {
+          type: 'linear',
+          colors: [
+            {
+              color: '#093344',
+              position: 0.1
+            }, {
+              color: '#0b222e',
+              position: 0.50
+            }, {
+              color: '#0c1b24',
+              position: 1.0
+            }
+          ]
+        },
         fontSize: 6,
         deal: deal,
-        color: '#000'
+        color: '#fff'
       });
       image = Titanium.UI.createImageView({
         image: deal.mainImageSmall,
+        borderRadius: 10,
+        borderColor: '#fff',
+        borderWidth: 3,
         left: 4,
         width: 140,
         height: 110
@@ -21,7 +38,7 @@
       this.row.add(image);
       hotelLabel = Titanium.UI.createLabel({
         text: deal.hotelName,
-        color: '#000',
+        color: '#fff',
         left: 155,
         font: {
           fontSize: 14
@@ -33,7 +50,7 @@
       this.row.add(hotelLabel);
       priceLabel = Titanium.UI.createLabel({
         text: deal.salePriceCents + "€",
-        color: '#660000',
+        color: '#fff',
         left: 155,
         font: {
           fontSize: 24,
@@ -58,7 +75,7 @@
       this.row.add(normalPriceLabel);
       roomTypeLabel = Titanium.UI.createLabel({
         text: deal.roomType,
-        color: '#003399',
+        color: '#fff',
         left: 155,
         font: {
           fontSize: 14

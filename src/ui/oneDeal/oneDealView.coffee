@@ -10,61 +10,63 @@ root.oneDealView = Titanium.UI.createView
   background: 'transparent'
   borderWidth: 0
   width:320
-  height: 650
+  #height: 650
   top: 0
+
+root.oneDealButtonBar = Titanium.UI.createButtonBar
+  labels:['Reservar', 'Info', 'Mapa', 'Fotos']
+  backgroundColor:'#000'
+  top:0
+  style:Titanium.UI.iPhone.SystemButtonStyle.BAR
+  height:25
+  width:320
+root.oneDealView.add(root.oneDealButtonBar)
   
 root.oneDealImage = Titanium.UI.createImageView 
-  top: 0
+  top: 25
   width: 320
   height: 120
+
+separator = Titanium.UI.createImageView 
+  top: 170
+  image: 'images/separator.png'
+  width: 300
+root.oneDealView.add(separator)
 
 root.oneDealPriceLabel = Titanium.UI.createLabel
   width: 320
   height: 70
   textAlign: 'center'
-  color: '#000'
+  color: '#fff'
   font:
     fontSize: 28
     fontWeight: 'normal'
     fontFamily:'Helvetica Neue'
-  top: 120
+  top: 260
 
-
-# Etiqueta con la descripcion
-  root.descriptionLabel = Titanium.UI.createLabel
-    #backgroundColor: '#e5e5e5'
-    width: 300
-    height: 40
-    textAlign: 'left'
-    color: '#000'
+root.oneDealAddressLabel = Titanium.UI.createLabel
+    width: 320
+    height: 80
+    textAlign: 'center'
+    color: '#fff'
     font:
-      fontSize: 10
+      fontSize: 20
       fontWeight: 'normal'
-    top: 280
+      fontFamily:'Helvetica Neue'
+    top: 140
+root.oneDealView.add(root.oneDealAddressLabel)
 
-# Boton descripcion
-  root.descButton = Titanium.UI.createButton
-    title: 'Descripción    >'
-    width:300
-    height:40
-    font:{fontSize:18,fontWeight:'bold',fontFamily:'Helvetica Neue'}
-    top: 240
+root.descriptionLabel = Titanium.UI.createLabel
+  width: 300
+  height: 20
+  textAlign: 'left'
+  color: '#fff'
+  font:
+    fontSize: 15
+    fontWeight: 'normal'
+    fontFamily:'Helvetica Neue'
+  top: 220
 
-# Map Button
-  root.mapButton = Titanium.UI.createButton
-    title: 'Mapa    >'
-    width:300
-    height:40
-    font:{fontSize:18,fontWeight:'bold',fontFamily:'Helvetica Neue'}
-    top: 340
-
-# Fotos Button
-root.imagesButton = Titanium.UI.createButton
-  title: 'Fotos    >'
-  width:300
-  height:40
-  font:{fontSize:18,fontWeight:'bold',fontFamily:'Helvetica Neue'}
-  top: 590
 
 mountainView = Titanium.Map.createAnnotation
   latitude:37.390749
@@ -91,24 +93,20 @@ mapview = Titanium.Map.createView
   userLocation: true
   annotations: [mountainView]
 
+root.oneDealView.add(root.oneDealImage)
+root.oneDealView.add(root.buyButton)
+root.oneDealView.add(root.oneDealPriceLabel)
+root.oneDealView.add(root.descriptionLabel) 
 root.oneDealView.add(mapview)
+root.oneDealWindow.add(root.oneDealView)
 
 root.showDealView = (deal) ->
   root.deal = deal
   root.oneDealWindow.title = deal.hotelName
   root.oneDealImage.image = deal.mainImageBig 
   root.oneDealPriceLabel.text = deal.salePriceCents + "€" + '  Sólo Esta Noche'
+  root.oneDealAddressLabel.text = deal.hotelName + '\n' + deal.address 
   root.descriptionLabel.text = deal.description
-
-  root.oneDealView.add(root.oneDealImage)
-  root.oneDealView.add(root.oneDealPriceLabel)
-  root.oneDealView.add(root.buyButton)
-  root.oneDealView.add(root.descriptionLabel)  
-  root.oneDealView.add(root.descButton)
-  root.oneDealView.add(root.mapButton)
-  root.oneDealView.add(root.imagesButton)
-
-  root.oneDealScrollView.add(root.oneDealView)
-  root.oneDealWindow.add(root.oneDealScrollView)
+  
   root.oneDealWindow
 

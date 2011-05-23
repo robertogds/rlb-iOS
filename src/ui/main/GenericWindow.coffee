@@ -1,6 +1,6 @@
 class GenericWindow
   constructor: (theTitle, theText) ->
-    @win = Ti.UI.createWindow({title:theTitle,backgroundColor:'#fff'})
+    @win = Ti.UI.createWindow({title:theTitle,backgroundColor:'#0b222e'})
     label = Titanium.UI.createLabel
       color: '#000'
       text: theText

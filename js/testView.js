@@ -1,5 +1,5 @@
 (function() {
-  var bb1;
+  var bb1, testButton;
   root.testView = Titanium.UI.createView({
     background: 'transparent',
     borderWidth: 0,
@@ -8,7 +8,7 @@
   });
   bb1 = Titanium.UI.createButtonBar({
     labels: ['One', 'Two', 'Three'],
-    backgroundColor: '#336699',
+    backgroundColor: '#000',
     top: 50,
     style: Titanium.UI.iPhone.SystemButtonStyle.BAR,
     height: 25,
@@ -16,4 +16,13 @@
   });
   root.testView.add(bb1);
   root.testWindow.add(root.testView);
+  testButton = Titanium.UI.createButton({
+    color: '#fff',
+    title: 'Cuidades'
+  });
+  root.testView.add(root.loadingView);
+  root.testWindow.rightNavButton = testButton;
+  testButton.addEventListener('click', function(e) {
+    return root.showBookView(root.deal);
+  });
 }).call(this);

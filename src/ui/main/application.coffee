@@ -1,7 +1,8 @@
-Titanium.UI.setBackgroundColor('#fff')
+Titanium.UI.setBackgroundColor('#000')
 
 # Application Windows
-root.listDealsWindow = new root.GenericWindow('Madrid','Cargando Ofertas Disponibles...')
+root.citiesWindow = new root.GenericWindow('Ciudades','Lista de ciudades').win
+root.listDealsWindow = new root.GenericWindow('Madrid','Cargando Ofertas Disponibles...').win
 root.bookWindow = new root.GenericWindow('Tus Reservas','Reservas').win
 root.accountWindow = new root.GenericWindow('Perfil','Mi Perfil').win
 root.oneDealWindow = new root.GenericWindow('','').win
@@ -11,8 +12,8 @@ root.testWindow = new root.GenericWindow('Test','Window for testing purposes').w
 root.tabGroup = Titanium.UI.createTabGroup({barColor:'#000'})
 root.dealsTab = Titanium.UI.createTab
   icon:'icons/ico_deal.png'
-  title:'Ofertas'
-  window: root.listDealsWindow.win
+  title:'Ciudades'
+  window: root.citiesWindow
   
 root.bookTab = Titanium.UI.createTab
   icon:'icons/ico_buy.png'

@@ -15,3 +15,15 @@ root.testView.add(bb1)
 
 
 root.testWindow.add(root.testView)
+
+#rightNavButton
+
+testButton = Titanium.UI.createButton
+  color: '#fff'
+  title: 'Cuidades'
+
+root.testView.add(root.loadingView)
+
+root.testWindow.rightNavButton = testButton
+testButton.addEventListener 'click', (e) ->
+  root.showBookView(root.deal)

@@ -1,6 +1,7 @@
 (function() {
-  Titanium.UI.setBackgroundColor('#fff');
-  root.listDealsWindow = new root.GenericWindow('Madrid', 'Cargando Ofertas Disponibles...');
+  Titanium.UI.setBackgroundColor('#000');
+  root.citiesWindow = new root.GenericWindow('Ciudades', 'Lista de ciudades').win;
+  root.listDealsWindow = new root.GenericWindow('Madrid', 'Cargando Ofertas Disponibles...').win;
   root.bookWindow = new root.GenericWindow('Tus Reservas', 'Reservas').win;
   root.accountWindow = new root.GenericWindow('Perfil', 'Mi Perfil').win;
   root.oneDealWindow = new root.GenericWindow('', '').win;
@@ -10,8 +11,8 @@
   });
   root.dealsTab = Titanium.UI.createTab({
     icon: 'icons/ico_deal.png',
-    title: 'Ofertas',
-    window: root.listDealsWindow.win
+    title: 'Ciudades',
+    window: root.citiesWindow
   });
   root.bookTab = Titanium.UI.createTab({
     icon: 'icons/ico_buy.png',
