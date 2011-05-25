@@ -1,7 +1,8 @@
 root.dealsTable = Titanium.UI.createTableView
   data: []
-  backgroundColor: '#093b4e'
-  separatorColor: '#093b4e'
+  #backgroundColor: '#093b4e' separatorColor: '#093b4e'
+  backgroundColor: '#0b222e'
+  separatorColor: '#0b222e'
 
 root.listDealsWindow.add(root.dealsTable)
 
@@ -24,6 +25,7 @@ root.xhrDeals.onload = () ->
 
 root.loadDeals = (city) ->
   Titanium.API.error(city.name)
+  root.listDealsWindow.title = city.name
   root.xhrDeals.open('GET', 'http://rlb-back.appspot.com/deals/'+city.name)
   root.xhrDeals.send()
 

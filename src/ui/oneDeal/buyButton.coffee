@@ -8,8 +8,9 @@ root.buyButton = Titanium.UI.createButton
   width:220
   height:40
   font:{fontSize:20,fontWeight:'bold',fontFamily:'Helvetica Neue'}
-  top: 320
+  top: 295
 
 root.buyButton.addEventListener 'click', (e) ->
+  alert('Comprando')
   root.showBookView(root.deal)
 

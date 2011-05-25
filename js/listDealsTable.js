@@ -1,8 +1,8 @@
 (function() {
   root.dealsTable = Titanium.UI.createTableView({
     data: [],
-    backgroundColor: '#093b4e',
-    separatorColor: '#093b4e'
+    backgroundColor: '#0b222e',
+    separatorColor: '#0b222e'
   });
   root.listDealsWindow.add(root.dealsTable);
   root.dealsTable.addEventListener('click', function(e) {
@@ -26,6 +26,7 @@
   };
   root.loadDeals = function(city) {
     Titanium.API.error(city.name);
+    root.listDealsWindow.title = city.name;
     root.xhrDeals.open('GET', 'http://rlb-back.appspot.com/deals/' + city.name);
     return root.xhrDeals.send();
   };

@@ -2,8 +2,8 @@
   Ti.include('js/citiesRow.js');
   root.citiesTable = Titanium.UI.createTableView({
     data: [],
-    backgroundColor: '#093b4e',
-    separatorColor: '#093b4e'
+    backgroundColor: '#0b222e',
+    separatorColor: '#0b222e'
   });
   root.citiesWindow.add(root.citiesTable);
   root.citiesTable.addEventListener('click', function(e) {

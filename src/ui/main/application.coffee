@@ -7,6 +7,10 @@ root.bookWindow = new root.GenericWindow('Tus Reservas','Reservas').win
 root.accountWindow = new root.GenericWindow('Perfil','Mi Perfil').win
 root.oneDealWindow = new root.GenericWindow('','').win
 root.testWindow = new root.GenericWindow('Test','Window for testing purposes').win
+root.imagesWindow = new root.GenericWindow('Fotos','Fotos').win
+
+root.imagesWindow.backButtonTitle = 'Volver'
+root.imagesWindow.tabBarHidden = true
 
 # Application Tabs 336699
 root.tabGroup = Titanium.UI.createTabGroup({barColor:'#000'})

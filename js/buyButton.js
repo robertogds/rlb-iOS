@@ -12,9 +12,10 @@
       fontWeight: 'bold',
       fontFamily: 'Helvetica Neue'
     },
-    top: 320
+    top: 295
   });
   root.buyButton.addEventListener('click', function(e) {
+    alert('Comprando');
     return root.showBookView(root.deal);
   });
 }).call(this);
