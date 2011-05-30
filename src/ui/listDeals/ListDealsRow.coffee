@@ -33,6 +33,7 @@ class ListDealsRow
       width: 160
       top: 5
     @row.add(hotelLabel)
+
     priceLabel = Titanium.UI.createLabel
       text: deal.salePriceCents + "€"
       color: '#fff'
@@ -72,11 +73,11 @@ class ListDealsRow
       top: 80
       height: 30
       width: 60
-    if deal.roomType is 'Lujo'
+    if deal.roomType is 'lujo'
       roomTypeImage.image = 'images/icon_lujo.png'
-    else if deal.roomType is 'Elegante'
+    else if deal.roomType is 'elegante'
       roomTypeImage.image = 'images/icon_elegante.png'
-   	else if deal.roomType is 'Confort'
+   	else if deal.roomType is 'confort'
 	      roomTypeImage.image = 'images/icon_confort.png'
     @row.add(roomTypeImage)
 

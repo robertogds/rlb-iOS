@@ -8,12 +8,15 @@ root.accountWindow = new root.GenericWindow('Perfil','Mi Perfil').win
 root.oneDealWindow = new root.GenericWindow('','').win
 root.testWindow = new root.GenericWindow('Test','Window for testing purposes').win
 root.imagesWindow = new root.GenericWindow('Fotos','Fotos').win
+root.newAccountWindow = new root.GenericWindow('Nueva Cuenta','Nueva Cuenta').win
 
 root.imagesWindow.backButtonTitle = 'Volver'
 root.imagesWindow.tabBarHidden = true
 
 # Application Tabs 336699
-root.tabGroup = Titanium.UI.createTabGroup({barColor:'#000'})
+root.tabGroup = Titanium.UI.createTabGroup
+  barColor:'#000'
+
 root.dealsTab = Titanium.UI.createTab
   icon:'icons/ico_deal.png'
   title:'Ciudades'

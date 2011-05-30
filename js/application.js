@@ -7,6 +7,7 @@
   root.oneDealWindow = new root.GenericWindow('', '').win;
   root.testWindow = new root.GenericWindow('Test', 'Window for testing purposes').win;
   root.imagesWindow = new root.GenericWindow('Fotos', 'Fotos').win;
+  root.newAccountWindow = new root.GenericWindow('Nueva Cuenta', 'Nueva Cuenta').win;
   root.imagesWindow.backButtonTitle = 'Volver';
   root.imagesWindow.tabBarHidden = true;
   root.tabGroup = Titanium.UI.createTabGroup({
