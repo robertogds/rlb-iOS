@@ -4,7 +4,7 @@
     backgroundSelectedImage: 'images/BUTT_gry_on.png',
     backgroundDisabledImage: 'images/BUTT_drk_off.png',
     color: '#000',
-    title: 'Crear una cuenta',
+    title: 'Registrarme',
     width: 220,
     height: 40,
     font: {
@@ -15,6 +15,11 @@
     top: 200
   });
   root.registerButton.addEventListener('click', function(e) {
+    root.newAccountData[0] = root.newAccountSection;
+    root.newAccountTable.data = root.newAccountData;
+    root.newAccountView.add(root.newAccountTable);
+    root.newAccountView.add(root.newAccountButton);
+    root.newAccountWindow.add(root.newAccountView);
     return root.tabGroup.activeTab.open(root.newAccountWindow, {
       animated: true
     });

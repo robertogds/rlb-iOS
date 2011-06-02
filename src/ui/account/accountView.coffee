@@ -1,24 +1,12 @@
 Ti.include(
   'js/registerButton.js'
+  'js/facebookButton.js'
+  'js/newAccountView.js'
 )
 
 root.accountView = Titanium.UI.createView
   backgroundImage: 'images/background1.png'
   width:320
-
-Titanium.Facebook.appid = "210123832352906"
-Titanium.Facebook.permissions = ['publish_stream', 'read_stream']
-
-Titanium.Facebook.addEventListener 'click', (e) ->
-  alert('Logged in') if e.success 
-
-Titanium.Facebook.addEventListener 'logout', (e) ->
-  alert('Logged out')
-
-# add the button.  Note that it doesn't need a click event or anything.
-root.facebookButton = Titanium.Facebook.createLoginButton 
-  top: 20 
-  style: 'wide'
 
 root.loginView = Titanium.UI.createView
   background: "transparent"
@@ -39,13 +27,19 @@ loginLabel = Titanium.UI.createLabel
   width: 300
   top: 1
 
+
 userText = Titanium.UI.createTextField
   color:'#336699'
   hintText: 'Usuario'
   clearOnEdit: true
   paddingLeft: 10
-  suppressReturn: true
-  #borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED
+  suppressReturn: 1
+  keyboardType: Titanium.UI.KEYBOARD_DEFAULT
+  returnKeyType: Titanium.UI.RETURNKEY_NEXT 
+
+userText.addEventListener 'return', (e) ->
+  passText.focus()
+
 
 passText = Titanium.UI.createTextField
   color:'#336699'
@@ -53,7 +47,33 @@ passText = Titanium.UI.createTextField
   paddingLeft: 10
   clearOnEdit: true
   passwordMask:true
-  #borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED
+
+
+root.xhrLogin = Titanium.Network.createHTTPClient()
+
+root.xhrLogin.onreadystatechange = () ->
+  try 
+    if this.readyState is 4
+      results = JSON.parse(this.responseText)
+  catch e 
+    Ti.API.debug(e.error)
+    alert('salio con error')
+  1
+
+root.xhrLogin.onload = () ->
+  #loginresp = JSON.parse(this.responseText)
+  alert(this.responseText)
+
+passText.addEventListener 'return', (e) ->
+  user = userText.value
+  pass = passText.value
+  root.xhrLogin.open("POST","http://rlb-back.appspot.com/users/login")
+  root.xhrLogin.setTimeout(10)
+  root.xhrLogin.setRequestHeader("Content-Type","application/json; charset=utf-8")
+  root.xhrLogin.send(JSON.stringify({"email":"roberto@iipir.com", "password":"iipir11"}))
+  alert('salio')
+  1
+
 
 loginTable = Titanium.UI.createTableView
   top: 35

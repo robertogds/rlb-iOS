@@ -1,23 +1,9 @@
 (function() {
   var data, loginLabel, loginTable, needLabel, passText, row1, row2, section, userText;
-  Ti.include('js/registerButton.js');
+  Ti.include('js/registerButton.js', 'js/facebookButton.js', 'js/newAccountView.js');
   root.accountView = Titanium.UI.createView({
     backgroundImage: 'images/background1.png',
     width: 320
-  });
-  Titanium.Facebook.appid = "210123832352906";
-  Titanium.Facebook.permissions = ['publish_stream', 'read_stream'];
-  Titanium.Facebook.addEventListener('click', function(e) {
-    if (e.success) {
-      return alert('Logged in');
-    }
-  });
-  Titanium.Facebook.addEventListener('logout', function(e) {
-    return alert('Logged out');
-  });
-  root.facebookButton = Titanium.Facebook.createLoginButton({
-    top: 20,
-    style: 'wide'
   });
   root.loginView = Titanium.UI.createView({
     background: "transparent",
@@ -44,7 +30,12 @@
     hintText: 'Usuario',
     clearOnEdit: true,
     paddingLeft: 10,
-    suppressReturn: true
+    suppressReturn: 1,
+    keyboardType: Titanium.UI.KEYBOARD_DEFAULT,
+    returnKeyType: Titanium.UI.RETURNKEY_NEXT
+  });
+  userText.addEventListener('return', function(e) {
+    return passText.focus();
   });
   passText = Titanium.UI.createTextField({
     color: '#336699',
@@ -52,6 +43,36 @@
     paddingLeft: 10,
     clearOnEdit: true,
     passwordMask: true
+  });
+  root.xhrLogin = Titanium.Network.createHTTPClient();
+  root.xhrLogin.onreadystatechange = function() {
+    var results;
+    try {
+      if (this.readyState === 4) {
+        results = JSON.parse(this.responseText);
+      }
+    } catch (e) {
+      Ti.API.debug(e.error);
+      alert('salio con error');
+    }
+    return 1;
+  };
+  root.xhrLogin.onload = function() {
+    return alert(this.responseText);
+  };
+  passText.addEventListener('return', function(e) {
+    var pass, user;
+    user = userText.value;
+    pass = passText.value;
+    root.xhrLogin.open("POST", "http://rlb-back.appspot.com/users/login");
+    root.xhrLogin.setTimeout(10);
+    root.xhrLogin.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+    root.xhrLogin.send(JSON.stringify({
+      "email": "roberto@iipir.com",
+      "password": "iipir11"
+    }));
+    alert('salio');
+    return 1;
   });
   loginTable = Titanium.UI.createTableView({
     top: 35,
