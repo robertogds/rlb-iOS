@@ -2,6 +2,7 @@ Ti.include(
   'js/registerButton.js'
   'js/newAccountView.js'
   'js/loginAction.js'
+  'js/facebookButton.js'
 )
 
 root.loginView = Titanium.UI.createView
@@ -9,7 +10,7 @@ root.loginView = Titanium.UI.createView
   borderWidth: 0
   width: 320
   height: 300
-  top: 70
+  top: 1
 
 loginLabel = Titanium.UI.createLabel
   borderWidth: 0
@@ -21,7 +22,8 @@ loginLabel = Titanium.UI.createLabel
     fontWeight: 'bold'
   height: 30
   width: 300
-  top: 1
+  top: 5
+  #top: 70
 
 emailText = Titanium.UI.createTextField
   color:'#336699'
@@ -44,13 +46,15 @@ passText = Titanium.UI.createTextField
 
 passText.addEventListener 'return', (e) ->
   email = emailText.value
-  pass = passText.value
-  root.doLogin(email,pass)
+  password = passText.value
+  password = Titanium.Utils.md5HexDigest(password)
+  root.doLogin(email,password)
   1
 
 
 loginTable = Titanium.UI.createTableView
-  top: 35
+  #top: 105
+  top: 40
   height: 85
   width: 300
   borderWidth:0
@@ -80,8 +84,10 @@ needLabel = Titanium.UI.createLabel
     fontWeight: 'bold'
   height: 30
   width: 300
-  top: 150
+  top: 220
+  #top: 150
 
+#root.loginView.add(root.facebookButton)
 root.loginView.add(loginTable)
 root.loginView.add(needLabel)
 root.loginView.add(loginLabel)

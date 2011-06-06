@@ -1,4 +1,3 @@
-# Register
 root.registerButton = Titanium.UI.createButton
   backgroundImage:'images/BUTT_gry_off.png'
   backgroundSelectedImage:'images/BUTT_gry_on.png'
@@ -8,7 +7,7 @@ root.registerButton = Titanium.UI.createButton
   width:220
   height:40
   font:{fontSize:20,fontWeight:'bold',fontFamily:'Helvetica Neue'}
-  top: 200
+  top: 270
 
 root.registerButton.addEventListener 'click', (e) ->
   root.newAccountData[0] = root.newAccountSection

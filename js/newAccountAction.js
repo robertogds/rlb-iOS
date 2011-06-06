@@ -1,7 +1,15 @@
 (function() {
   root.xhrRegister = Titanium.Network.createHTTPClient();
   root.xhrRegister.onload = function(e) {
-    return alert('sale por onload ' + this.responseText);
+    var newUser, response;
+    response = JSON.parse(this.responseText);
+    if (response.status === 201) {
+      newUser = response.content;
+      root.doLogin(newUser.email, newUser.password);
+      return root.newAccountWindow.close();
+    } else {
+      return alert('Error: ' + response.detail);
+    }
   };
   root.xhrRegister.onerror = function(e) {
     alert('sale por onerror' + e);
@@ -14,7 +22,7 @@
     root.xhrRegister.setRequestHeader("Content-Type", "application/json; charset=utf-8");
     newUser = JSON.stringify({
       "email": email,
-      "password": password,
+      "password": Titanium.Utils.md5HexDigest(password),
       "firstName": firstName,
       "lastName": lastName
     });

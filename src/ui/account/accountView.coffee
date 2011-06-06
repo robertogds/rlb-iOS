@@ -1,5 +1,4 @@
 Ti.include(
-  'js/facebookButton.js'
   'js/loginView.js'
   'js/loggedView.js'
 )
@@ -10,6 +9,5 @@ root.accountView = Titanium.UI.createView
 
 
 root.accountView.add(root.loginView)
-root.accountView.add(root.facebookButton)
 root.accountView.add(root.loggedView)
 root.accountWindow.add(root.accountView)

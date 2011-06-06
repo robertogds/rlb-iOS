@@ -1,12 +1,12 @@
 (function() {
   var data, emailText, loginLabel, loginTable, needLabel, passText, row1, row2, section;
-  Ti.include('js/registerButton.js', 'js/newAccountView.js', 'js/loginAction.js');
+  Ti.include('js/registerButton.js', 'js/newAccountView.js', 'js/loginAction.js', 'js/facebookButton.js');
   root.loginView = Titanium.UI.createView({
     background: "transparent",
     borderWidth: 0,
     width: 320,
     height: 300,
-    top: 70
+    top: 1
   });
   loginLabel = Titanium.UI.createLabel({
     borderWidth: 0,
@@ -19,7 +19,7 @@
     },
     height: 30,
     width: 300,
-    top: 1
+    top: 5
   });
   emailText = Titanium.UI.createTextField({
     color: '#336699',
@@ -41,14 +41,15 @@
     passwordMask: true
   });
   passText.addEventListener('return', function(e) {
-    var email, pass;
+    var email, password;
     email = emailText.value;
-    pass = passText.value;
-    root.doLogin(email, pass);
+    password = passText.value;
+    password = Titanium.Utils.md5HexDigest(password);
+    root.doLogin(email, password);
     return 1;
   });
   loginTable = Titanium.UI.createTableView({
-    top: 35,
+    top: 40,
     height: 85,
     width: 300,
     borderWidth: 0,
@@ -77,7 +78,7 @@
     },
     height: 30,
     width: 300,
-    top: 150
+    top: 220
   });
   root.loginView.add(loginTable);
   root.loginView.add(needLabel);

@@ -1,9 +1,10 @@
 (function() {
+  Ti.include('js/logoutButton.js');
   root.loggedView = Titanium.UI.createView({
     background: "transparent",
     borderWidth: 0,
     width: 320,
-    top: 70
+    top: 1
   });
   root.loggedLabel = Titanium.UI.createLabel({
     borderWidth: 0,
@@ -18,4 +19,5 @@
     top: 1
   });
   root.loggedView.add(root.loggedLabel);
+  root.loggedView.add(root.logoutButton);
 }).call(this);

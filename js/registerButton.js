@@ -12,7 +12,7 @@
       fontWeight: 'bold',
       fontFamily: 'Helvetica Neue'
     },
-    top: 200
+    top: 270
   });
   root.registerButton.addEventListener('click', function(e) {
     root.newAccountData[0] = root.newAccountSection;
