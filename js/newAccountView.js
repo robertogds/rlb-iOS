@@ -1,6 +1,6 @@
 (function() {
   var emailRow, emailText, firstNameRow, firstNameText, lastNameRow, lastNameText, passwordRow, passwordText;
-  Ti.include('js/newAccountButton.js');
+  Ti.include('js/newAccountButton.js', 'js/newAccountAction.js');
   root.newAccountView = Titanium.UI.createView({
     backgroundImage: 'images/background1.png',
     width: 320
@@ -19,21 +19,31 @@
     hintText: 'Nombre',
     clearOnEdit: true,
     paddingLeft: 10,
-    suppressReturn: true
+    returnKeyType: Titanium.UI.RETURNKEY_NEXT
+  });
+  firstNameText.addEventListener('return', function(e) {
+    return lastNameText.focus();
   });
   lastNameText = Titanium.UI.createTextField({
     color: '#336699',
     hintText: 'Apellidos',
     clearOnEdit: true,
     paddingLeft: 10,
-    suppressReturn: true
+    returnKeyType: Titanium.UI.RETURNKEY_NEXT
+  });
+  lastNameText.addEventListener('return', function(e) {
+    return emailText.focus();
   });
   emailText = Titanium.UI.createTextField({
     color: '#336699',
     hintText: 'Email',
     clearOnEdit: true,
     paddingLeft: 10,
-    suppressReturn: true
+    keyboardType: Titanium.UI.KEYBOARD_EMAIL,
+    returnKeyType: Titanium.UI.RETURNKEY_NEXT
+  });
+  emailText.addEventListener('return', function(e) {
+    return passwordText.focus();
   });
   passwordText = Titanium.UI.createTextField({
     color: '#336699',
@@ -41,6 +51,15 @@
     paddingLeft: 10,
     clearOnEdit: true,
     passwordMask: true
+  });
+  passwordText.addEventListener('return', function(e) {
+    var email, firstName, lastName, password;
+    email = emailText.value;
+    password = passwordText.value;
+    firstName = firstNameText.value;
+    lastName = lastNameText.value;
+    root.doRegister(email, password, firstName, lastName);
+    return 1;
   });
   root.newAccountSection = Titanium.UI.createTableViewSection();
   root.newAccountData = [];

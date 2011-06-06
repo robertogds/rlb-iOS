@@ -1,5 +1,6 @@
 Ti.include(
   'js/newAccountButton.js'
+  'js/newAccountAction.js'
 )
 
 root.newAccountView = Titanium.UI.createView
@@ -20,21 +21,31 @@ firstNameText = Titanium.UI.createTextField
   hintText: 'Nombre'
   clearOnEdit: true
   paddingLeft: 10
-  suppressReturn: true
+  returnKeyType: Titanium.UI.RETURNKEY_NEXT
+
+firstNameText.addEventListener 'return', (e) ->
+  lastNameText.focus()
 
 lastNameText = Titanium.UI.createTextField
   color:'#336699'
   hintText: 'Apellidos'
   clearOnEdit: true
   paddingLeft: 10
-  suppressReturn: true
+  returnKeyType: Titanium.UI.RETURNKEY_NEXT
+
+lastNameText.addEventListener 'return', (e) ->
+  emailText.focus()
 
 emailText = Titanium.UI.createTextField
   color:'#336699'
   hintText: 'Email'
   clearOnEdit: true
   paddingLeft: 10
-  suppressReturn: true
+  keyboardType: Titanium.UI.KEYBOARD_EMAIL
+  returnKeyType: Titanium.UI.RETURNKEY_NEXT
+
+emailText.addEventListener 'return', (e) ->
+  passwordText.focus()
 
 
 passwordText = Titanium.UI.createTextField
@@ -43,6 +54,15 @@ passwordText = Titanium.UI.createTextField
   paddingLeft: 10
   clearOnEdit: true
   passwordMask:true
+
+passwordText.addEventListener 'return', (e) ->
+  email = emailText.value
+  password = passwordText.value
+  firstName = firstNameText.value
+  lastName = lastNameText.value
+  root.doRegister(email,password,firstName,lastName)
+  1
+  
 
 
 root.newAccountSection = Titanium.UI.createTableViewSection()
