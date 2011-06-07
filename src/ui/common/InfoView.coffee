@@ -38,4 +38,5 @@ class InfoView
     data[0] = section
     table.data = data
     @view.add(table)
+
 root.InfoView = InfoView
