@@ -15,7 +15,6 @@
     width: 200
   });
   root.testView.add(bb1);
-  root.testWindow.add(root.testView);
   testButton = Titanium.UI.createButton({
     color: '#fff',
     title: 'Cuidades'
@@ -54,7 +53,6 @@
   data[0] = section;
   table.data = data;
   root.testView.add(table);
-  root.testWindow.rightNavButton = testButton;
   testButton.addEventListener('click', function(e) {
     return root.showBookView(root.deal);
   });

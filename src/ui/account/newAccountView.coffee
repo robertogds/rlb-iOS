@@ -63,8 +63,6 @@ passwordText.addEventListener 'return', (e) ->
   root.doRegister(email,password,firstName,lastName)
   1
   
-
-
 root.newAccountSection = Titanium.UI.createTableViewSection()
 #section.headerTitle = "Login"
 root.newAccountData = []
@@ -82,4 +80,17 @@ root.newAccountSection.add(firstNameRow)
 root.newAccountSection.add(lastNameRow)
 root.newAccountSection.add(emailRow)
 root.newAccountSection.add(passwordRow)
+
+acceptLegalLabel = Titanium.UI.createLabel
+  borderWidth: 0
+  top: 300
+  text: "Al clickar en Registrarse, aceptas los términos de uso y política de privacidad de ReallyLateBooking que puedes encontrar en la pestaña Opciones"
+  color: '#fff'
+  left: 8
+  font:
+    fontSize: 9
+    #fontWeight: 'bold'
+
+root.newAccountView.add(acceptLegalLabel)
+root.newAccountView.add(root.newAccountButton)
 

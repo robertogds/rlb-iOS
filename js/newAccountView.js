@@ -1,5 +1,5 @@
 (function() {
-  var emailRow, emailText, firstNameRow, firstNameText, lastNameRow, lastNameText, passwordRow, passwordText;
+  var acceptLegalLabel, emailRow, emailText, firstNameRow, firstNameText, lastNameRow, lastNameText, passwordRow, passwordText;
   Ti.include('js/newAccountButton.js', 'js/newAccountAction.js');
   root.newAccountView = Titanium.UI.createView({
     backgroundImage: 'images/background1.png',
@@ -75,4 +75,16 @@
   root.newAccountSection.add(lastNameRow);
   root.newAccountSection.add(emailRow);
   root.newAccountSection.add(passwordRow);
+  acceptLegalLabel = Titanium.UI.createLabel({
+    borderWidth: 0,
+    top: 300,
+    text: "Al clickar en Registrarse, aceptas los términos de uso y política de privacidad de ReallyLateBooking que puedes encontrar en la pestaña Opciones",
+    color: '#fff',
+    left: 8,
+    font: {
+      fontSize: 9
+    }
+  });
+  root.newAccountView.add(acceptLegalLabel);
+  root.newAccountView.add(root.newAccountButton);
 }).call(this);

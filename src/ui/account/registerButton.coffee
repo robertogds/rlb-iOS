@@ -13,6 +13,5 @@ root.registerButton.addEventListener 'click', (e) ->
   root.newAccountData[0] = root.newAccountSection
   root.newAccountTable.data = root.newAccountData
   root.newAccountView.add(root.newAccountTable)
-  root.newAccountView.add(root.newAccountButton)
   root.newAccountWindow.add(root.newAccountView)
   root.tabGroup.activeTab.open(root.newAccountWindow,{animated:true})

@@ -6,7 +6,7 @@ root.listDealsWindow = new root.GenericWindow('Madrid','Cargando Ofertas Disponi
 root.bookWindow = new root.GenericWindow('Tus Reservas','Reservas').win
 root.accountWindow = new root.GenericWindow('Perfil','Mi Perfil').win
 root.oneDealWindow = new root.GenericWindow('','').win
-root.testWindow = new root.GenericWindow('Test','Window for testing purposes').win
+root.configWindow = new root.GenericWindow('Opciones','Opciones').win
 root.imagesWindow = new root.GenericWindow('Fotos','Fotos').win
 root.newAccountWindow = new root.GenericWindow('Nueva Cuenta','Nueva Cuenta').win
 
@@ -32,14 +32,14 @@ root.accountTab = Titanium.UI.createTab
   title:'Perfil'
   window: root.accountWindow
 
-root.testTab = Titanium.UI.createTab
+root.configTab = Titanium.UI.createTab
   icon:'icons/ico_conf.png'
-  title:'Test'
-  window: root.testWindow
+  title:'Opciones'
+  window: root.configWindow
 
 root.tabGroup.addTab(root.dealsTab)
 root.tabGroup.addTab(root.bookTab)
 root.tabGroup.addTab(root.accountTab)
-root.tabGroup.addTab(root.testTab)
+root.tabGroup.addTab(root.configTab)
 root.tabGroup.open()
 

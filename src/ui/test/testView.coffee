@@ -14,7 +14,7 @@ bb1 = Titanium.UI.createButtonBar
 root.testView.add(bb1)
 
 
-root.testWindow.add(root.testView)
+#root.testWindow.add(root.testView)
 
 #rightNavButton
 
@@ -67,6 +67,6 @@ table.data = data
 root.testView.add(table)
 
 
-root.testWindow.rightNavButton = testButton
+#root.testWindow.rightNavButton = testButton
 testButton.addEventListener 'click', (e) ->
   root.showBookView(root.deal)

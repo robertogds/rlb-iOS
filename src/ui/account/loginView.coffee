@@ -10,7 +10,7 @@ root.loginView = Titanium.UI.createView
   borderWidth: 0
   width: 320
   height: 300
-  top: 1
+  top: 10
 
 loginLabel = Titanium.UI.createLabel
   borderWidth: 0
@@ -54,7 +54,7 @@ passText.addEventListener 'return', (e) ->
 
 loginTable = Titanium.UI.createTableView
   #top: 105
-  top: 40
+  top: 60
   height: 85
   width: 300
   borderWidth:0

@@ -1,5 +1,6 @@
 Ti.include(
   'js/GenericWindow.js'
+  'js/InfoView.js'
   'js/application.js'
   'js/accountWindow.js'
   'js/ListDealsRow.js'
@@ -9,6 +10,7 @@ Ti.include(
   'js/accountView.js'
   'js/bookView.js'
   'js/testView.js'
+  'js/configView.js'
   'js/citiesTable.js'
 )
 
