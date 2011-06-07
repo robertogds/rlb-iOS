@@ -1,6 +1,6 @@
 Ti.include(
   'js/GenericWindow.js'
-  'js/InfoView.js'
+  'js/Generic2RowsView.js'
   'js/application.js'
   'js/accountWindow.js'
   'js/ListDealsRow.js'

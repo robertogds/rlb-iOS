@@ -4,9 +4,9 @@ root.configView = Titanium.UI.createView
   width:320
   top: 0
 
-customerView = new root.InfoView(10,'Soporte a usuario','Danos tu opinión').view
-acercaView = new root.InfoView(120,'Acerca de ReallyLateBooking','Para los Hoteles').view
-legalView = new root.InfoView(230,'Términos de uso','Política de privacidad').view
+customerView = new root.Generic2RowsView(10,'Soporte a usuario','Danos tu opinión').view
+acercaView = new root.Generic2RowsView(120,'Acerca de ReallyLateBooking','Para los Hoteles').view
+legalView = new root.Generic2RowsView(230,'Términos de uso','Política de privacidad').view
 
 root.configView.add(customerView)
 root.configView.add(acercaView)

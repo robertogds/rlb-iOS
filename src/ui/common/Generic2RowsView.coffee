@@ -1,4 +1,4 @@
-class InfoView
+class Generic2RowsView
   constructor: (top,text1,text2) ->
     @view = Titanium.UI.createView
       background: 'transparent'
@@ -39,4 +39,4 @@ class InfoView
     table.data = data
     @view.add(table)
 
-root.InfoView = InfoView
+root.Generic2RowsView = Generic2RowsView
