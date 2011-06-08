@@ -1,11 +1,11 @@
 (function() {
   var separator1, separator2;
-  Ti.include('js/buyButton.js', 'js/infoView.js', 'js/oneDealButtonBar.js', 'js/oneDealMapView.js', 'js/imagesScrollView.js');
+  Ti.include('js/infoView.js', 'js/oneDealButtonBar.js', 'js/oneDealMapView.js', 'js/imagesScrollView.js', 'js/buyButton.js');
   root.oneDealView = Titanium.UI.createView({
     background: 'transparent',
     borderWidth: 0,
     width: 320,
-    top: 25
+    top: 40
   });
   root.oneDealImage = Titanium.UI.createImageView({
     top: 0,
@@ -58,15 +58,15 @@
       fontWeight: 'normal',
       fontFamily: 'Helvetica Neue'
     },
-    top: 210
+    top: 205
   });
   root.oneDealView.add(root.oneDealImage);
   root.oneDealView.add(root.oneDealAddressLabel);
-  root.oneDealView.add(root.buyButton);
   root.oneDealView.add(root.oneDealPriceLabel);
   root.oneDealView.add(root.descriptionLabel);
-  root.oneDealWindow.add(root.oneDealView);
+  root.oneDealView.add(root.buyButton);
   root.oneDealWindow.add(root.oneDealButtonBarView);
+  root.oneDealWindow.add(root.oneDealView);
   root.showDealView = function(deal) {
     var region;
     root.deal = deal;

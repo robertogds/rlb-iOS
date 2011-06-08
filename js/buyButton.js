@@ -3,6 +3,7 @@
     backgroundImage: 'images/BUTT_gry_off.png',
     backgroundSelectedImage: 'images/BUTT_gry_on.png',
     backgroundDisabledImage: 'images/BUTT_drk_off.png',
+    borderWidth: 1,
     color: '#000',
     title: 'Reservar',
     width: 220,
@@ -12,10 +13,10 @@
       fontWeight: 'bold',
       fontFamily: 'Helvetica Neue'
     },
-    top: 295
+    top: 285
   });
   root.buyButton.addEventListener('click', function(e) {
-    alert('Comprando');
-    return root.showBookView(root.deal);
+    root.showBookingView();
+    return 1;
   });
 }).call(this);

@@ -25,9 +25,8 @@
     return root.listDealsWindow.remove(root.loadingView);
   };
   root.loadDeals = function(city) {
-    Titanium.API.error(city.name);
     root.listDealsWindow.title = city.name;
-    root.xhrDeals.open('GET', 'http://rlb-back.appspot.com/deals/' + city.name);
+    root.xhrDeals.open('GET', 'http://rlb-back.appspot.com/deals/' + city.url);
     return root.xhrDeals.send();
   };
   root.showDeals = function() {

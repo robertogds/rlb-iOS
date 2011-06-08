@@ -2,12 +2,13 @@
   Titanium.UI.setBackgroundColor('#000');
   root.citiesWindow = new root.GenericWindow('Ciudades', 'Lista de ciudades').win;
   root.listDealsWindow = new root.GenericWindow('Madrid', 'Cargando Ofertas Disponibles...').win;
-  root.bookWindow = new root.GenericWindow('Tus Reservas', 'Reservas').win;
+  root.listBooksWindow = new root.GenericWindow('Tus Reservas', 'Reservas').win;
   root.accountWindow = new root.GenericWindow('Perfil', 'Mi Perfil').win;
-  root.oneDealWindow = new root.GenericWindow('', '').win;
+  root.oneDealWindow = new root.GenericWindow('a', 'a').win;
   root.configWindow = new root.GenericWindow('Opciones', 'Opciones').win;
   root.imagesWindow = new root.GenericWindow('Fotos', 'Fotos').win;
   root.newAccountWindow = new root.GenericWindow('Nueva Cuenta', 'Nueva Cuenta').win;
+  root.bookingWindow = new root.GenericWindow('Confirmar', 'Confirmar').win;
   root.imagesWindow.backButtonTitle = 'Volver';
   root.imagesWindow.tabBarHidden = true;
   root.tabGroup = Titanium.UI.createTabGroup({
@@ -21,7 +22,7 @@
   root.bookTab = Titanium.UI.createTab({
     icon: 'icons/ico_buy.png',
     title: 'Reservas',
-    window: root.bookWindow
+    window: root.listBooksWindow
   });
   root.accountTab = Titanium.UI.createTab({
     icon: 'icons/ico_user.png',

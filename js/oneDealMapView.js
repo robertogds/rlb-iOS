@@ -6,9 +6,9 @@
   });
   root.mapView = Titanium.Map.createView({
     mapType: Titanium.Map.STANDARD_TYPE,
-    top: 25,
+    top: 40,
     width: 320,
-    height: 455,
+    height: 440,
     region: {
       latitudeDelta: 0.01,
       longitudeDelta: 0.01

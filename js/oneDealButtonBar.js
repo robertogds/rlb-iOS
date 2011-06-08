@@ -11,7 +11,7 @@
     backgroundFocusedColor: '#fff',
     top: 0,
     style: Titanium.UI.iPhone.SystemButtonStyle.BAR,
-    height: 25,
+    height: 40,
     width: 320
   });
   root.oneDealButtonBarView.add(root.oneDealButtonBar);

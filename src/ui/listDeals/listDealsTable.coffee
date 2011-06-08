@@ -24,9 +24,9 @@ root.xhrDeals.onload = () ->
 
 
 root.loadDeals = (city) ->
-  Titanium.API.error(city.name)
+  #Titanium.API.error(city.name)
   root.listDealsWindow.title = city.name
-  root.xhrDeals.open('GET', 'http://rlb-back.appspot.com/deals/'+city.name)
+  root.xhrDeals.open('GET', 'http://rlb-back.appspot.com/deals/'+city.url)
   root.xhrDeals.send()
 
 root.showDeals = () ->

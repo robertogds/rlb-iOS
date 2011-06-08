@@ -8,9 +8,10 @@ Ti.include(
   'js/oneDealView.js'
   'js/loadingView.js'
   'js/accountView.js'
-  'js/bookView.js'
+  'js/listBooksView.js'
   'js/testView.js'
   'js/configView.js'
+  'js/bookingView.js'
   'js/citiesTable.js'
 )
 

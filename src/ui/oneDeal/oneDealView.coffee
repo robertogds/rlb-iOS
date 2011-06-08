@@ -1,16 +1,16 @@
 Ti.include(
-  'js/buyButton.js'
   'js/infoView.js'
   'js/oneDealButtonBar.js'
   'js/oneDealMapView.js'
   'js/imagesScrollView.js'
+  'js/buyButton.js'
 )
 
 root.oneDealView = Titanium.UI.createView
   background: 'transparent'
   borderWidth: 0
   width:320
-  top: 25
+  top: 40
   
 root.oneDealImage = Titanium.UI.createImageView 
   top: 0
@@ -61,15 +61,16 @@ root.descriptionLabel = Titanium.UI.createLabel
     fontSize: 18
     fontWeight: 'normal'
     fontFamily:'Helvetica Neue'
-  top: 210
+  top: 205
 
 root.oneDealView.add(root.oneDealImage)
 root.oneDealView.add(root.oneDealAddressLabel)
-root.oneDealView.add(root.buyButton)
 root.oneDealView.add(root.oneDealPriceLabel)
 root.oneDealView.add(root.descriptionLabel) 
-root.oneDealWindow.add root.oneDealView
-root.oneDealWindow.add root.oneDealButtonBarView
+root.oneDealView.add(root.buyButton)
+root.oneDealWindow.add(root.oneDealButtonBarView)
+root.oneDealWindow.add(root.oneDealView)
+
 
 
 root.showDealView = (deal) ->
@@ -97,7 +98,7 @@ root.showDealView = (deal) ->
   root.oneDealAddressLabel.text = deal.hotelName + '\n' + deal.address 
   root.descriptionLabel.text = deal.description
   root.whyLabel.text = deal.description
-  
+
   # Load Images of the deal
   root.image1.image = deal.image1
   root.image2.image = deal.image2

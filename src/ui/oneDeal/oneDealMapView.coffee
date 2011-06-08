@@ -10,9 +10,9 @@ root.hotelAnnotation = Titanium.Map.createAnnotation
 
 root.mapView = Titanium.Map.createView
   mapType: Titanium.Map.STANDARD_TYPE
-  top: 25
+  top: 40
   width: 320
-  height: 455
+  height: 440
   region:
     #latitude: 40.41571353
     #longitude: -3.70623408
