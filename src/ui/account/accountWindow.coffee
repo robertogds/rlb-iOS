@@ -1,8 +1,8 @@
 root.accountWindow.addEventListener 'focus', (e) ->
-  if root.userEmail isnt null
+  if Titanium.App.Properties.hasProperty("user")
     root.loginView.hide()
     root.loggedView.show()
-    root.loggedLabel.text = "Estas logado como " + root.userEmail
+    root.loggedLabel.text = "Estas logado como " + root.user.email
     root.loggedView.add(root.loggedLabel)
   else
     root.loginView.show()

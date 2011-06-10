@@ -1,11 +1,15 @@
 (function() {
   root.xhrRegister = Titanium.Network.createHTTPClient();
   root.xhrRegister.onload = function(e) {
-    var newUser, response;
+    var response, user;
     response = JSON.parse(this.responseText);
     if (response.status === 201) {
-      newUser = response.content;
-      root.doLogin(newUser.email, newUser.password);
+      user = response.content;
+      Titanium.App.Properties.setString("user", JSON.stringify(user));
+      root.loginView.hide();
+      root.loggedView.show();
+      root.loggedLabel.text = "Estas logado como " + user.email;
+      root.loggedView.add(root.loggedLabel);
       return root.newAccountWindow.close();
     } else {
       return alert('Error: ' + response.detail);

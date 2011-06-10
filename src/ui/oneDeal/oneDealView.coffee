@@ -71,8 +71,6 @@ root.oneDealView.add(root.buyButton)
 root.oneDealWindow.add(root.oneDealButtonBarView)
 root.oneDealWindow.add(root.oneDealView)
 
-
-
 root.showDealView = (deal) ->
   root.deal = deal
   root.imagesRemove()

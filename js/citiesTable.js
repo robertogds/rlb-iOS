@@ -24,6 +24,12 @@
     root.citiesTable.setData(data);
     return root.citiesWindow.remove(root.loadingView);
   };
+  root.xhrCities.onerror = function() {
+    return alert('Se produjo un error. Intentelo más tarde');
+  };
+  root.xhrCities.timedOut = function() {
+    return alert('Se produjo un timeout. Intentelo más tarde');
+  };
   root.showCities = function() {
     root.citiesWindow.add(root.loadingView);
     root.xhrCities.open('GET', 'http://rlb-back.appspot.com/cities');

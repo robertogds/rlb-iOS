@@ -17,6 +17,7 @@ root.xhrDeals.onload = () ->
   deals = JSON.parse(this.responseText)
   data = []
   for deal in deals
+    Ti.API.info deal
     dealRow = new root.listDealsRow(deal)
     data.push(dealRow.row)
   root.dealsTable.setData(data)

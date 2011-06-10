@@ -5,11 +5,11 @@
     login = JSON.parse(this.responseText);
     if (login.status === 200) {
       user = login.content;
-      root.userEmail = user.email;
-      Titanium.App.Properties.setString("userEmail", root.userEmail);
+      alert(user);
+      Titanium.App.Properties.setString("user", JSON.stringify(user));
       root.loginView.hide();
       root.loggedView.show();
-      root.loggedLabel.text = "Estas logado como " + root.userEmail;
+      root.loggedLabel.text = "Estas logado como " + user.email;
       root.loggedView.add(root.loggedLabel);
       return 1;
     } else {

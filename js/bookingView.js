@@ -1,5 +1,6 @@
 (function() {
-  var cardNameRow, cardNameText, cardNumberRow, cardNumberText, cardTypeRow, cardTypeText, cvcCodeRow, cvcCodeText, expiresRow, expiresText;
+  var cardNameRow, cardNumberRow, cardTypeRow, cvcCodeRow, expiresRow;
+  Ti.include('js/confirmButton.js', 'js/bookingAction.js', 'js/expiresView.js');
   root.bookingView = Titanium.UI.createView({
     background: 'transparent',
     borderWidth: 0,
@@ -9,67 +10,65 @@
   root.bookingWindow.add(root.bookingView);
   root.creditCardTable = Titanium.UI.createTableView({
     top: 20,
-    height: 175,
+    height: 210,
     width: 300,
     borderWidth: 0,
     borderRadius: 10,
     scrollable: false,
     moving: false
   });
-  cardTypeText = Titanium.UI.createTextField({
+  root.cardTypeText = Titanium.UI.createTextField({
     color: '#336699',
     hintText: 'Tipo de Tarjeta',
     clearOnEdit: true,
     paddingLeft: 10,
     returnKeyType: Titanium.UI.RETURNKEY_NEXT
   });
-  cardTypeText.addEventListener('return', function(e) {
-    return cardNumberText.focus();
+  root.cardTypeText.addEventListener('return', function(e) {
+    return root.cardNumberText.focus();
   });
-  cardNumberText = Titanium.UI.createTextField({
+  root.cardNumberText = Titanium.UI.createTextField({
     color: '#336699',
     hintText: 'Número',
     clearOnEdit: true,
     paddingLeft: 10,
     returnKeyType: Titanium.UI.RETURNKEY_NEXT
   });
-  cardNumberText.addEventListener('return', function(e) {
-    return cardNameText.focus();
+  root.cardNumberText.addEventListener('return', function(e) {
+    return root.cardNameText.focus();
   });
-  cardNameText = Titanium.UI.createTextField({
+  root.cardNameText = Titanium.UI.createTextField({
     color: '#336699',
     hintText: 'Titular',
     clearOnEdit: true,
     paddingLeft: 10,
     returnKeyType: Titanium.UI.RETURNKEY_NEXT
   });
-  cardNameText.addEventListener('return', function(e) {
-    return expiresText.focus();
+  root.cardNameText.addEventListener('return', function(e) {
+    return root.expiresText.focus();
   });
-  expiresText = Titanium.UI.createTextField({
-    color: '#336699',
-    hintText: 'Expira',
-    clearOnEdit: true,
-    paddingLeft: 10,
-    returnKeyType: Titanium.UI.RETURNKEY_NEXT
+  root.cardExpiresMonth = '1';
+  root.cardExpiresYear = '2011';
+  root.expiresLabel = Titanium.UI.createLabel({
+    color: '#9e9e9e',
+    text: '  Caduca en',
+    font: {
+      fontSize: 18,
+      fontFamily: 'Helvetica Neue'
+    }
   });
-  expiresText.addEventListener('return', function(e) {
-    return cvcCodeText.focus();
+  root.expiresLabel.addEventListener('click', function(e) {
+    root.bookingView.add(root.expiresView);
+    return root.expiresView.show();
   });
-  cvcCodeText = Titanium.UI.createTextField({
+  root.cvcCodeText = Titanium.UI.createTextField({
     color: '#336699',
     hintText: 'Código CVC',
     paddingLeft: 10,
     clearOnEdit: true,
     passwordMask: true
   });
-  cvcCodeText.addEventListener('return', function(e) {
-    var cardName, cardType, creditNumber, cvcCode, expires;
-    cardType = cardTypeText.value;
-    creditNumber = creditNumberText.value;
-    cardName = cardNameText.value;
-    expires = expiresText.value;
-    cvcCode = cvcCodeText.value;
+  root.cvcCodeText.addEventListener('return', function(e) {
     return 1;
   });
   root.creditCardSection = Titanium.UI.createTableViewSection();
@@ -79,18 +78,19 @@
   cardNameRow = Titanium.UI.createTableViewRow();
   expiresRow = Titanium.UI.createTableViewRow();
   cvcCodeRow = Titanium.UI.createTableViewRow();
-  cardTypeRow.add(cardTypeText);
-  cardNumberRow.add(cardNumberText);
-  cardNameRow.add(cardNameText);
-  expiresRow.add(expiresText);
-  cvcCodeRow.add(cvcCodeText);
+  cardTypeRow.add(root.cardTypeText);
+  cardNumberRow.add(root.cardNumberText);
+  cardNameRow.add(root.cardNameText);
+  expiresRow.add(root.expiresLabel);
+  cvcCodeRow.add(root.cvcCodeText);
   root.creditCardSection.add(cardTypeRow);
   root.creditCardSection.add(cardNumberRow);
   root.creditCardSection.add(cardNameRow);
   root.creditCardSection.add(expiresRow);
   root.creditCardSection.add(cvcCodeRow);
+  root.bookingView.add(root.confirmButton);
   root.showBookingView = function() {
-    if (root.userEmail !== null) {
+    if (Titanium.App.Properties.hasProperty("user")) {
       root.creditCardData[0] = root.creditCardSection;
       root.creditCardTable.data = root.creditCardData;
       root.bookingView.add(root.creditCardTable);

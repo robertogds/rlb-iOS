@@ -26,6 +26,12 @@ root.xhrCities.onload = () ->
   root.citiesTable.setData(data)
   root.citiesWindow.remove(root.loadingView)
 
+root.xhrCities.onerror = () ->
+  alert 'Se produjo un error. Intentelo más tarde'
+
+root.xhrCities.timedOut = () ->
+  alert 'Se produjo un timeout. Intentelo más tarde'
+
 root.showCities = () ->
   root.citiesWindow.add(root.loadingView)
   root.xhrCities.open('GET', 'http://rlb-back.appspot.com/cities')

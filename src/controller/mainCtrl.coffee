@@ -15,5 +15,10 @@ Ti.include(
   'js/citiesTable.js'
 )
 
-root.userEmail = Titanium.App.Properties.getString("userEmail")
-root.showCities()
+if Titanium.App.Properties.hasProperty("user")
+  root.user = JSON.parse(Titanium.App.Properties.getString("user"))
+
+if Titanium.Network.online is false
+  alert 'Para usar esta aplicacion debes tener conexion a internet'
+else
+  root.showCities()

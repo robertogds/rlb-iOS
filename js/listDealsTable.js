@@ -18,6 +18,7 @@
     data = [];
     for (_i = 0, _len = deals.length; _i < _len; _i++) {
       deal = deals[_i];
+      Ti.API.info(deal);
       dealRow = new root.listDealsRow(deal);
       data.push(dealRow.row);
     }
