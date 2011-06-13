@@ -4,11 +4,11 @@ root.xhrBooking.onload = (e) ->
   alert 'Entra en onload'
   response = JSON.parse(this.responseText)
   alert response
+  Ti.API.info(response)
   if response.status is 201
-    newUser = response.content
-    root.doLogin(newUser.email,newUser.password)
+    alert 'correct'
     #root.tabGroup.activeTab.open(root.accountWindow,{animated:true})
-    root.newAccountWindow.close()
+    #root.newAccountWindow.close()
   else
     alert 'Error: ' + response.detail
 
@@ -24,7 +24,7 @@ root.doBooking = () ->
     "userId": root.user.id
     "dealId": root.deal.id
     "nights": "1"
-    "creditCardType": root.cardTypeText.value
+    "creditCardType": root.cardTypeLabel.text
     "creditCard" : root.cardNumberText.value
     "creditCardName": root.cardNameText.value
     "creditCardExpiry": root.expiresLabel.text

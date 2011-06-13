@@ -15,13 +15,19 @@ buttonView = Titanium.UI.createView
 
 root.cardTypePicker = Titanium.UI.createPicker()
 
+
+data = []
+data[0]=Ti.UI.createPickerRow({title:'Visa',custom_item:'visa'})
+data[1]=Ti.UI.createPickerRow({title:'Mastercard',custom_item:'mastercard'})
+data[2]=Ti.UI.createPickerRow({title:'American Express',custom_item:'american'})
+#data[3]=Ti.UI.createPickerRow({title:'Otro',custom_item:'dinners'})
+
+root.cardTypePicker.selectionIndicator = true
+root.cardTypePicker.add(data)
+
+
 root.cardTypePicker.addEventListener 'change', (e) ->
-  Ti.API.info("You selected row: "+e.row+", column: "+e.column+", custom_item: "+e.row.custom_item)
-  #root.expiresLabel.text = "row index: "+e.rowIndex+", column index: "+e.columnIndex
-  if e.row.month_item
-    root.cardExpiresMonth = e.row.month_item
-  else if e.row.year_item
-    root.cardExpiresYear = e.row.year_item
+  root.cardTypeLabel.text = e.row.custom_item
   1
 
 infoLabel = Titanium.UI.createLabel
@@ -36,7 +42,7 @@ infoLabel = Titanium.UI.createLabel
     fontFamily:'Helvetica Neue'
   top: 0
 
-root.expiresButton = Titanium.UI.createButton
+root.cardTypeButton = Titanium.UI.createButton
   backgroundImage:'images/BUTT_gry_off.png'
   backgroundSelectedImage:'images/BUTT_gry_on.png'
   backgroundDisabledImage: 'images/BUTT_drk_off.png'
@@ -50,10 +56,9 @@ root.expiresButton = Titanium.UI.createButton
 
 root.cardTypeButton.addEventListener 'click', (e) ->
   root.cardTypeView.hide()
-  root.cardTypeLabel.text = 'a'
   1
 
-pickerView.add(root.expiresPicker)
+pickerView.add(root.cardTypePicker)
 buttonView.add(infoLabel)
 buttonView.add(root.expiresButton)
 root.cardTypeView.add(buttonView)

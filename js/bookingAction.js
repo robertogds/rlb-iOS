@@ -1,14 +1,13 @@
 (function() {
   root.xhrBooking = Titanium.Network.createHTTPClient();
   root.xhrBooking.onload = function(e) {
-    var newUser, response;
+    var response;
     alert('Entra en onload');
     response = JSON.parse(this.responseText);
     alert(response);
+    Ti.API.info(response);
     if (response.status === 201) {
-      newUser = response.content;
-      root.doLogin(newUser.email, newUser.password);
-      return root.newAccountWindow.close();
+      return alert('correct');
     } else {
       return alert('Error: ' + response.detail);
     }
@@ -26,7 +25,7 @@
       "userId": root.user.id,
       "dealId": root.deal.id,
       "nights": "1",
-      "creditCardType": root.cardTypeText.value,
+      "creditCardType": root.cardTypeLabel.text,
       "creditCard": root.cardNumberText.value,
       "creditCardName": root.cardNameText.value,
       "creditCardExpiry": root.expiresLabel.text,

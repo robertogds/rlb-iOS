@@ -1,6 +1,6 @@
 (function() {
   var cardNameRow, cardNumberRow, cardTypeRow, cvcCodeRow, expiresRow;
-  Ti.include('js/confirmButton.js', 'js/bookingAction.js', 'js/expiresView.js');
+  Ti.include('js/confirmButton.js', 'js/bookingAction.js', 'js/expiresView.js', 'js/cardTypeView.js');
   root.bookingView = Titanium.UI.createView({
     background: 'transparent',
     borderWidth: 0,
@@ -17,15 +17,17 @@
     scrollable: false,
     moving: false
   });
-  root.cardTypeText = Titanium.UI.createTextField({
-    color: '#336699',
-    hintText: 'Tipo de Tarjeta',
-    clearOnEdit: true,
-    paddingLeft: 10,
-    returnKeyType: Titanium.UI.RETURNKEY_NEXT
+  root.cardTypeLabel = Titanium.UI.createLabel({
+    color: '#9e9e9e',
+    text: '  Tipo de tarjeta',
+    font: {
+      fontSize: 16,
+      fontFamily: 'Helvetica Neue'
+    }
   });
-  root.cardTypeText.addEventListener('return', function(e) {
-    return root.cardNumberText.focus();
+  root.cardTypeLabel.addEventListener('click', function(e) {
+    root.bookingView.add(root.cardTypeView);
+    return root.cardTypeView.show();
   });
   root.cardNumberText = Titanium.UI.createTextField({
     color: '#336699',
@@ -53,7 +55,7 @@
     color: '#9e9e9e',
     text: '  Caduca en',
     font: {
-      fontSize: 18,
+      fontSize: 16,
       fontFamily: 'Helvetica Neue'
     }
   });
@@ -78,7 +80,7 @@
   cardNameRow = Titanium.UI.createTableViewRow();
   expiresRow = Titanium.UI.createTableViewRow();
   cvcCodeRow = Titanium.UI.createTableViewRow();
-  cardTypeRow.add(root.cardTypeText);
+  cardTypeRow.add(root.cardTypeLabel);
   cardNumberRow.add(root.cardNumberText);
   cardNameRow.add(root.cardNameText);
   expiresRow.add(root.expiresLabel);
