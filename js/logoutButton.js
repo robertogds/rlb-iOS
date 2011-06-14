@@ -15,7 +15,7 @@
     top: 200
   });
   root.logoutButton.addEventListener('click', function(e) {
-    root.userEmail = null;
+    root.user = null;
     Titanium.App.Properties.removeProperty("user");
     root.loginView.show();
     return root.loggedView.hide();

@@ -3,14 +3,12 @@ root.xhrRegister = Titanium.Network.createHTTPClient()
 root.xhrRegister.onload = (e) ->
   response = JSON.parse(this.responseText)
   if response.status is 201
-    user = response.content
-    Titanium.App.Properties.setString("user",JSON.stringify(user))
+    root.user = response.content
+    Titanium.App.Properties.setString("user",JSON.stringify(root.user))
     root.loginView.hide()
     root.loggedView.show()
-    root.loggedLabel.text = "Estas logado como " + user.email
+    root.loggedLabel.text = "Estas logado como " + root.user.email
     root.loggedView.add(root.loggedLabel)
-    #root.doLogin(newUser.email,newUser.password)
-    #root.tabGroup.activeTab.open(root.accountWindow,{animated:true})
     root.newAccountWindow.close()
   else
     alert 'Error: ' + response.detail

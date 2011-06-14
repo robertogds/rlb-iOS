@@ -10,7 +10,7 @@ root.logoutButton = Titanium.UI.createButton
   top: 200
 
 root.logoutButton.addEventListener 'click', (e) ->
-  root.userEmail = null 
+  root.user = null 
   Titanium.App.Properties.removeProperty("user");
   root.loginView.show()
   root.loggedView.hide()
