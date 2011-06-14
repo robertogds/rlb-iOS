@@ -9,7 +9,7 @@ root.bookingView = Titanium.UI.createView
   borderWidth: 0
   width:320
   top: 0
- root.bookingWindow.add(root.bookingView)
+ root.confirmBookingWindow.add(root.bookingView)
 
 root.creditCardTable = Titanium.UI.createTableView
   top: 20
@@ -21,9 +21,10 @@ root.creditCardTable = Titanium.UI.createTableView
   moving: false
 
 root.cardTypeLabel = Titanium.UI.createLabel
-  color:'#9e9e9e'
-  text: '  Tipo de tarjeta'
-  font:{fontSize:16,fontFamily:'Helvetica Neue'}
+  color:'#afafaf'
+  left: 11
+  text: 'Tipo de tarjeta'
+  font:{fontSize:17,fontFamily:'Helvetica Neue'}
 
 root.cardTypeLabel.addEventListener 'click', (e) ->
   root.bookingView.add(root.cardTypeView)
@@ -51,11 +52,13 @@ root.cardNameText.addEventListener 'return', (e) ->
 
 root.cardExpiresMonth = '1'
 root.cardExpiresYear = '2011'
+root.cardType = 'Visa'
 
 root.expiresLabel = Titanium.UI.createLabel
-  color:'#9e9e9e'
-  text: '  Caduca en'
-  font:{fontSize:16,fontFamily:'Helvetica Neue'}
+  left: 11
+  color:'#afafaf'
+  text: 'Caduca en'
+  font:{fontSize:17,fontFamily:'Helvetica Neue'}
 
 
 root.expiresLabel.addEventListener 'click', (e) ->
@@ -101,8 +104,8 @@ root.showBookingView = () ->
     root.creditCardData[0] = root.creditCardSection
     root.creditCardTable.data = root.creditCardData
     root.bookingView.add(root.creditCardTable)
-    root.bookingWindow.add(root.bookingView)
-    root.tabGroup.activeTab.open(root.bookingWindow,{animated:true})
+    root.confirmBookingWindow.add(root.bookingView)
+    root.tabGroup.activeTab.open(root.confirmBookingWindow,{animated:true})
   else
     root.tabGroup.activeTab.open(root.accountWindow,{animated:true})
   1

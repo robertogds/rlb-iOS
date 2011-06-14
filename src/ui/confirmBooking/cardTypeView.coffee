@@ -17,16 +17,16 @@ root.cardTypePicker = Titanium.UI.createPicker()
 
 
 data = []
-data[0]=Ti.UI.createPickerRow({title:'Visa',custom_item:'visa'})
-data[1]=Ti.UI.createPickerRow({title:'Mastercard',custom_item:'mastercard'})
-data[2]=Ti.UI.createPickerRow({title:'American Express',custom_item:'american'})
-#data[3]=Ti.UI.createPickerRow({title:'Otro',custom_item:'dinners'})
+data[0]=Ti.UI.createPickerRow({title:'Visa',custom_item:'Visa'})
+data[1]=Ti.UI.createPickerRow({title:'Mastercard',custom_item:'Mastercard'})
+data[2]=Ti.UI.createPickerRow({title:'American Express',custom_item:'American Express'})
 
 root.cardTypePicker.selectionIndicator = true
 root.cardTypePicker.add(data)
 
 
 root.cardTypePicker.addEventListener 'change', (e) ->
+  root.cardType = e.row.custom_item
   root.cardTypeLabel.text = e.row.custom_item
   1
 
@@ -55,12 +55,12 @@ root.cardTypeButton = Titanium.UI.createButton
   top: 50
 
 root.cardTypeButton.addEventListener 'click', (e) ->
+  root.cardTypeLabel.text = root.cardType
   root.cardTypeView.hide()
-  1
 
 pickerView.add(root.cardTypePicker)
 buttonView.add(infoLabel)
-buttonView.add(root.expiresButton)
+buttonView.add(root.cardTypeButton)
 root.cardTypeView.add(buttonView)
 root.cardTypeView.add(pickerView)
 root.cardTypeView.hide()

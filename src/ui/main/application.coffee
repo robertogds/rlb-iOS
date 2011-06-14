@@ -3,13 +3,16 @@ Titanium.UI.setBackgroundColor('#000')
 # Application Windows
 root.citiesWindow = new root.GenericWindow('Ciudades','Lista de ciudades').win
 root.listDealsWindow = new root.GenericWindow('Madrid','Cargando Ofertas Disponibles...').win
-root.listBooksWindow = new root.GenericWindow('Tus Reservas','Reservas').win
+root.bookingsWindow = new root.GenericWindow('Tus Reservas','Reservas').win
 root.accountWindow = new root.GenericWindow('Perfil','Mi Perfil').win
-root.oneDealWindow = new root.GenericWindow('a','a').win
+root.oneDealWindow = new root.GenericWindow('','').win
+root.oneBookingWindow = new root.GenericWindow('Reserva','Confirmación Reserva').win
 root.configWindow = new root.GenericWindow('Opciones','Opciones').win
 root.imagesWindow = new root.GenericWindow('Fotos','Fotos').win
 root.newAccountWindow = new root.GenericWindow('Nueva Cuenta','Nueva Cuenta').win
-root.bookingWindow = new root.GenericWindow('Confirmar','Confirmar').win
+root.confirmBookingWindow = new root.GenericWindow('Confirmar','Confirmar').win
+root.closedWindow = new root.GenericWindow('Cerrado','Cerrado').win
+root.supportWindow = new root.GenericWindow('Soporte Usuario','Soporte').win
 
 root.imagesWindow.backButtonTitle = 'Volver'
 root.imagesWindow.tabBarHidden = true
@@ -23,10 +26,10 @@ root.dealsTab = Titanium.UI.createTab
   title:'Ciudades'
   window: root.citiesWindow
   
-root.bookTab = Titanium.UI.createTab
+root.bookingTab = Titanium.UI.createTab
   icon:'icons/ico_buy.png'
   title:'Reservas'
-  window: root.listBooksWindow
+  window: root.bookingsWindow
     
 root.accountTab = Titanium.UI.createTab
   icon:'icons/ico_user.png'
@@ -39,7 +42,7 @@ root.configTab = Titanium.UI.createTab
   window: root.configWindow
 
 root.tabGroup.addTab(root.dealsTab)
-root.tabGroup.addTab(root.bookTab)
+root.tabGroup.addTab(root.bookingTab)
 root.tabGroup.addTab(root.accountTab)
 root.tabGroup.addTab(root.configTab)
 root.tabGroup.open()

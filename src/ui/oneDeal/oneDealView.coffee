@@ -1,5 +1,5 @@
 Ti.include(
-  'js/infoView.js'
+  'js/infoDealView.js'
   'js/oneDealButtonBar.js'
   'js/oneDealMapView.js'
   'js/imagesScrollView.js'

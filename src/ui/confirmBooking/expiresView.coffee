@@ -18,7 +18,6 @@ root.expiresPicker = Titanium.UI.createPicker()
 
 root.expiresPicker.addEventListener 'change', (e) ->
   Ti.API.info("You selected row: "+e.row+", column: "+e.column+", custom_item: "+e.row.custom_item)
-  #root.expiresLabel.text = "row index: "+e.rowIndex+", column index: "+e.columnIndex
   if e.row.month_item
     root.cardExpiresMonth = e.row.month_item
   else if e.row.year_item
@@ -82,9 +81,8 @@ root.expiresButton = Titanium.UI.createButton
   top: 50
 
 root.expiresButton.addEventListener 'click', (e) ->
-  root.expiresView.hide()
   root.expiresLabel.text = root.cardExpiresMonth + '/' + root.cardExpiresYear
-  1
+  root.expiresView.hide()
 
 pickerView.add(root.expiresPicker)
 buttonView.add(infoLabel)

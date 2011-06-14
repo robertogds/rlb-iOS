@@ -1,3 +1,6 @@
+Ti.include(
+  'js/supportView.js'
+)
 root.configView = Titanium.UI.createView
   background: 'transparent'
   borderWidth: 0
@@ -7,6 +10,9 @@ root.configView = Titanium.UI.createView
 customerView = new root.Generic2RowsView(10,'Soporte a usuario','Danos tu opinión').view
 acercaView = new root.Generic2RowsView(120,'Acerca de ReallyLateBooking','Para los Hoteles').view
 legalView = new root.Generic2RowsView(230,'Términos de uso','Política de privacidad').view
+
+customerView.addEventListener 'click', (e) ->
+  root.tabGroup.activeTab.open(root.supportWindow,{animated:true})
 
 root.configView.add(customerView)
 root.configView.add(acercaView)

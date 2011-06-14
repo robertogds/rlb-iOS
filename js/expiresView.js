@@ -153,9 +153,8 @@
     top: 50
   });
   root.expiresButton.addEventListener('click', function(e) {
-    root.expiresView.hide();
     root.expiresLabel.text = root.cardExpiresMonth + '/' + root.cardExpiresYear;
-    return 1;
+    return root.expiresView.hide();
   });
   pickerView.add(root.expiresPicker);
   buttonView.add(infoLabel);

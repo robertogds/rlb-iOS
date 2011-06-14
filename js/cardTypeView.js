@@ -19,19 +19,20 @@
   data = [];
   data[0] = Ti.UI.createPickerRow({
     title: 'Visa',
-    custom_item: 'visa'
+    custom_item: 'Visa'
   });
   data[1] = Ti.UI.createPickerRow({
     title: 'Mastercard',
-    custom_item: 'mastercard'
+    custom_item: 'Mastercard'
   });
   data[2] = Ti.UI.createPickerRow({
     title: 'American Express',
-    custom_item: 'american'
+    custom_item: 'American Express'
   });
   root.cardTypePicker.selectionIndicator = true;
   root.cardTypePicker.add(data);
   root.cardTypePicker.addEventListener('change', function(e) {
+    root.cardType = e.row.custom_item;
     root.cardTypeLabel.text = e.row.custom_item;
     return 1;
   });
@@ -65,12 +66,12 @@
     top: 50
   });
   root.cardTypeButton.addEventListener('click', function(e) {
-    root.cardTypeView.hide();
-    return 1;
+    root.cardTypeLabel.text = root.cardType;
+    return root.cardTypeView.hide();
   });
   pickerView.add(root.cardTypePicker);
   buttonView.add(infoLabel);
-  buttonView.add(root.expiresButton);
+  buttonView.add(root.cardTypeButton);
   root.cardTypeView.add(buttonView);
   root.cardTypeView.add(pickerView);
   root.cardTypeView.hide();

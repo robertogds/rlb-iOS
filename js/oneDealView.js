@@ -1,6 +1,6 @@
 (function() {
   var separator1, separator2;
-  Ti.include('js/infoView.js', 'js/oneDealButtonBar.js', 'js/oneDealMapView.js', 'js/imagesScrollView.js', 'js/buyButton.js');
+  Ti.include('js/infoDealView.js', 'js/oneDealButtonBar.js', 'js/oneDealMapView.js', 'js/imagesScrollView.js', 'js/buyButton.js');
   root.oneDealView = Titanium.UI.createView({
     background: 'transparent',
     borderWidth: 0,

@@ -7,7 +7,7 @@
     width: 320,
     top: 0
   });
-  root.bookingWindow.add(root.bookingView);
+  root.confirmBookingWindow.add(root.bookingView);
   root.creditCardTable = Titanium.UI.createTableView({
     top: 20,
     height: 210,
@@ -18,10 +18,11 @@
     moving: false
   });
   root.cardTypeLabel = Titanium.UI.createLabel({
-    color: '#9e9e9e',
-    text: '  Tipo de tarjeta',
+    color: '#afafaf',
+    left: 11,
+    text: 'Tipo de tarjeta',
     font: {
-      fontSize: 16,
+      fontSize: 17,
       fontFamily: 'Helvetica Neue'
     }
   });
@@ -51,11 +52,13 @@
   });
   root.cardExpiresMonth = '1';
   root.cardExpiresYear = '2011';
+  root.cardType = 'Visa';
   root.expiresLabel = Titanium.UI.createLabel({
-    color: '#9e9e9e',
-    text: '  Caduca en',
+    left: 11,
+    color: '#afafaf',
+    text: 'Caduca en',
     font: {
-      fontSize: 16,
+      fontSize: 17,
       fontFamily: 'Helvetica Neue'
     }
   });
@@ -96,8 +99,8 @@
       root.creditCardData[0] = root.creditCardSection;
       root.creditCardTable.data = root.creditCardData;
       root.bookingView.add(root.creditCardTable);
-      root.bookingWindow.add(root.bookingView);
-      root.tabGroup.activeTab.open(root.bookingWindow, {
+      root.confirmBookingWindow.add(root.bookingView);
+      root.tabGroup.activeTab.open(root.confirmBookingWindow, {
         animated: true
       });
     } else {

@@ -1,11 +1,11 @@
 (function() {
-  root.infoScrollView = Titanium.UI.createScrollView({
+  root.infoDealScrollView = Titanium.UI.createScrollView({
     contentWidth: 'auto',
     contentHeight: 'auto',
     top: 25,
     showVerticalScrollIndicator: true
   });
-  root.infoView = Titanium.UI.createView({
+  root.infoDealView = Titanium.UI.createView({
     background: 'transparent',
     borderWidth: 0,
     width: 320,
@@ -22,6 +22,6 @@
       fontSize: 14
     }
   });
-  root.infoView.add(root.whyLabel);
-  root.infoScrollView.add(root.infoView);
+  root.infoDealView.add(root.whyLabel);
+  root.infoDealScrollView.add(root.infoDealView);
 }).call(this);
