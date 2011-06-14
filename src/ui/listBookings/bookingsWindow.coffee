@@ -7,5 +7,5 @@ root.bookingsWindow.addEventListener 'focus', (e) ->
   if Titanium.App.Properties.hasProperty("user")
     root.showBookings()
   else
-    root.noBooksView.show()
+    root.noBookingsView.show()
   1

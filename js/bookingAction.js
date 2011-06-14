@@ -2,18 +2,24 @@
   root.xhrBooking = Titanium.Network.createHTTPClient();
   root.xhrBooking.onload = function(e) {
     var response;
-    alert('Entra en onload');
     response = JSON.parse(this.responseText);
-    alert(response);
     Ti.API.info(response);
     if (response.status === 201) {
-      return alert('correct');
+      root.showOneBookingView(response.content);
+      root.oneBookingWindow.backButtonTitle = 'Cerrar';
+      root.oneBookingWindow.open({
+        modal: true,
+        modalTransitionStyle: Ti.UI.iPhone.MODAL_TRANSITION_STYLE_FLIP_HORIZONTAL,
+        modalStyle: Ti.UI.iPhone.MODAL_PRESENTATION_FORMSHEET,
+        navBarHidden: true
+      });
+      return root.oneBookingWindow.add(root.closeBookingButton);
     } else {
       return alert('Error: ' + response.detail);
     }
   };
   root.xhrBooking.onerror = function(e) {
-    alert('sale por onerror' + e);
+    alert('Se ha producido un error ' + e);
     return Ti.API.error(e);
   };
   root.doBooking = function() {

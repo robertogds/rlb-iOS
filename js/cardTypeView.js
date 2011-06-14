@@ -67,7 +67,8 @@
   });
   root.cardTypeButton.addEventListener('click', function(e) {
     root.cardTypeLabel.text = root.cardType;
-    return root.cardTypeView.hide();
+    root.cardTypeView.hide();
+    return root.cardNumberText.focus();
   });
   pickerView.add(root.cardTypePicker);
   buttonView.add(infoLabel);

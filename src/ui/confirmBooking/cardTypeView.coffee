@@ -57,6 +57,7 @@ root.cardTypeButton = Titanium.UI.createButton
 root.cardTypeButton.addEventListener 'click', (e) ->
   root.cardTypeLabel.text = root.cardType
   root.cardTypeView.hide()
+  root.cardNumberText.focus()
 
 pickerView.add(root.cardTypePicker)
 buttonView.add(infoLabel)

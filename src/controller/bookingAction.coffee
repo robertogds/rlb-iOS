@@ -1,19 +1,23 @@
 root.xhrBooking = Titanium.Network.createHTTPClient()
 
 root.xhrBooking.onload = (e) ->
-  alert 'Entra en onload'
   response = JSON.parse(this.responseText)
-  alert response
   Ti.API.info(response)
   if response.status is 201
-    alert 'correct'
-    #root.tabGroup.activeTab.open(root.accountWindow,{animated:true})
-    #root.newAccountWindow.close()
+    root.showOneBookingView(response.content)
+    root.oneBookingWindow.backButtonTitle = 'Cerrar'  
+    root.oneBookingWindow.open
+      modal:true
+      modalTransitionStyle: Ti.UI.iPhone.MODAL_TRANSITION_STYLE_FLIP_HORIZONTAL,
+      modalStyle: Ti.UI.iPhone.MODAL_PRESENTATION_FORMSHEET
+      navBarHidden:true
+    root.oneBookingWindow.add(root.closeBookingButton)
+    #root.tabGroup.activeTab.open(root.oneBookingWindow,{animated:true})
   else
     alert 'Error: ' + response.detail
 
 root.xhrBooking.onerror = (e) ->
-  alert('sale por onerror' + e)
+  alert('Se ha producido un error ' + e)
   Ti.API.error(e)
 
 root.doBooking = () ->

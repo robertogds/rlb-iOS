@@ -4,7 +4,7 @@
     if (Titanium.App.Properties.hasProperty("user")) {
       root.showBookings();
     } else {
-      root.noBooksView.show();
+      root.noBookingsView.show();
     }
     return 1;
   });
