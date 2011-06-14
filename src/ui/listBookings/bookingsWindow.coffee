@@ -5,6 +5,7 @@ Ti.include(
 
 root.bookingsWindow.addEventListener 'focus', (e) ->
   if Titanium.App.Properties.hasProperty("user")
+    alert 'Entra en hay user'
     root.showBookings()
   else
     root.noBookingsView.show()
