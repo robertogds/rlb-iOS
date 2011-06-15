@@ -1,4 +1,5 @@
 (function() {
+  var customerView;
   Ti.include('/js/logoutButton.js');
   root.loggedView = Titanium.UI.createView({
     background: "transparent",
@@ -18,6 +19,20 @@
     width: 300,
     top: 1
   });
+  customerView = new root.Generic2RowsView(150, 'Soporte a usuario', 'Danos tu opinión');
+  customerView.label1.addEventListener('click', function(e) {
+    return root.tabGroup.activeTab.open(root.supportWindow, {
+      animated: true
+    });
+  });
+  customerView.label2.addEventListener('click', function(e) {
+    var emailDialog;
+    emailDialog = Titanium.UI.createEmailDialog();
+    emailDialog.subject = "Feedback about ReallyLateBooking";
+    emailDialog.toRecipients = ['info@reallylatebooking.com'];
+    return emailDialog.open();
+  });
   root.loggedView.add(root.loggedLabel);
+  root.loggedView.add(customerView.view);
   root.loggedView.add(root.logoutButton);
 }).call(this);

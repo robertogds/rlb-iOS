@@ -15,19 +15,18 @@ root.bookingsTable.addEventListener 'click', (e) ->
 root.xhrBookings = Titanium.Network.createHTTPClient()
 
 root.xhrBookings.onload = () ->
+  Ti.API.info 'Entra en onLoad'
   bookings = JSON.parse(this.responseText)
   data = []
   for booking in bookings
-    Ti.API.info booking
+    #Ti.API.info booking
     bookingRow = new root.BookingsRow(booking)
     data.push(bookingRow.row)
   if data.length is 0
-    root.bookingsWindow.remove(root.loadingView)
     root.noBookingsView.show()
   else
     root.bookingsTable.setData(data)
-    root.bookingsWindow.remove(root.loadingView)
-  1
+  root.bookingsWindow.remove(root.loadingView)
 
 root.xhrBookings.onerror = () ->
   alert 'Se produjo un error. Intentelo más tarde'

@@ -7,14 +7,24 @@ root.configView = Titanium.UI.createView
   width:320
   top: 0
 
+versionLabel = Titanium.UI.createLabel
+  borderWidth: 0
+  text: 'Version: ' + Titanium.App.version
+  color: '#fff'
+  textAlign: 'center'
+  font:
+    fontSize: 14
+    #fontWeight: 'bold'
+  height: 30
+  width: 300
+  top: 300
+
 customerView = new root.Generic2RowsView(10,'Soporte a usuario','Danos tu opinión').view
-acercaView = new root.Generic2RowsView(120,'Acerca de ReallyLateBooking','Para los Hoteles').view
-legalView = new root.Generic2RowsView(230,'Términos de uso','Política de privacidad').view
+acercaView = new root.Generic2RowsView(20,'Acerca de ReallyLateBooking','Para los Hoteles').view
+legalView = new root.Generic2RowsView(150,'Términos de uso','Política de privacidad').view
 
-customerView.addEventListener 'click', (e) ->
-  root.tabGroup.activeTab.open(root.supportWindow,{animated:true})
 
-root.configView.add(customerView)
 root.configView.add(acercaView)
 root.configView.add(legalView)
+root.configView.add(versionLabel)
 root.configWindow.add(root.configView)

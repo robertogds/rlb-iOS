@@ -12,7 +12,7 @@
       fontWeight: 'bold',
       fontFamily: 'Helvetica Neue'
     },
-    top: 200
+    top: 300
   });
   root.logoutButton.addEventListener('click', function(e) {
     root.user = null;

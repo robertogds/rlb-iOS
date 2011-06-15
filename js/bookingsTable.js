@@ -15,22 +15,20 @@
   root.xhrBookings = Titanium.Network.createHTTPClient();
   root.xhrBookings.onload = function() {
     var booking, bookingRow, bookings, data, _i, _len;
+    Ti.API.info('Entra en onLoad');
     bookings = JSON.parse(this.responseText);
     data = [];
     for (_i = 0, _len = bookings.length; _i < _len; _i++) {
       booking = bookings[_i];
-      Ti.API.info(booking);
       bookingRow = new root.BookingsRow(booking);
       data.push(bookingRow.row);
     }
     if (data.length === 0) {
-      root.bookingsWindow.remove(root.loadingView);
       root.noBookingsView.show();
     } else {
       root.bookingsTable.setData(data);
-      root.bookingsWindow.remove(root.loadingView);
     }
-    return 1;
+    return root.bookingsWindow.remove(root.loadingView);
   };
   root.xhrBookings.onerror = function() {
     alert('Se produjo un error. Intentelo más tarde');

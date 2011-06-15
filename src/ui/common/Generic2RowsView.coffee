@@ -11,7 +11,7 @@ class Generic2RowsView
       borderRadius: 10
       scrollable: false
       moving: false
-    label1 = Titanium.UI.createLabel
+    @label1 = Titanium.UI.createLabel
       borderWidth: 0
       text: text1
       color: '#000'
@@ -19,7 +19,7 @@ class Generic2RowsView
       font:
         fontSize: 15
         fontWeight: 'bold'
-    label2 = Titanium.UI.createLabel
+    @label2 = Titanium.UI.createLabel
       borderWidth: 0
       text: text2
       color: '#000'
@@ -30,9 +30,9 @@ class Generic2RowsView
     section = Titanium.UI.createTableViewSection()
     data = []
     row1 = Titanium.UI.createTableViewRow(hasChild:true)
-    row1.add(label1)
+    row1.add(@label1)
     row2 = Titanium.UI.createTableViewRow(hasChild:true)
-    row2.add(label2)
+    row2.add(@label2)
     section.add(row1)
     section.add(row2)
     data[0] = section

@@ -7,7 +7,7 @@ root.logoutButton = Titanium.UI.createButton
   width:220
   height:40
   font:{fontSize:20,fontWeight:'bold',fontFamily:'Helvetica Neue'}
-  top: 200
+  top: 300
 
 root.logoutButton.addEventListener 'click', (e) ->
   root.user = null 
