@@ -18,9 +18,8 @@
   root.closeBookingButton.addEventListener('click', function(e) {
     root.confirmBookingWindow.close();
     root.oneDealWindow.close();
-    root.listDealsWindow.close();
     root.oneBookingWindow.close();
-    root.showCities();
+    root.tabGroup.setActiveTab(1);
     return 1;
   });
 }).call(this);

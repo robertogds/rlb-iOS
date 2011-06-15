@@ -1,6 +1,6 @@
 Ti.include(
-  'js/newAccountButton.js'
-  'js/newAccountAction.js'
+  '/js/newAccountButton.js'
+  '/js/newAccountAction.js'
 )
 
 root.newAccountView = Titanium.UI.createView

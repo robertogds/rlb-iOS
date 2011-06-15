@@ -1,6 +1,6 @@
 (function() {
   var acceptLegalLabel, emailRow, emailText, firstNameRow, firstNameText, lastNameRow, lastNameText, passwordRow, passwordText;
-  Ti.include('js/newAccountButton.js', 'js/newAccountAction.js');
+  Ti.include('/js/newAccountButton.js', '/js/newAccountAction.js');
   root.newAccountView = Titanium.UI.createView({
     backgroundImage: 'images/background1.png',
     width: 320

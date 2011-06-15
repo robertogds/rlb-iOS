@@ -1,5 +1,5 @@
 (function() {
-  Ti.include('js/logoutButton.js');
+  Ti.include('/js/logoutButton.js');
   root.loggedView = Titanium.UI.createView({
     background: "transparent",
     borderWidth: 0,

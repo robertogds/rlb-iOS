@@ -1,6 +1,6 @@
 (function() {
   var acercaView, customerView, legalView;
-  Ti.include('js/supportView.js');
+  Ti.include('/js/supportView.js');
   root.configView = Titanium.UI.createView({
     background: 'transparent',
     borderWidth: 0,

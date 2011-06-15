@@ -12,7 +12,6 @@ root.xhrBooking.onload = (e) ->
       modalStyle: Ti.UI.iPhone.MODAL_PRESENTATION_FORMSHEET
       navBarHidden:true
     root.oneBookingWindow.add(root.closeBookingButton)
-    #root.tabGroup.activeTab.open(root.oneBookingWindow,{animated:true})
   else
     alert 'Error: ' + response.detail
 

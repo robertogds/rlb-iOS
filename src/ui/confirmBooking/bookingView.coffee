@@ -1,9 +1,9 @@
 Ti.include(
-  'js/confirmButton.js'
-  'js/bookingAction.js'
-  'js/expiresView.js'
-  'js/cardTypeView.js'
-  'js/creditCardTable.js'
+  '/js/confirmButton.js'
+  '/js/bookingAction.js'
+  '/js/expiresView.js'
+  '/js/cardTypeView.js'
+  '/js/creditCardTable.js'
 )
 root.bookingView = Titanium.UI.createView
   background: 'transparent'

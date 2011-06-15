@@ -29,7 +29,6 @@
       root.oneDealWindow.remove(root.infoDealScrollView);
       root.oneDealWindow.add(root.mapView);
     } else if (e.index === 3) {
-      root.imagesAdd();
       root.imagesWindow.add(root.imagesScrollView);
       root.tabGroup.activeTab.open(root.imagesWindow, {
         animated: true

@@ -1,5 +1,5 @@
 Ti.include(
-  'js/supportView.js'
+  '/js/supportView.js'
 )
 root.configView = Titanium.UI.createView
   background: 'transparent'

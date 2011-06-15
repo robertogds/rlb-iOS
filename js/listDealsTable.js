@@ -25,6 +25,10 @@
     root.dealsTable.setData(data);
     return root.listDealsWindow.remove(root.loadingView);
   };
+  root.xhrDeals.onerror = function() {
+    alert('Se produjo un error. Inténtelo más tarde');
+    return root.listDealsWindow.remove(root.loadingView);
+  };
   root.loadDeals = function(city) {
     root.listDealsWindow.title = city.name;
     root.xhrDeals.open('GET', 'http://rlb-back.appspot.com/deals/' + city.url);

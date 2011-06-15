@@ -13,6 +13,8 @@ root.newAccountWindow = new root.GenericWindow('Nueva Cuenta','Nueva Cuenta').wi
 root.confirmBookingWindow = new root.GenericWindow('Confirmar','Confirmar').win
 root.closedWindow = new root.GenericWindow('Cerrado','Cerrado').win
 root.supportWindow = new root.GenericWindow('Soporte Usuario','Soporte').win
+root.errorWindow = new root.GenericWindow('Error','Error').win
+
 
 root.imagesWindow.backButtonTitle = 'Volver'
 root.imagesWindow.tabBarHidden = true
@@ -47,3 +49,11 @@ root.tabGroup.addTab(root.accountTab)
 root.tabGroup.addTab(root.configTab)
 root.tabGroup.open()
 
+root.showError = () ->
+  root.errorWindow = new root.GenericWindow('Error','Error').win
+  root.errorWindow.add(root.errorView)
+  root.errorWindow.open
+    modal:true
+    modalTransitionStyle: Ti.UI.iPhone.MODAL_TRANSITION_STYLE_FLIP_HORIZONTAL,
+    modalStyle: Ti.UI.iPhone.MODAL_PRESENTATION_FORMSHEET
+    navBarHidden:true

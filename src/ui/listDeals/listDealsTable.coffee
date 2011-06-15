@@ -23,9 +23,12 @@ root.xhrDeals.onload = () ->
   root.dealsTable.setData(data)
   root.listDealsWindow.remove(root.loadingView)
 
+root.xhrDeals.onerror = () ->
+  alert 'Se produjo un error. Inténtelo más tarde'
+  root.listDealsWindow.remove(root.loadingView)
+  #root.showError()
 
 root.loadDeals = (city) ->
-  #Titanium.API.error(city.name)
   root.listDealsWindow.title = city.name
   root.xhrDeals.open('GET', 'http://rlb-back.appspot.com/deals/'+city.url)
   root.xhrDeals.send()

@@ -13,7 +13,7 @@ root.closeBookingButton = Titanium.UI.createButton
 root.closeBookingButton.addEventListener 'click', (e) ->
   root.confirmBookingWindow.close()
   root.oneDealWindow.close()
-  root.listDealsWindow.close()
+  #root.listDealsWindow.close()
   root.oneBookingWindow.close() 
-  root.showCities()
+  root.tabGroup.setActiveTab(1);
   1

@@ -1,4 +1,3 @@
-# Botón de comprar
 root.buyButton = Titanium.UI.createButton
   backgroundImage:'images/BUTT_gry_off.png'
   backgroundSelectedImage:'images/BUTT_gry_on.png'

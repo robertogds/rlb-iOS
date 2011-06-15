@@ -1,8 +1,8 @@
 Ti.include(
-  'js/registerButton.js'
-  'js/newAccountView.js'
-  'js/loginAction.js'
-  'js/facebookButton.js'
+  '/js/registerButton.js'
+  '/js/newAccountView.js'
+  '/js/loginAction.js'
+  '/js/facebookButton.js'
 )
 
 root.loginView = Titanium.UI.createView

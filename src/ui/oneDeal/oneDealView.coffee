@@ -1,9 +1,9 @@
 Ti.include(
-  'js/infoDealView.js'
-  'js/oneDealButtonBar.js'
-  'js/oneDealMapView.js'
-  'js/imagesScrollView.js'
-  'js/buyButton.js'
+  '/js/infoDealView.js'
+  '/js/oneDealButtonBar.js'
+  '/js/oneDealMapView.js'
+  '/js/imagesScrollView.js'
+  '/js/buyButton.js'
 )
 
 root.oneDealView = Titanium.UI.createView
@@ -71,9 +71,10 @@ root.oneDealView.add(root.buyButton)
 root.oneDealWindow.add(root.oneDealButtonBarView)
 root.oneDealWindow.add(root.oneDealView)
 
-root.showDealView = (deal) ->
+root.showDealView = (deal) -> 
   root.deal = deal
-  root.imagesRemove()
+  #root.imagesAdd()
+  #root.imagesRemove()
   # Map
   root.mapView.removeAllAnnotations()
   root.hotelAnnotation.latitude = deal.latitude

@@ -1,6 +1,6 @@
 Ti.include(
-  'js/bookingsTable.js'
-  'js/noBookingsView.js'
+  '/js/bookingsTable.js'
+  '/js/noBookingsView.js'
 )
 
 root.bookingsWindow.addEventListener 'focus', (e) ->

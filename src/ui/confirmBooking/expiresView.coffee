@@ -83,6 +83,7 @@ root.expiresButton = Titanium.UI.createButton
 root.expiresButton.addEventListener 'click', (e) ->
   root.expiresLabel.text = root.cardExpiresMonth + '/' + root.cardExpiresYear
   root.expiresView.hide()
+  root.cvcCodeText.focus()
 
 pickerView.add(root.expiresPicker)
 buttonView.add(infoLabel)

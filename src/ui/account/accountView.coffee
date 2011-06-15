@@ -1,6 +1,6 @@
 Ti.include(
-  'js/loginView.js'
-  'js/loggedView.js'
+  '/js/loginView.js'
+  '/js/loggedView.js'
 )
 
 root.accountView = Titanium.UI.createView

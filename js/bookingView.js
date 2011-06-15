@@ -1,5 +1,5 @@
 (function() {
-  Ti.include('js/confirmButton.js', 'js/bookingAction.js', 'js/expiresView.js', 'js/cardTypeView.js', 'js/creditCardTable.js');
+  Ti.include('/js/confirmButton.js', '/js/bookingAction.js', '/js/expiresView.js', '/js/cardTypeView.js', '/js/creditCardTable.js');
   root.bookingView = Titanium.UI.createView({
     background: 'transparent',
     borderWidth: 0,

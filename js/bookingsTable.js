@@ -1,5 +1,5 @@
 (function() {
-  Ti.include('js/BookingsRow.js');
+  Ti.include('/js/BookingsRow.js');
   root.bookingsTable = Titanium.UI.createTableView({
     data: [],
     backgroundColor: '#0b222e',
@@ -33,7 +33,9 @@
     return 1;
   };
   root.xhrBookings.onerror = function() {
-    return alert('Se produjo un error. Intentelo más tarde');
+    alert('Se produjo un error. Intentelo más tarde');
+    root.bookingsWindow.remove(root.loadingView);
+    return root.showError();
   };
   root.xhrBookings.timedOut = function() {
     return alert('Se produjo un timeout. Intentelo más tarde');

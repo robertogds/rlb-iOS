@@ -1,5 +1,5 @@
 (function() {
-  Ti.include('js/citiesRow.js');
+  Ti.include('/js/citiesRow.js');
   root.citiesTable = Titanium.UI.createTableView({
     data: [],
     backgroundColor: '#0b222e',
@@ -25,14 +25,21 @@
     return root.citiesWindow.remove(root.loadingView);
   };
   root.xhrCities.onerror = function() {
-    return alert('Se produjo un error. Intentelo más tarde');
+    alert('Se produjo un error');
+    root.citiesWindow.remove(root.loadingView);
+    return root.showError();
   };
   root.xhrCities.timedOut = function() {
     return alert('Se produjo un timeout. Intentelo más tarde');
   };
   root.showCities = function() {
-    root.citiesWindow.add(root.loadingView);
-    root.xhrCities.open('GET', 'http://rlb-back.appspot.com/cities');
-    return root.xhrCities.send();
+    if (Titanium.Network.online === false) {
+      alert('Para usar esta aplicacion debes tener conexion a internet');
+      return root.showError();
+    } else {
+      root.citiesWindow.add(root.loadingView);
+      root.xhrCities.open('GET', 'http://rlb-back.appspot.com/cities');
+      return root.xhrCities.send();
+    }
   };
 }).call(this);

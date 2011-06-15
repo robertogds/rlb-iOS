@@ -154,7 +154,8 @@
   });
   root.expiresButton.addEventListener('click', function(e) {
     root.expiresLabel.text = root.cardExpiresMonth + '/' + root.cardExpiresYear;
-    return root.expiresView.hide();
+    root.expiresView.hide();
+    return root.cvcCodeText.focus();
   });
   pickerView.add(root.expiresPicker);
   buttonView.add(infoLabel);

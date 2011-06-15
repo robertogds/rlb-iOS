@@ -1,4 +1,4 @@
-Ti.include('js/BookingsRow.js')
+Ti.include('/js/BookingsRow.js')
 
 root.bookingsTable = Titanium.UI.createTableView
   data: []
@@ -31,6 +31,8 @@ root.xhrBookings.onload = () ->
 
 root.xhrBookings.onerror = () ->
   alert 'Se produjo un error. Intentelo más tarde'
+  root.bookingsWindow.remove(root.loadingView)
+  root.showError()
 
 root.xhrBookings.timedOut = () ->
   alert 'Se produjo un timeout. Intentelo más tarde'
