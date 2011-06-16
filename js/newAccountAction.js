@@ -20,15 +20,16 @@
     return Ti.API.error(e);
   };
   root.doRegister = function(email, password, firstName, lastName, id) {
-    var newUser, url;
+    var newUser, proto, url;
     root.xhrRegister.setTimeout(5000);
-    if (id === null) {
-      url = "http://rlb-back.appspot.com/users";
+    if (id > 0) {
+      url = "http://rlb-back.appspot.com/user/" + id;
+      proto = 'PUT';
     } else {
-      url = "http://rlb-back.appspot.com/users/" + id;
+      url = "http://rlb-back.appspot.com/users";
+      proto = 'POST';
     }
-    alert(url);
-    root.xhrRegister.open("POST", url);
+    root.xhrRegister.open(proto, url);
     root.xhrRegister.setRequestHeader("Content-Type", "application/json; charset=utf-8");
     newUser = JSON.stringify({
       "email": email,
@@ -36,7 +37,6 @@
       "firstName": firstName,
       "lastName": lastName
     });
-    root.xhrRegister.send(newUser);
-    return 1;
+    return root.xhrRegister.send(newUser);
   };
 }).call(this);

@@ -1,9 +1,20 @@
 (function() {
+  var mapButton;
+  Ti.include('/js/listDealsMapView.js');
   root.dealsTable = Titanium.UI.createTableView({
     data: [],
     backgroundColor: '#0b222e',
     separatorColor: '#0b222e'
   });
+  mapButton = Titanium.UI.createButton({
+    title: 'Mapa'
+  });
+  mapButton.addEventListener('click', function(e) {
+    return root.tabGroup.activeTab.open(root.listDealsMapWindow, {
+      animated: true
+    });
+  });
+  root.listDealsWindow.rightNavButton = mapButton;
   root.listDealsWindow.add(root.dealsTable);
   root.dealsTable.addEventListener('click', function(e) {
     root.showDealView(e.row.deal);
@@ -15,6 +26,7 @@
   root.xhrDeals.onload = function() {
     var data, deal, dealRow, deals, _i, _len;
     deals = JSON.parse(this.responseText);
+    root.createMap(deals);
     data = [];
     for (_i = 0, _len = deals.length; _i < _len; _i++) {
       deal = deals[_i];

@@ -73,8 +73,6 @@ root.oneDealWindow.add(root.oneDealView)
 
 root.showDealView = (deal) -> 
   root.deal = deal
-  #root.imagesAdd()
-  #root.imagesRemove()
   # Map
   root.mapView.removeAllAnnotations()
   root.hotelAnnotation.latitude = deal.latitude

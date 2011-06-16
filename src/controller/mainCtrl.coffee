@@ -3,6 +3,7 @@ Ti.include(
   '/js/Generic2RowsView.js'
   '/js/GenericTextView.js'
   '/js/GenericButton.js'
+  '/js/GenericMapAnnotation.js'
   '/js/application.js'
   '/js/accountWindow.js'
   '/js/bookingsWindow.js'

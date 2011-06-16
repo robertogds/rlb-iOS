@@ -3,6 +3,7 @@ Titanium.UI.setBackgroundColor('#000')
 # Application Windows
 root.citiesWindow = new root.GenericWindow('Ciudades','Lista de ciudades').win
 root.listDealsWindow = new root.GenericWindow('Madrid','Cargando Ofertas Disponibles...').win
+root.listDealsMapWindow = new root.GenericWindow('Mapa','Mapa').win
 root.bookingsWindow = new root.GenericWindow('Tus Reservas','Reservas').win
 root.accountWindow = new root.GenericWindow('Perfil','Mi Perfil').win
 root.oneDealWindow = new root.GenericWindow('','').win

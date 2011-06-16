@@ -19,12 +19,13 @@ root.xhrRegister.onerror = (e) ->
 
 root.doRegister = (email,password,firstName,lastName,id) ->
   root.xhrRegister.setTimeout(5000)
-  if id is null 
-    url = "http://rlb-back.appspot.com/users"
+  if id > 0
+    url = "http://rlb-back.appspot.com/user/"+id 
+    proto = 'PUT'
   else
-    url = "http://rlb-back.appspot.com/users/"+id
-  alert url
-  root.xhrRegister.open("POST",url)
+    url = "http://rlb-back.appspot.com/users"
+    proto = 'POST'
+  root.xhrRegister.open(proto,url)
   root.xhrRegister.setRequestHeader("Content-Type","application/json; charset=utf-8")
   newUser = JSON.stringify
     "email":email
@@ -32,4 +33,3 @@ root.doRegister = (email,password,firstName,lastName,id) ->
     "firstName":firstName
     "lastName":lastName
   root.xhrRegister.send(newUser)
-  1

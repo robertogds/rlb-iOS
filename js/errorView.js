@@ -26,6 +26,7 @@
     root.errorWindow.remove(root.errorView);
     root.errorWindow.close();
     root.tabGroup.setActiveTab(0);
-    return root.showCities();
+    root.showCities();
+    return 1;
   });
 }).call(this);
