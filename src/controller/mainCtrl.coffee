@@ -2,6 +2,7 @@ Ti.include(
   '/js/GenericWindow.js'
   '/js/Generic2RowsView.js'
   '/js/GenericTextView.js'
+  '/js/GenericButton.js'
   '/js/application.js'
   '/js/accountWindow.js'
   '/js/bookingsWindow.js'
@@ -16,10 +17,15 @@ Ti.include(
   '/js/bookingView.js'
   '/js/citiesTable.js'
   '/js/errorView.js'
+  '/js/aboutView.js'
+  '/js/forHotelsView.js'
+  '/js/termsView.js'
+  '/js/privacyView.js'
 )
 
 if Titanium.App.Properties.hasProperty("user")
   root.user = JSON.parse(Titanium.App.Properties.getString("user"))
+  Ti.API.info(root.user)
 
 root.showCities()
 

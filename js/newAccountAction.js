@@ -19,10 +19,16 @@
     alert('sale por onerror' + e);
     return Ti.API.error(e);
   };
-  root.doRegister = function(email, password, firstName, lastName) {
-    var newUser;
+  root.doRegister = function(email, password, firstName, lastName, id) {
+    var newUser, url;
     root.xhrRegister.setTimeout(5000);
-    root.xhrRegister.open("POST", "http://rlb-back.appspot.com/users");
+    if (id === null) {
+      url = "http://rlb-back.appspot.com/users";
+    } else {
+      url = "http://rlb-back.appspot.com/users/" + id;
+    }
+    alert(url);
+    root.xhrRegister.open("POST", url);
     root.xhrRegister.setRequestHeader("Content-Type", "application/json; charset=utf-8");
     newUser = JSON.stringify({
       "email": email,

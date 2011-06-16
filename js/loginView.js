@@ -1,6 +1,6 @@
 (function() {
   var data, emailText, loginLabel, loginTable, needLabel, passText, row1, row2, section;
-  Ti.include('/js/registerButton.js', '/js/newAccountView.js', '/js/loginAction.js', '/js/facebookButton.js');
+  Ti.include('/js/registerButton.js', '/js/newAccountView.js', '/js/loginAction.js', '/js/logoutAction.js', '/js/facebookButton.js');
   root.loginView = Titanium.UI.createView({
     background: "transparent",
     borderWidth: 0,

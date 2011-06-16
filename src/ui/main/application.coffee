@@ -10,10 +10,15 @@ root.oneBookingWindow = new root.GenericWindow('Reserva','Confirmación Reserva'
 root.configWindow = new root.GenericWindow('Opciones','Opciones').win
 root.imagesWindow = new root.GenericWindow('Fotos','Fotos').win
 root.newAccountWindow = new root.GenericWindow('Nueva Cuenta','Nueva Cuenta').win
+root.editAccountWindow = new root.GenericWindow('Editar Cuenta','Editar Cuenta').win
 root.confirmBookingWindow = new root.GenericWindow('Confirmar','Confirmar').win
 root.closedWindow = new root.GenericWindow('Cerrado','Cerrado').win
 root.supportWindow = new root.GenericWindow('Soporte Usuario','Soporte').win
 root.errorWindow = new root.GenericWindow('Error','Error').win
+root.aboutWindow = new root.GenericWindow('Acerca de','Acerca de').win
+root.forHotelsWindow = new root.GenericWindow('Para los hoteles','Para los hoteles').win
+root.termsWindow = new root.GenericWindow('Términos de uso','Términos de uso').win
+root.privacyWindow = new root.GenericWindow('Privacidad','Política de privacidad').win
 
 
 root.imagesWindow.backButtonTitle = 'Volver'

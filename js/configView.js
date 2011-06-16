@@ -1,5 +1,5 @@
 (function() {
-  var acercaView, customerView, legalView, versionLabel;
+  var acercaView, legalView, versionLabel;
   Ti.include('/js/supportView.js');
   root.configView = Titanium.UI.createView({
     background: 'transparent',
@@ -19,11 +19,26 @@
     width: 300,
     top: 300
   });
-  customerView = new root.Generic2RowsView(10, 'Soporte a usuario', 'Danos tu opinión').view;
-  acercaView = new root.Generic2RowsView(20, 'Acerca de ReallyLateBooking', 'Para los Hoteles').view;
-  legalView = new root.Generic2RowsView(150, 'Términos de uso', 'Política de privacidad').view;
-  root.configView.add(acercaView);
-  root.configView.add(legalView);
+  acercaView = new root.Generic2RowsView(20, 'Acerca de ReallyLateBooking', 'Para los Hoteles');
+  legalView = new root.Generic2RowsView(150, 'Términos de uso', 'Política de privacidad');
+  acercaView.label1.addEventListener('click', function(e) {
+    return root.tabGroup.activeTab.open(root.aboutWindow, {
+      animated: true
+    });
+  });
+  acercaView.label2.addEventListener('click', function(e) {
+    return root.tabGroup.activeTab.open(root.forHotelsWindow, {
+      animated: true
+    });
+  });
+  legalView.label1.addEventListener('click', function(e) {
+    return root.showTerms();
+  });
+  legalView.label2.addEventListener('click', function(e) {
+    return root.showPrivacy();
+  });
+  root.configView.add(acercaView.view);
+  root.configView.add(legalView.view);
   root.configView.add(versionLabel);
   root.configWindow.add(root.configView);
 }).call(this);

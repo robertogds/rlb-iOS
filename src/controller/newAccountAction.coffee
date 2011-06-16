@@ -17,9 +17,14 @@ root.xhrRegister.onerror = (e) ->
   alert('sale por onerror' + e)
   Ti.API.error(e)
 
-root.doRegister = (email,password,firstName,lastName) ->
+root.doRegister = (email,password,firstName,lastName,id) ->
   root.xhrRegister.setTimeout(5000)
-  root.xhrRegister.open("POST","http://rlb-back.appspot.com/users")
+  if id is null 
+    url = "http://rlb-back.appspot.com/users"
+  else
+    url = "http://rlb-back.appspot.com/users/"+id
+  alert url
+  root.xhrRegister.open("POST",url)
   root.xhrRegister.setRequestHeader("Content-Type","application/json; charset=utf-8")
   newUser = JSON.stringify
     "email":email

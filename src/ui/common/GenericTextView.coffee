@@ -3,10 +3,11 @@ class GenericTextView
     @view = Titanium.UI.createView
       backgroundImage: 'images/background1.png'
       borderWidth: 0
+      height: 'auto'
       width:320
       top: top
 
-    titleLabel = Titanium.UI.createLabel
+    @titleLabel = Titanium.UI.createLabel
       text: title
       height: 30
       top: 20
@@ -16,7 +17,7 @@ class GenericTextView
         fontSize: 20
         fontWeight: 'bold'
 
-    textLabel = Titanium.UI.createLabel
+    @textLabel = Titanium.UI.createLabel
       text: text
       borderWidth: 0
       top: 60
@@ -27,7 +28,7 @@ class GenericTextView
       font:
         fontSize: 14
 
-    @view.add(titleLabel)
-    @view.add(textLabel)
+    @view.add(@titleLabel)
+    @view.add(@textLabel)
 
 root.GenericTextView = GenericTextView

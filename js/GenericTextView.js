@@ -2,14 +2,14 @@
   var GenericTextView;
   GenericTextView = (function() {
     function GenericTextView(top, title, text) {
-      var textLabel, titleLabel;
       this.view = Titanium.UI.createView({
         backgroundImage: 'images/background1.png',
         borderWidth: 0,
+        height: 'auto',
         width: 320,
         top: top
       });
-      titleLabel = Titanium.UI.createLabel({
+      this.titleLabel = Titanium.UI.createLabel({
         text: title,
         height: 30,
         top: 20,
@@ -20,7 +20,7 @@
           fontWeight: 'bold'
         }
       });
-      textLabel = Titanium.UI.createLabel({
+      this.textLabel = Titanium.UI.createLabel({
         text: text,
         borderWidth: 0,
         top: 60,
@@ -32,8 +32,8 @@
           fontSize: 14
         }
       });
-      this.view.add(titleLabel);
-      this.view.add(textLabel);
+      this.view.add(this.titleLabel);
+      this.view.add(this.textLabel);
     }
     return GenericTextView;
   })();

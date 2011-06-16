@@ -1,5 +1,6 @@
 Ti.include(
-  '/js/logoutButton.js'
+  '/js/userLoggedTable.js'
+  '/js/editAccountView.js'
 )
 root.loggedView = Titanium.UI.createView
   background: "transparent"
@@ -7,18 +8,16 @@ root.loggedView = Titanium.UI.createView
   width: 320
   top: 1
 
-root.loggedLabel = Titanium.UI.createLabel
-  borderWidth: 0
-  color: '#fff'
-  left: 5
-  font:
-    fontSize: 14
-    fontWeight: 'bold'
-  height: 30
-  width: 300
-  top: 1
+customerView = new root.Generic2RowsView(200,'Soporte a usuario','Danos tu opinión')
+editButton = new root.GenericButton(160,'Editar Usuario').button 
+logoutButton = new root.GenericButton(310,'Logout').button 
 
-customerView = new root.Generic2RowsView(150,'Soporte a usuario','Danos tu opinión')
+logoutButton.addEventListener 'click', (e) ->
+  root.doLogout()
+
+editButton.addEventListener 'click', (e) ->
+  root.loadEditLoggedUser()
+  root.tabGroup.activeTab.open(root.editAccountWindow,{animated:true})
 
 customerView.label1.addEventListener 'click', (e) ->
   root.tabGroup.activeTab.open(root.supportWindow,{animated:true})
@@ -30,6 +29,6 @@ customerView.label2.addEventListener 'click', (e) ->
   #emailDialog.messageBody = ''
   emailDialog.open()
 
-root.loggedView.add(root.loggedLabel)
+root.loggedView.add(editButton)
 root.loggedView.add(customerView.view)
-root.loggedView.add(root.logoutButton)
+root.loggedView.add(logoutButton)

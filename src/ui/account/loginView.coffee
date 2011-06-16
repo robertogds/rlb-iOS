@@ -2,6 +2,7 @@ Ti.include(
   '/js/registerButton.js'
   '/js/newAccountView.js'
   '/js/loginAction.js'
+  '/js/logoutAction.js'
   '/js/facebookButton.js'
 )
 
