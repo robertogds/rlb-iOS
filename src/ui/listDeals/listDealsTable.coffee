@@ -1,7 +1,6 @@
 Ti.include('/js/listDealsMapView.js')
 root.dealsTable = Titanium.UI.createTableView
   data: []
-  #backgroundColor: '#093b4e' separatorColor: '#093b4e'
   backgroundColor: '#0b222e'
   separatorColor: '#0b222e'
 
