@@ -33,7 +33,7 @@
         animated: true
       });
       root.privacyWindow.add(root.loadingView);
-      root.xhrPrivacy.open('GET', 'http://rlb-back.appspot.com/info/privacy');
+      root.xhrPrivacy.open('GET', root.url + '/info/privacy');
       return root.xhrPrivacy.send();
     }
   };

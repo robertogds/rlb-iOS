@@ -20,7 +20,7 @@ root.cardTypeLabel.addEventListener 'click', (e) ->
 root.cardNumberText = Titanium.UI.createTextField
   color:'#336699'
   hintText: 'Número'
-  clearOnEdit: true
+  clearOnEdit: false
   paddingLeft: 10
   keyboardType: Titanium.UI.KEYBOARD_NUMBERS_PUNCTUATION 
   returnKeyType: Titanium.UI.RETURNKEY_NEXT
@@ -31,7 +31,7 @@ root.cardNumberText.addEventListener 'return', (e) ->
 root.cardNameText = Titanium.UI.createTextField
   color:'#336699'
   hintText: 'Titular'
-  clearOnEdit: true
+  clearOnEdit: false
   paddingLeft: 10
   returnKeyType: Titanium.UI.RETURNKEY_NEXT
 
@@ -57,11 +57,11 @@ root.cvcCodeText = Titanium.UI.createTextField
   color:'#336699'
   hintText: 'Código CVC'
   paddingLeft: 10
-  clearOnEdit: true
+  clearOnEdit: false
   keyboardType: Titanium.UI.KEYBOARD_NUMBERS_PUNCTUATION
 
 root.cvcCodeText.addEventListener 'return', (e) ->
-  1
+  root.doBooking()
 
 root.creditCardSection = Titanium.UI.createTableViewSection()
 root.creditCardData = []

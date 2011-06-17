@@ -38,7 +38,7 @@
       return root.showError();
     } else {
       root.citiesWindow.add(root.loadingView);
-      root.xhrCities.open('GET', 'http://rlb-back.appspot.com/cities');
+      root.xhrCities.open('GET', root.url + '/cities');
       return root.xhrCities.send();
     }
   };

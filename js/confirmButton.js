@@ -16,7 +16,6 @@
     top: 280
   });
   root.confirmButton.addEventListener('click', function(e) {
-    root.doBooking();
-    return 1;
+    return root.doBooking();
   });
 }).call(this);

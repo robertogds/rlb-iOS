@@ -36,6 +36,6 @@ root.showCities = () ->
   else
     #root.tabGroup.activeTab.open(root.listCitiesWindow,{animated:true})
     root.citiesWindow.add(root.loadingView)
-    root.xhrCities.open('GET', 'http://rlb-back.appspot.com/cities')
+    root.xhrCities.open('GET', root.url+'/cities')
     root.xhrCities.send()
   

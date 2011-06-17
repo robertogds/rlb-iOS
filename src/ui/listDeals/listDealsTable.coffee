@@ -40,7 +40,7 @@ root.xhrDeals.onerror = () ->
 
 root.loadDeals = (city) ->
   root.listDealsWindow.title = city.name
-  root.xhrDeals.open('GET', 'http://rlb-back.appspot.com/deals/'+city.url)
+  root.xhrDeals.open('GET', root.url+'/deals/'+city.url)
   root.xhrDeals.send()
 
 root.showDeals = () ->

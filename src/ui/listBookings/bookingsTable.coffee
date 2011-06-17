@@ -39,5 +39,5 @@ root.xhrBookings.timedOut = () ->
 root.showBookings = () ->
   root.noBookingsView.hide()
   root.bookingsWindow.add(root.loadingView)
-  root.xhrBookings.open('GET', 'http://rlb-back.appspot.com/user/'+root.user.id+'/bookings')
+  root.xhrBookings.open('GET',root.url+'/user/'+root.user.id+'/bookings')
   root.xhrBookings.send()

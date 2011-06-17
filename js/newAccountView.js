@@ -17,7 +17,7 @@
   firstNameText = Titanium.UI.createTextField({
     color: '#336699',
     hintText: 'Nombre',
-    clearOnEdit: true,
+    clearOnEdit: false,
     paddingLeft: 10,
     returnKeyType: Titanium.UI.RETURNKEY_NEXT
   });
@@ -27,7 +27,7 @@
   lastNameText = Titanium.UI.createTextField({
     color: '#336699',
     hintText: 'Apellidos',
-    clearOnEdit: true,
+    clearOnEdit: false,
     paddingLeft: 10,
     returnKeyType: Titanium.UI.RETURNKEY_NEXT
   });
@@ -37,7 +37,7 @@
   emailText = Titanium.UI.createTextField({
     color: '#336699',
     hintText: 'Email',
-    clearOnEdit: true,
+    clearOnEdit: false,
     paddingLeft: 10,
     keyboardType: Titanium.UI.KEYBOARD_EMAIL,
     returnKeyType: Titanium.UI.RETURNKEY_NEXT

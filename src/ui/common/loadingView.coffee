@@ -28,4 +28,3 @@ root.actInd = Titanium.UI.createActivityIndicator
 root.loadingView.add(root.loadLabel)
 root.loadingView.add(root.actInd)
 root.actInd.show()
-

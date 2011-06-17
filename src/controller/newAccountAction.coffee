@@ -1,30 +1,32 @@
 root.xhrRegister = Titanium.Network.createHTTPClient()
 
 root.xhrRegister.onload = (e) ->
+  root.newAccountWindow.remove(root.loadingView)
   response = JSON.parse(this.responseText)
   if response.status is 201
     root.user = response.content
     Titanium.App.Properties.setString("user",JSON.stringify(root.user))
     root.loginView.hide()
     root.loggedView.show()
-    root.loggedLabel.text = "Estas logado como " + root.user.email
-    root.loggedView.add(root.loggedLabel)
     root.newAccountWindow.close()
   else
+    Ti.API.error 'response.detail'
     alert 'Error: ' + response.detail
 
 root.xhrRegister.onerror = (e) ->
+  root.newAccountWindow.remove(root.loadingView)
   alert('sale por onerror' + e)
   Ti.API.error(e)
 
 root.doRegister = (email,password,firstName,lastName,id) ->
+  root.newAccountWindow.add(root.loadingView)
   root.xhrRegister.setTimeout(5000)
   if id > 0
-    url = "http://rlb-back.appspot.com/user/"+id 
+    url = root.url + "/user/"+id 
     proto = 'PUT'
   else
-    url = "http://rlb-back.appspot.com/users"
-    proto = 'POST'
+    url = root.url + "/users"
+    proto = 'POST'  
   root.xhrRegister.open(proto,url)
   root.xhrRegister.setRequestHeader("Content-Type","application/json; charset=utf-8")
   newUser = JSON.stringify

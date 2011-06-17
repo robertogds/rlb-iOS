@@ -12,4 +12,3 @@ root.confirmButton = Titanium.UI.createButton
 
 root.confirmButton.addEventListener 'click', (e) ->
   root.doBooking()
-  1

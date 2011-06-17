@@ -4,6 +4,7 @@ Ti.include(
   '/js/GenericTextView.js'
   '/js/GenericButton.js'
   '/js/GenericMapAnnotation.js'
+  '/js/errorView.js'
   '/js/application.js'
   '/js/accountWindow.js'
   '/js/bookingsWindow.js'
@@ -17,12 +18,14 @@ Ti.include(
   '/js/configView.js'
   '/js/bookingView.js'
   '/js/citiesTable.js'
-  '/js/errorView.js'
   '/js/aboutView.js'
   '/js/forHotelsView.js'
   '/js/termsView.js'
   '/js/privacyView.js'
 )
+
+root.url = 'http://rlb-back.appspot.com'
+root.surl = 'https://rlb-back.appspot.com'
 
 if Titanium.App.Properties.hasProperty("user")
   root.user = JSON.parse(Titanium.App.Properties.getString("user"))

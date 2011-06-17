@@ -32,5 +32,5 @@ root.showTerms = () ->
   else
     root.tabGroup.activeTab.open(root.termsWindow,{animated:true})
     root.termsWindow.add(root.loadingView)
-    root.xhrTerms.open('GET', 'http://rlb-back.appspot.com/info/use_terms')
+    root.xhrTerms.open('GET', root.url+'/info/use_terms')
     root.xhrTerms.send()
