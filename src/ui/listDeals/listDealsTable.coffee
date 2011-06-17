@@ -2,7 +2,7 @@ Ti.include('/js/listDealsMapView.js')
 root.dealsTable = Titanium.UI.createTableView
   data: []
   backgroundColor: '#0b222e'
-  separatorColor: '#0b222e'
+  separatorColor: '#1b3c50'
 
 mapButton = Titanium.UI.createButton
   title: 'Mapa'

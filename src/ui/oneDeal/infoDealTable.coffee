@@ -6,27 +6,15 @@ root.infoDealTable = Titanium.UI.createTableView
 hotelRow = Ti.UI.createTableViewRow
     hasChild: false
     identionLevel: 200
-    height: 120
+    height: 'auto'
     backgroundGradient:
       type:'linear'
       colors:[{color:'#093344',position:0.1},{color:'#0b222e',position:0.50},{color:'#0c1b24',position:1.0}]
-    fontSize: 6
-    deal: deal
     color: '#fff'
 
-  image = Titanium.UI.createImageView 
-    image: deal.mainImageSmall
-    borderRadius: 10
-    borderColor: '#fff'
-    borderWidth: 2
-    left: 4
-    width: 140
-    height: 110
-  @row.add(image)
-
-  hotelLabel = Titanium.UI.createLabel
-    borderWidth: 0
-    text: deal.hotelName
+hotelLabel = Titanium.UI.createLabel
+  borderWidth: 0
+  text: "Sobre el hotel"
     color: '#fff'
     left: 155
     font:

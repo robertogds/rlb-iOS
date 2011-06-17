@@ -12,8 +12,6 @@
   root.createMap = function(deals) {
     var annotation, deal, region, _i, _len;
     region = {
-      latitude: 0,
-      longitude: 0,
       latitudeDelta: 0.05,
       longitudeDelta: 0.05
     };
@@ -21,7 +19,7 @@
       deal = deals[_i];
       region.latitude = deal.latitude;
       region.longitude = deal.longitude;
-      annotation = new root.GenericMapAnnotation(deal.id, deal.latitude, deal.longitude, deal.title, deal.subtitle).annotation;
+      annotation = new root.GenericMapAnnotation(deal.id, deal.latitude, deal.longitude, deal.hotelName, deal.address).annotation;
       root.listDealsMapView.addAnnotation(annotation);
     }
     return root.listDealsMapView.region = region;

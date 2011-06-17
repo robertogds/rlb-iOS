@@ -4,12 +4,13 @@
     var response;
     root.newAccountWindow.remove(root.loadingView);
     response = JSON.parse(this.responseText);
-    if (response.status === 201) {
+    if (response.status === 200) {
       root.user = response.content;
       Titanium.App.Properties.setString("user", JSON.stringify(root.user));
       root.loginView.hide();
       root.loggedView.show();
-      return root.newAccountWindow.close();
+      root.newAccountWindow.close();
+      return root.editAccountWindow.close();
     } else {
       Ti.API.error('response.detail');
       return alert('Error: ' + response.detail);
@@ -28,6 +29,7 @@
       url = root.url + "/user/" + id;
       proto = 'PUT';
     } else {
+      password = Titanium.Utils.md5HexDigest(password);
       url = root.url + "/users";
       proto = 'POST';
     }
@@ -35,7 +37,7 @@
     root.xhrRegister.setRequestHeader("Content-Type", "application/json; charset=utf-8");
     newUser = JSON.stringify({
       "email": email,
-      "password": Titanium.Utils.md5HexDigest(password),
+      "password": password,
       "firstName": firstName,
       "lastName": lastName
     });

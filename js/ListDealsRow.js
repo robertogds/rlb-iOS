@@ -2,22 +2,19 @@
   var ListDealsRow;
   ListDealsRow = (function() {
     function ListDealsRow(deal) {
-      var hotelLabel, image, normalPriceLabel, priceLabel, roomTypeImage, tachaImage;
+      var hotelLabel, image, normalPriceLabel, priceLabel, roomTypeImage, separator, tachaImage;
       this.row = Ti.UI.createTableViewRow({
-        hasChild: true,
+        hasChild: false,
         identionLevel: 200,
         height: 120,
         backgroundGradient: {
           type: 'linear',
           colors: [
             {
-              color: '#093344',
+              color: '#1b3c50',
               position: 0.1
             }, {
-              color: '#0b222e',
-              position: 0.50
-            }, {
-              color: '#0c1b24',
+              color: '#0c1c25',
               position: 1.0
             }
           ]
@@ -100,6 +97,10 @@
         roomTypeImage.image = 'images/icon_confort.png';
       }
       this.row.add(roomTypeImage);
+      separator = Titanium.UI.createImageView({
+        image: 'images/separator.png',
+        top: 114
+      });
     }
     return ListDealsRow;
   })();

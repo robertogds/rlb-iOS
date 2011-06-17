@@ -6,6 +6,6 @@ class GenericMapAnnotation
       title: title
       subtitle: subtitle
       pincolor:Titanium.Map.ANNOTATION_RED
-      animate:true
-      myid:id 
+      animate: true
+      myid: id 
 root.GenericMapAnnotation = GenericMapAnnotation

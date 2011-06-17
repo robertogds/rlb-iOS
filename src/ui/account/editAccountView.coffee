@@ -80,6 +80,7 @@ sendButton.addEventListener 'click', (e) ->
   if root.emailText.value isnt ''
     email = root.emailText.value
   if root.passwordText.value isnt ''
+    alert 'Estoy cambiando el pass'
     password = root.passwordText.value
   if root.firstNameText.value isnt ''
      firstName = root.firstNameText.value

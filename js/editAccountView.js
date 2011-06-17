@@ -80,6 +80,7 @@
       email = root.emailText.value;
     }
     if (root.passwordText.value !== '') {
+      alert('Estoy cambiando el pass');
       password = root.passwordText.value;
     }
     if (root.firstNameText.value !== '') {
