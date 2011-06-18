@@ -3,6 +3,7 @@
   root.xhrRegister.onload = function(e) {
     var response;
     root.newAccountWindow.remove(root.loadingView);
+    root.editAccountWindow.remove(root.loadingView);
     response = JSON.parse(this.responseText);
     if (response.status === 200) {
       root.user = response.content;
@@ -23,7 +24,6 @@
   };
   root.doRegister = function(email, password, firstName, lastName, id) {
     var newUser, proto, url;
-    root.newAccountWindow.add(root.loadingView);
     root.xhrRegister.setTimeout(5000);
     if (id > 0) {
       url = root.url + "/user/" + id;

@@ -11,8 +11,8 @@ root.listDealsMapWindow.add(root.listDealsMapView)
 
 root.createMap = (deals) -> 
   region =
-    latitudeDelta: 0.05
-    longitudeDelta: 0.05
+    latitudeDelta: 0.02
+    longitudeDelta: 0.02
   for deal in deals
     region.latitude = deal.latitude
     region.longitude = deal.longitude

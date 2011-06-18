@@ -24,6 +24,7 @@
       });
       cityLabel = Titanium.UI.createLabel({
         text: city.name,
+        id: "titleText",
         color: '#fff',
         font: {
           fontSize: 16,

@@ -12,8 +12,8 @@
   root.createMap = function(deals) {
     var annotation, deal, region, _i, _len;
     region = {
-      latitudeDelta: 0.05,
-      longitudeDelta: 0.05
+      latitudeDelta: 0.02,
+      longitudeDelta: 0.02
     };
     for (_i = 0, _len = deals.length; _i < _len; _i++) {
       deal = deals[_i];

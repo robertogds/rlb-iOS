@@ -17,19 +17,18 @@ root.oneDealButtonBarView.add root.oneDealButtonBar
 
 root.oneDealButtonBar.addEventListener 'click', (e) ->
   if e.index is 0
-    root.oneDealWindow.remove root.infoDealScrollView
+    root.oneDealWindow.remove root.infoDealTable
     root.oneDealWindow.remove root.mapView
     root.oneDealWindow.add root.oneDealView
   else if e.index is 1
     root.oneDealWindow.remove root.oneDealView 
     root.oneDealWindow.remove root.mapView
-    root.oneDealWindow.add root.infoDealScrollView
+    root.oneDealWindow.add root.infoDealTable
   else if e.index is 2
     root.oneDealWindow.remove root.oneDealView
-    root.oneDealWindow.remove root.infoDealScrollView
+    root.oneDealWindow.remove root.infoDealTable
     root.oneDealWindow.add root.mapView  
   else if e.index is 3
-    #root.imagesAdd()
     root.imagesWindow.add(root.imagesScrollView)
     root.tabGroup.activeTab.open(root.imagesWindow,{animated:true})  
   1

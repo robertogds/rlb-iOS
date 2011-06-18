@@ -3,7 +3,6 @@
   GenericTextView = (function() {
     function GenericTextView(top, title, text) {
       this.view = Titanium.UI.createView({
-        backgroundImage: 'images/background1.png',
         borderWidth: 0,
         height: 'auto',
         width: 320,
@@ -21,7 +20,7 @@
         }
       });
       this.textLabel = Titanium.UI.createLabel({
-        text: text,
+        text: text + '\n\n',
         borderWidth: 0,
         top: 60,
         height: 'auto',

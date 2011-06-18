@@ -52,7 +52,7 @@
     passwordMask: true
   });
   root.passwordText.addEventListener('return', function(e) {
-    return 1;
+    return root.submitEdit();
   });
   root.editAccountSection = Titanium.UI.createTableViewSection();
   root.editAccountSection.headerTitle = "Editar usuario";
@@ -71,25 +71,7 @@
   root.editAccountSection.add(passwordRow);
   sendButton = new root.GenericButton(250, 'Enviar').button;
   sendButton.addEventListener('click', function(e) {
-    var email, firstName, lastName, password;
-    email = root.user.email;
-    password = root.user.password;
-    firstName = root.user.firstName;
-    lastName = root.user.lastName;
-    if (root.emailText.value !== '') {
-      email = root.emailText.value;
-    }
-    if (root.passwordText.value !== '') {
-      alert('Estoy cambiando el pass');
-      password = root.passwordText.value;
-    }
-    if (root.firstNameText.value !== '') {
-      firstName = root.firstNameText.value;
-    }
-    if (root.lastNameText.value !== '') {
-      lastName = root.lastNameText.value;
-    }
-    return root.doRegister(email, password, firstName, lastName, root.user.id);
+    return root.submitEdit();
   });
   root.editAccountView.add(sendButton);
   root.editAccountWindow.add(root.editAccountView);
@@ -101,5 +83,26 @@
     root.editAccountData[0] = root.editAccountSection;
     root.editAccountTable.data = root.editAccountData;
     return root.editAccountView.add(root.editAccountTable);
+  };
+  root.submitEdit = function() {
+    var email, firstName, lastName, password;
+    email = root.user.email;
+    password = root.user.password;
+    firstName = root.user.firstName;
+    lastName = root.user.lastName;
+    if (root.emailText.value !== '') {
+      email = root.emailText.value;
+    }
+    if (root.passwordText.value !== '') {
+      password = root.passwordText.value;
+    }
+    if (root.firstNameText.value !== '') {
+      firstName = root.firstNameText.value;
+    }
+    if (root.lastNameText.value !== '') {
+      lastName = root.lastNameText.value;
+    }
+    root.editAccountWindow.add(root.loadingView);
+    return root.doRegister(email, password, firstName, lastName, root.user.id);
   };
 }).call(this);

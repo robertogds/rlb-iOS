@@ -51,7 +51,7 @@ root.passwordText = Titanium.UI.createTextField
   passwordMask:true
 
 root.passwordText.addEventListener 'return', (e) ->
-  1
+  root.submitEdit()
   
 root.editAccountSection = Titanium.UI.createTableViewSection()
 root.editAccountSection.headerTitle = "Editar usuario"
@@ -72,22 +72,9 @@ root.editAccountSection.add(emailRow)
 root.editAccountSection.add(passwordRow)
 
 sendButton = new root.GenericButton(250,'Enviar').button
+
 sendButton.addEventListener 'click', (e) ->
-  email = root.user.email
-  password = root.user.password
-  firstName = root.user.firstName
-  lastName = root.user.lastName
-  if root.emailText.value isnt ''
-    email = root.emailText.value
-  if root.passwordText.value isnt ''
-    alert 'Estoy cambiando el pass'
-    password = root.passwordText.value
-  if root.firstNameText.value isnt ''
-     firstName = root.firstNameText.value
-  if root.lastNameText.value isnt ''
-    lastName = root.lastNameText.value 
-  
-  root.doRegister(email,password,firstName,lastName,root.user.id)
+  root.submitEdit()
 
 root.editAccountView.add(sendButton)
 root.editAccountWindow.add(root.editAccountView)
@@ -100,5 +87,22 @@ root.loadEditLoggedUser = () ->
   root.editAccountData[0] = root.editAccountSection
   root.editAccountTable.data = root.editAccountData
   root.editAccountView.add(root.editAccountTable)
+
+root.submitEdit = () ->
+  email = root.user.email
+  password = root.user.password
+  firstName = root.user.firstName
+  lastName = root.user.lastName
+  if root.emailText.value isnt ''
+    email = root.emailText.value
+  if root.passwordText.value isnt ''
+    password = root.passwordText.value
+  if root.firstNameText.value isnt ''
+    firstName = root.firstNameText.value
+  if root.lastNameText.value isnt ''
+    lastName = root.lastNameText.value 
+  root.editAccountWindow.add(root.loadingView)
+  root.doRegister(email,password,firstName,lastName,root.user.id)
+	
 
 

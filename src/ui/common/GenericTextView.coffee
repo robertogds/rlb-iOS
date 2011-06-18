@@ -1,7 +1,7 @@
 class GenericTextView
   constructor: (top,title,text) ->
     @view = Titanium.UI.createView
-      backgroundImage: 'images/background1.png'
+      #backgroundImage: 'images/background1.png'
       borderWidth: 0
       height: 'auto'
       width:320
@@ -18,7 +18,7 @@ class GenericTextView
         fontWeight: 'bold'
 
     @textLabel = Titanium.UI.createLabel
-      text: text
+      text: text + '\n\n'
       borderWidth: 0
       top: 60
       height: 'auto'

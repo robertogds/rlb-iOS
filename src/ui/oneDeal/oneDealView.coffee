@@ -1,8 +1,8 @@
 Ti.include(
-  '/js/infoDealView.js'
   '/js/oneDealButtonBar.js'
   '/js/oneDealMapView.js'
   '/js/imagesScrollView.js'
+  '/js/infoDealTable.js'
   '/js/buyButton.js'
 )
 
@@ -94,7 +94,6 @@ root.showDealView = (deal) ->
   root.oneDealPriceLabel.text = deal.salePriceCents + "€" + '  Sólo Esta Noche'
   root.oneDealAddressLabel.text = deal.hotelName + '\n' + deal.address 
   root.descriptionLabel.text = deal.description
-  root.whyLabel.text = deal.description
 
   # Load Images of the deal
   root.image1.image = deal.image1
@@ -102,5 +101,43 @@ root.showDealView = (deal) ->
   root.image3.image = deal.image3
   root.image4.image = deal.image4
   root.image5.image = deal.image5
+  
+  # infoTable view
+
+  # Titles
+  detailTitle = "Los Detalles"
+  hotelTitle = 'El Hotel'
+  roomTitle = 'La Habitación'
+  foodDrinkTitle = 'Comer y Beber'
+  aroundTitle = 'Alrededores'
+
+  # Rows
+  detailRow = new root.GenericTextRow().row
+  hotelRow = new root.GenericTextRow().row
+  roomRow = new root.GenericTextRow().row
+  foodDrinkRow = new root.GenericTextRow().row
+  aroundRow = new root.GenericTextRow().row
+
+  # Views
+  detailView =  new root.GenericTextView(0,detailTitle,deal.detailText).view
+  hotelView = new root.GenericTextView(0,hotelTitle,deal.hotelText).view
+  roomView =  new root.GenericTextView(0,roomTitle,deal.roomText).view
+  foodDrinkView = new root.GenericTextView(0,foodDrinkTitle,deal.foodDrinkText).view
+  aroundView = new root.GenericTextView(0,aroundTitle,deal.aroundText).view
+
+  detailRow.add(detailView)
+  hotelRow.add(hotelView)
+  roomRow.add(roomView)
+  foodDrinkRow.add(foodDrinkView)
+  aroundRow.add(aroundView)
+
+  data = []
+  data.push(detailRow)
+  data.push(hotelRow)
+  data.push(roomRow)
+  data.push(foodDrinkRow)
+  data.push(aroundRow)
+  root.infoDealTable.setData(data)
   1
+
 

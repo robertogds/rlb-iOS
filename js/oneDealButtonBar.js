@@ -17,16 +17,16 @@
   root.oneDealButtonBarView.add(root.oneDealButtonBar);
   root.oneDealButtonBar.addEventListener('click', function(e) {
     if (e.index === 0) {
-      root.oneDealWindow.remove(root.infoDealScrollView);
+      root.oneDealWindow.remove(root.infoDealTable);
       root.oneDealWindow.remove(root.mapView);
       root.oneDealWindow.add(root.oneDealView);
     } else if (e.index === 1) {
       root.oneDealWindow.remove(root.oneDealView);
       root.oneDealWindow.remove(root.mapView);
-      root.oneDealWindow.add(root.infoDealScrollView);
+      root.oneDealWindow.add(root.infoDealTable);
     } else if (e.index === 2) {
       root.oneDealWindow.remove(root.oneDealView);
-      root.oneDealWindow.remove(root.infoDealScrollView);
+      root.oneDealWindow.remove(root.infoDealTable);
       root.oneDealWindow.add(root.mapView);
     } else if (e.index === 3) {
       root.imagesWindow.add(root.imagesScrollView);

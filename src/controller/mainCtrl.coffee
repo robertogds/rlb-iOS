@@ -1,6 +1,7 @@
 Ti.include(
   '/js/GenericWindow.js'
   '/js/Generic2RowsView.js'
+  '/js/GenericTextRow.js'
   '/js/GenericTextView.js'
   '/js/GenericButton.js'
   '/js/GenericMapAnnotation.js'

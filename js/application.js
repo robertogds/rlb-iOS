@@ -22,7 +22,8 @@
   root.imagesWindow.backButtonTitle = 'Volver';
   root.imagesWindow.tabBarHidden = true;
   root.tabGroup = Titanium.UI.createTabGroup({
-    barColor: '#000'
+    barColor: '#000',
+    id: 'tabGroup'
   });
   root.dealsTab = Titanium.UI.createTab({
     icon: 'icons/ico_deal.png',

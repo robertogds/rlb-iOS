@@ -60,6 +60,7 @@ passwordText.addEventListener 'return', (e) ->
   password = passwordText.value
   firstName = firstNameText.value
   lastName = lastNameText.value
+  root.newAccountWindow.add(root.loadingView)
   root.doRegister(email,password,firstName,lastName)
   1
   
