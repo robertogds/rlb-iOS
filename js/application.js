@@ -1,6 +1,6 @@
 (function() {
   Titanium.UI.setBackgroundColor('#000');
-  root.citiesWindow = new root.GenericWindow('Ciudades', 'Lista de ciudades').win;
+  root.citiesWindow = new root.GenericWindow(Ti.Locale.getString('cities'), 'cities').win;
   root.listDealsWindow = new root.GenericWindow('Madrid', 'Cargando Ofertas Disponibles...').win;
   root.listDealsMapWindow = new root.GenericWindow('Mapa', 'Mapa').win;
   root.bookingsWindow = new root.GenericWindow('Tus Reservas', 'Reservas').win;
