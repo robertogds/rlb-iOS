@@ -18,9 +18,8 @@
         animated: true
       });
     } else {
-      root.tabGroup.activeTab.open(root.accountWindow, {
-        animated: true
-      });
+      alert('Debes estar registrado para poder hacer una reserva');
+      root.tabGroup.setActiveTab(2);
     }
     return 1;
   };

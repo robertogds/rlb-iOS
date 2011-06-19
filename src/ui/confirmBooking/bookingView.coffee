@@ -24,5 +24,6 @@ root.showBookingView = () ->
     root.confirmBookingWindow.add(root.bookingView)
     root.tabGroup.activeTab.open(root.confirmBookingWindow,{animated:true})
   else
-    root.tabGroup.activeTab.open(root.accountWindow,{animated:true})
+    alert 'Debes estar registrado para poder hacer una reserva'
+    root.tabGroup.setActiveTab(2)
   1

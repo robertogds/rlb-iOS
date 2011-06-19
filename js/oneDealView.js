@@ -121,6 +121,8 @@
     data.push(foodDrinkRow);
     data.push(aroundRow);
     root.infoDealTable.setData(data);
-    return 1;
+    root.oneDealWindow.remove(root.infoDealTable);
+    root.oneDealWindow.remove(root.mapView);
+    return root.oneDealWindow.add(root.oneDealView);
   };
 }).call(this);

@@ -7,7 +7,7 @@ root.registerButton = Titanium.UI.createButton
   width:220
   height:40
   font:{fontSize:20,fontWeight:'bold',fontFamily:'Helvetica Neue'}
-  top: 270
+  top: 290
 
 root.registerButton.addEventListener 'click', (e) ->
   root.newAccountData[0] = root.newAccountSection

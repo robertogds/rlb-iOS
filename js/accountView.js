@@ -1,5 +1,5 @@
 (function() {
-  Ti.include('/js/loginView.js', '/js/loggedView.js');
+  Ti.include('/js/loginView.js', '/js/loggedView.js', '/js/rememberPassAction.js');
   root.accountView = Titanium.UI.createView({
     backgroundImage: 'images/background1.png',
     width: 320

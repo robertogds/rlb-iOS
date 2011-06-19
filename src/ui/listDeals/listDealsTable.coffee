@@ -1,4 +1,3 @@
-Ti.include('/js/listDealsMapView.js')
 root.dealsTable = Titanium.UI.createTableView
   data: []
   backgroundColor: '#0b222e'
@@ -29,7 +28,11 @@ root.xhrDeals.onload = () ->
     Ti.API.info deal
     dealRow = new root.listDealsRow(deal)
     data.push(dealRow.row)
-  root.dealsTable.setData(data)
+  if data.length is 0
+    root.noDealsView.show()
+  else
+    root.noDealsView.hide()
+    root.dealsTable.setData(data)
   root.listDealsWindow.remove(root.loadingView)
 
 root.xhrDeals.onerror = () ->
@@ -42,7 +45,7 @@ root.loadDeals = (city) ->
   root.xhrDeals.open('GET', root.url+'/deals/'+city.url)
   root.xhrDeals.send()
 
-root.showDeals = () ->
+root.showDeals = () -> 
   root.tabGroup.activeTab.open(root.listDealsWindow,{animated:true})
   
 

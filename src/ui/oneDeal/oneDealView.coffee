@@ -138,6 +138,8 @@ root.showDealView = (deal) ->
   data.push(foodDrinkRow)
   data.push(aroundRow)
   root.infoDealTable.setData(data)
-  1
+  root.oneDealWindow.remove root.infoDealTable
+  root.oneDealWindow.remove root.mapView
+  root.oneDealWindow.add root.oneDealView
 
 

@@ -1,6 +1,5 @@
 (function() {
   var mapButton;
-  Ti.include('/js/listDealsMapView.js');
   root.dealsTable = Titanium.UI.createTableView({
     data: [],
     backgroundColor: '#0b222e',
@@ -34,7 +33,12 @@
       dealRow = new root.listDealsRow(deal);
       data.push(dealRow.row);
     }
-    root.dealsTable.setData(data);
+    if (data.length === 0) {
+      root.noDealsView.show();
+    } else {
+      root.noDealsView.hide();
+      root.dealsTable.setData(data);
+    }
     return root.listDealsWindow.remove(root.loadingView);
   };
   root.xhrDeals.onerror = function() {

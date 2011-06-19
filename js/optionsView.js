@@ -1,7 +1,7 @@
 (function() {
   var acercaView, legalView, versionLabel;
   Ti.include('/js/supportView.js');
-  root.configView = Titanium.UI.createView({
+  root.optionsView = Titanium.UI.createView({
     background: 'transparent',
     borderWidth: 0,
     width: 320,
@@ -37,8 +37,8 @@
   legalView.label2.addEventListener('click', function(e) {
     return root.showPrivacy();
   });
-  root.configView.add(acercaView.view);
-  root.configView.add(legalView.view);
-  root.configView.add(versionLabel);
-  root.configWindow.add(root.configView);
+  root.optionsView.add(acercaView.view);
+  root.optionsView.add(legalView.view);
+  root.optionsView.add(versionLabel);
+  root.optionsWindow.add(root.optionsView);
 }).call(this);

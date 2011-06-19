@@ -19,7 +19,6 @@ root.xhrBookings.onload = () ->
   bookings = JSON.parse(this.responseText)
   data = []
   for booking in bookings
-    #Ti.API.info booking
     bookingRow = new root.BookingsRow(booking)
     data.push(bookingRow.row)
   if data.length is 0
