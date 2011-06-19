@@ -2,6 +2,7 @@ class GenericTextView
   constructor: (top,title,text) ->
     @view = Titanium.UI.createView
       #backgroundImage: 'images/background1.png'
+      backgroundColor:'transparent' 
       borderWidth: 0
       height: 'auto'
       width:320

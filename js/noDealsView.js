@@ -1,9 +1,13 @@
 (function() {
-  var text, title;
+  var closedView, text, title;
+  root.noDealsView = Titanium.UI.createView({
+    backgroundImage: 'images/background1.png',
+    width: 320
+  });
   title = 'Preparando las mejores ofertas';
-  text = "Cada día negociamos las mejores ofertas con los hoteles, a las 12 del mediodía estarán disponibles en nuestro listado de ofertas\n\nVuelve más tarde para comprobar las ofertas de esta noche\ \n\n\n\n\n\n\n\n\n\n\n\n";
-  root.noDealsView = new root.GenericTextView(0, title, text).view;
-  root.noDealsView.backgroundImage = 'images/background1.png';
+  text = "Cada día negociamos las mejores ofertas con los hoteles, a las 12 del mediodía estarán disponibles en nuestro listado de ofertas\n\nVuelve más tarde para comprobar las ofertas de esta noche";
+  closedView = new root.GenericTextView(0, title, text).view;
+  root.noDealsView.add(closedView);
   root.listDealsWindow.add(root.noDealsView);
   root.noDealsView.hide();
 }).call(this);

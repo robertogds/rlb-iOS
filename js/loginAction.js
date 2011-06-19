@@ -7,9 +7,7 @@
       root.user = login.content;
       Titanium.App.Properties.setString("user", JSON.stringify(root.user));
       root.loginView.hide();
-      root.loggedView.show();
-      root.loggedView.add(root.loggedLabel);
-      return 1;
+      return root.loggedView.show();
     } else {
       return alert('Error: ' + login.detail);
     }
