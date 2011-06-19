@@ -11,13 +11,10 @@
           type: 'linear',
           colors: [
             {
-              color: '#093344',
+              color: '#07151d',
               position: 0.1
             }, {
-              color: '#0b222e',
-              position: 0.50
-            }, {
-              color: '#0c1b24',
+              color: '#0d1e28',
               position: 1.0
             }
           ]

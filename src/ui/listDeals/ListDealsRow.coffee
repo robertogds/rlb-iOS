@@ -1,13 +1,13 @@
 class ListDealsRow
   constructor: (deal) ->
     @row = Ti.UI.createTableViewRow
-      hasChild: false
+      hasChild: true
+      rightImage: '/images/blue_arrow.png'
       identionLevel: 200
       height: 120
       backgroundGradient:
         type:'linear'
-        colors:[{color:'#1b3c50',position:0.1},{color:'#0c1c25',position:1.0}]
-        #colors:[{color:'#cccccc',position:0.1},{color:'#cccccc',position:0.50},{color:'#cccccc',position:1.0}]
+        colors:[{color:'#07151d',position:0.1},{color:'#0d1e28',position:1.0}]
       fontSize: 6
       deal: deal
       color: '#fff'
@@ -48,17 +48,29 @@ class ListDealsRow
       top: 40
     @row.add(priceLabel)
 
+    antesLabel = Titanium.UI.createLabel
+      text: 'antes'
+      color: '#868d92'
+      left: 227
+      font:
+        fontSize: 10
+      height: 10
+      width: 40
+      top: 40
+    @row.add(antesLabel)
+
     normalPriceLabel = Titanium.UI.createLabel
       text: deal.priceCents + "€"
-      color: '#bfbfbf'
+      color: '#868d92'
       left: 227
       borderWidth: 0
       textAlign: 'center'
       font:
         fontSize: 14
+        fontWeight: 'bold'
       height: 30
       width: 35
-      top: 40
+      top: 45
     @row.add(normalPriceLabel)
    
     tachaImage = Titanium.UI.createImageView 
@@ -67,19 +79,19 @@ class ListDealsRow
       height: 1
       width: 35
       image: 'images/tacha.png'
-    @row.add(tachaImage)
+    #@row.add(tachaImage)
 
     roomTypeImage = Titanium.UI.createImageView 
       left: 155
       top: 80
-      height: 30
-      width: 60
+      height: 34
+      width: 88
     if deal.roomType is 'lujo'
-      roomTypeImage.image = 'images/icon_lujo.png'
+      roomTypeImage.image = 'images/lujo.png'
     else if deal.roomType is 'elegante'
-      roomTypeImage.image = 'images/icon_elegante.png'
+      roomTypeImage.image = 'images/elegante.png'
    	else if deal.roomType is 'confort'
-	      roomTypeImage.image = 'images/icon_confort.png'
+	      roomTypeImage.image = 'images/confort.png'
     @row.add(roomTypeImage)
 
     separator = Titanium.UI.createImageView 

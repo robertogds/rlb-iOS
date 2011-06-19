@@ -1,9 +1,17 @@
 (function() {
+  var footerView;
   Ti.include('/js/citiesRow.js');
+  footerView = Titanium.UI.createView({
+    backgroundColor: '#0d1e28',
+    borderWidth: 0,
+    height: 100,
+    width: 320
+  });
   root.citiesTable = Titanium.UI.createTableView({
     data: [],
-    backgroundColor: '#0b222e',
-    separatorColor: '#0b222e'
+    backgroundColor: '#0d1e28',
+    separatorColor: '#1b3c50',
+    footerView: footerView
   });
   root.citiesWindow.add(root.citiesTable);
   root.citiesTable.addEventListener('click', function(e) {

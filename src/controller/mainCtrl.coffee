@@ -1,3 +1,7 @@
+root.url = 'http://rlb-back.appspot.com'
+root.surl = 'https://rlb-back.appspot.com'
+
+
 Ti.include(
   '/js/GenericWindow.js'
   '/js/Generic2RowsView.js'
@@ -25,8 +29,6 @@ Ti.include(
   '/js/privacyView.js'
 )
 
-root.url = 'http://rlb-back.appspot.com'
-root.surl = 'https://rlb-back.appspot.com'
 
 if Titanium.App.Properties.hasProperty("user")
   root.user = JSON.parse(Titanium.App.Properties.getString("user"))

@@ -5,7 +5,7 @@
       var label;
       this.win = Ti.UI.createWindow({
         title: theTitle,
-        backgroundColor: '#0b222e'
+        backgroundColor: '#0d1e28'
       });
       label = Titanium.UI.createLabel({
         color: '#000',

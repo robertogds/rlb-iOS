@@ -2,19 +2,20 @@
   var ListDealsRow;
   ListDealsRow = (function() {
     function ListDealsRow(deal) {
-      var hotelLabel, image, normalPriceLabel, priceLabel, roomTypeImage, separator, tachaImage;
+      var antesLabel, hotelLabel, image, normalPriceLabel, priceLabel, roomTypeImage, separator, tachaImage;
       this.row = Ti.UI.createTableViewRow({
-        hasChild: false,
+        hasChild: true,
+        rightImage: '/images/blue_arrow.png',
         identionLevel: 200,
         height: 120,
         backgroundGradient: {
           type: 'linear',
           colors: [
             {
-              color: '#1b3c50',
+              color: '#07151d',
               position: 0.1
             }, {
-              color: '#0c1c25',
+              color: '#0d1e28',
               position: 1.0
             }
           ]
@@ -61,18 +62,31 @@
         top: 40
       });
       this.row.add(priceLabel);
+      antesLabel = Titanium.UI.createLabel({
+        text: 'antes',
+        color: '#868d92',
+        left: 227,
+        font: {
+          fontSize: 10
+        },
+        height: 10,
+        width: 40,
+        top: 40
+      });
+      this.row.add(antesLabel);
       normalPriceLabel = Titanium.UI.createLabel({
         text: deal.priceCents + "€",
-        color: '#bfbfbf',
+        color: '#868d92',
         left: 227,
         borderWidth: 0,
         textAlign: 'center',
         font: {
-          fontSize: 14
+          fontSize: 14,
+          fontWeight: 'bold'
         },
         height: 30,
         width: 35,
-        top: 40
+        top: 45
       });
       this.row.add(normalPriceLabel);
       tachaImage = Titanium.UI.createImageView({
@@ -82,19 +96,18 @@
         width: 35,
         image: 'images/tacha.png'
       });
-      this.row.add(tachaImage);
       roomTypeImage = Titanium.UI.createImageView({
         left: 155,
         top: 80,
-        height: 30,
-        width: 60
+        height: 34,
+        width: 88
       });
       if (deal.roomType === 'lujo') {
-        roomTypeImage.image = 'images/icon_lujo.png';
+        roomTypeImage.image = 'images/lujo.png';
       } else if (deal.roomType === 'elegante') {
-        roomTypeImage.image = 'images/icon_elegante.png';
+        roomTypeImage.image = 'images/elegante.png';
       } else if (deal.roomType === 'confort') {
-        roomTypeImage.image = 'images/icon_confort.png';
+        roomTypeImage.image = 'images/confort.png';
       }
       this.row.add(roomTypeImage);
       separator = Titanium.UI.createImageView({
