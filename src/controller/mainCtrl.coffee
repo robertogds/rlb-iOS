@@ -11,6 +11,7 @@ Ti.include(
   '/js/GenericButton.js'
   '/js/GenericMapAnnotation.js'
   '/js/GenericTextView.js'
+  '/js/GenericMapRightButtonView.js'
   '/js/loadingView.js'
   '/js/errorView.js'
   '/js/application.js'

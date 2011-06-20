@@ -1,9 +1,21 @@
 (function() {
+  var mapButtonView;
+  mapButtonView = Titanium.UI.createView({
+    backgroundImage: '/images/blue_arrow.png',
+    height: 20,
+    width: 20
+  });
+  mapButtonView.addEventListener('click', function(e) {
+    root.oneDealWindow.remove(root.infoDealTable);
+    root.oneDealWindow.remove(root.mapView);
+    return root.oneDealWindow.add(root.oneDealView);
+  });
   root.hotelAnnotation = Titanium.Map.createAnnotation({
     title: "Appcelerator Headquarters",
     subtitle: 'Mountain View, CA',
     pincolor: Titanium.Map.ANNOTATION_RED,
     animate: true,
+    rightView: mapButtonView,
     myid: 1
   });
   root.mapView = Titanium.Map.createView({

@@ -9,6 +9,7 @@
     title: 'Mapa'
   });
   mapButton.addEventListener('click', function(e) {
+    root.listDealsMapView.annotations = root.annotations;
     return root.tabGroup.activeTab.open(root.listDealsMapWindow, {
       animated: true
     });

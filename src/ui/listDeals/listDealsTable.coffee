@@ -7,6 +7,7 @@ mapButton = Titanium.UI.createButton
   title: 'Mapa'
 
 mapButton.addEventListener 'click', (e) ->
+  root.listDealsMapView.annotations = root.annotations
   root.tabGroup.activeTab.open(root.listDealsMapWindow,{animated:true})
 
 root.listDealsWindow.rightNavButton = mapButton
