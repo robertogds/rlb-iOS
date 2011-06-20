@@ -2,7 +2,7 @@
   var ListDealsRow;
   ListDealsRow = (function() {
     function ListDealsRow(deal) {
-      var antesLabel, hotelLabel, image, normalPriceLabel, priceLabel, roomTypeImage, separator, tachaImage;
+      var antesLabel, hotelLabel, image, normalPriceLabel, priceLabel, roomTypeImage, sepVertView, separator;
       this.row = Ti.UI.createTableViewRow({
         hasChild: true,
         rightImage: '/images/blue_arrow.png',
@@ -65,7 +65,7 @@
       antesLabel = Titanium.UI.createLabel({
         text: 'antes',
         color: '#868d92',
-        left: 227,
+        left: 230,
         font: {
           fontSize: 10
         },
@@ -77,9 +77,9 @@
       normalPriceLabel = Titanium.UI.createLabel({
         text: deal.priceCents + "€",
         color: '#868d92',
-        left: 227,
+        left: 230,
         borderWidth: 0,
-        textAlign: 'center',
+        textAlign: 'left',
         font: {
           fontSize: 14,
           fontWeight: 'bold'
@@ -89,13 +89,14 @@
         top: 45
       });
       this.row.add(normalPriceLabel);
-      tachaImage = Titanium.UI.createImageView({
-        left: 226,
-        top: 55,
-        height: 1,
-        width: 35,
-        image: 'images/tacha.png'
+      sepVertView = Titanium.UI.createView({
+        backgroundColor: '#444547',
+        left: 225,
+        top: 42,
+        height: 25,
+        width: 1
       });
+      this.row.add(sepVertView);
       roomTypeImage = Titanium.UI.createImageView({
         left: 155,
         top: 80,

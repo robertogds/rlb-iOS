@@ -26,7 +26,6 @@ customerView.label2.addEventListener 'click', (e) ->
   emailDialog = Titanium.UI.createEmailDialog()
   emailDialog.subject = "Feedback about ReallyLateBooking"
   emailDialog.toRecipients = ['info@reallylatebooking.com']
-  #emailDialog.messageBody = ''
   emailDialog.open()
 
 root.loggedView.add(editButton)

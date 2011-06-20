@@ -1,12 +1,10 @@
 (function() {
-  var loginLabel, needLabel, rememberPassRowView;
-  Ti.include('/js/registerButton.js', '/js/newAccountView.js', '/js/loginAction.js', '/js/logoutAction.js', '/js/facebookButton.js', '/js/loginTable.js', '/js/rememberPassView.js');
+  var loginLabel, needLabel, registerButton, rememberPassRowView;
+  Ti.include('/js/newAccountView.js', '/js/loginAction.js', '/js/logoutAction.js', '/js/facebookButton.js', '/js/loginTable.js', '/js/rememberPassView.js');
   root.loginView = Titanium.UI.createView({
     background: "transparent",
-    borderWidth: 0,
     width: 320,
-    height: 300,
-    top: 10
+    top: 0
   });
   loginLabel = Titanium.UI.createLabel({
     borderWidth: 0,
@@ -29,7 +27,6 @@
   });
   root.loginView.add(rememberPassRowView.view);
   needLabel = Titanium.UI.createLabel({
-    borderWidth: 0,
     text: "¿Necesitas una cuenta? Regístrate gratis",
     color: '#fff',
     left: 5,
@@ -41,8 +38,18 @@
     width: 300,
     top: 250
   });
+  registerButton = new root.GenericButton(290, 'Registrarme').button;
+  registerButton.addEventListener('click', function(e) {
+    root.newAccountData[0] = root.newAccountSection;
+    root.newAccountTable.data = root.newAccountData;
+    root.newAccountView.add(root.newAccountTable);
+    root.newAccountWindow.add(root.newAccountView);
+    return root.tabGroup.activeTab.open(root.newAccountWindow, {
+      animated: true
+    });
+  });
+  root.loginView.add(registerButton);
   root.loginView.add(root.loginTable);
   root.loginView.add(needLabel);
   root.loginView.add(loginLabel);
-  root.loginView.add(root.registerButton);
 }).call(this);

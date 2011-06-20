@@ -3,11 +3,10 @@
     if (Titanium.App.Properties.hasProperty("user")) {
       root.loginView.hide();
       root.loggedView.show();
-      root.loadLoggedUser();
+      return root.loadLoggedUser();
     } else {
       root.loginView.show();
-      root.loggedView.hide();
+      return root.loggedView.hide();
     }
-    return 1;
   });
 }).call(this);

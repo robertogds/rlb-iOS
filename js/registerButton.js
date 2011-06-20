@@ -1,5 +1,7 @@
 (function() {
   root.registerButton = Titanium.UI.createButton({
+    borderWidth: 1,
+    borderColor: 'red',
     backgroundImage: 'images/BUTT_gry_off.png',
     backgroundSelectedImage: 'images/BUTT_gry_on.png',
     backgroundDisabledImage: 'images/BUTT_drk_off.png',
@@ -15,6 +17,7 @@
     top: 290
   });
   root.registerButton.addEventListener('click', function(e) {
+    alert('haces click');
     root.newAccountData[0] = root.newAccountSection;
     root.newAccountTable.data = root.newAccountData;
     root.newAccountView.add(root.newAccountTable);

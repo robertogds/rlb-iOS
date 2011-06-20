@@ -4,6 +4,7 @@ root.surl = 'https://rlb-back.appspot.com'
 
 Ti.include(
   '/js/GenericWindow.js'
+  '/js/GenericSeparatorView.js'
   '/js/Generic2RowsView.js'
   '/js/GenericRowView.js'
   '/js/GenericTextRow.js'

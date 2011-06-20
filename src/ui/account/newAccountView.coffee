@@ -1,5 +1,4 @@
 Ti.include(
-  '/js/newAccountButton.js'
   '/js/newAccountAction.js'
 )
 
@@ -62,10 +61,8 @@ passwordText.addEventListener 'return', (e) ->
   lastName = lastNameText.value
   root.newAccountWindow.add(root.loadingView)
   root.doRegister(email,password,firstName,lastName)
-  1
   
 root.newAccountSection = Titanium.UI.createTableViewSection()
-#section.headerTitle = "Login"
 root.newAccountData = []
 firstNameRow = Titanium.UI.createTableViewRow()
 lastNameRow = Titanium.UI.createTableViewRow()
@@ -89,9 +86,27 @@ acceptLegalLabel = Titanium.UI.createLabel
   color: '#fff'
   left: 8
   font:
-    fontSize: 9
+    fontSize: 10
     #fontWeight: 'bold'
 
-root.newAccountView.add(acceptLegalLabel)
-root.newAccountView.add(root.newAccountButton)
+newAccountButton = new root.GenericButton(250,'Crear Usuario').button
 
+newAccountButton.addEventListener 'click', (e) ->
+  email = emailText.value
+  password = passwordText.value
+  firstName = firstNameText.value
+  lastName = lastNameText.value
+  validate = validateRegisterForm(email,password,firstName,lastName)
+  if  validate is true
+    root.newAccountWindow.add(root.loadingView)
+    root.doRegister(email,password,firstName,lastName)
+  else
+    alert validate
+
+root.newAccountView.add(acceptLegalLabel)
+root.newAccountView.add(newAccountButton)
+
+validateRegisterForm = (email,password,firstName,lastName) ->
+  return 'email invalido' if email.length < 3  
+  return  'clave incorrecta' if password.length < 3
+  return true

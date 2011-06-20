@@ -1,5 +1,5 @@
 (function() {
-  var separator1, separator2;
+  var antesLabel, bookingLabel, infoImage, poiImage, priceView, sepVertView, separator1, separator2, separator3;
   Ti.include('/js/oneDealButtonBar.js', '/js/oneDealMapView.js', '/js/imagesScrollView.js', '/js/infoDealTable.js', '/js/buyButton.js');
   root.oneDealView = Titanium.UI.createView({
     background: 'transparent',
@@ -12,59 +12,132 @@
     width: 320,
     height: 120
   });
-  separator1 = Titanium.UI.createImageView({
-    top: 145,
-    image: 'images/separator.png',
-    width: 300
-  });
+  separator1 = new root.GenericSeparatorView(120).view;
   root.oneDealView.add(separator1);
-  separator2 = Titanium.UI.createImageView({
-    top: 60,
-    image: 'images/separator.png',
-    width: 300
-  });
+  separator2 = new root.GenericSeparatorView(200).view;
   root.oneDealView.add(separator2);
+  priceView = Titanium.UI.createView({
+    backgroundColor: 'black',
+    borderWidth: 0,
+    width: 320,
+    top: 122,
+    height: 77
+  });
   root.oneDealPriceLabel = Titanium.UI.createLabel({
-    width: 320,
-    height: 60,
-    textAlign: 'center',
-    color: '#fff',
-    font: {
-      fontSize: 28,
-      fontWeight: 'normal',
-      fontFamily: 'Helvetica Neue'
-    },
-    top: 235
-  });
-  root.oneDealAddressLabel = Titanium.UI.createLabel({
-    width: 320,
-    height: 80,
-    textAlign: 'center',
-    color: '#fff',
-    font: {
-      fontSize: 18,
-      fontWeight: 'normal',
-      fontFamily: 'Helvetica Neue'
-    },
-    top: 115
-  });
-  root.descriptionLabel = Titanium.UI.createLabel({
-    width: 300,
-    height: 20,
+    width: 85,
     textAlign: 'left',
     color: '#fff',
     font: {
+      fontSize: 36,
+      fontWeight: 'bold',
+      fontFamily: 'Helvetica Neue'
+    },
+    top: 0,
+    left: 15
+  });
+  priceView.add(root.oneDealPriceLabel);
+  sepVertView = Titanium.UI.createView({
+    backgroundColor: '#444547',
+    left: 105,
+    top: 26,
+    height: 28,
+    width: 1
+  });
+  priceView.add(sepVertView);
+  antesLabel = Titanium.UI.createLabel({
+    text: 'antes',
+    color: '#868d92',
+    left: 110,
+    font: {
+      fontSize: 16
+    },
+    width: 40,
+    height: 20,
+    top: 18
+  });
+  priceView.add(antesLabel);
+  root.oneDealNormalPriceLabel = Titanium.UI.createLabel({
+    width: 77,
+    height: 30,
+    textAlign: 'left',
+    color: '#868d92',
+    font: {
+      fontSize: 20,
+      fontWeight: 'bold',
+      fontFamily: 'Helvetica Neue'
+    },
+    top: 33,
+    left: 110
+  });
+  priceView.add(root.oneDealNormalPriceLabel);
+  bookingLabel = Titanium.UI.createLabel({
+    backgroundImage: '/images/booking_background.png',
+    width: 108,
+    height: 33,
+    borderRadius: 5,
+    backgroundColor: '#0098cb',
+    text: ' reservar',
+    font: {
       fontSize: 18,
+      fontWeight: 'bold',
+      fontFamily: 'Helvetica Neue'
+    },
+    top: 24,
+    left: 200
+  });
+  bookingLabel.addEventListener('click', function(e) {
+    return root.showBookingView();
+  });
+  priceView.add(bookingLabel);
+  poiImage = Titanium.UI.createImageView({
+    top: 210,
+    image: '/images/poi.png',
+    width: 15,
+    height: 20,
+    left: 5
+  });
+  root.oneDealView.add(poiImage);
+  root.oneDealAddressLabel = Titanium.UI.createLabel({
+    width: 280,
+    height: 40,
+    textAlign: 'left',
+    color: '#fff',
+    font: {
+      fontSize: 14,
+      fontWeight: 'normal',
+      fontFamily: 'Helvetica Neue',
+      fontWeight: 'bold'
+    },
+    top: 205,
+    left: 25
+  });
+  separator3 = new root.GenericSeparatorView(250).view;
+  root.oneDealView.add(separator3);
+  infoImage = Titanium.UI.createImageView({
+    top: 260,
+    image: '/images/icon_info.png',
+    width: 20,
+    height: 20,
+    left: 5
+  });
+  root.oneDealView.add(infoImage);
+  root.descriptionLabel = Titanium.UI.createLabel({
+    width: 280,
+    height: 60,
+    textAlign: 'left',
+    color: '#fff',
+    font: {
+      fontSize: 14,
       fontWeight: 'normal',
       fontFamily: 'Helvetica Neue'
     },
-    top: 205
+    top: 260,
+    left: 25
   });
   root.oneDealView.add(root.oneDealImage);
+  root.oneDealView.add(priceView);
   root.oneDealView.add(root.oneDealAddressLabel);
-  root.oneDealView.add(root.oneDealPriceLabel);
   root.oneDealView.add(root.descriptionLabel);
-  root.oneDealView.add(root.buyButton);
   root.oneDealWindow.add(root.oneDealButtonBarView);
   root.oneDealWindow.add(root.oneDealView);
   root.showDealView = function(deal) {
@@ -86,9 +159,10 @@
     root.mapView.addAnnotation(root.hotelAnnotation);
     root.oneDealWindow.title = deal.hotelName;
     root.oneDealImage.image = deal.mainImageBig;
-    root.oneDealPriceLabel.text = deal.salePriceCents + "€" + '  Sólo Esta Noche';
-    root.oneDealAddressLabel.text = deal.hotelName + '\n' + deal.address;
-    root.descriptionLabel.text = deal.description;
+    root.oneDealPriceLabel.text = deal.salePriceCents + "€";
+    root.oneDealNormalPriceLabel.text = deal.priceCents + "€";
+    root.oneDealAddressLabel.text = deal.address + '\n' + deal.city.name;
+    root.descriptionLabel.text = deal.hotelText;
     root.image1.image = deal.image1;
     root.image2.image = deal.image2;
     root.image3.image = deal.image3;

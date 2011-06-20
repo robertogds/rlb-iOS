@@ -1,6 +1,6 @@
 (function() {
-  var acceptLegalLabel, emailRow, emailText, firstNameRow, firstNameText, lastNameRow, lastNameText, passwordRow, passwordText;
-  Ti.include('/js/newAccountButton.js', '/js/newAccountAction.js');
+  var acceptLegalLabel, emailRow, emailText, firstNameRow, firstNameText, lastNameRow, lastNameText, newAccountButton, passwordRow, passwordText, validateRegisterForm;
+  Ti.include('/js/newAccountAction.js');
   root.newAccountView = Titanium.UI.createView({
     backgroundImage: 'images/background1.png',
     width: 320
@@ -59,8 +59,7 @@
     firstName = firstNameText.value;
     lastName = lastNameText.value;
     root.newAccountWindow.add(root.loadingView);
-    root.doRegister(email, password, firstName, lastName);
-    return 1;
+    return root.doRegister(email, password, firstName, lastName);
   });
   root.newAccountSection = Titanium.UI.createTableViewSection();
   root.newAccountData = [];
@@ -83,9 +82,33 @@
     color: '#fff',
     left: 8,
     font: {
-      fontSize: 9
+      fontSize: 10
+    }
+  });
+  newAccountButton = new root.GenericButton(250, 'Crear Usuario').button;
+  newAccountButton.addEventListener('click', function(e) {
+    var email, firstName, lastName, password, validate;
+    email = emailText.value;
+    password = passwordText.value;
+    firstName = firstNameText.value;
+    lastName = lastNameText.value;
+    validate = validateRegisterForm(email, password, firstName, lastName);
+    if (validate === true) {
+      root.newAccountWindow.add(root.loadingView);
+      return root.doRegister(email, password, firstName, lastName);
+    } else {
+      return alert(validate);
     }
   });
   root.newAccountView.add(acceptLegalLabel);
-  root.newAccountView.add(root.newAccountButton);
+  root.newAccountView.add(newAccountButton);
+  validateRegisterForm = function(email, password, firstName, lastName) {
+    if (email.length < 3) {
+      return 'email invalido';
+    }
+    if (password.length < 3) {
+      return 'clave incorrecta';
+    }
+    return true;
+  };
 }).call(this);

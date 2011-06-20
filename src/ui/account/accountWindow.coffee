@@ -6,4 +6,3 @@ root.accountWindow.addEventListener 'focus', (e) ->
   else
     root.loginView.show()
     root.loggedView.hide()
-  1

@@ -1,8 +1,8 @@
 (function() {
   var userEmailRow, userFirstNameRow, userLastNameRow;
   root.userLoggedTable = Titanium.UI.createTableView({
-    top: 0,
-    height: 150,
+    top: 5,
+    height: 135,
     width: 300,
     borderWidth: 0,
     borderRadius: 10,
@@ -35,7 +35,6 @@
     }
   });
   root.userLoggedSection = Titanium.UI.createTableViewSection();
-  root.userLoggedSection.headerTitle = "Estás logado como: ";
   root.userLoggedData = [];
   userFirstNameRow = Titanium.UI.createTableViewRow();
   userLastNameRow = Titanium.UI.createTableViewRow();
