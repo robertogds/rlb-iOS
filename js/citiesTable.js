@@ -47,6 +47,7 @@
     } else {
       root.citiesWindow.add(root.loadingView);
       root.xhrCities.open('GET', root.url + '/cities');
+      root.xhrCities.setRequestHeader("Accept-Language", Titanium.Locale.currentLanguage);
       return root.xhrCities.send();
     }
   };

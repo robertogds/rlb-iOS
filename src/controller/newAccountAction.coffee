@@ -31,6 +31,7 @@ root.doRegister = (email,password,firstName,lastName,id) ->
     proto = 'POST'  
   root.xhrRegister.open(proto,url)
   root.xhrRegister.setRequestHeader("Content-Type","application/json; charset=utf-8")
+  root.xhrRegister.setRequestHeader("Accept-Language",Titanium.Locale.currentLanguage)
   newUser = JSON.stringify
     "email":email
     "password":password

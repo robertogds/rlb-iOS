@@ -26,6 +26,7 @@ root.doBooking = () ->
   root.xhrBooking.setTimeout(5000)
   root.xhrBooking.open("POST",root.surl+"/booking")
   root.xhrBooking.setRequestHeader("Content-Type","application/json; charset=utf-8")
+  root.xhrBooking.setRequestHeader("Accept-Language",Titanium.Locale.currentLanguage)
   newBook = JSON.stringify
     "userId": root.user.id
     "dealId": root.deal.id

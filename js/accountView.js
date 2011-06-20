@@ -1,7 +1,7 @@
 (function() {
   Ti.include('/js/loginView.js', '/js/loggedView.js', '/js/rememberPassAction.js');
   root.accountView = Titanium.UI.createView({
-    backgroundImage: 'images/background1.png',
+    backgroundColor: '#0d1e28',
     width: 320
   });
   root.accountView.add(root.loginView);

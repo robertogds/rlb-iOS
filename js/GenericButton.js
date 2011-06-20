@@ -3,10 +3,10 @@
   GenericButton = (function() {
     function GenericButton(top, title) {
       this.button = Titanium.UI.createButton({
-        backgroundImage: 'images/BUTT_gry_off.png',
-        backgroundSelectedImage: 'images/BUTT_gry_on.png',
-        backgroundDisabledImage: 'images/BUTT_drk_off.png',
-        color: '#000',
+        backgroundImage: '/images/BUTT_drk_off.png',
+        backgroundSelectedImage: '/images/BUTT_drk_on.png',
+        backgroundDisabledImage: '/images/BUTT_drk_off.png',
+        color: '#fff',
         title: title,
         width: 220,
         height: 40,

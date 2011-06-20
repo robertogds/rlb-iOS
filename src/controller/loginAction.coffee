@@ -18,4 +18,5 @@ root.doLogin = (email,password) ->
   root.xhrLogin.setTimeout(5000)
   root.xhrLogin.open("POST",root.surl+"/users/login")
   root.xhrLogin.setRequestHeader("Content-Type","application/json; charset=utf-8")
+  root.xhrLogin.setRequestHeader("Accept-Language",Titanium.Locale.currentLanguage)
   root.xhrLogin.send(JSON.stringify({"email":email, "password":password}))

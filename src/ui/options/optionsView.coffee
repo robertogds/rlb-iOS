@@ -10,7 +10,7 @@ root.optionsView = Titanium.UI.createView
 versionLabel = Titanium.UI.createLabel
   borderWidth: 0
   text: 'Version: ' + Titanium.App.version
-  color: '#fff'
+  color: '#868d92'
   textAlign: 'center'
   font:
     fontSize: 14

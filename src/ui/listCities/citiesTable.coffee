@@ -18,8 +18,6 @@ root.citiesTable.addEventListener 'click', (e) ->
   root.loadDeals(e.row.city)
   root.showDeals()
 
-
-
   
 root.xhrCities = Titanium.Network.createHTTPClient()
 
@@ -48,5 +46,6 @@ root.showCities = () ->
     #root.tabGroup.activeTab.open(root.listCitiesWindow,{animated:true})
     root.citiesWindow.add(root.loadingView)
     root.xhrCities.open('GET', root.url+'/cities')
+    root.xhrCities.setRequestHeader("Accept-Language",Titanium.Locale.currentLanguage)
     root.xhrCities.send()
   

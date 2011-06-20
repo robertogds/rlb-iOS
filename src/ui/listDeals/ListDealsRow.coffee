@@ -86,13 +86,20 @@ class ListDealsRow
       top: 80
       height: 34
       width: 88
+
     if deal.roomType is 'lujo'
-      roomTypeImage.image = 'images/lujo.png'
-    else if deal.roomType is 'elegante'
-      roomTypeImage.image = 'images/elegante.png'
-   	else if deal.roomType is 'confort'
-	      roomTypeImage.image = 'images/confort.png'
+      image = 'images/lujo.png'
+      icon = '/images/yellow_arrow.png'
+    if deal.roomType is 'elegante'
+      icon = '/images/purple_arrow.png'
+      image = 'images/elegante.png'
+    if deal.roomType is 'confort'
+      icon = '/images/blue_arrow.png'
+      image = 'images/confort.png'
+	
+    roomTypeImage.image = image
     @row.add(roomTypeImage)
+    @row.rightImage = icon
 
     separator = Titanium.UI.createImageView 
       image: 'images/separator.png'

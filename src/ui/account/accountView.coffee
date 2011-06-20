@@ -5,7 +5,7 @@ Ti.include(
 )
 
 root.accountView = Titanium.UI.createView
-  backgroundImage: 'images/background1.png'
+  backgroundColor: '#0d1e28'
   width:320
 
 

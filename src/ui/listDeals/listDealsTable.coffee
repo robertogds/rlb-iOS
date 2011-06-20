@@ -43,6 +43,7 @@ root.xhrDeals.onerror = () ->
 root.loadDeals = (city) ->
   root.listDealsWindow.title = city.name
   root.xhrDeals.open('GET', root.url+'/deals/'+city.url)
+  root.xhrDeals.setRequestHeader("Accept-Language",Titanium.Locale.currentLanguage)
   root.xhrDeals.send()
 
 root.showDeals = () -> 
