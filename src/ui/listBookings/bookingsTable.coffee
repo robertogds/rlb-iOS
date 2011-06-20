@@ -1,11 +1,19 @@
 Ti.include('/js/BookingsRow.js')
 
+
+root.footerView = Titanium.UI.createView
+    backgroundColor:'#0d1e28' 
+    borderWidth: 0
+    height:100
+    width:320
+
 root.bookingsTable = Titanium.UI.createTableView
   data: []
   backgroundColor: '#0d1e28'
   separatorColor: '#1b3c50'
 
 root.bookingsWindow.add(root.bookingsTable)
+
 
 root.bookingsTable.addEventListener 'click', (e) ->
   root.showOneBookingView(e.row.booking)
@@ -25,6 +33,7 @@ root.xhrBookings.onload = () ->
     root.noBookingsView.show()
   else
     root.bookingsTable.setData(data)
+    root.bookingsTable.footerView = root.footerView
   root.bookingsWindow.remove(root.loadingView)
 
 root.xhrBookings.onerror = () ->
@@ -39,4 +48,5 @@ root.showBookings = () ->
   root.noBookingsView.hide()
   root.bookingsWindow.add(root.loadingView)
   root.xhrBookings.open('GET',root.url+'/user/'+root.user.id+'/bookings')
+  root.xhrBookings.setRequestHeader("Accept-Language",Titanium.Locale.currentLanguage)
   root.xhrBookings.send()

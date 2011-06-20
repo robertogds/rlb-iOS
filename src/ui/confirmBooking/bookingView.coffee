@@ -1,9 +1,8 @@
 Ti.include(
-  '/js/confirmButton.js'
-  '/js/bookingAction.js'
   '/js/expiresView.js'
   '/js/cardTypeView.js'
   '/js/creditCardTable.js'
+  '/js/bookingAction.js'
 )
 root.bookingView = Titanium.UI.createView
   background: 'transparent'
@@ -11,10 +10,15 @@ root.bookingView = Titanium.UI.createView
   width:320
   top: 0
 
+confirmButton = new root.GenericButton(280,'Confirmar').button 
 
-root.bookingView.add(root.confirmButton)
+confirmButton.addEventListener 'click', (e) ->
+  root.doBooking()
+
+root.bookingView.add(confirmButton)
 root.confirmBookingWindow.add(root.bookingView)
-
+root.oneClassBookingView =  new root.GenericTextView(0,'Reserva','Reserva').view
+root.oneBookingWindow.add(root.oneClassBookingView)
 
 root.showBookingView = () ->
   if Titanium.App.Properties.hasProperty("user")

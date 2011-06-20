@@ -1,13 +1,20 @@
 (function() {
-  Ti.include('/js/confirmButton.js', '/js/bookingAction.js', '/js/expiresView.js', '/js/cardTypeView.js', '/js/creditCardTable.js');
+  var confirmButton;
+  Ti.include('/js/expiresView.js', '/js/cardTypeView.js', '/js/creditCardTable.js', '/js/bookingAction.js');
   root.bookingView = Titanium.UI.createView({
     background: 'transparent',
     borderWidth: 0,
     width: 320,
     top: 0
   });
-  root.bookingView.add(root.confirmButton);
+  confirmButton = new root.GenericButton(280, 'Confirmar').button;
+  confirmButton.addEventListener('click', function(e) {
+    return root.doBooking();
+  });
+  root.bookingView.add(confirmButton);
   root.confirmBookingWindow.add(root.bookingView);
+  root.oneClassBookingView = new root.GenericTextView(0, 'Reserva', 'Reserva').view;
+  root.oneBookingWindow.add(root.oneClassBookingView);
   root.showBookingView = function() {
     if (Titanium.App.Properties.hasProperty("user")) {
       root.creditCardData[0] = root.creditCardSection;

@@ -2,16 +2,16 @@ Titanium.UI.setBackgroundColor('#000')
 
 # Application Windows
 root.citiesWindow = new root.GenericWindow(Ti.Locale.getString('cities'),'').win
-root.listDealsWindow = new root.GenericWindow('Madrid','Cargando Ofertas Disponibles').win
+root.listDealsWindow = new root.GenericWindow('Madrid','Loading').win
 root.listDealsMapWindow = new root.GenericWindow('Mapa','Mapa').win
 root.bookingsWindow = new root.GenericWindow('Tus Reservas','Reservas').win
 root.accountWindow = new root.GenericWindow('Perfil','Mi Perfil').win
 root.oneDealWindow = new root.GenericWindow('','').win
-root.oneBookingWindow = new root.GenericWindow('Reserva','Confirmación Reserva').win
+root.oneBookingWindow = new root.GenericWindow('Reserva','').win
 root.optionsWindow = new root.GenericWindow('Opciones','Opciones').win
 root.imagesWindow = new root.GenericWindow('Fotos','Fotos').win
-root.newAccountWindow = new root.GenericWindow('Nueva Cuenta','Nueva Cuenta').win
-root.editAccountWindow = new root.GenericWindow('Editar Cuenta','Editar Cuenta').win
+root.newAccountWindow = new root.GenericWindow('Nueva Cuenta','').win
+root.editAccountWindow = new root.GenericWindow('Editar Cuenta','').win
 root.confirmBookingWindow = new root.GenericWindow('Confirmar','Confirmar').win
 root.closedWindow = new root.GenericWindow('Cerrado','Cerrado').win
 root.supportWindow = new root.GenericWindow('Soporte Usuario','Soporte').win

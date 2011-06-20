@@ -21,10 +21,10 @@
         }
       });
       bookingLabel = Titanium.UI.createLabel({
-        text: booking.id + ' ' + booking.hotelName + ' ' + booking.priceCents + '€',
+        text: booking.checkinDate + '   ' + booking.hotelName + '    ' + booking.priceCents + '€',
         color: '#fff',
         font: {
-          fontSize: 16,
+          fontSize: 12,
           fontWeight: 'bold'
         },
         left: 10

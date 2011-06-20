@@ -1,5 +1,11 @@
 (function() {
   Ti.include('/js/BookingsRow.js');
+  root.footerView = Titanium.UI.createView({
+    backgroundColor: '#0d1e28',
+    borderWidth: 0,
+    height: 100,
+    width: 320
+  });
   root.bookingsTable = Titanium.UI.createTableView({
     data: [],
     backgroundColor: '#0d1e28',
@@ -27,6 +33,7 @@
       root.noBookingsView.show();
     } else {
       root.bookingsTable.setData(data);
+      root.bookingsTable.footerView = root.footerView;
     }
     return root.bookingsWindow.remove(root.loadingView);
   };
@@ -42,6 +49,7 @@
     root.noBookingsView.hide();
     root.bookingsWindow.add(root.loadingView);
     root.xhrBookings.open('GET', root.url + '/user/' + root.user.id + '/bookings');
+    root.xhrBookings.setRequestHeader("Accept-Language", Titanium.Locale.currentLanguage);
     return root.xhrBookings.send();
   };
 }).call(this);

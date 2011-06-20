@@ -38,4 +38,3 @@ root.doBooking = () ->
     "creditCardCVC": root.cvcCodeText.value
   Ti.API.info(newBook)
   root.xhrBooking.send(newBook)
-  1

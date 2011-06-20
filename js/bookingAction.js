@@ -42,7 +42,6 @@
       "creditCardCVC": root.cvcCodeText.value
     });
     Ti.API.info(newBook);
-    root.xhrBooking.send(newBook);
-    return 1;
+    return root.xhrBooking.send(newBook);
   };
 }).call(this);
