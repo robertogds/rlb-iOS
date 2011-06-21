@@ -29,8 +29,12 @@ passText = Titanium.UI.createTextField
 passText.addEventListener 'return', (e) ->
   email = emailText.value
   password = passText.value
-  password = Titanium.Utils.md5HexDigest(password)
-  root.doLogin(email,password)
+  validate = root.validateLoginData(email,password)
+  if validate is true
+    password = Titanium.Utils.md5HexDigest(password)
+    root.doLogin(email,password)
+  else
+   alert 'Revisa los datos: ' + validate
 
 
 section = Titanium.UI.createTableViewSection()

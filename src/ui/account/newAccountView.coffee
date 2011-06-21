@@ -3,7 +3,7 @@ Ti.include(
 )
 
 root.newAccountView = Titanium.UI.createView
-  backgroundImage: 'images/background1.png'
+  backgroundColor: 'transparent'
   width:320
 
 root.newAccountTable = Titanium.UI.createTableView
@@ -59,8 +59,12 @@ passwordText.addEventListener 'return', (e) ->
   password = passwordText.value
   firstName = firstNameText.value
   lastName = lastNameText.value
-  root.newAccountWindow.add(root.loadingView)
-  root.doRegister(email,password,firstName,lastName)
+  validate = root.validateNewAccountData(email,password,firstName,lastName)
+  if validate is true
+    root.newAccountWindow.add(root.loadingView)
+    root.doRegister(email,password,firstName,lastName)
+  else
+    alert 'Revisa los datos: ' + validate
   
 root.newAccountSection = Titanium.UI.createTableViewSection()
 root.newAccountData = []
@@ -96,17 +100,14 @@ newAccountButton.addEventListener 'click', (e) ->
   password = passwordText.value
   firstName = firstNameText.value
   lastName = lastNameText.value
-  validate = validateRegisterForm(email,password,firstName,lastName)
-  if  validate is true
+  validate = root.validateNewAccountData(email,password,firstName,lastName)
+  if validate is true
     root.newAccountWindow.add(root.loadingView)
-    root.doRegister(email,password,firstName,lastName)
+    root.doRegister(email,password,firstName,lastName)    
   else
-    alert validate
+    alert 'Revisa los datos: ' + validate
+
 
 root.newAccountView.add(acceptLegalLabel)
 root.newAccountView.add(newAccountButton)
 
-validateRegisterForm = (email,password,firstName,lastName) ->
-  return 'email invalido' if email.length < 3  
-  return  'clave incorrecta' if password.length < 3
-  return true

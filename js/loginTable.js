@@ -29,11 +29,16 @@
     passwordMask: true
   });
   passText.addEventListener('return', function(e) {
-    var email, password;
+    var email, password, validate;
     email = emailText.value;
     password = passText.value;
-    password = Titanium.Utils.md5HexDigest(password);
-    return root.doLogin(email, password);
+    validate = root.validateLoginData(email, password);
+    if (validate === true) {
+      password = Titanium.Utils.md5HexDigest(password);
+      return root.doLogin(email, password);
+    } else {
+      return alert('Revisa los datos: ' + validate);
+    }
   });
   section = Titanium.UI.createTableViewSection();
   data = [];

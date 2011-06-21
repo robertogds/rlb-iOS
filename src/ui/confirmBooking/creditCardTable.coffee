@@ -1,5 +1,5 @@
 root.creditCardTable = Titanium.UI.createTableView
-  top: 20
+  top: 15
   height: 215
   width: 300
   borderWidth:0
@@ -61,7 +61,11 @@ root.cvcCodeText = Titanium.UI.createTextField
   keyboardType: Titanium.UI.KEYBOARD_NUMBERS_PUNCTUATION
 
 root.cvcCodeText.addEventListener 'return', (e) ->
-  root.doBooking()
+  validate = root.validateBookingData()
+  if validate isnt true
+    alert 'Revisa los datos: ' + validate
+  else
+    root.doBooking()
 
 root.creditCardSection = Titanium.UI.createTableViewSection()
 root.creditCardData = []

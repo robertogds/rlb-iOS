@@ -2,8 +2,11 @@
   root.xhrBooking = Titanium.Network.createHTTPClient();
   root.xhrBooking.onload = function(e) {
     var response;
+    Ti.API.info(this.responseText);
+    alert(this.responseText);
     root.confirmBookingWindow.remove(root.loadingView);
     response = JSON.parse(this.responseText);
+    alert(response);
     Ti.API.info(response);
     if (response.status === 201) {
       root.showOneBookingView(response.content);
@@ -26,6 +29,7 @@
   };
   root.doBooking = function() {
     var newBook;
+    alert('entra en booking');
     root.confirmBookingWindow.add(root.loadingView);
     root.xhrBooking.setTimeout(5000);
     root.xhrBooking.open("POST", root.surl + "/booking");
@@ -43,5 +47,32 @@
     });
     Ti.API.info(newBook);
     return root.xhrBooking.send(newBook);
+  };
+  root.validateBookingData = function() {
+    if (!(root.user.id > 0)) {
+      return 'Usuario incorrecto';
+    }
+    if (!(root.deal.id > 0)) {
+      return 'No hay deal';
+    }
+    if (root.cardTypeLabel.text === 'Tipo de tarjeta') {
+      return 'Tipo de tarjeta incorrecto';
+    }
+    if (!(root.cardTypeLabel.text.length > 2)) {
+      return 'Tipo de tarjeta incorrecto';
+    }
+    if (!(root.cardNumberText.value.length > 12)) {
+      return 'Número de tarjeta incorrecto';
+    }
+    if (!(root.cardNameText.value.length > 2)) {
+      return 'Titular tarjeta incorrecto';
+    }
+    if (!(root.expiresLabel.text.length > 2)) {
+      return 'Fecha expiración incorrecta';
+    }
+    if (!(root.cvcCodeText.value.length > 2)) {
+      return 'cvcCode incorrecto';
+    }
+    return true;
   };
 }).call(this);

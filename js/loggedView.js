@@ -2,7 +2,7 @@
   var customerView, editButton, logoutButton;
   Ti.include('/js/userLoggedTable.js', '/js/editAccountView.js');
   root.loggedView = Titanium.UI.createView({
-    background: "transparent",
+    backgroundColor: "transparent",
     borderWidth: 0,
     width: 320,
     top: 1

@@ -70,8 +70,6 @@ infoLabel = Titanium.UI.createLabel
 
 expiresButton = new root.GenericButton(50,'Hecho').button
 
-
-
 expiresButton.addEventListener 'click', (e) ->
   root.expiresLabel.text = root.cardExpiresMonth + '/' + root.cardExpiresYear
   root.expiresView.hide()

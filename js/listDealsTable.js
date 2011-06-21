@@ -44,7 +44,8 @@
   };
   root.xhrDeals.onerror = function() {
     alert('Se produjo un error. Inténtelo más tarde');
-    return root.listDealsWindow.remove(root.loadingView);
+    root.listDealsWindow.remove(root.loadingView);
+    return root.showError();
   };
   root.loadDeals = function(city) {
     root.listDealsWindow.title = city.name;

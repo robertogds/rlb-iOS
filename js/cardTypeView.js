@@ -1,5 +1,5 @@
 (function() {
-  var buttonView, data, infoLabel, pickerView;
+  var buttonView, cardTypeButton, data, infoLabel, pickerView;
   root.cardTypeView = Titanium.UI.createView({
     background: 'transparent',
     borderWidth: 0,
@@ -49,30 +49,15 @@
     },
     top: 0
   });
-  root.cardTypeButton = Titanium.UI.createButton({
-    backgroundImage: 'images/BUTT_gry_off.png',
-    backgroundSelectedImage: 'images/BUTT_gry_on.png',
-    backgroundDisabledImage: 'images/BUTT_drk_off.png',
-    borderWidth: 0,
-    color: '#000',
-    title: 'Hecho',
-    width: 220,
-    height: 40,
-    font: {
-      fontSize: 20,
-      fontWeight: 'bold',
-      fontFamily: 'Helvetica Neue'
-    },
-    top: 50
-  });
-  root.cardTypeButton.addEventListener('click', function(e) {
+  cardTypeButton = new root.GenericButton(50, 'Hecho').button;
+  cardTypeButton.addEventListener('click', function(e) {
     root.cardTypeLabel.text = root.cardType;
     root.cardTypeView.hide();
     return root.cardNumberText.focus();
   });
   pickerView.add(root.cardTypePicker);
   buttonView.add(infoLabel);
-  buttonView.add(root.cardTypeButton);
+  buttonView.add(cardTypeButton);
   root.cardTypeView.add(buttonView);
   root.cardTypeView.add(pickerView);
   root.cardTypeView.hide();

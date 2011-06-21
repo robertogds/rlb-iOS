@@ -21,3 +21,8 @@ root.doLogin = (email,password) ->
   root.xhrLogin.setRequestHeader("Content-Type","application/json; charset=utf-8")
   root.xhrLogin.setRequestHeader("Accept-Language",Titanium.Locale.currentLanguage)
   root.xhrLogin.send(JSON.stringify({"email":email, "password":password}))
+
+root.validateLoginData = (email,password) ->
+  return 'Email incorrecto' unless email.length > 3
+  return 'Password incorrecto' unless password.length > 3
+  return true

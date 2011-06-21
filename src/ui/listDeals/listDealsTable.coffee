@@ -39,7 +39,7 @@ root.xhrDeals.onload = () ->
 root.xhrDeals.onerror = () ->
   alert 'Se produjo un error. Inténtelo más tarde'
   root.listDealsWindow.remove(root.loadingView)
-  #root.showError()
+  root.showError()
 
 root.loadDeals = (city) ->
   root.listDealsWindow.title = city.name

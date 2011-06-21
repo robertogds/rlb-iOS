@@ -1,8 +1,8 @@
 (function() {
-  var acceptLegalLabel, emailRow, emailText, firstNameRow, firstNameText, lastNameRow, lastNameText, newAccountButton, passwordRow, passwordText, validateRegisterForm;
+  var acceptLegalLabel, emailRow, emailText, firstNameRow, firstNameText, lastNameRow, lastNameText, newAccountButton, passwordRow, passwordText;
   Ti.include('/js/newAccountAction.js');
   root.newAccountView = Titanium.UI.createView({
-    backgroundImage: 'images/background1.png',
+    backgroundColor: 'transparent',
     width: 320
   });
   root.newAccountTable = Titanium.UI.createTableView({
@@ -53,13 +53,18 @@
     passwordMask: true
   });
   passwordText.addEventListener('return', function(e) {
-    var email, firstName, lastName, password;
+    var email, firstName, lastName, password, validate;
     email = emailText.value;
     password = passwordText.value;
     firstName = firstNameText.value;
     lastName = lastNameText.value;
-    root.newAccountWindow.add(root.loadingView);
-    return root.doRegister(email, password, firstName, lastName);
+    validate = root.validateNewAccountData(email, password, firstName, lastName);
+    if (validate === true) {
+      root.newAccountWindow.add(root.loadingView);
+      return root.doRegister(email, password, firstName, lastName);
+    } else {
+      return alert('Revisa los datos: ' + validate);
+    }
   });
   root.newAccountSection = Titanium.UI.createTableViewSection();
   root.newAccountData = [];
@@ -92,23 +97,14 @@
     password = passwordText.value;
     firstName = firstNameText.value;
     lastName = lastNameText.value;
-    validate = validateRegisterForm(email, password, firstName, lastName);
+    validate = root.validateNewAccountData(email, password, firstName, lastName);
     if (validate === true) {
       root.newAccountWindow.add(root.loadingView);
       return root.doRegister(email, password, firstName, lastName);
     } else {
-      return alert(validate);
+      return alert('Revisa los datos: ' + validate);
     }
   });
   root.newAccountView.add(acceptLegalLabel);
   root.newAccountView.add(newAccountButton);
-  validateRegisterForm = function(email, password, firstName, lastName) {
-    if (email.length < 3) {
-      return 'email invalido';
-    }
-    if (password.length < 3) {
-      return 'clave incorrecta';
-    }
-    return true;
-  };
 }).call(this);

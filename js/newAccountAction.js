@@ -44,4 +44,19 @@
     });
     return root.xhrRegister.send(newUser);
   };
+  root.validateNewAccountData = function(email, password, firstName, lastName) {
+    if (!(email.length > 3)) {
+      return 'Email incorrecto';
+    }
+    if (!(password.length > 3)) {
+      return 'Password incorrecto, debe tener al menos 4 caracteres';
+    }
+    if (!(root.firstName.length > 0)) {
+      return 'Nombre vacío';
+    }
+    if (!(root.lastName.length > 0)) {
+      return 'Apellidos vacío';
+    }
+    return true;
+  };
 }).call(this);

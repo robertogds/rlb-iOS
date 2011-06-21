@@ -27,4 +27,13 @@
       "password": password
     }));
   };
+  root.validateLoginData = function(email, password) {
+    if (!(email.length > 3)) {
+      return 'Email incorrecto';
+    }
+    if (!(password.length > 3)) {
+      return 'Password incorrecto';
+    }
+    return true;
+  };
 }).call(this);

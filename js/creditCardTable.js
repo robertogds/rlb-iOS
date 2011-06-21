@@ -1,7 +1,7 @@
 (function() {
   var cardNameRow, cardNumberRow, cardTypeRow, cvcCodeRow, expiresRow;
   root.creditCardTable = Titanium.UI.createTableView({
-    top: 20,
+    top: 15,
     height: 215,
     width: 300,
     borderWidth: 0,
@@ -68,7 +68,13 @@
     keyboardType: Titanium.UI.KEYBOARD_NUMBERS_PUNCTUATION
   });
   root.cvcCodeText.addEventListener('return', function(e) {
-    return root.doBooking();
+    var validate;
+    validate = root.validateBookingData();
+    if (validate !== true) {
+      return alert('Revisa los datos: ' + validate);
+    } else {
+      return root.doBooking();
+    }
   });
   root.creditCardSection = Titanium.UI.createTableViewSection();
   root.creditCardData = [];
