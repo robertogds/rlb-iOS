@@ -32,22 +32,22 @@ root.tabGroup = Titanium.UI.createTabGroup
   id:'tabGroup'
 
 root.dealsTab = Titanium.UI.createTab
-  icon:'icons/ico_deal.png'
+  icon:'icons/icon_deal.png'
   title:'Ciudades'
   window: root.citiesWindow
   
 root.bookingTab = Titanium.UI.createTab
-  icon:'icons/ico_buy.png'
+  icon:'icons/icon_buy.png'
   title:'Reservas'
   window: root.bookingsWindow
     
 root.accountTab = Titanium.UI.createTab
-  icon:'icons/ico_user.png'
+  icon:'icons/icon_user.png'
   title:'Perfil'
   window: root.accountWindow
 
 root.optionsTab = Titanium.UI.createTab
-  icon:'icons/ico_conf.png'
+  icon:'icons/icon_conf.png'
   title:'Opciones'
   window: root.optionsWindow
 

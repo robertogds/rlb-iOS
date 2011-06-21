@@ -68,26 +68,18 @@ infoLabel = Titanium.UI.createLabel
     fontFamily:'Helvetica Neue'
   top: 0
 
-root.expiresButton = Titanium.UI.createButton
-  backgroundImage:'images/BUTT_gry_off.png'
-  backgroundSelectedImage:'images/BUTT_gry_on.png'
-  backgroundDisabledImage: 'images/BUTT_drk_off.png'
-  borderWidth: 0
-  color: '#000'
-  title: 'Hecho'
-  width:220
-  height:40
-  font:{fontSize:20,fontWeight:'bold',fontFamily:'Helvetica Neue'}
-  top: 50
+expiresButton = new root.GenericButton(50,'Hecho').button
 
-root.expiresButton.addEventListener 'click', (e) ->
+
+
+expiresButton.addEventListener 'click', (e) ->
   root.expiresLabel.text = root.cardExpiresMonth + '/' + root.cardExpiresYear
   root.expiresView.hide()
   root.cvcCodeText.focus()
 
 pickerView.add(root.expiresPicker)
 buttonView.add(infoLabel)
-buttonView.add(root.expiresButton)
+buttonView.add(expiresButton)
 root.expiresView.add(buttonView)
 root.expiresView.add(pickerView)
 root.expiresView.hide()

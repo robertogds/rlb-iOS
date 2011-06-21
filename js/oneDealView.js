@@ -1,5 +1,5 @@
 (function() {
-  var antesLabel, bookingLabel, infoImage, poiImage, priceView, sepVertView, separator1, separator2, separator3;
+  var addressView, antesLabel, bookingLabel, infoImage, poiImage, priceView, sepVertView, separator1, separator2, separator3;
   Ti.include('/js/oneDealButtonBar.js', '/js/oneDealMapView.js', '/js/imagesScrollView.js', '/js/infoDealTable.js', '/js/buyButton.js');
   root.oneDealView = Titanium.UI.createView({
     background: 'transparent',
@@ -11,6 +11,12 @@
     top: 0,
     width: 320,
     height: 120
+  });
+  root.oneDealImage.addEventListener('click', function(e) {
+    root.imagesWindow.add(root.imagesScrollView);
+    return root.tabGroup.activeTab.open(root.imagesWindow, {
+      animated: true
+    });
   });
   separator1 = new root.GenericSeparatorView(120).view;
   root.oneDealView.add(separator1);
@@ -89,14 +95,26 @@
     return root.showBookingView();
   });
   priceView.add(bookingLabel);
+  addressView = Titanium.UI.createView({
+    backgroundColor: 'transparent',
+    borderWidth: 0,
+    borderColor: 'red',
+    width: 320,
+    top: 200,
+    height: 50
+  });
+  addressView.addEventListener('click', function(e) {
+    root.oneDealWindow.remove(root.oneDealView);
+    root.oneDealWindow.remove(root.infoDealTable);
+    return root.oneDealWindow.add(root.mapView);
+  });
   poiImage = Titanium.UI.createImageView({
-    top: 210,
     image: '/images/poi.png',
     width: 15,
     height: 20,
     left: 5
   });
-  root.oneDealView.add(poiImage);
+  addressView.add(poiImage);
   root.oneDealAddressLabel = Titanium.UI.createLabel({
     width: 280,
     height: 40,
@@ -108,9 +126,9 @@
       fontFamily: 'Helvetica Neue',
       fontWeight: 'bold'
     },
-    top: 205,
     left: 25
   });
+  addressView.add(root.oneDealAddressLabel);
   separator3 = new root.GenericSeparatorView(250).view;
   root.oneDealView.add(separator3);
   infoImage = Titanium.UI.createImageView({
@@ -134,9 +152,14 @@
     top: 260,
     left: 25
   });
+  root.descriptionLabel.addEventListener('click', function(e) {
+    root.oneDealWindow.remove(root.oneDealView);
+    root.oneDealWindow.remove(root.mapView);
+    return root.oneDealWindow.add(root.infoDealTable);
+  });
   root.oneDealView.add(root.oneDealImage);
   root.oneDealView.add(priceView);
-  root.oneDealView.add(root.oneDealAddressLabel);
+  root.oneDealView.add(addressView);
   root.oneDealView.add(root.descriptionLabel);
   root.oneDealWindow.add(root.oneDealButtonBarView);
   root.oneDealWindow.add(root.oneDealView);
