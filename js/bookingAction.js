@@ -3,14 +3,12 @@
   root.xhrBooking.onload = function(e) {
     var response;
     Ti.API.info(this.responseText);
-    alert(this.responseText);
     root.confirmBookingWindow.remove(root.loadingView);
     response = JSON.parse(this.responseText);
-    alert(response);
     Ti.API.info(response);
     if (response.status === 201) {
       root.showOneBookingView(response.content);
-      root.oneBookingWindow.backButtonTitle = 'Cerrar';
+      root.oneBookingWindow.backButtonTitle = Ti.Locale.getString('close');
       root.oneBookingWindow.open({
         modal: true,
         modalTransitionStyle: Ti.UI.iPhone.MODAL_TRANSITION_STYLE_FLIP_HORIZONTAL,
@@ -24,12 +22,11 @@
   };
   root.xhrBooking.onerror = function(e) {
     root.confirmBookingWindow.remove(root.loadingView);
-    alert('Se ha producido un error ' + e);
+    alert(Ti.Locale.getString('errorHappened') + e);
     return Ti.API.error(e);
   };
   root.doBooking = function() {
     var newBook;
-    alert('entra en booking');
     root.confirmBookingWindow.add(root.loadingView);
     root.xhrBooking.setTimeout(5000);
     root.xhrBooking.open("POST", root.surl + "/booking");

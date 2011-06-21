@@ -1,12 +1,12 @@
 (function() {
   var emailRow, firstNameRow, lastNameRow, passwordRow, sendButton;
   root.editAccountView = Titanium.UI.createView({
-    backgroundImage: 'images/background1.png',
+    backgroundColor: 'transparent',
     width: 320
   });
   root.editAccountTable = Titanium.UI.createTableView({
-    top: 0,
-    height: 195,
+    top: 20,
+    height: 175,
     width: 300,
     borderWidth: 0,
     borderRadius: 10,
@@ -55,7 +55,6 @@
     return root.submitEdit();
   });
   root.editAccountSection = Titanium.UI.createTableViewSection();
-  root.editAccountSection.headerTitle = "Editar usuario";
   root.editAccountData = [];
   firstNameRow = Titanium.UI.createTableViewRow();
   lastNameRow = Titanium.UI.createTableViewRow();
@@ -85,7 +84,7 @@
     return root.editAccountView.add(root.editAccountTable);
   };
   root.submitEdit = function() {
-    var email, firstName, lastName, password;
+    var email, firstName, lastName, password, validate;
     email = root.user.email;
     password = root.user.password;
     firstName = root.user.firstName;
@@ -102,7 +101,12 @@
     if (root.lastNameText.value !== '') {
       lastName = root.lastNameText.value;
     }
-    root.editAccountWindow.add(root.loadingView);
-    return root.doRegister(email, password, firstName, lastName, root.user.id);
+    validate = root.validateNewAccountData(email, password, firstName, lastName);
+    if (validate === true) {
+      root.editAccountWindow.add(root.loadingView);
+      return root.doRegister(email, password, firstName, lastName, root.user.id);
+    } else {
+      return alert('Revisa los datos: ' + validate);
+    }
   };
 }).call(this);

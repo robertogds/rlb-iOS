@@ -51,10 +51,10 @@
     if (!(password.length > 3)) {
       return 'Password incorrecto, debe tener al menos 4 caracteres';
     }
-    if (!(root.firstName.length > 0)) {
+    if (!(firstName.length > 0)) {
       return 'Nombre vacío';
     }
-    if (!(root.lastName.length > 0)) {
+    if (!(lastName.length > 0)) {
       return 'Apellidos vacío';
     }
     return true;

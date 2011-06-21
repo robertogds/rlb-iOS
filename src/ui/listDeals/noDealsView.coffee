@@ -1,5 +1,5 @@
 root.noDealsView = Titanium.UI.createView
-  backgroundImage: 'images/background1.png'
+  backgroundColor: 'transparent'
   width:320
 
 title = 'Preparando las mejores ofertas'

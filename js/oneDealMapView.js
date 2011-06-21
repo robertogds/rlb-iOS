@@ -1,10 +1,6 @@
 (function() {
   var mapButtonView;
-  mapButtonView = Titanium.UI.createView({
-    backgroundImage: '/images/blue_arrow.png',
-    height: 20,
-    width: 20
-  });
+  mapButtonView = new root.GenericMapRightButtonView(null).view;
   mapButtonView.addEventListener('click', function(e) {
     root.oneDealWindow.remove(root.infoDealTable);
     root.oneDealWindow.remove(root.mapView);

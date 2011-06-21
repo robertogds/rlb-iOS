@@ -93,7 +93,7 @@ acceptLegalLabel = Titanium.UI.createLabel
     fontSize: 10
     #fontWeight: 'bold'
 
-newAccountButton = new root.GenericButton(250,'Crear Usuario').button
+newAccountButton = new root.GenericButton(250,'Registrarse').button
 
 newAccountButton.addEventListener 'click', (e) ->
   email = emailText.value
@@ -102,6 +102,7 @@ newAccountButton.addEventListener 'click', (e) ->
   lastName = lastNameText.value
   validate = root.validateNewAccountData(email,password,firstName,lastName)
   if validate is true
+    alert 'entra en validate es true'
     root.newAccountWindow.add(root.loadingView)
     root.doRegister(email,password,firstName,lastName)    
   else

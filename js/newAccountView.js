@@ -90,7 +90,7 @@
       fontSize: 10
     }
   });
-  newAccountButton = new root.GenericButton(250, 'Crear Usuario').button;
+  newAccountButton = new root.GenericButton(250, 'Registrarse').button;
   newAccountButton.addEventListener('click', function(e) {
     var email, firstName, lastName, password, validate;
     email = emailText.value;
@@ -99,6 +99,7 @@
     lastName = lastNameText.value;
     validate = root.validateNewAccountData(email, password, firstName, lastName);
     if (validate === true) {
+      alert('entra en validate es true');
       root.newAccountWindow.add(root.loadingView);
       return root.doRegister(email, password, firstName, lastName);
     } else {

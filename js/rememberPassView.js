@@ -1,7 +1,7 @@
 (function() {
   var data, rememberEmailText, rememberTable, rememberView, row, section, text, title;
   root.rememberPassView = Titanium.UI.createView({
-    backgroundImage: 'images/background1.png',
+    backgroundColor: 'transparent',
     width: 320
   });
   title = "¿Has olvidado tu contraseña?";

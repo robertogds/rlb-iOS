@@ -43,7 +43,6 @@ root.showCities = () ->
     alert 'Para usar esta aplicacion debes tener conexion a internet'
     root.showError()
   else
-    #root.tabGroup.activeTab.open(root.listCitiesWindow,{animated:true})
     root.citiesWindow.add(root.loadingView)
     root.xhrCities.open('GET', root.url+'/cities')
     root.xhrCities.setRequestHeader("Accept-Language",Titanium.Locale.currentLanguage)

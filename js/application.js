@@ -13,7 +13,7 @@
   root.editAccountWindow = new root.GenericWindow('Editar Cuenta', '').win;
   root.confirmBookingWindow = new root.GenericWindow('Confirmar', 'Confirmar').win;
   root.closedWindow = new root.GenericWindow('Cerrado', 'Cerrado').win;
-  root.supportWindow = new root.GenericWindow('Soporte Usuario', 'Soporte').win;
+  root.supportWindow = new root.GenericWindow('Soporte Usuario', '').win;
   root.errorWindow = new root.GenericWindow('Error', 'Error').win;
   root.aboutWindow = new root.GenericWindow('Acerca de', '').win;
   root.forHotelsWindow = new root.GenericWindow('Para los hoteles', '').win;

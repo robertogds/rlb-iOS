@@ -42,6 +42,6 @@ root.doRegister = (email,password,firstName,lastName,id) ->
 root.validateNewAccountData = (email,password,firstName,lastName) ->
   return 'Email incorrecto' unless email.length > 3
   return 'Password incorrecto, debe tener al menos 4 caracteres' unless password.length > 3
-  return 'Nombre vacío' unless root.firstName.length > 0
-  return 'Apellidos vacío' unless root.lastName.length > 0
+  return 'Nombre vacío' unless firstName.length > 0
+  return 'Apellidos vacío' unless lastName.length > 0
   return true
