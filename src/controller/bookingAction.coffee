@@ -42,12 +42,12 @@ root.doBooking = () ->
 
 
 root.validateBookingData = () ->
-  return 'Usuario incorrecto' unless root.user.id > 0
-  return 'No hay deal' unless root.deal.id > 0
-  return 'Tipo de tarjeta incorrecto' if root.cardTypeLabel.text is 'Tipo de tarjeta'
-  return 'Tipo de tarjeta incorrecto' unless root.cardTypeLabel.text.length > 2
-  return 'Número de tarjeta incorrecto' unless root.cardNumberText.value.length > 12
-  return 'Titular tarjeta incorrecto' unless root.cardNameText.value.length > 2
-  return 'Fecha expiración incorrecta' unless root.expiresLabel.text.length > 2
-  return 'cvcCode incorrecto' unless root.cvcCodeText.value.length > 2
+  return Ti.Locale.getString('userIncorrect') unless root.user.id > 0
+  return Ti.Locale.getString('errorNoDeal') unless root.deal.id > 0
+  return Ti.Locale.getString('errorCardType') if root.cardTypeLabel.text is 'Tipo de tarjeta'
+  return Ti.Locale.getString('errorCardType') unless root.cardTypeLabel.text.length > 2
+  return Ti.Locale.getString('errorCardNumber') unless root.cardNumberText.value.length > 12
+  return Ti.Locale.getString('errorCardName') unless root.cardNameText.value.length > 2
+  return Ti.Locale.getString('errorExpires') unless root.expiresLabel.text.length > 2
+  return Ti.Locale.getString('errorcvcCode') unless root.cvcCodeText.value.length > 2
   return true 

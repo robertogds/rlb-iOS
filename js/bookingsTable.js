@@ -46,9 +46,14 @@
     return alert('Se produjo un timeout. Intentelo más tarde');
   };
   root.showBookings = function() {
+    var signature, url;
     root.noBookingsView.hide();
     root.bookingsWindow.add(root.loadingView);
-    root.xhrBookings.open('GET', root.url + '/user/' + root.user.id + '/bookings');
+    url = root.urlSignature('/user/' + root.user.id + '/bookings');
+    signature = root.doSignature(url);
+    url = url + '/' + signature;
+    alert(url);
+    root.xhrBookings.open('GET', root.url + url);
     root.xhrBookings.setRequestHeader("Accept-Language", Titanium.Locale.currentLanguage);
     return root.xhrBookings.send();
   };

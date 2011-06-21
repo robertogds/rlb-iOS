@@ -2,11 +2,12 @@
 <resources>
     <string name="cities">Ciudades</string>
     <string name="errorHappened">Se ha producido un error</string>
-	<string name="close1">Cerrar</string>
-	<string name="close2">Cerrar</string>
-	<string name="close3">Cerrar</string>
-	<string name="close4">Cerrar</string>
-	<string name="close5">Cerrar</string>
-	<string name="close6">Cerrar</string>
-	<string name="close7">Cerrar</string>
+	<string name="userIncorrect">Usuario incorrecto</string>
+	<string name="errorNoDeal">No hay deal</string>
+	<string name="errorCardType">Tipo de tarjeta incorrecto</string>
+	<string name="errorCardNumber">Número de tarjeta incorrecto</string>
+	<string name="errorCardName">Titular tarjeta incorrecto</string>
+	<string name="errorExpires">Fecha caducidad incorrecta</string>
+	<string name="errorcvcCode">Código CVC incorrecto</string>
+	
 </resources>

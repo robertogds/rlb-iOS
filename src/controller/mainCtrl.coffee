@@ -38,4 +38,11 @@ if Titanium.App.Properties.hasProperty("user")
 
 root.showCities()
 
+root.urlSignature = (url) ->
+  timestamp = new Date().getTime()
+  token = root.user.token
+  return url + '/' + token + '/' + timestamp
 
+root.doSignature = (url) ->
+  secret = root.user.secret
+  return Titanium.Utils.md5HexDigest(url+secret)

@@ -47,28 +47,28 @@
   };
   root.validateBookingData = function() {
     if (!(root.user.id > 0)) {
-      return 'Usuario incorrecto';
+      return Ti.Locale.getString('userIncorrect');
     }
     if (!(root.deal.id > 0)) {
-      return 'No hay deal';
+      return Ti.Locale.getString('errorNoDeal');
     }
     if (root.cardTypeLabel.text === 'Tipo de tarjeta') {
-      return 'Tipo de tarjeta incorrecto';
+      return Ti.Locale.getString('errorCardType');
     }
     if (!(root.cardTypeLabel.text.length > 2)) {
-      return 'Tipo de tarjeta incorrecto';
+      return Ti.Locale.getString('errorCardType');
     }
     if (!(root.cardNumberText.value.length > 12)) {
-      return 'Número de tarjeta incorrecto';
+      return Ti.Locale.getString('errorCardNumber');
     }
     if (!(root.cardNameText.value.length > 2)) {
-      return 'Titular tarjeta incorrecto';
+      return Ti.Locale.getString('errorCardName');
     }
     if (!(root.expiresLabel.text.length > 2)) {
-      return 'Fecha expiración incorrecta';
+      return Ti.Locale.getString('errorExpires');
     }
     if (!(root.cvcCodeText.value.length > 2)) {
-      return 'cvcCode incorrecto';
+      return Ti.Locale.getString('errorcvcCode');
     }
     return true;
   };

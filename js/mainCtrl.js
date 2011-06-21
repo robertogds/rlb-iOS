@@ -7,4 +7,15 @@
     Ti.API.info(root.user);
   }
   root.showCities();
+  root.urlSignature = function(url) {
+    var timestamp, token;
+    timestamp = new Date().getTime();
+    token = root.user.token;
+    return url + '/' + token + '/' + timestamp;
+  };
+  root.doSignature = function(url) {
+    var secret;
+    secret = root.user.secret;
+    return Titanium.Utils.md5HexDigest(url + secret);
+  };
 }).call(this);
