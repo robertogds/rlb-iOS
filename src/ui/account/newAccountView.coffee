@@ -17,7 +17,7 @@ root.newAccountTable = Titanium.UI.createTableView
 
 firstNameText = Titanium.UI.createTextField
   color:'#336699'
-  hintText: 'Nombre'
+  hintText: Ti.Locale.getString('firstName')
   clearOnEdit: false
   paddingLeft: 10
   returnKeyType: Titanium.UI.RETURNKEY_NEXT
@@ -27,7 +27,7 @@ firstNameText.addEventListener 'return', (e) ->
 
 lastNameText = Titanium.UI.createTextField
   color:'#336699'
-  hintText: 'Apellidos'
+  hintText: Ti.Locale.getString('lastName')
   clearOnEdit: false
   paddingLeft: 10
   returnKeyType: Titanium.UI.RETURNKEY_NEXT
@@ -37,7 +37,7 @@ lastNameText.addEventListener 'return', (e) ->
 
 emailText = Titanium.UI.createTextField
   color:'#336699'
-  hintText: 'Email'
+  hintText: Ti.Locale.getString('email')
   clearOnEdit: false
   paddingLeft: 10
   keyboardType: Titanium.UI.KEYBOARD_EMAIL
@@ -49,7 +49,7 @@ emailText.addEventListener 'return', (e) ->
 
 passwordText = Titanium.UI.createTextField
   color:'#336699'
-  hintText: 'Clave'
+  hintText: Ti.Locale.getString('password')
   paddingLeft: 10
   clearOnEdit: true
   passwordMask:true
@@ -64,7 +64,7 @@ passwordText.addEventListener 'return', (e) ->
     root.newAccountWindow.add(root.loadingView)
     root.doRegister(email,password,firstName,lastName)
   else
-    alert 'Revisa los datos: ' + validate
+    alert Ti.Locale.getString('reviewData') + ': ' + validate
   
 root.newAccountSection = Titanium.UI.createTableViewSection()
 root.newAccountData = []
@@ -86,14 +86,13 @@ root.newAccountSection.add(passwordRow)
 acceptLegalLabel = Titanium.UI.createLabel
   borderWidth: 0
   top: 300
-  text: "Al clickar en Registrarse, aceptas los términos de uso y política de privacidad de ReallyLateBooking que puedes encontrar en la pestaña Opciones"
-  color: '#fff'
+  text: Ti.Locale.getString('acceptTerms')
   left: 8
   font:
     fontSize: 10
     #fontWeight: 'bold'
 
-newAccountButton = new root.GenericButton(250,'Registrarse').button
+newAccountButton = new root.GenericButton(250,Ti.Locale.getString('register')).button
 
 newAccountButton.addEventListener 'click', (e) ->
   email = emailText.value
@@ -102,11 +101,10 @@ newAccountButton.addEventListener 'click', (e) ->
   lastName = lastNameText.value
   validate = root.validateNewAccountData(email,password,firstName,lastName)
   if validate is true
-    alert 'entra en validate es true'
     root.newAccountWindow.add(root.loadingView)
     root.doRegister(email,password,firstName,lastName)    
   else
-    alert 'Revisa los datos: ' + validate
+    alert Ti.Locale.getString('reviewData') + validate
 
 
 root.newAccountView.add(acceptLegalLabel)

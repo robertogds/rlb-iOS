@@ -15,7 +15,7 @@
   });
   root.firstNameText = Titanium.UI.createTextField({
     color: '#336699',
-    hintText: 'Nombre',
+    hintText: Ti.Locale.getString('firstName'),
     clearOnEdit: true,
     paddingLeft: 10,
     returnKeyType: Titanium.UI.RETURNKEY_NEXT
@@ -25,7 +25,7 @@
   });
   root.lastNameText = Titanium.UI.createTextField({
     color: '#336699',
-    hintText: 'Apellidos',
+    hintText: Ti.Locale.getString('lastName'),
     clearOnEdit: true,
     paddingLeft: 10,
     returnKeyType: Titanium.UI.RETURNKEY_NEXT
@@ -35,7 +35,7 @@
   });
   root.emailText = Titanium.UI.createTextField({
     color: '#336699',
-    hintText: 'Email',
+    hintText: Ti.Locale.getString('email'),
     clearOnEdit: true,
     paddingLeft: 10,
     keyboardType: Titanium.UI.KEYBOARD_EMAIL,
@@ -46,7 +46,7 @@
   });
   root.passwordText = Titanium.UI.createTextField({
     color: '#336699',
-    hintText: 'Clave',
+    hintText: Ti.Locale.getString('password'),
     paddingLeft: 10,
     clearOnEdit: true,
     passwordMask: true
@@ -68,17 +68,17 @@
   root.editAccountSection.add(lastNameRow);
   root.editAccountSection.add(emailRow);
   root.editAccountSection.add(passwordRow);
-  sendButton = new root.GenericButton(250, 'Enviar').button;
+  sendButton = new root.GenericButton(250, Ti.Locale.getString('send')).button;
   sendButton.addEventListener('click', function(e) {
     return root.submitEdit();
   });
   root.editAccountView.add(sendButton);
   root.editAccountWindow.add(root.editAccountView);
   root.loadEditLoggedUser = function() {
-    root.firstNameText.hintText = 'Nombre: ' + root.user.firstName;
-    root.lastNameText.hintText = 'Apellidos: ' + root.user.lastName;
-    root.emailText.hintText = 'Email: ' + root.user.email;
-    root.passwordText.hintText = 'Password: *******';
+    root.firstNameText.hintText = Ti.Locale.getString('firstName') + ': ' + root.user.firstName;
+    root.lastNameText.hintText = Ti.Locale.getString('lastName') + ': ' + root.user.lastName;
+    root.emailText.hintText = Ti.Locale.getString('email') + ': ' + root.user.email;
+    root.passwordText.hintText = Ti.Locale.getString('password') + ': *******';
     root.editAccountData[0] = root.editAccountSection;
     root.editAccountTable.data = root.editAccountData;
     return root.editAccountView.add(root.editAccountTable);
@@ -106,7 +106,7 @@
       root.editAccountWindow.add(root.loadingView);
       return root.doRegister(email, password, firstName, lastName, root.user.id);
     } else {
-      return alert('Revisa los datos: ' + validate);
+      return alert(Ti.Locale.getString('reviewData') + ': ' + validate);
     }
   };
 }).call(this);

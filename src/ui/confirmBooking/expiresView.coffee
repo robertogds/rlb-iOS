@@ -17,7 +17,6 @@ buttonView = Titanium.UI.createView
 root.expiresPicker = Titanium.UI.createPicker()
 
 root.expiresPicker.addEventListener 'change', (e) ->
-  Ti.API.info("You selected row: "+e.row+", column: "+e.column+", custom_item: "+e.row.custom_item)
   if e.row.month_item
     root.cardExpiresMonth = e.row.month_item
   else if e.row.year_item
@@ -25,18 +24,18 @@ root.expiresPicker.addEventListener 'change', (e) ->
   1
 
 monthColumn = Ti.UI.createPickerColumn({opacity:0})
-monthColumn.addRow(Ti.UI.createPickerRow({title:'Enero',month_item:'1'}))
-monthColumn.addRow(Ti.UI.createPickerRow({title:'Febrero',month_item:'2'}))
-monthColumn.addRow(Ti.UI.createPickerRow({title:'Marzo',month_item:'3'}))
-monthColumn.addRow(Ti.UI.createPickerRow({title:'Abril',month_item:'4'}))
-monthColumn.addRow(Ti.UI.createPickerRow({title:'Mayo',month_item:'5'}))
-monthColumn.addRow(Ti.UI.createPickerRow({title:'Junio',month_item:'6'}))
-monthColumn.addRow(Ti.UI.createPickerRow({title:'Julio',month_item:'7'}))
-monthColumn.addRow(Ti.UI.createPickerRow({title:'Agosto',month_item:'8'}))
-monthColumn.addRow(Ti.UI.createPickerRow({title:'Septiembre',month_item:'9'}))
-monthColumn.addRow(Ti.UI.createPickerRow({title:'Octubre',month_item:'10'}))
-monthColumn.addRow(Ti.UI.createPickerRow({title:'Noviembre',month_item:'11'}))
-monthColumn.addRow(Ti.UI.createPickerRow({title:'Diciembre',month_item:'12'}))
+monthColumn.addRow(Ti.UI.createPickerRow({title:L('jan'),month_item:'1'}))
+monthColumn.addRow(Ti.UI.createPickerRow({title:L('feb'),month_item:'2'}))
+monthColumn.addRow(Ti.UI.createPickerRow({title:L('mar'),month_item:'3'}))
+monthColumn.addRow(Ti.UI.createPickerRow({title:L('apr'),month_item:'4'}))
+monthColumn.addRow(Ti.UI.createPickerRow({title:L('may'),month_item:'5'}))
+monthColumn.addRow(Ti.UI.createPickerRow({title:L('jun'),month_item:'6'}))
+monthColumn.addRow(Ti.UI.createPickerRow({title:L('jul'),month_item:'7'}))
+monthColumn.addRow(Ti.UI.createPickerRow({title:L('aug'),month_item:'8'}))
+monthColumn.addRow(Ti.UI.createPickerRow({title:L('sep'),month_item:'9'}))
+monthColumn.addRow(Ti.UI.createPickerRow({title:L('oct'),month_item:'10'}))
+monthColumn.addRow(Ti.UI.createPickerRow({title:L('nov'),month_item:'11'}))
+monthColumn.addRow(Ti.UI.createPickerRow({title:L('dec'),month_item:'12'}))
 
 yearColumn = Ti.UI.createPickerColumn()
 yearColumn.addRow(Ti.UI.createPickerRow({title:'2011',year_item:'2011'}))
@@ -60,7 +59,7 @@ infoLabel = Titanium.UI.createLabel
   width: 320
   height: 60
   textAlign: 'center'
-  text: 'Indica la fecha de caducidad'
+  text: L('expires')
   color: '#fff'
   font:
     fontSize: 14
@@ -68,7 +67,7 @@ infoLabel = Titanium.UI.createLabel
     fontFamily:'Helvetica Neue'
   top: 0
 
-expiresButton = new root.GenericButton(50,'Hecho').button
+expiresButton = new root.GenericButton(50,L('done')).button
 
 expiresButton.addEventListener 'click', (e) ->
   root.expiresLabel.text = root.cardExpiresMonth + '/' + root.cardExpiresYear

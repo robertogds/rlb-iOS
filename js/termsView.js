@@ -6,7 +6,7 @@
     top: 0,
     showVerticalScrollIndicator: true
   });
-  title = 'Términos y condiciones';
+  title = L('terms');
   root.termsView = new root.GenericTextView(0, title, '');
   termsScrollView.add(root.termsView.view);
   root.termsWindow.add(termsScrollView);
@@ -19,13 +19,13 @@
     return root.termsView.textLabel.text = termsText;
   };
   root.xhrTerms.onerror = function() {
-    alert('Se produjo un error');
+    alert(L('errorHappened'));
     root.termsWindow.remove(root.loadingView);
     return root.showError();
   };
   root.showTerms = function() {
     if (Titanium.Network.online === false) {
-      alert('Para usar esta aplicacion debes tener conexion a internet');
+      alert(L('mustInternet'));
       return root.showError();
     } else {
       root.tabGroup.activeTab.open(root.termsWindow, {

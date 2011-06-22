@@ -31,16 +31,13 @@ root.xhrCities.onload = () ->
   root.citiesWindow.remove(root.loadingView)
 
 root.xhrCities.onerror = () ->
-  alert 'Se produjo un error'
+  alert L('errorHappened')
   root.citiesWindow.remove(root.loadingView)
   root.showError()
 
-root.xhrCities.timedOut = () ->
-  alert 'Se produjo un timeout. Intentelo más tarde'
-
 root.showCities = () ->
   if Titanium.Network.online is false
-    alert 'Para usar esta aplicacion debes tener conexion a internet'
+    alert L('mustInternet')
     root.showError()
   else
     root.citiesWindow.add(root.loadingView)

@@ -17,7 +17,6 @@
   });
   root.expiresPicker = Titanium.UI.createPicker();
   root.expiresPicker.addEventListener('change', function(e) {
-    Ti.API.info("You selected row: " + e.row + ", column: " + e.column + ", custom_item: " + e.row.custom_item);
     if (e.row.month_item) {
       root.cardExpiresMonth = e.row.month_item;
     } else if (e.row.year_item) {
@@ -29,51 +28,51 @@
     opacity: 0
   });
   monthColumn.addRow(Ti.UI.createPickerRow({
-    title: 'Enero',
+    title: L('jan'),
     month_item: '1'
   }));
   monthColumn.addRow(Ti.UI.createPickerRow({
-    title: 'Febrero',
+    title: L('feb'),
     month_item: '2'
   }));
   monthColumn.addRow(Ti.UI.createPickerRow({
-    title: 'Marzo',
+    title: L('mar'),
     month_item: '3'
   }));
   monthColumn.addRow(Ti.UI.createPickerRow({
-    title: 'Abril',
+    title: L('apr'),
     month_item: '4'
   }));
   monthColumn.addRow(Ti.UI.createPickerRow({
-    title: 'Mayo',
+    title: L('may'),
     month_item: '5'
   }));
   monthColumn.addRow(Ti.UI.createPickerRow({
-    title: 'Junio',
+    title: L('jun'),
     month_item: '6'
   }));
   monthColumn.addRow(Ti.UI.createPickerRow({
-    title: 'Julio',
+    title: L('jul'),
     month_item: '7'
   }));
   monthColumn.addRow(Ti.UI.createPickerRow({
-    title: 'Agosto',
+    title: L('aug'),
     month_item: '8'
   }));
   monthColumn.addRow(Ti.UI.createPickerRow({
-    title: 'Septiembre',
+    title: L('sep'),
     month_item: '9'
   }));
   monthColumn.addRow(Ti.UI.createPickerRow({
-    title: 'Octubre',
+    title: L('oct'),
     month_item: '10'
   }));
   monthColumn.addRow(Ti.UI.createPickerRow({
-    title: 'Noviembre',
+    title: L('nov'),
     month_item: '11'
   }));
   monthColumn.addRow(Ti.UI.createPickerRow({
-    title: 'Diciembre',
+    title: L('dec'),
     month_item: '12'
   }));
   yearColumn = Ti.UI.createPickerColumn();
@@ -127,7 +126,7 @@
     width: 320,
     height: 60,
     textAlign: 'center',
-    text: 'Indica la fecha de caducidad',
+    text: L('expires'),
     color: '#fff',
     font: {
       fontSize: 14,
@@ -136,7 +135,7 @@
     },
     top: 0
   });
-  expiresButton = new root.GenericButton(50, 'Hecho').button;
+  expiresButton = new root.GenericButton(50, L('done')).button;
   expiresButton.addEventListener('click', function(e) {
     root.expiresLabel.text = root.cardExpiresMonth + '/' + root.cardExpiresYear;
     root.expiresView.hide();

@@ -1,11 +1,11 @@
 (function() {
   var closedView, text, title;
   root.noDealsView = Titanium.UI.createView({
-    backgroundColor: 'transparent',
+    backgroundColor: '#0d1e28',
     width: 320
   });
-  title = 'Preparando las mejores ofertas';
-  text = "Cada día negociamos las mejores ofertas con los hoteles, a las 12 del mediodía estarán disponibles en nuestro listado de ofertas\n\nVuelve más tarde para comprobar las ofertas de esta noche";
+  title = L('noDealsTitle');
+  text = L('noDealsText');
   closedView = new root.GenericTextView(0, title, text).view;
   root.noDealsView.add(closedView);
   root.listDealsWindow.add(root.noDealsView);

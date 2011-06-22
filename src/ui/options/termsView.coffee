@@ -4,7 +4,7 @@ termsScrollView = Titanium.UI.createScrollView
   top: 0
   showVerticalScrollIndicator:true
 
-title = 'Términos y condiciones'
+title = L('terms')
 
 root.termsView =  new root.GenericTextView(0,title,'')
 
@@ -21,13 +21,13 @@ root.xhrTerms.onload = () ->
   root.termsView.textLabel.text = termsText
 
 root.xhrTerms.onerror = () ->
-  alert 'Se produjo un error'
+  alert L('errorHappened')
   root.termsWindow.remove(root.loadingView)
   root.showError()
 
 root.showTerms = () ->
   if Titanium.Network.online is false
-    alert 'Para usar esta aplicacion debes tener conexion a internet'
+    alert L('mustInternet')
     root.showError()
   else
     root.tabGroup.activeTab.open(root.termsWindow,{animated:true})

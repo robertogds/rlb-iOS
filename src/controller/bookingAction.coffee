@@ -25,7 +25,11 @@ root.xhrBooking.onerror = (e) ->
 root.doBooking = () ->
   root.confirmBookingWindow.add(root.loadingView)
   root.xhrBooking.setTimeout(5000)
-  root.xhrBooking.open("POST",root.surl+"/booking")
+  url = root.urlSignature('/booking')
+  signature = root.doSignature(url)
+  url = url + '/' + signature
+  alert url
+  root.xhrBooking.open("POST",root.surl+url)
   root.xhrBooking.setRequestHeader("Content-Type","application/json; charset=utf-8")
   root.xhrBooking.setRequestHeader("Accept-Language",Titanium.Locale.currentLanguage)
   newBook = JSON.stringify
@@ -42,7 +46,7 @@ root.doBooking = () ->
 
 
 root.validateBookingData = () ->
-  return Ti.Locale.getString('userIncorrect') unless root.user.id > 0
+  return Ti.Locale.getString('errorUser') unless root.user.id > 0
   return Ti.Locale.getString('errorNoDeal') unless root.deal.id > 0
   return Ti.Locale.getString('errorCardType') if root.cardTypeLabel.text is 'Tipo de tarjeta'
   return Ti.Locale.getString('errorCardType') unless root.cardTypeLabel.text.length > 2

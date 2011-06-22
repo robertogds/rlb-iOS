@@ -3,7 +3,7 @@ class Generic2RowsView
     @view = Titanium.UI.createView
       background: 'transparent'
       top:top
-    table = Titanium.UI.createTableView
+    @table = Titanium.UI.createTableView
       top: 10
       height: 85
       width: 300
@@ -36,7 +36,7 @@ class Generic2RowsView
     section.add(row1)
     section.add(row2)
     data[0] = section
-    table.data = data
-    @view.add(table)
+    @table.data = data
+    @view.add(@table)
 
 root.Generic2RowsView = Generic2RowsView

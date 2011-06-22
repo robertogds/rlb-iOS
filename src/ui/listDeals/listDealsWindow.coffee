@@ -4,6 +4,3 @@ Ti.include(
   '/js/listDealsTable.js'
   '/js/noDealsView.js'
 )
-
-#root.listDealsWindow.addEventListener 'focus', (e) ->
-#  alert 'focus'

@@ -2,12 +2,12 @@
   var Generic2RowsView;
   Generic2RowsView = (function() {
     function Generic2RowsView(top, text1, text2) {
-      var data, row1, row2, section, table;
+      var data, row1, row2, section;
       this.view = Titanium.UI.createView({
         background: 'transparent',
         top: top
       });
-      table = Titanium.UI.createTableView({
+      this.table = Titanium.UI.createTableView({
         top: 10,
         height: 85,
         width: 300,
@@ -49,8 +49,8 @@
       section.add(row1);
       section.add(row2);
       data[0] = section;
-      table.data = data;
-      this.view.add(table);
+      this.table.data = data;
+      this.view.add(this.table);
     }
     return Generic2RowsView;
   })();

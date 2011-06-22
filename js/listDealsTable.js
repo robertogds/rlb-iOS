@@ -43,7 +43,7 @@
     return root.listDealsWindow.remove(root.loadingView);
   };
   root.xhrDeals.onerror = function() {
-    alert('Se produjo un error. Inténtelo más tarde');
+    alert(L('errorHappened'));
     root.listDealsWindow.remove(root.loadingView);
     return root.showError();
   };

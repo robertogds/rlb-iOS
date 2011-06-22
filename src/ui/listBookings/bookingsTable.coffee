@@ -23,7 +23,6 @@ root.bookingsTable.addEventListener 'click', (e) ->
 root.xhrBookings = Titanium.Network.createHTTPClient()
 
 root.xhrBookings.onload = () ->
-  Ti.API.info 'Entra en onLoad'
   bookings = JSON.parse(this.responseText)
   data = []
   for booking in bookings
@@ -37,12 +36,12 @@ root.xhrBookings.onload = () ->
   root.bookingsWindow.remove(root.loadingView)
 
 root.xhrBookings.onerror = () ->
-  alert 'Se produjo un error. Intentelo más tarde'
+  alert L('errorHappened')
   root.bookingsWindow.remove(root.loadingView)
   root.showError()
 
-root.xhrBookings.timedOut = () ->
-  alert 'Se produjo un timeout. Intentelo más tarde'
+root.xhrBookings.timedout = () ->
+  alert L('errorHappened')
 
 root.showBookings = () ->
   root.noBookingsView.hide()
@@ -50,7 +49,6 @@ root.showBookings = () ->
   url = root.urlSignature('/user/'+root.user.id+'/bookings')
   signature = root.doSignature(url)
   url = url + '/' + signature
-  alert url
   root.xhrBookings.open('GET',root.url+url)
   root.xhrBookings.setRequestHeader("Accept-Language",Titanium.Locale.currentLanguage)
   root.xhrBookings.send()

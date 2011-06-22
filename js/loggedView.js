@@ -7,9 +7,9 @@
     width: 320,
     top: 1
   });
-  customerView = new root.Generic2RowsView(200, 'Soporte a usuario', 'Danos tu opinión');
-  editButton = new root.GenericButton(160, 'Editar Usuario').button;
-  logoutButton = new root.GenericButton(310, 'Logout').button;
+  customerView = new root.Generic2RowsView(200, Ti.Locale.getString('userSupport'), Ti.Locale.getString('feedback'));
+  editButton = new root.GenericButton(160, Ti.Locale.getString('editUser')).button;
+  logoutButton = new root.GenericButton(310, Ti.Locale.getString('logout')).button;
   logoutButton.addEventListener('click', function(e) {
     return root.doLogout();
   });
@@ -27,7 +27,7 @@
   customerView.label2.addEventListener('click', function(e) {
     var emailDialog;
     emailDialog = Titanium.UI.createEmailDialog();
-    emailDialog.subject = "Feedback about ReallyLateBooking";
+    emailDialog.subject = Ti.Locale.getString('feedbackEmailSubject');
     emailDialog.toRecipients = ['info@reallylatebooking.com'];
     return emailDialog.open();
   });

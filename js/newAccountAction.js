@@ -19,7 +19,7 @@
   };
   root.xhrRegister.onerror = function(e) {
     root.newAccountWindow.remove(root.loadingView);
-    alert('sale por onerror' + e);
+    alert(Ti.Locale.getString('errorHappened') + e);
     return Ti.API.error(e);
   };
   root.doRegister = function(email, password, firstName, lastName, id) {
@@ -46,16 +46,16 @@
   };
   root.validateNewAccountData = function(email, password, firstName, lastName) {
     if (!(email.length > 3)) {
-      return 'Email incorrecto';
+      return Ti.Locale.getString('errorEmail');
     }
     if (!(password.length > 3)) {
-      return 'Password incorrecto, debe tener al menos 4 caracteres';
+      return Ti.Locale.getString('errorPassword');
     }
     if (!(firstName.length > 0)) {
-      return 'Nombre vacío';
+      return Ti.Locale.getString('errorFirstName');
     }
     if (!(lastName.length > 0)) {
-      return 'Apellidos vacío';
+      return Ti.Locale.getString('errorLastName');
     }
     return true;
   };

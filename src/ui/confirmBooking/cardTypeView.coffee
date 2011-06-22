@@ -34,7 +34,7 @@ infoLabel = Titanium.UI.createLabel
   width: 320
   height: 60
   textAlign: 'center'
-  text: 'Selecciona el tipo de tarjeta'
+  text: L('selectCardType')
   color: '#fff'
   font:
     fontSize: 14
@@ -42,7 +42,7 @@ infoLabel = Titanium.UI.createLabel
     fontFamily:'Helvetica Neue'
   top: 0
 
-cardTypeButton = new root.GenericButton(50,'Hecho').button
+cardTypeButton = new root.GenericButton(50,L('done')).button
 
 cardTypeButton.addEventListener 'click', (e) ->
   root.cardTypeLabel.text = root.cardType

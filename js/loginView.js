@@ -8,7 +8,7 @@
   });
   loginLabel = Titanium.UI.createLabel({
     borderWidth: 0,
-    text: "¿Ya eres usuario? Identificate",
+    text: Ti.Locale.getString('loginLabel'),
     color: '#fff',
     left: 5,
     font: {
@@ -19,7 +19,7 @@
     width: 300,
     top: 5
   });
-  rememberPassRowView = new root.GenericRowView(170, 'He olvidado mi contraseña');
+  rememberPassRowView = new root.GenericRowView(170, Ti.Locale.getString('IForgotPassword'));
   rememberPassRowView.label.addEventListener('click', function(e) {
     return root.tabGroup.activeTab.open(root.rememberPassWindow, {
       animated: true
@@ -27,7 +27,7 @@
   });
   root.loginView.add(rememberPassRowView.view);
   needLabel = Titanium.UI.createLabel({
-    text: "¿Necesitas una cuenta? Regístrate gratis",
+    text: Ti.Locale.getString('needAccount'),
     color: '#fff',
     left: 5,
     font: {
@@ -38,7 +38,7 @@
     width: 300,
     top: 250
   });
-  registerButton = new root.GenericButton(290, 'Registrarme').button;
+  registerButton = new root.GenericButton(290, Ti.Locale.getString('register')).button;
   registerButton.addEventListener('click', function(e) {
     root.newAccountData[0] = root.newAccountSection;
     root.newAccountTable.data = root.newAccountData;

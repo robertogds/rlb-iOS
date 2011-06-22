@@ -23,6 +23,6 @@ root.doLogin = (email,password) ->
   root.xhrLogin.send(JSON.stringify({"email":email, "password":password}))
 
 root.validateLoginData = (email,password) ->
-  return 'Email incorrecto' unless email.length > 3
-  return 'Password incorrecto' unless password.length > 3
+  return Ti.Locale.getString('errorEmail') unless email.length > 3
+  return Ti.Locale.getString('errorPassword') unless password.length > 3
   return true

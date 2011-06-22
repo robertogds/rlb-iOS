@@ -49,7 +49,7 @@ class ListDealsRow
     @row.add(priceLabel)
 
     antesLabel = Titanium.UI.createLabel
-      text: 'antes'
+      text: L('before')
       color: '#868d92'
       left: 230
       font:
@@ -100,10 +100,5 @@ class ListDealsRow
     roomTypeImage.image = image
     @row.add(roomTypeImage)
     @row.rightImage = icon
-
-    separator = Titanium.UI.createImageView 
-      image: 'images/separator.png'
-      top:114
-    #@row.add(separator)
 
 root.listDealsRow = ListDealsRow

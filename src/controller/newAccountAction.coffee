@@ -17,7 +17,7 @@ root.xhrRegister.onload = (e) ->
 
 root.xhrRegister.onerror = (e) ->
   root.newAccountWindow.remove(root.loadingView)
-  alert('sale por onerror' + e)
+  alert(Ti.Locale.getString('errorHappened') + e)
   Ti.API.error(e)
 
 root.doRegister = (email,password,firstName,lastName,id) ->
@@ -40,8 +40,8 @@ root.doRegister = (email,password,firstName,lastName,id) ->
   root.xhrRegister.send(newUser)
 
 root.validateNewAccountData = (email,password,firstName,lastName) ->
-  return 'Email incorrecto' unless email.length > 3
-  return 'Password incorrecto, debe tener al menos 4 caracteres' unless password.length > 3
-  return 'Nombre vacío' unless firstName.length > 0
-  return 'Apellidos vacío' unless lastName.length > 0
+  return Ti.Locale.getString('errorEmail') unless email.length > 3
+  return Ti.Locale.getString('errorPassword') unless password.length > 3
+  return Ti.Locale.getString('errorFirstName') unless firstName.length > 0
+  return Ti.Locale.getString('errorLastName') unless lastName.length > 0
   return true

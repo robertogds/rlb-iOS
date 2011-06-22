@@ -1,26 +1,25 @@
 (function() {
   Titanium.UI.setBackgroundColor('#000');
-  root.citiesWindow = new root.GenericWindow(Ti.Locale.getString('cities'), '').win;
-  root.listDealsWindow = new root.GenericWindow('Madrid', 'Loading').win;
-  root.listDealsMapWindow = new root.GenericWindow('Mapa', 'Mapa').win;
-  root.bookingsWindow = new root.GenericWindow('Tus Reservas', 'Reservas').win;
-  root.accountWindow = new root.GenericWindow('Perfil', 'Mi Perfil').win;
-  root.oneDealWindow = new root.GenericWindow('', '').win;
-  root.oneBookingWindow = new root.GenericWindow('Reserva', '').win;
-  root.optionsWindow = new root.GenericWindow('Opciones', 'Opciones').win;
-  root.imagesWindow = new root.GenericWindow('Fotos', 'Fotos').win;
-  root.newAccountWindow = new root.GenericWindow('Nueva Cuenta', '').win;
-  root.editAccountWindow = new root.GenericWindow('Editar Cuenta', '').win;
-  root.confirmBookingWindow = new root.GenericWindow('Confirmar', 'Confirmar').win;
-  root.closedWindow = new root.GenericWindow('Cerrado', 'Cerrado').win;
-  root.supportWindow = new root.GenericWindow('Soporte Usuario', '').win;
-  root.errorWindow = new root.GenericWindow('Error', 'Error').win;
-  root.aboutWindow = new root.GenericWindow('Acerca de', '').win;
-  root.forHotelsWindow = new root.GenericWindow('Para los hoteles', '').win;
-  root.termsWindow = new root.GenericWindow('Términos de uso', '').win;
-  root.privacyWindow = new root.GenericWindow('Privacidad', '').win;
-  root.rememberPassWindow = new root.GenericWindow('Reset Password', '').win;
-  root.imagesWindow.backButtonTitle = 'Volver';
+  root.citiesWindow = new root.GenericWindow(L('cities')).win;
+  root.listDealsWindow = new root.GenericWindow('Madrid').win;
+  root.listDealsMapWindow = new root.GenericWindow(L('map')).win;
+  root.bookingsWindow = new root.GenericWindow(L('yourBookings')).win;
+  root.accountWindow = new root.GenericWindow(L('profile')).win;
+  root.oneDealWindow = new root.GenericWindow('').win;
+  root.oneBookingWindow = new root.GenericWindow(L('booking')).win;
+  root.optionsWindow = new root.GenericWindow(L('options')).win;
+  root.imagesWindow = new root.GenericWindow(L('photos')).win;
+  root.newAccountWindow = new root.GenericWindow(L('newAccount')).win;
+  root.editAccountWindow = new root.GenericWindow(L('editAccount')).win;
+  root.confirmBookingWindow = new root.GenericWindow(L('confirm')).win;
+  root.supportWindow = new root.GenericWindow(L('userSupport')).win;
+  root.errorWindow = new root.GenericWindow('Error').win;
+  root.aboutWindow = new root.GenericWindow(L('about')).win;
+  root.forHotelsWindow = new root.GenericWindow(L('toHotels')).win;
+  root.termsWindow = new root.GenericWindow(L('terms')).win;
+  root.privacyWindow = new root.GenericWindow(L('privacy')).win;
+  root.rememberPassWindow = new root.GenericWindow(L('resetPassword')).win;
+  root.imagesWindow.backButtonTitle = L('back');
   root.imagesWindow.tabBarHidden = true;
   root.tabGroup = Titanium.UI.createTabGroup({
     barColor: '#000',
@@ -28,22 +27,22 @@
   });
   root.dealsTab = Titanium.UI.createTab({
     icon: 'icons/icon_deal.png',
-    title: 'Ciudades',
+    title: L('cities'),
     window: root.citiesWindow
   });
   root.bookingTab = Titanium.UI.createTab({
     icon: 'icons/icon_buy.png',
-    title: 'Reservas',
+    title: L('bookings'),
     window: root.bookingsWindow
   });
   root.accountTab = Titanium.UI.createTab({
     icon: 'icons/icon_user.png',
-    title: 'Perfil',
+    title: L('profile'),
     window: root.accountWindow
   });
   root.optionsTab = Titanium.UI.createTab({
     icon: 'icons/icon_conf.png',
-    title: 'Opciones',
+    title: L('options'),
     window: root.optionsWindow
   });
   root.tabGroup.addTab(root.dealsTab);
@@ -52,7 +51,7 @@
   root.tabGroup.addTab(root.optionsTab);
   root.tabGroup.open();
   root.showError = function() {
-    root.errorWindow = new root.GenericWindow('Error', 'Error').win;
+    root.errorWindow = new root.GenericWindow('Error').win;
     root.errorWindow.add(root.errorView);
     return root.errorWindow.open({
       modal: true,

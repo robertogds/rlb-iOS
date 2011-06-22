@@ -37,7 +37,7 @@ root.xhrDeals.onload = () ->
   root.listDealsWindow.remove(root.loadingView)
 
 root.xhrDeals.onerror = () ->
-  alert 'Se produjo un error. Inténtelo más tarde'
+  alert L('errorHappened')
   root.listDealsWindow.remove(root.loadingView)
   root.showError()
 

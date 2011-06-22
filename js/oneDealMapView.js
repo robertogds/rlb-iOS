@@ -7,8 +7,8 @@
     return root.oneDealWindow.add(root.oneDealView);
   });
   root.hotelAnnotation = Titanium.Map.createAnnotation({
-    title: "Appcelerator Headquarters",
-    subtitle: 'Mountain View, CA',
+    title: "",
+    subtitle: '',
     pincolor: Titanium.Map.ANNOTATION_RED,
     animate: true,
     rightView: mapButtonView,

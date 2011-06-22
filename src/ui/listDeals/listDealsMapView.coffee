@@ -20,7 +20,7 @@ root.createMap = (deals) ->
   for deal in deals
     region.latitude = deal.latitude
     region.longitude = deal.longitude
-    subtitle = 'Esta noche: ' + deal.salePriceCents + '€'
+    subtitle = L('tonight') + ': ' + deal.salePriceCents + '€'
     root.mbv[a]  = new root.GenericMapRightButtonView(deal).view   
     root.mbv[a].addEventListener 'click', (e) ->
       root.showDealView(e.source.deal)

@@ -11,7 +11,6 @@
   });
   root.firstNameLabel = Titanium.UI.createLabel({
     color: '#afafaf',
-    text: 'firstname',
     left: 11,
     font: {
       fontSize: 17,
@@ -46,9 +45,9 @@
   root.userLoggedSection.add(userLastNameRow);
   root.userLoggedSection.add(userEmailRow);
   root.loadLoggedUser = function() {
-    root.firstNameLabel.text = 'Nombre: ' + root.user.firstName;
-    root.lastNameLabel.text = 'Apellidos: ' + root.user.lastName;
-    root.emailLabel.text = 'Email: ' + root.user.email;
+    root.firstNameLabel.text = Ti.Locale.getString('firstName') + ': ' + root.user.firstName;
+    root.lastNameLabel.text = Ti.Locale.getString('lastName') + ': ' + root.user.lastName;
+    root.emailLabel.text = Ti.Locale.getString('firstName') + ': ' + root.user.email;
     root.userLoggedData[0] = root.userLoggedSection;
     root.userLoggedTable.data = root.userLoggedData;
     return root.loggedView.add(root.userLoggedTable);

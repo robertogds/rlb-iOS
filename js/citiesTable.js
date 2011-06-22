@@ -33,16 +33,13 @@
     return root.citiesWindow.remove(root.loadingView);
   };
   root.xhrCities.onerror = function() {
-    alert('Se produjo un error');
+    alert(L('errorHappened'));
     root.citiesWindow.remove(root.loadingView);
     return root.showError();
   };
-  root.xhrCities.timedOut = function() {
-    return alert('Se produjo un timeout. Intentelo más tarde');
-  };
   root.showCities = function() {
     if (Titanium.Network.online === false) {
-      alert('Para usar esta aplicacion debes tener conexion a internet');
+      alert(L('mustInternet'));
       return root.showError();
     } else {
       root.citiesWindow.add(root.loadingView);

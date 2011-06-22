@@ -1,6 +1,6 @@
 (function() {
   var addressView, antesLabel, bookingLabel, infoImage, poiImage, priceView, sepVertView, separator1, separator2, separator3;
-  Ti.include('/js/oneDealButtonBar.js', '/js/oneDealMapView.js', '/js/imagesScrollView.js', '/js/infoDealTable.js', '/js/buyButton.js');
+  Ti.include('/js/oneDealButtonBar.js', '/js/oneDealMapView.js', '/js/imagesScrollView.js', '/js/infoDealTable.js');
   root.oneDealView = Titanium.UI.createView({
     background: 'transparent',
     borderWidth: 0,
@@ -51,7 +51,7 @@
   });
   priceView.add(sepVertView);
   antesLabel = Titanium.UI.createLabel({
-    text: 'antes',
+    text: L('before'),
     color: '#868d92',
     left: 110,
     font: {
@@ -82,7 +82,7 @@
     height: 33,
     borderRadius: 5,
     backgroundColor: '#0098cb',
-    text: ' reservar',
+    text: ' ' + L('bookingBlueButtonText'),
     font: {
       fontSize: 18,
       fontWeight: 'bold',
@@ -191,11 +191,11 @@
     root.image3.image = deal.image3;
     root.image4.image = deal.image4;
     root.image5.image = deal.image5;
-    detailTitle = "Los Detalles";
-    hotelTitle = 'El Hotel';
-    roomTitle = 'La Habitación';
-    foodDrinkTitle = 'Comer y Beber';
-    aroundTitle = 'Alrededores';
+    detailTitle = L('detailTitle');
+    hotelTitle = L('hotelTitle');
+    roomTitle = L('roomTitle');
+    foodDrinkTitle = L('roodDrinkTitle');
+    aroundTitle = L('around');
     detailRow = new root.GenericTextRow().row;
     hotelRow = new root.GenericTextRow().row;
     roomRow = new root.GenericTextRow().row;

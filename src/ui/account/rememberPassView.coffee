@@ -2,8 +2,8 @@ root.rememberPassView = Titanium.UI.createView
   backgroundColor: 'transparent'
   width:320
 
-title = "¿Has olvidado tu contraseña?"
-text = "Introduce el email que usaste para registrate y te enviaremos una nueva."
+title = Ti.Locale.getString('youForgotPassword')
+text = Ti.Locale.getString('forgotPasswordIntroEmail')
 rememberView =  new root.GenericTextView(0,title,text).view
 
 rememberTable = Titanium.UI.createTableView
@@ -17,7 +17,7 @@ rememberTable = Titanium.UI.createTableView
 
 rememberEmailText = Titanium.UI.createTextField
   color:'#336699'
-  hintText: 'Email'
+  hintText: Ti.Locale.getString('email')
   paddingLeft: 10
   clearOnEdit: false
 

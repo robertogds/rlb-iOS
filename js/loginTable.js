@@ -11,7 +11,7 @@
   });
   emailText = Titanium.UI.createTextField({
     color: '#336699',
-    hintText: 'Email',
+    hintText: Ti.Locale.getString('email'),
     clearOnEdit: true,
     paddingLeft: 10,
     suppressReturn: 1,
@@ -37,7 +37,7 @@
       password = Titanium.Utils.md5HexDigest(password);
       return root.doLogin(email, password);
     } else {
-      return alert('Revisa los datos: ' + validate);
+      return alert(Ti.Locale.getString('reviewData') + validate);
     }
   });
   section = Titanium.UI.createTableViewSection();

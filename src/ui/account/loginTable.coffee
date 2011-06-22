@@ -9,7 +9,7 @@ root.loginTable = Titanium.UI.createTableView
 
 emailText = Titanium.UI.createTextField
   color:'#336699'
-  hintText: 'Email'
+  hintText: Ti.Locale.getString('email')
   clearOnEdit: true
   paddingLeft: 10
   suppressReturn: 1
@@ -34,7 +34,7 @@ passText.addEventListener 'return', (e) ->
     password = Titanium.Utils.md5HexDigest(password)
     root.doLogin(email,password)
   else
-   alert 'Revisa los datos: ' + validate
+   alert Ti.Locale.getString('reviewData') + validate
 
 
 section = Titanium.UI.createTableViewSection()

@@ -29,10 +29,10 @@
   };
   root.validateLoginData = function(email, password) {
     if (!(email.length > 3)) {
-      return 'Email incorrecto';
+      return Ti.Locale.getString('errorEmail');
     }
     if (!(password.length > 3)) {
-      return 'Password incorrecto';
+      return Ti.Locale.getString('errorPassword');
     }
     return true;
   };

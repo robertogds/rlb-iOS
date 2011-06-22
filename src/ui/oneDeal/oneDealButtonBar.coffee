@@ -5,7 +5,7 @@ root.oneDealButtonBarView = Titanium.UI.createView
   top: 0
 
 root.oneDealButtonBar = Titanium.UI.createButtonBar
-  labels:['Reservar', 'Info', 'Mapa', 'Fotos']
+  labels:[L('booking'), L('info'), L('map'), L('photos')]
   backgroundColor:'#000'
   backgroundFocusedColor: '#fff'
   top:0

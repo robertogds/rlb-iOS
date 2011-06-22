@@ -12,19 +12,22 @@
   root.cardTypeLabel = Titanium.UI.createLabel({
     color: '#afafaf',
     left: 11,
-    text: 'Tipo de tarjeta',
+    text: L('cardType'),
     font: {
       fontSize: 17,
       fontFamily: 'Helvetica Neue'
     }
   });
   root.cardTypeLabel.addEventListener('click', function(e) {
+    root.cardNameText.blur();
+    root.cardNumberText.blur();
+    root.cvcCodeText.blur();
     root.bookingView.add(root.cardTypeView);
     return root.cardTypeView.show();
   });
   root.cardNumberText = Titanium.UI.createTextField({
     color: '#336699',
-    hintText: 'Número',
+    hintText: L('number'),
     clearOnEdit: false,
     paddingLeft: 10,
     keyboardType: Titanium.UI.KEYBOARD_NUMBERS_PUNCTUATION,
@@ -35,7 +38,7 @@
   });
   root.cardNameText = Titanium.UI.createTextField({
     color: '#336699',
-    hintText: 'Titular',
+    hintText: L('cardName'),
     clearOnEdit: false,
     paddingLeft: 10,
     returnKeyType: Titanium.UI.RETURNKEY_NEXT
@@ -50,19 +53,22 @@
   root.expiresLabel = Titanium.UI.createLabel({
     left: 11,
     color: '#afafaf',
-    text: 'Caduca en',
+    text: L('expires'),
     font: {
       fontSize: 17,
       fontFamily: 'Helvetica Neue'
     }
   });
   root.expiresLabel.addEventListener('click', function(e) {
+    root.cardNameText.blur();
+    root.cardNumberText.blur();
+    root.cvcCodeText.blur();
     root.bookingView.add(root.expiresView);
     return root.expiresView.show();
   });
   root.cvcCodeText = Titanium.UI.createTextField({
     color: '#336699',
-    hintText: 'Código CVC',
+    hintText: L('cvcCode'),
     paddingLeft: 10,
     clearOnEdit: false,
     keyboardType: Titanium.UI.KEYBOARD_NUMBERS_PUNCTUATION
@@ -71,7 +77,7 @@
     var validate;
     validate = root.validateBookingData();
     if (validate !== true) {
-      return alert('Revisa los datos: ' + validate);
+      return alert(L('reviewData') + ': ' + validate);
     } else {
       return root.doBooking();
     }

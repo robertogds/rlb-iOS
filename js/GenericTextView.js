@@ -3,7 +3,7 @@
   GenericTextView = (function() {
     function GenericTextView(top, title, text) {
       this.view = Titanium.UI.createView({
-        backgroundColor: 'transparent',
+        backgroundColor: '#0d1e28',
         borderWidth: 0,
         height: 'auto',
         width: 320,

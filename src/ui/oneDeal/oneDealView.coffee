@@ -3,7 +3,6 @@ Ti.include(
   '/js/oneDealMapView.js'
   '/js/imagesScrollView.js'
   '/js/infoDealTable.js'
-  '/js/buyButton.js'
 )
 
 root.oneDealView = Titanium.UI.createView
@@ -59,7 +58,7 @@ sepVertView = Titanium.UI.createView
 priceView.add(sepVertView)
 
 antesLabel = Titanium.UI.createLabel
-  text: 'antes'
+  text: L('before')
   color: '#868d92'
   left: 110
   font:
@@ -88,7 +87,7 @@ bookingLabel = Titanium.UI.createLabel
   height: 33
   borderRadius: 5
   backgroundColor: '#0098cb'
-  text: ' reservar'
+  text: ' '+L('bookingBlueButtonText')
   font:
     fontSize: 18
     fontWeight: 'bold'
@@ -209,11 +208,11 @@ root.showDealView = (deal) ->
   # infoTable view
 
   # Titles
-  detailTitle = "Los Detalles"
-  hotelTitle = 'El Hotel'
-  roomTitle = 'La Habitación'
-  foodDrinkTitle = 'Comer y Beber'
-  aroundTitle = 'Alrededores'
+  detailTitle = L('detailTitle')
+  hotelTitle = L('hotelTitle')
+  roomTitle = L('roomTitle')
+  foodDrinkTitle = L('roodDrinkTitle')
+  aroundTitle = L('around')
 
   # Rows
   detailRow = new root.GenericTextRow().row

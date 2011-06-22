@@ -6,8 +6,8 @@
     top: 0,
     showVerticalScrollIndicator: true
   });
-  title = 'Política de privacidad';
-  text = "Nos tomamos muy en serio la privacidad.\n\nPor eso tus datos no serán compartidos con nadie";
+  title = L('privacyPolicy');
+  text = L('privacyText');
   root.privacyView = new root.GenericTextView(0, title, text);
   privacyScrollView.add(root.privacyView.view);
   root.privacyWindow.add(privacyScrollView);
@@ -26,7 +26,7 @@
   };
   root.showPrivacy = function() {
     if (Titanium.Network.online === false) {
-      alert('Para usar esta aplicacion debes tener conexion a internet');
+      alert(L('mustInternet'));
       return root.showError();
     } else {
       root.tabGroup.activeTab.open(root.privacyWindow, {

@@ -7,12 +7,12 @@
     width: 320,
     top: 0
   });
-  confirmButton = new root.GenericButton(310, 'Confirmar').button;
+  confirmButton = new root.GenericButton(310, L('confirm')).button;
   confirmButton.addEventListener('click', function(e) {
     var validate;
     validate = root.validateBookingData();
     if (validate !== true) {
-      return alert('Revisa los datos: ' + validate);
+      return alert(L('reviewData') + ': ' + validate);
     } else {
       return root.doBooking();
     }
@@ -30,7 +30,7 @@
     borderColor: 'red',
     height: 60,
     top: 240,
-    text: "ReallyLateBooking no hará ningún cargo en tu tarjeta de crédito. La estancia la pagarás en el hotel.\nRecuerda que la reserva no es anulable.",
+    text: L('adviceCard'),
     color: '#fff',
     left: 22,
     font: {
@@ -41,7 +41,7 @@
   root.bookingView.add(adviseCardLabel);
   root.bookingView.add(confirmButton);
   root.confirmBookingWindow.add(root.bookingView);
-  root.oneClassBookingView = new root.GenericTextView(0, 'Reserva', 'Reserva').view;
+  root.oneClassBookingView = new root.GenericTextView(0, L('booking'), L('booking')).view;
   root.oneBookingWindow.add(root.oneClassBookingView);
   root.showBookingView = function() {
     if (Titanium.App.Properties.hasProperty("user")) {
@@ -53,7 +53,7 @@
         animated: true
       });
     } else {
-      alert('Debes estar registrado para poder hacer una reserva');
+      alert(L('mustUser'));
       root.tabGroup.setActiveTab(2);
     }
     return 1;

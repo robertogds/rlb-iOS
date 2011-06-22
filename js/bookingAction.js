@@ -26,10 +26,14 @@
     return Ti.API.error(e);
   };
   root.doBooking = function() {
-    var newBook;
+    var newBook, signature, url;
     root.confirmBookingWindow.add(root.loadingView);
     root.xhrBooking.setTimeout(5000);
-    root.xhrBooking.open("POST", root.surl + "/booking");
+    url = root.urlSignature('/booking');
+    signature = root.doSignature(url);
+    url = url + '/' + signature;
+    alert(url);
+    root.xhrBooking.open("POST", root.surl + url);
     root.xhrBooking.setRequestHeader("Content-Type", "application/json; charset=utf-8");
     root.xhrBooking.setRequestHeader("Accept-Language", Titanium.Locale.currentLanguage);
     newBook = JSON.stringify({
@@ -47,7 +51,7 @@
   };
   root.validateBookingData = function() {
     if (!(root.user.id > 0)) {
-      return Ti.Locale.getString('userIncorrect');
+      return Ti.Locale.getString('errorUser');
     }
     if (!(root.deal.id > 0)) {
       return Ti.Locale.getString('errorNoDeal');
