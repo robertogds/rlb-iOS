@@ -194,7 +194,7 @@
     detailTitle = L('detailTitle');
     hotelTitle = L('hotelTitle');
     roomTitle = L('roomTitle');
-    foodDrinkTitle = L('roodDrinkTitle');
+    foodDrinkTitle = L('foodDrinkTitle');
     aroundTitle = L('around');
     detailRow = new root.GenericTextRow().row;
     hotelRow = new root.GenericTextRow().row;

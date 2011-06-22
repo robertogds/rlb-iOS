@@ -11,7 +11,7 @@
 	<string name="errorcvcCode">Invalid CVC Code</string>
 	<string name="errorEmail">Invalid email address</string>
 	<string name="errorPassword">Invalid Password, must be at least 4 characters</string>
-	<string name="errorFirstName">Invalid FirstName/string>
+	<string name="errorFirstName">Invalid FirstName</string>
 	<string name="errorLastName">Invalid LastName</string>
 	<string name="firstName">First Name</string>
 	<string name="lastName">Last Name</string>
@@ -37,8 +37,8 @@
 	<string name="adviceCard">ReallyLateBooking no hará ningún cargo en tu tarjeta de crédito. La estancia la pagarás en el hotel.\nRecuerda que la reserva no es anulable.</string>	
 	<string name="booking">Booking</string>
 	<string name="bookingBlueButtonText">book it</string>
-	<string name="mustUser">You must be logged in to do that/string>
-	<string name="selectCardType"Select Card Type</string>
+	<string name="mustUser">You must be logged in to do that</string>
+	<string name="selectCardType">Select Card Type</string>
 	<string name="done">Done</string>
 	<string name="cardType">Card Type</string>
 	<string name="number">Number</string>
