@@ -211,7 +211,7 @@ root.showDealView = (deal) ->
   detailTitle = L('detailTitle')
   hotelTitle = L('hotelTitle')
   roomTitle = L('roomTitle')
-  foodDrinkTitle = L('roodDrinkTitle')
+  foodDrinkTitle = L('foodDrinkTitle')
   aroundTitle = L('around')
 
   # Rows
