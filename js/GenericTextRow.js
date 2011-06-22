@@ -1,6 +1,6 @@
 (function() {
   var GenericTextRow;
-  GenericTextRow = (function() {
+  GenericTextRow = function() {
     function GenericTextRow() {
       this.row = Ti.UI.createTableViewRow({
         hasChild: false,
@@ -22,6 +22,6 @@
       });
     }
     return GenericTextRow;
-  })();
+  }();
   root.GenericTextRow = GenericTextRow;
 }).call(this);

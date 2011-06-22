@@ -34,4 +34,5 @@ root.showPrivacy = () ->
     root.tabGroup.activeTab.open(root.privacyWindow,{animated:true})
     root.privacyWindow.add(root.loadingView)
     root.xhrPrivacy.open('GET', root.url+'/info/privacy')
+    root.xhrPrivacy.setRequestHeader("Accept-Language",Titanium.Locale.currentLanguage)
     root.xhrPrivacy.send()

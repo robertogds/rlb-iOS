@@ -3,7 +3,7 @@
     <string name="cities">Ciudades</string>
     <string name="errorHappened">Se ha producido un error</string>
 	<string name="errorUser">Usuario incorrecto</string>
-	<string name="errorNoDeal">No hay deal</string>
+	<string name="errorNoDeal">No hay ofertas</string>
 	<string name="errorCardType">Tipo de tarjeta incorrecto</string>
 	<string name="errorCardNumber">Número de tarjeta incorrecto</string>
 	<string name="errorCardName">Titular tarjeta incorrecto</string>
@@ -23,14 +23,14 @@
 	<string name="userSupport">Soporte a usuario</string>
 	<string name="editUser">Editar Usuario</string>
 	<string name="feedbackEmailSubject">Danos tu opinión sobre ReallyLateBooking</string>
-	<string name="logout">Logout</string>
-	<string name="loginLabel">¿Ya eres usuario? Identificate</string>
+	<string name="logout">Salir</string>
+	<string name="loginLabel">¿Ya eres usuario? Identifícate</string>
 	<string name="IForgotPassword">He olvidado mi contraseña</string>
 	<string name="youForgotPassword">¿Has olvidado tu contraseña?</string>
 	<string name="needAccount">¿Necesitas una cuenta? Regístrate gratis</string>
 	<string name="register">Registrarme</string>
-	<string name="acceptTerms">Al clickar en Registrarse, aceptas los términos de uso y política de privacidad de ReallyLateBooking que puedes encontrar en la pestaña Opciones</string>
-	<string name="forgotPasswordIntroEmail">Introduce el email que usaste para registrate y te enviaremos una nueva.</string>
+	<string name="acceptTerms">Al hacer clic en Registrarme, aceptas los términos de uso y política de privacidad de ReallyLateBooking que puedes encontrar en la pestaña Opciones</string>
+	<string name="forgotPasswordIntroEmail">Introduce el email que usaste para regístrate y te enviaremos una nueva.</string>
 	<string name="conectionError">La aplicación no puede cargar los datos necesarios.\n\nProbablemente se trate de un problema de conexión a Internet o una caída temporal de nuestros servidores debido a un fallo o tareas de mantenimiento\n\n\nPor favor vuelve a intentarlo en unos minutos.</string>	
 	<string name="confirm">Confirmar</string>
 	<string name="tryAgain">Intentar de nuevo</string>
@@ -59,7 +59,7 @@
 	<string name="dec">Diciembre</string>
 	<string name="bookingTonight">¿Reservar esta noche?</string>
 	<string name="yetNoBook">Todavía no has realizado ninguna reserva.\n\nCuando lo hayas hecho, podrás encontrar tus resguardos en esta sección para poder acceder a ellos de forma fácil cuando vayas al hotel\n\n\n¿Ya has hecho alguna reserva?\nVe a Opciones y entra con tu usuario.</string>	
-	<string name="mustInternet">Para usar esta aplicacion debes tener conexion a internet</string>
+	<string name="mustInternet">Para usar esta aplicación debes tener conexión a internet</string>
 	<string name="tonight">Esta noche</string>
 	<string name="before">antes</string>
 	<string name="noDealsTitle">Preparando las mejores ofertas</string>
@@ -73,7 +73,7 @@
 	<string name="editAccount">Editar Cuenta</string>
 	<string name="about">Acerca de</string>
 	<string name="toHotels">Para los hoteles</string>
-	<string name="terms">Terminos de uso</string>
+	<string name="terms">Términos de uso</string>
 	<string name="privacy">Privacidad</string>
 	<string name="resetPassword">Restablecer Contraseña</string>
 	<string name="back">Volver</string>
@@ -92,14 +92,13 @@
 	<string name="roomTitle">La Habitación</string>
 	<string name="roodDrinkTitle">Comer y Beber</string>
 	<string name="aboutTitle">La noche es joven</string>
-	<string name="aboutText">Estás en un club a la 1am y quieres continuar la fiesta. Has tenido un lardo día en la oficina y estás demasiado cansado para conducir hasta casa. Un cliente te necesita en Sevilla mañana y necesitas un luegar donde descansar\n\nLos planes han cambiado. ReallyLateBooking te puede ayudar.\n\nReallyLateBooking ofrece increíbles descuentos en reservas en el mismo día para hoteles de calidad. Probalemente ya has estado en alguno de estos hoteles, pero ahora ReallyLateBooking te permitirá conseguir habitación a una fracción del precio que pagarías habitualmente.\n\n¿Cómo podemos ofrecerte estos precios? Hemos llegado a acuerdos especiales con cada uno de los hoteles, los hoteles necesitan llenar sus habitaciones y nosotros nos ofrecemos para ayudarles a cambio de que nos ofrezcan esas habitaciones que probablemente se iban a quedar vacías a un precio ridículo. Nosotros se lo propusimos, ellos aceptaron y todos contentos, especialmente como podrás comprobar pronto, tú.\n\nSi lo que buscas es pasar un largo fin de semana en un determinado hotel, ese no es nuestro negocio.\n\n¿Necesitas un hotel para esta noche?. Entonces sí que podemos ayudarte.\nTenemos tres hoteles cada día para elegir en con tres catogrías de precio para cada una de las ciudades en las que trabajamos.\nReserva en el momento, desde cualquier sitio con tu móvil.\n¡Consigue habitación, esta noche!
-	</string>	
+	<string name="aboutText">Una reunión de negocios se prolonga con unas cervezas con el cliente. Cuando te das cuenta son las 12 de la noche, has bebido unas cuantas cervezas y tienes 30 km en coche de camino a tu casa. Pero no tienes otra opción.\n\nAhora sí. ReallyLateBooking te puede ayudar.\n\nReallyLateBooking ofrece increíbles descuentos en reservas en el mismo día para hoteles de calidad. ReallyLateBooking te permitirá conseguir habitación a una fracción del precio que pagarías habitualmente.\n\n¿Cómo podemos ofrecerte estos precios? Hemos llegado a acuerdos especiales con cada uno de los hoteles, los hoteles necesitan llenar sus habitaciones y nosotros nos ofrecemos para ayudarles a cambio de que nos ofrezcan esas habitaciones que probablemente se iban a quedar vacías a un precio ridículo.\n\n¿Necesitas un hotel para esta noche?. Entonces ReallyLateBooking es lo que estabas buscando. Tenemos tres hoteles cada día para elegir entre tres categorías de precio para cada ciudad. Reserva en 30 segundos, desde cualquier parte, solo necesitas tu móvil.\n¡Disfruta los cambios de planes!</string>	
 	<string name="forHotelsTitle">¿Tienes un hotel?</string>
 	<string name="forHotelsText">Si tienes un hotel y quieres estar en la aplicación más innovadora de reservas de hoteles.\n\nPonte en contacto con nosotros</string>
 	<string name="aboutRLB">Acerca de ReallyLateBooking</string>
 	<string name="privacyPolicy">Política de privacidad</string>
 	<string name="privacyText">Nos tomamos muy en serio la privacidad.\n\nPor eso tus datos no serán compartidos con nadie</string>
 	<string name="supportTitle">¿Podemos Ayudarte?</string>
-	<string name="supportText">Estamos disponibles 24x7 para asegurarnos que tus planes salgan bien.\n\nSi tienes cualquier problema no dudes en ponerte en contacto con nosotrosCiudades</string>
+	<string name="supportText">Estamos disponibles 24x7 para asegurarnos que tus planes salgan bien.\n\nSi tienes cualquier problema no dudes en ponerte en contacto con nosotros</string>
 	<string name="needHelp">Necesito Ayuda</string>
 </resources>

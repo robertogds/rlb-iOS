@@ -1,6 +1,6 @@
 (function() {
   var ListDealsRow;
-  ListDealsRow = (function() {
+  ListDealsRow = function() {
     function ListDealsRow(deal) {
       var antesLabel, hotelLabel, icon, image, normalPriceLabel, priceLabel, roomTypeImage, sepVertView;
       this.row = Ti.UI.createTableViewRow({
@@ -120,6 +120,6 @@
       this.row.rightImage = icon;
     }
     return ListDealsRow;
-  })();
+  }();
   root.listDealsRow = ListDealsRow;
 }).call(this);

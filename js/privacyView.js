@@ -34,6 +34,7 @@
       });
       root.privacyWindow.add(root.loadingView);
       root.xhrPrivacy.open('GET', root.url + '/info/privacy');
+      root.xhrPrivacy.setRequestHeader("Accept-Language", Titanium.Locale.currentLanguage);
       return root.xhrPrivacy.send();
     }
   };

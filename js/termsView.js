@@ -33,6 +33,7 @@
       });
       root.termsWindow.add(root.loadingView);
       root.xhrTerms.open('GET', root.url + '/info/use_terms');
+      root.xhrTerms.setRequestHeader("Accept-Language", Titanium.Locale.currentLanguage);
       return root.xhrTerms.send();
     }
   };

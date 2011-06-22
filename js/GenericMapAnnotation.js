@@ -1,6 +1,6 @@
 (function() {
   var GenericMapAnnotation;
-  GenericMapAnnotation = (function() {
+  GenericMapAnnotation = function() {
     function GenericMapAnnotation(id, latitude, longitude, title, subtitle, rightView) {
       this.annotation = Titanium.Map.createAnnotation({
         latitude: latitude,
@@ -14,6 +14,6 @@
       });
     }
     return GenericMapAnnotation;
-  })();
+  }();
   root.GenericMapAnnotation = GenericMapAnnotation;
 }).call(this);
