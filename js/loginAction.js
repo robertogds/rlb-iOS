@@ -28,10 +28,10 @@
     }));
   };
   root.validateLoginData = function(email, password) {
-    if (!(email.length > 3)) {
+    if (email.length <= 3) {
       return Ti.Locale.getString('errorEmail');
     }
-    if (!(password.length > 3)) {
+    if (password.length <= 3) {
       return Ti.Locale.getString('errorPassword');
     }
     return true;
