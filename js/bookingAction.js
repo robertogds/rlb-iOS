@@ -50,28 +50,28 @@
     return root.xhrBooking.send(newBook);
   };
   root.validateBookingData = function() {
-    if (root.user.id <= 0) {
+    if (!(root.user.id > 0)) {
       return Ti.Locale.getString('errorUser');
     }
-    if (root.deal.id <= 0) {
+    if (!(root.deal.id > 0)) {
       return Ti.Locale.getString('errorNoDeal');
     }
     if (root.cardTypeLabel.text === 'Tipo de tarjeta') {
       return Ti.Locale.getString('errorCardType');
     }
-    if (root.cardTypeLabel.text.length <= 2) {
+    if (!(root.cardTypeLabel.text.length > 2)) {
       return Ti.Locale.getString('errorCardType');
     }
-    if (root.cardNumberText.value.length <= 12) {
+    if (!(root.cardNumberText.value.length > 12)) {
       return Ti.Locale.getString('errorCardNumber');
     }
-    if (root.cardNameText.value.length <= 2) {
+    if (!(root.cardNameText.value.length > 2)) {
       return Ti.Locale.getString('errorCardName');
     }
-    if (root.expiresLabel.text.length <= 2) {
+    if (!(root.expiresLabel.text.length > 2)) {
       return Ti.Locale.getString('errorExpires');
     }
-    if (root.cvcCodeText.value.length <= 2) {
+    if (!(root.cvcCodeText.value.length > 2)) {
       return Ti.Locale.getString('errorcvcCode');
     }
     return true;

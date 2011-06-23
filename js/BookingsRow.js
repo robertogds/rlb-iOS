@@ -1,6 +1,6 @@
 (function() {
   var BookingsRow;
-  BookingsRow = function() {
+  BookingsRow = (function() {
     function BookingsRow(booking) {
       var bookingLabel;
       this.row = Ti.UI.createTableViewRow({
@@ -32,6 +32,6 @@
       this.row.add(bookingLabel);
     }
     return BookingsRow;
-  }();
+  })();
   root.BookingsRow = BookingsRow;
 }).call(this);
