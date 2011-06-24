@@ -32,7 +32,6 @@
     url = root.urlSignature('/booking');
     signature = root.doSignature(url);
     url = url + '/' + signature;
-    alert(url);
     root.xhrBooking.open("POST", root.surl + url);
     root.xhrBooking.setRequestHeader("Content-Type", "application/json; charset=utf-8");
     root.xhrBooking.setRequestHeader("Accept-Language", Titanium.Locale.currentLanguage);
