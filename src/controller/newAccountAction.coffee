@@ -23,7 +23,9 @@ root.xhrRegister.onerror = (e) ->
 root.doRegister = (email,password,firstName,lastName,id) ->
   root.xhrRegister.setTimeout(5000)
   if id > 0
-    url = root.url + "/user/"+id 
+    url = root.urlSignature("/user/" + id)
+    signature = root.doSignature(url)
+    url = root.surl + url + '/' + signature
     proto = 'PUT'
   else
     password = Titanium.Utils.md5HexDigest(password)

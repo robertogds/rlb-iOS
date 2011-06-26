@@ -23,10 +23,12 @@
     return Ti.API.error(e);
   };
   root.doRegister = function(email, password, firstName, lastName, id) {
-    var newUser, proto, url;
+    var newUser, proto, signature, url;
     root.xhrRegister.setTimeout(5000);
     if (id > 0) {
-      url = root.url + "/user/" + id;
+      url = root.urlSignature("/user/" + id);
+      signature = root.doSignature(url);
+      url = root.surl + url + '/' + signature;
       proto = 'PUT';
     } else {
       password = Titanium.Utils.md5HexDigest(password);
