@@ -1,6 +1,6 @@
 (function() {
   var GenericMapRightButtonView;
-  GenericMapRightButtonView = function() {
+  GenericMapRightButtonView = (function() {
     function GenericMapRightButtonView(deal) {
       this.view = Titanium.UI.createView({
         borderWidth: 0,
@@ -12,6 +12,6 @@
       });
     }
     return GenericMapRightButtonView;
-  }();
+  })();
   root.GenericMapRightButtonView = GenericMapRightButtonView;
 }).call(this);

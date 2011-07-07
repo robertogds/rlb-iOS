@@ -11,15 +11,15 @@
   root.mbv = [];
   root.listDealsMapWindow.add(root.listDealsMapView);
   root.createMap = function(deals) {
-    var a, region, _fn, _i, _len;
+    var a, deal, region, subtitle, _i, _len;
     root.annotations = [];
     region = {
       latitudeDelta: 0.02,
       longitudeDelta: 0.02
     };
     a = 0;
-    _fn = function(deal) {
-      var subtitle;
+    for (_i = 0, _len = deals.length; _i < _len; _i++) {
+      deal = deals[_i];
       region.latitude = deal.latitude;
       region.longitude = deal.longitude;
       subtitle = L('tonight') + ': ' + deal.salePriceCents + '€';
@@ -32,11 +32,7 @@
       });
       root.annotations[a] = new root.GenericMapAnnotation(deal.id, deal.latitude, deal.longitude, deal.hotelName, subtitle, root.mbv[a]).annotation;
       root.listDealsMapView.addAnnotation(root.annotations[a]);
-      return a++;
-    };
-    for (_i = 0, _len = deals.length; _i < _len; _i++) {
-      deal = deals[_i];
-      _fn(deal);
+      a++;
     }
     return root.listDealsMapView.region = region;
   };
