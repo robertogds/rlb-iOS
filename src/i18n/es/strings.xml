@@ -101,4 +101,8 @@
 	<string name="supportTitle">¿Podemos Ayudarte?</string>
 	<string name="supportText">Estamos disponibles 24x7 para asegurarnos que tus planes salgan bien.\n\nSi tienes cualquier problema no dudes en ponerte en contacto con nosotros</string>
 	<string name="needHelp">Necesito Ayuda</string>
+	<string name="lastUpdated">Actualizado el</string>
+    <string name="pullRefresh">Volver a cargar</string>
+    <string name="releaseRefresh">Soltar para refrescar</string>
+    <string name="reloading">Cargando</string>
 </resources>

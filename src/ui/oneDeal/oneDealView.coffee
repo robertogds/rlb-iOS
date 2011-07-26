@@ -108,19 +108,19 @@ addressView = Titanium.UI.createView
   top: 200
   height: 50
 
-addressView.addEventListener 'click', (e) ->
-  root.oneDealWindow.remove root.oneDealView
-  root.oneDealWindow.remove root.infoDealTable
-  root.oneDealWindow.add root.mapView
+#addressView.addEventListener 'click', (e) ->
+  #root.oneDealWindow.remove root.oneDealView
+  #root.oneDealWindow.remove root.infoDealTable
+  #root.oneDealWindow.add root.mapView
 
-poiImage = Titanium.UI.createImageView 
-  #top: 210
-  image: '/images/poi.png'
-  width: 15
-  height: 20
-  left: 5
+#poiImage = Titanium.UI.createImageView 
+#  #top: 210
+#  image: '/images/poi.png'
+##  width: 15
+#  height: 20
+#  left: 5
 #root.oneDealView.add(poiImage)
-addressView.add(poiImage)
+#addressView.add(poiImage)
 
 root.oneDealAddressLabel = Titanium.UI.createLabel
   width: 280
@@ -140,13 +140,13 @@ addressView.add(root.oneDealAddressLabel)
 separator3 = new root.GenericSeparatorView(250).view
 root.oneDealView.add(separator3)
 
-infoImage = Titanium.UI.createImageView 
-  top: 260
-  image: '/images/icon_info.png'
-  width: 20
-  height: 20
-  left: 5
-root.oneDealView.add(infoImage)
+#infoImage = Titanium.UI.createImageView 
+#  top: 260
+#  image: '/images/icon_info.png'
+#  width: 20
+#  height: 20
+#  left: 5
+#root.oneDealView.add(infoImage)
 
 root.descriptionLabel = Titanium.UI.createLabel
   width: 280
@@ -160,10 +160,10 @@ root.descriptionLabel = Titanium.UI.createLabel
     #fontWeight: 'bold'
   top: 260
   left: 25
-root.descriptionLabel.addEventListener 'click', (e) ->
-  root.oneDealWindow.remove root.oneDealView 
-  root.oneDealWindow.remove root.mapView
-  root.oneDealWindow.add root.infoDealTable
+#root.descriptionLabel.addEventListener 'click', (e) ->
+  #root.oneDealWindow.remove root.oneDealView 
+  #root.oneDealWindow.remove root.mapView
+  #root.oneDealWindow.add root.infoDealTable
 
 root.oneDealView.add(root.oneDealImage)
 root.oneDealView.add(priceView)
@@ -204,6 +204,11 @@ root.showDealView = (deal) ->
   root.image3.image = deal.image3
   root.image4.image = deal.image4
   root.image5.image = deal.image5
+  Ti.API.info(deal.image1)
+  Ti.API.info(deal.image2)
+  Ti.API.info(deal.image3)
+  Ti.API.info(deal.image4)
+  Ti.API.info(deal.image5)
   
   # infoTable view
 

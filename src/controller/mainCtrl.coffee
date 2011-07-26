@@ -24,7 +24,7 @@ Ti.include(
   '/js/testView.js'
   '/js/optionsView.js'
   '/js/bookingView.js'
-  '/js/citiesTable.js'
+  '/js/citiesWindow.js'
   '/js/aboutView.js'
   '/js/forHotelsView.js'
   '/js/termsView.js'

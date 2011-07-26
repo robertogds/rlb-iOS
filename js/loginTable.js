@@ -23,7 +23,7 @@
   });
   passText = Titanium.UI.createTextField({
     color: '#336699',
-    hintText: 'Clave',
+    hintText: Ti.Locale.getString('password'),
     paddingLeft: 10,
     clearOnEdit: true,
     passwordMask: true

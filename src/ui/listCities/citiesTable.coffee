@@ -1,5 +1,3 @@
-Ti.include('/js/citiesRow.js')
-
 footerView = Titanium.UI.createView
     backgroundColor:'#0d1e28' 
     borderWidth: 0
@@ -14,9 +12,8 @@ root.citiesTable = Titanium.UI.createTableView
 root.citiesWindow.add(root.citiesTable)
 
 root.citiesTable.addEventListener 'click', (e) ->
-  root.listDealsWindow.add(root.loadingView)
+  root.citiesWindow.add(root.loadingView)
   root.loadDeals(e.row.city)
-  root.showDeals()
 
   
 root.xhrCities = Titanium.Network.createHTTPClient()

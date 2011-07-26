@@ -100,4 +100,8 @@
 	<string name="supportTitle">Can we help you?</string>
 	<string name="supportText">We are available 24x7 to ensure your plans go well. \n\n If you have any problems please do not hesitate to contact us</string>
 	<string name="needHelp">I need help</string>
+    <string name="lastUpdated">Last Updated</string>
+    <string name="pullRefresh">Pull down to refresh</string>
+    <string name="releaseRefresh">Release to refresh</string>
+    <string name="reloading">Reloading</string>
 </resources>

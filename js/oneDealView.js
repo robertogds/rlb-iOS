@@ -1,5 +1,5 @@
 (function() {
-  var addressView, antesLabel, bookingLabel, infoImage, poiImage, priceView, sepVertView, separator1, separator2, separator3;
+  var addressView, antesLabel, bookingLabel, priceView, sepVertView, separator1, separator2, separator3;
   Ti.include('/js/oneDealButtonBar.js', '/js/oneDealMapView.js', '/js/imagesScrollView.js', '/js/infoDealTable.js');
   root.oneDealView = Titanium.UI.createView({
     background: 'transparent',
@@ -103,18 +103,6 @@
     top: 200,
     height: 50
   });
-  addressView.addEventListener('click', function(e) {
-    root.oneDealWindow.remove(root.oneDealView);
-    root.oneDealWindow.remove(root.infoDealTable);
-    return root.oneDealWindow.add(root.mapView);
-  });
-  poiImage = Titanium.UI.createImageView({
-    image: '/images/poi.png',
-    width: 15,
-    height: 20,
-    left: 5
-  });
-  addressView.add(poiImage);
   root.oneDealAddressLabel = Titanium.UI.createLabel({
     width: 280,
     height: 40,
@@ -131,14 +119,6 @@
   addressView.add(root.oneDealAddressLabel);
   separator3 = new root.GenericSeparatorView(250).view;
   root.oneDealView.add(separator3);
-  infoImage = Titanium.UI.createImageView({
-    top: 260,
-    image: '/images/icon_info.png',
-    width: 20,
-    height: 20,
-    left: 5
-  });
-  root.oneDealView.add(infoImage);
   root.descriptionLabel = Titanium.UI.createLabel({
     width: 280,
     height: 60,
@@ -151,11 +131,6 @@
     },
     top: 260,
     left: 25
-  });
-  root.descriptionLabel.addEventListener('click', function(e) {
-    root.oneDealWindow.remove(root.oneDealView);
-    root.oneDealWindow.remove(root.mapView);
-    return root.oneDealWindow.add(root.infoDealTable);
   });
   root.oneDealView.add(root.oneDealImage);
   root.oneDealView.add(priceView);
@@ -191,6 +166,11 @@
     root.image3.image = deal.image3;
     root.image4.image = deal.image4;
     root.image5.image = deal.image5;
+    Ti.API.info(deal.image1);
+    Ti.API.info(deal.image2);
+    Ti.API.info(deal.image3);
+    Ti.API.info(deal.image4);
+    Ti.API.info(deal.image5);
     detailTitle = L('detailTitle');
     hotelTitle = L('hotelTitle');
     roomTitle = L('roomTitle');

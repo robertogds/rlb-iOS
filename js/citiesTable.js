@@ -1,6 +1,5 @@
 (function() {
   var footerView;
-  Ti.include('/js/citiesRow.js');
   footerView = Titanium.UI.createView({
     backgroundColor: '#0d1e28',
     borderWidth: 0,
@@ -15,9 +14,8 @@
   });
   root.citiesWindow.add(root.citiesTable);
   root.citiesTable.addEventListener('click', function(e) {
-    root.listDealsWindow.add(root.loadingView);
-    root.loadDeals(e.row.city);
-    return root.showDeals();
+    root.citiesWindow.add(root.loadingView);
+    return root.loadDeals(e.row.city);
   });
   root.xhrCities = Titanium.Network.createHTTPClient();
   root.xhrCities.onload = function() {
