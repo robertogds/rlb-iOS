@@ -1,7 +1,7 @@
 (function() {
   var data, emailText, passText, row1, row2, section;
   root.loginTable = Titanium.UI.createTableView({
-    top: 60,
+    top: 40,
     height: 85,
     width: 300,
     borderWidth: 0,

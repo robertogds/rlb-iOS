@@ -104,4 +104,5 @@
     <string name="pullRefresh">Pull down to refresh</string>
     <string name="releaseRefresh">Release to refresh</string>
     <string name="reloading">Reloading</string>
+    <string name="loginFacebook">or, sign in with Facebook</string>
 </resources>

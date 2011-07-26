@@ -40,7 +40,7 @@
     width: 320,
     height: 60,
     textAlign: 'center',
-    text: L('selectCardType'),
+    text: Ti.Locale.getString('selectCardType'),
     color: '#fff',
     font: {
       fontSize: 14,
@@ -49,7 +49,7 @@
     },
     top: 0
   });
-  cardTypeButton = new root.GenericButton(50, L('done')).button;
+  cardTypeButton = new root.GenericButton(50, Ti.Locale.getString('done')).button;
   cardTypeButton.addEventListener('click', function(e) {
     root.cardTypeLabel.text = root.cardType;
     root.cardTypeView.hide();

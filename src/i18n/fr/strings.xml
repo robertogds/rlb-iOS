@@ -105,4 +105,5 @@
     <string name="pullRefresh">Déroulez pour rafraîchir</string>
     <string name="releaseRefresh">Communiqué de se rafraîchir</string>
     <string name="reloading">rechargement</string>
+    <string name="loginFacebook">connectez-vous avec Facebook</string>
 </resources>

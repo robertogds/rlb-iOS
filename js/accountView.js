@@ -6,5 +6,6 @@
   });
   root.accountView.add(root.loginView);
   root.accountView.add(root.loggedView);
+  root.accountView.add(root.loggedFacebookView);
   root.accountWindow.add(root.accountView);
 }).call(this);

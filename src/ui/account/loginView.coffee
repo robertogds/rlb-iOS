@@ -1,11 +1,11 @@
-Ti.include(
+Ti.include( 
   '/js/newAccountView.js'
   '/js/loginAction.js'
   '/js/logoutAction.js'
   '/js/facebookButton.js'
   '/js/loginTable.js'
   '/js/rememberPassView.js'
-  #'/js/registerButton.js'
+  '/js/loggedFacebookView.js'
 )
 
 root.loginView = Titanium.UI.createView
@@ -25,13 +25,26 @@ loginLabel = Titanium.UI.createLabel
   width: 300
   top: 5
 
-rememberPassRowView = new root.GenericRowView(170,Ti.Locale.getString('IForgotPassword'))
+loginFacebookLabel = Titanium.UI.createLabel
+  borderWidth: 0
+  text: Ti.Locale.getString('loginFacebook')
+  color: '#fff'
+  left: 5
+  font:
+    fontSize: 14
+    fontWeight: 'bold'
+  height: 30
+  width: 300
+  top: 150
+root.loginView.add(loginFacebookLabel)
+
+
+rememberPassRowView = new root.GenericRowView(200,Ti.Locale.getString('IForgotPassword'))
 
 rememberPassRowView.label.addEventListener 'click', (e) ->
   root.tabGroup.activeTab.open(root.rememberPassWindow,{animated:true})
 
 root.loginView.add(rememberPassRowView.view)
-
 
 needLabel = Titanium.UI.createLabel
   text: Ti.Locale.getString('needAccount')
@@ -42,9 +55,9 @@ needLabel = Titanium.UI.createLabel
     fontWeight: 'bold'
   height: 30
   width: 300
-  top: 250
+  top: 280
 
-registerButton = new root.GenericButton(290,Ti.Locale.getString('register')).button
+registerButton = new root.GenericButton(310,Ti.Locale.getString('register')).button
 
 registerButton.addEventListener 'click', (e) ->
   root.newAccountData[0] = root.newAccountSection
@@ -55,7 +68,7 @@ registerButton.addEventListener 'click', (e) ->
 
 root.loginView.add(registerButton)
 
-#root.loginView.add(root.facebookButton)
+root.loginView.add(root.facebookButton)
 root.loginView.add(root.loginTable)
 root.loginView.add(needLabel)
 root.loginView.add(loginLabel)
