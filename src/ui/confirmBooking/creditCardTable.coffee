@@ -70,8 +70,8 @@ root.cvcCodeText.addEventListener 'return', (e) ->
   validate = root.validateBookingData()
   if validate isnt true
     alert L('reviewData')+': ' + validate
-  else
-    root.doBooking()
+  #else
+   # root.doBooking()
 
 root.creditCardSection = Titanium.UI.createTableViewSection()
 root.creditCardData = []

@@ -17,7 +17,7 @@
   root.testView.add(bb1);
   testButton = Titanium.UI.createButton({
     color: '#fff',
-    title: 'Cuidades'
+    title: 'Ciudades'
   });
   root.testView.add(root.loadingView);
   userText = Titanium.UI.createTextField({

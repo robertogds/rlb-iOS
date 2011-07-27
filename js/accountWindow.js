@@ -1,22 +1,20 @@
 (function() {
+  Ti.include('/js/userLoggedTable.js', '/js/loginView.js', '/js/loggedView.js', '/js/rememberPassAction.js', '/js/accountView.js');
   root.accountWindow.addEventListener('focus', function(e) {
-    alert('Entra en focus');
     if (Titanium.App.Properties.hasProperty("user")) {
-      alert('Entra en esta logado por RLB');
+      Ti.API.info('Entra en esta logado por RLB');
       root.loginView.hide();
-      root.loggedFacebookView.hide();
       root.loggedView.show();
       return root.loadLoggedUser();
     } else if (Titanium.Facebook.loggedIn) {
-      alert('Entra en esta logado por facebook');
+      Ti.API.info('Entra en esta logado por facebook');
       root.loginView.hide();
-      root.loggedView.hide();
-      return root.loggedFacebookView.show();
+      root.loggedView.show();
+      Ti.API.info('LLega a loadLogged');
+      return root.loadLoggedFacebookUser();
     } else {
-      alert('Entra en no esta logado');
       root.loginView.show();
-      root.loggedView.hide();
-      return root.loggedFacebookView.hide();
+      return root.loggedView.hide();
     }
   });
 }).call(this);

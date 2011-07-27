@@ -19,5 +19,12 @@ facebookButton = Titanium.Facebook.createLoginButton
   top: 60
   style: "wide"
 
+#facebookButton.addEventListener 'click', (e) ->
+#  alertDialog = Titanium.UI.createAlertDialog
+#    title: 'ReallyLateBooking'
+#    message:L('logoutAlert')
+#    buttonNames: ['OK','Cancel']
+  #alertDialog.show()
+
 root.loggedFacebookView.add(facebookButton)
 root.loggedFacebookView.add(customerView.view)

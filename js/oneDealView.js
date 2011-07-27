@@ -1,5 +1,5 @@
 (function() {
-  var addressView, antesLabel, bookingLabel, priceView, sepVertView, separator1, separator2, separator3;
+  var addressView, antesLabel, priceView, sepVertView, separator1, separator2, separator3;
   Ti.include('/js/oneDealButtonBar.js', '/js/oneDealMapView.js', '/js/imagesScrollView.js', '/js/infoDealTable.js');
   root.oneDealView = Titanium.UI.createView({
     background: 'transparent',
@@ -76,7 +76,7 @@
     left: 110
   });
   priceView.add(root.oneDealNormalPriceLabel);
-  bookingLabel = Titanium.UI.createLabel({
+  root.bookingLabel = Titanium.UI.createLabel({
     backgroundImage: '/images/booking_background.png',
     width: 108,
     height: 33,
@@ -91,10 +91,27 @@
     top: 24,
     left: 200
   });
-  bookingLabel.addEventListener('click', function(e) {
+  root.bookingLabel.addEventListener('click', function(e) {
     return root.showBookingView();
   });
-  priceView.add(bookingLabel);
+  root.soldOutLabel = Titanium.UI.createLabel({
+    width: 108,
+    height: 33,
+    borderRadius: 5,
+    backgroundColor: '#000000',
+    text: L('soldOut'),
+    color: '#ff0000',
+    font: {
+      fontSize: 18,
+      fontWeight: 'bold',
+      fontFamily: 'Helvetica Neue'
+    },
+    top: 24,
+    left: 200
+  });
+  priceView.add(root.soldOutLabel);
+  root.soldOutLabel.hide();
+  priceView.add(root.bookingLabel);
   addressView = Titanium.UI.createView({
     backgroundColor: 'transparent',
     borderWidth: 0,
@@ -141,6 +158,13 @@
   root.showDealView = function(deal) {
     var aroundRow, aroundTitle, aroundView, data, detailRow, detailTitle, detailView, foodDrinkRow, foodDrinkTitle, foodDrinkView, hotelRow, hotelTitle, hotelView, region, roomRow, roomTitle, roomView;
     root.deal = deal;
+    if (deal.quantity === 0) {
+      root.soldOutLabel.show();
+      root.bookingLabel.hide();
+    } else {
+      root.soldOutLabel.hide();
+      root.bookingLabel.show();
+    }
     root.mapView.removeAllAnnotations();
     root.hotelAnnotation.latitude = deal.latitude;
     root.hotelAnnotation.longitude = deal.longitude;

@@ -22,7 +22,7 @@
   };
   root.xhrBooking.onerror = function(e) {
     root.confirmBookingWindow.remove(root.loadingView);
-    alert(Ti.Locale.getString('errorHappened') + e);
+    root.showError();
     return Ti.API.error(e);
   };
   root.doBooking = function() {

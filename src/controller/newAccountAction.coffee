@@ -12,12 +12,12 @@ root.xhrRegister.onload = (e) ->
     root.newAccountWindow.close()
     root.editAccountWindow.close()
   else
-    Ti.API.error 'response.detail'
+    Ti.API.error response.detail
     alert 'Error: ' + response.detail
 
 root.xhrRegister.onerror = (e) ->
   root.newAccountWindow.remove(root.loadingView)
-  alert(Ti.Locale.getString('errorHappened') + e)
+  root.showError()
   Ti.API.error(e)
 
 root.doRegister = (email,password,firstName,lastName,id) ->

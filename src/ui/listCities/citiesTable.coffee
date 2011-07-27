@@ -9,6 +9,7 @@ root.citiesTable = Titanium.UI.createTableView
   backgroundColor: '#0d1e28'
   separatorColor: '#1b3c50'
   footerView: footerView
+
 root.citiesWindow.add(root.citiesTable)
 
 root.citiesTable.addEventListener 'click', (e) ->

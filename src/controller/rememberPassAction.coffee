@@ -1,7 +1,7 @@
 root.xhrRemember = Titanium.Network.createHTTPClient()
 
 root.xhrRemember.onerror = (e) ->
-  alert 'Error: ' + e 
+  root.showError()
   Ti.API.error(e)
 
 root.xhrRemember.onload = (e) ->

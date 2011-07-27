@@ -94,6 +94,7 @@
 	<string name="aboutTitle">La noche es joven</string>
 	<string name="aboutText">Una reunión de negocios se prolonga con unas cervezas con el cliente. Cuando te das cuenta son las 12 de la noche, has bebido unas cuantas cervezas y tienes 30 km en coche de camino a tu casa. Pero no tienes otra opción.\n\nAhora sí. ReallyLateBooking te puede ayudar.\n\nReallyLateBooking ofrece increíbles descuentos en reservas en el mismo día para hoteles de calidad. ReallyLateBooking te permitirá conseguir habitación a una fracción del precio que pagarías habitualmente.\n\n¿Cómo podemos ofrecerte estos precios? Hemos llegado a acuerdos especiales con cada uno de los hoteles, los hoteles necesitan llenar sus habitaciones y nosotros nos ofrecemos para ayudarles a cambio de que nos ofrezcan esas habitaciones que probablemente se iban a quedar vacías a un precio ridículo.\n\n¿Necesitas un hotel para esta noche?. Entonces ReallyLateBooking es lo que estabas buscando. Tenemos tres hoteles cada día para elegir entre tres categorías de precio para cada ciudad. Reserva en 30 segundos, desde cualquier parte, solo necesitas tu móvil.\n¡Disfruta los cambios de planes!</string>	
 	<string name="forHotelsTitle">¿Tienes un hotel?</string>
+	<string name="forHotelsSubject">Queremos estar en vuestra aplicación</string>
 	<string name="forHotelsText">Si tienes un hotel y quieres estar en la aplicación más innovadora de reservas de hoteles.\n\nPonte en contacto con nosotros</string>
 	<string name="aboutRLB">Acerca de ReallyLateBooking</string>
 	<string name="privacyPolicy">Política de privacidad</string>
@@ -106,4 +107,6 @@
     <string name="releaseRefresh">Soltar para refrescar</string>
     <string name="reloading">Cargando</string>
     <string name="loginFacebook">O usa tu cuenta de Facebook:</string>
+    <string name="logoutAlert">Necesitas estar logado para poder hacer reservas. ¿Estás seguro que deseas salir?</string>
+    <string name="soldOut">¡Agotado!</string>
 </resources>

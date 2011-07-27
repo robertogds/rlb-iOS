@@ -17,17 +17,17 @@
 	<string name="lastName">Last Name</string>
 	<string name="email">Email</string>
 	<string name="password">Password</string>
-	<string name="send">Send</string>
+	<string name="send">Envoyer</string>
 	<string name="reviewData">Review data</string>
 	<string name="feedback">Give us your feedback</string>
 	<string name="userSupport">User Support</string>
 	<string name="editUser">Edit user</string>
 	<string name="feedbackEmailSubject">Feedback about ReallyLateBooking</string>
-	<string name="logout">Logout</string>
-	<string name="loginLabel">Already a user? Sign in</string>
-	<string name="IForgotPassword">I forgot my password</string>
-	<string name="youForgotPassword">Forgot your password?</string>
-	<string name="needAccount">Need an account? Sign up for free</string>
+	<string name="logout">Déconnexion</string>
+	<string name="loginLabel">Déjà un utilisateur? Connexion</string>
+	<string name="IForgotPassword">J'ai oublié mon mot de passe</string>
+	<string name="youForgotPassword">Mot de passe oublié?</string>
+	<string name="needAccount">Besoin d'un compte? Inscrivez-vous gratuitement</string>
 	<string name="register">Sign Up</string>
 	<string name="acceptTerms">En cliquant sur Inscription, vous acceptez les Conditions ReallyLateBooking d'utilisation et Politique de confidentialité (qui se trouve à l'onglet Options) </string>
 	<string name="forgotPasswordIntroEmail">Type the full email address you use to sign.</string>
@@ -85,15 +85,16 @@
 	<string name="regularPrice">Normal Price</string>
 	<string name="oneBookingText">Cet écran sur votre smartphone sert la réception de la réception de l'hôtel. \ N Vous pouvez y accéder à nouveau à partir du réservations onglet
 	</string>
-	<string name="info">Info</string>
-	<string name="around">Around</string>
-	<string name="detailTitle">Details</string>
-	<string name="hotelTitle">The Hotel</string>
-	<string name="roomTitle">The Room</string>
+	<string name="info">Infos</string>
+	<string name="around">Autour</string>
+	<string name="detailTitle">Détails</string>
+	<string name="hotelTitle">L'Hôtel</string>
+	<string name="roomTitle">La Chambre</string>
 	<string name="foodDrinkTitle">Nourriture et boisson</string>
 	<string name="aboutTitle">Nuit est jeune</string>
 	<string name="aboutText">Une réunion d'affaires se poursuit avec quelques bières avec le client. Lorsque vous devenez conscient qu'il est de 12 de la nuit vous avez bu quelques bières et un disque de 30 km sur votre chemin. Mais vous n'avez pas le choix. Maintenant que vous avez. ReallyLateBooking peut vous aider. \ n \ n ReallyLateBooking offre des rabais incroyables sur les réservations le jour même pour des hôtels de qualité. ReallyLateBooking vous permettra d'obtenir une chambre à une fraction du prix que vous payeriez normalement. \ n \ n Comment pouvons-nous offrir ces prix? Nous avons fait des arrangements spéciaux avec chacun de nos hôtels. Hôtels besoin pour remplir leurs chambres et nous offrons pour les aider autant que nous pourrions offrir ces pièces à un prix ridicule. \ N \ nVoulez-vous besoin d'un hôtel pour ce soir?. Puis ReallyLateBooking est ce que vous recherchez. Nous avons trois hôtels chaque jour à choisir entre trois catégories de prix pour chaque ville. Réservez 30 secondes, depuis n'importe où, vous avez juste besoin de votre mobile. \ n Profitez plans changent!</string>	
 	<string name="forHotelsTitle">Tu as un hôtel?</string>
+	<string name="forHotelsSubject">nous voulons être dans votre application</string>
 	<string name="forHotelsText">Si vous avez un hôtel et que vous voulez être dans la plate-forme plus novatrice hôtel mobiles réservation. \ n \ n Nous contacter</string>
 	<string name="aboutRLB">À propos ReallyLateBooking</string>
 	<string name="privacyPolicy">Politique de confidentialité</string>
@@ -106,4 +107,6 @@
     <string name="releaseRefresh">Communiqué de se rafraîchir</string>
     <string name="reloading">rechargement</string>
     <string name="loginFacebook">connectez-vous avec Facebook</string>
+    <string name="logoutAlert">Vous devez être connecté pour réserver des hôtels. Bien sûr, vous souhaitez vous déconnecter?</string>
+    <string name="soldOut">épuisé!</string>
 </resources>

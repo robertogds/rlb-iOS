@@ -78,8 +78,6 @@
     validate = root.validateBookingData();
     if (validate !== true) {
       return alert(L('reviewData') + ': ' + validate);
-    } else {
-      return root.doBooking();
     }
   });
   root.creditCardSection = Titanium.UI.createTableViewSection();

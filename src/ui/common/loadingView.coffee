@@ -3,9 +3,9 @@ root.loadingView = Titanium.UI.createView
   borderWidth: 0
   borderRadius: 10
   opacity: 0.8
-  width:120
-  height:80
-  top: 150
+  width:140
+  height:100
+  top: 120
 
 root.loadLabel = Titanium.UI.createLabel
   textAlign: 'center'
@@ -16,7 +16,7 @@ root.loadLabel = Titanium.UI.createLabel
   text: 'Cargando'
   color: '#fff'
   font:
-    fontSize: 11
+    fontSize: 14
     fontWeight: 'bold'
 
 

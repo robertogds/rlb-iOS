@@ -5,7 +5,6 @@ Ti.include(
   '/js/facebookButton.js'
   '/js/loginTable.js'
   '/js/rememberPassView.js'
-  '/js/loggedFacebookView.js'
 )
 
 root.loginView = Titanium.UI.createView
@@ -67,7 +66,6 @@ registerButton.addEventListener 'click', (e) ->
   root.tabGroup.activeTab.open(root.newAccountWindow,{animated:true})
 
 root.loginView.add(registerButton)
-
 root.loginView.add(root.facebookButton)
 root.loginView.add(root.loginTable)
 root.loginView.add(needLabel)

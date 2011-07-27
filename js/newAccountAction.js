@@ -13,13 +13,13 @@
       root.newAccountWindow.close();
       return root.editAccountWindow.close();
     } else {
-      Ti.API.error('response.detail');
+      Ti.API.error(response.detail);
       return alert('Error: ' + response.detail);
     }
   };
   root.xhrRegister.onerror = function(e) {
     root.newAccountWindow.remove(root.loadingView);
-    alert(Ti.Locale.getString('errorHappened') + e);
+    root.showError();
     return Ti.API.error(e);
   };
   root.doRegister = function(email, password, firstName, lastName, id) {

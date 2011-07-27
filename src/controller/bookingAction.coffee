@@ -19,7 +19,7 @@ root.xhrBooking.onload = (e) ->
 
 root.xhrBooking.onerror = (e) ->
   root.confirmBookingWindow.remove(root.loadingView)
-  alert(Ti.Locale.getString('errorHappened') + e)
+  root.showError()
   Ti.API.error(e)
 
 root.doBooking = () ->

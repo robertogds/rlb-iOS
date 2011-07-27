@@ -44,7 +44,7 @@
   root.oneClassBookingView = new root.GenericTextView(0, L('booking'), L('booking')).view;
   root.oneBookingWindow.add(root.oneClassBookingView);
   root.showBookingView = function() {
-    if (Titanium.App.Properties.hasProperty("user")) {
+    if (Titanium.App.Properties.hasProperty("user") || Titanium.Facebook.loggedIn) {
       root.creditCardData[0] = root.creditCardSection;
       root.creditCardTable.data = root.creditCardData;
       root.bookingView.add(root.creditCardTable);

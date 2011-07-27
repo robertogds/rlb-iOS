@@ -14,7 +14,7 @@
     }
   };
   root.xhrLogin.onerror = function(e) {
-    alert('se ha producido un error');
+    root.showError();
     return Ti.API.error(e);
   };
   root.doLogin = function(email, password) {

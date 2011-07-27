@@ -12,7 +12,7 @@ root.xhrLogin.onload = (e) ->
     alert('Error: ' + login.detail)
 
 root.xhrLogin.onerror = (e) ->
-  alert('se ha producido un error')
+  root.showError()
   Ti.API.error(e)
 
 root.doLogin = (email,password) ->

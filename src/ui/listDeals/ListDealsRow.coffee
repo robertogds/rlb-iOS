@@ -100,5 +100,29 @@ class ListDealsRow
     roomTypeImage.image = image
     @row.add(roomTypeImage)
     @row.rightImage = icon
+    
+    soldOutView = Titanium.UI.createView
+      opacity: 0.6
+      backgroundColor: '#ffffff' 
+      left: 0
+      top: 0
+      height: 120
+      width: 320
+    
+    soldOutLabel = Titanium.UI.createLabel
+      borderWidth: 0
+      text: L('soldOut')
+      color: '#ff0000'
+      left: 18
+      font:
+        fontSize: 22
+        fontWeight: 'bold'
+      height: 30
+      width: 160
+      top: 45
+
+    soldOutView.add(soldOutLabel)
+    if deal.quantity is 0
+      @row.add(soldOutView)
 
 root.listDealsRow = ListDealsRow

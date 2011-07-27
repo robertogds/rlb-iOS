@@ -48,7 +48,7 @@ root.oneClassBookingView =  new root.GenericTextView(0,L('booking'),L('booking')
 root.oneBookingWindow.add(root.oneClassBookingView)
 
 root.showBookingView = () ->
-  if Titanium.App.Properties.hasProperty("user")
+  if Titanium.App.Properties.hasProperty("user") or Titanium.Facebook.loggedIn
     root.creditCardData[0] = root.creditCardSection
     root.creditCardTable.data = root.creditCardData
     root.bookingView.add(root.creditCardTable)

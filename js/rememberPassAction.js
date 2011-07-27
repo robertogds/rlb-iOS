@@ -1,7 +1,7 @@
 (function() {
   root.xhrRemember = Titanium.Network.createHTTPClient();
   root.xhrRemember.onerror = function(e) {
-    alert('Error: ' + e);
+    root.showError();
     return Ti.API.error(e);
   };
   root.xhrRemember.onload = function(e) {

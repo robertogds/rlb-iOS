@@ -2,7 +2,7 @@
   var ListDealsRow;
   ListDealsRow = (function() {
     function ListDealsRow(deal) {
-      var antesLabel, hotelLabel, icon, image, normalPriceLabel, priceLabel, roomTypeImage, sepVertView;
+      var antesLabel, hotelLabel, icon, image, normalPriceLabel, priceLabel, roomTypeImage, sepVertView, soldOutLabel, soldOutView;
       this.row = Ti.UI.createTableViewRow({
         hasChild: true,
         rightImage: '/images/blue_arrow.png',
@@ -118,6 +118,31 @@
       roomTypeImage.image = image;
       this.row.add(roomTypeImage);
       this.row.rightImage = icon;
+      soldOutView = Titanium.UI.createView({
+        opacity: 0.6,
+        backgroundColor: '#ffffff',
+        left: 0,
+        top: 0,
+        height: 120,
+        width: 320
+      });
+      soldOutLabel = Titanium.UI.createLabel({
+        borderWidth: 0,
+        text: L('soldOut'),
+        color: '#ff0000',
+        left: 18,
+        font: {
+          fontSize: 22,
+          fontWeight: 'bold'
+        },
+        height: 30,
+        width: 160,
+        top: 45
+      });
+      soldOutView.add(soldOutLabel);
+      if (deal.quantity === 0) {
+        this.row.add(soldOutView);
+      }
     }
     return ListDealsRow;
   })();

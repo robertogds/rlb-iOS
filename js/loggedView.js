@@ -1,6 +1,6 @@
 (function() {
-  var customerView, editButton, logoutButton;
-  Ti.include('/js/userLoggedTable.js', '/js/editAccountView.js');
+  var customerView;
+  Ti.include('/js/editAccountView.js');
   root.loggedView = Titanium.UI.createView({
     backgroundColor: "transparent",
     borderWidth: 0,
@@ -8,12 +8,12 @@
     top: 1
   });
   customerView = new root.Generic2RowsView(200, Ti.Locale.getString('userSupport'), Ti.Locale.getString('feedback'));
-  editButton = new root.GenericButton(160, Ti.Locale.getString('editUser')).button;
-  logoutButton = new root.GenericButton(310, Ti.Locale.getString('logout')).button;
-  logoutButton.addEventListener('click', function(e) {
+  root.editButton = new root.GenericButton(160, Ti.Locale.getString('editUser')).button;
+  root.logoutButton = new root.GenericButton(310, Ti.Locale.getString('logout')).button;
+  root.logoutButton.addEventListener('click', function(e) {
     return root.doLogout();
   });
-  editButton.addEventListener('click', function(e) {
+  root.editButton.addEventListener('click', function(e) {
     root.loadEditLoggedUser();
     return root.tabGroup.activeTab.open(root.editAccountWindow, {
       animated: true
@@ -28,10 +28,8 @@
     var emailDialog;
     emailDialog = Titanium.UI.createEmailDialog();
     emailDialog.subject = Ti.Locale.getString('feedbackEmailSubject');
-    emailDialog.toRecipients = ['info@reallylatebooking.com'];
+    emailDialog.toRecipients = ['hola@reallylatebooking.com'];
     return emailDialog.open();
   });
-  root.loggedView.add(editButton);
   root.loggedView.add(customerView.view);
-  root.loggedView.add(logoutButton);
 }).call(this);

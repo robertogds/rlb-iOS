@@ -1,6 +1,6 @@
 (function() {
   var loginFacebookLabel, loginLabel, needLabel, registerButton, rememberPassRowView;
-  Ti.include('/js/newAccountView.js', '/js/loginAction.js', '/js/logoutAction.js', '/js/facebookButton.js', '/js/loginTable.js', '/js/rememberPassView.js', '/js/loggedFacebookView.js');
+  Ti.include('/js/newAccountView.js', '/js/loginAction.js', '/js/logoutAction.js', '/js/facebookButton.js', '/js/loginTable.js', '/js/rememberPassView.js');
   root.loginView = Titanium.UI.createView({
     background: "transparent",
     width: 320,
