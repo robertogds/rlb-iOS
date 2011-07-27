@@ -34,11 +34,11 @@ loginFacebookLabel = Titanium.UI.createLabel
     fontWeight: 'bold'
   height: 30
   width: 300
-  top: 150
+  top: 230
 root.loginView.add(loginFacebookLabel)
 
 
-rememberPassRowView = new root.GenericRowView(200,Ti.Locale.getString('IForgotPassword'))
+rememberPassRowView = new root.GenericRowView(150,Ti.Locale.getString('IForgotPassword'))
 
 rememberPassRowView.label.addEventListener 'click', (e) ->
   root.tabGroup.activeTab.open(root.rememberPassWindow,{animated:true})
@@ -54,7 +54,7 @@ needLabel = Titanium.UI.createLabel
     fontWeight: 'bold'
   height: 30
   width: 300
-  top: 280
+  top: 270
 
 registerButton = new root.GenericButton(310,Ti.Locale.getString('register')).button
 

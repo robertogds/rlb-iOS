@@ -58,7 +58,7 @@
 	<string name="nov">Noviembre</string>
 	<string name="dec">Diciembre</string>
 	<string name="bookingTonight">¿Reservar esta noche?</string>
-	<string name="yetNoBook">Todavía no has realizado ninguna reserva.\n\nCuando lo hayas hecho, podrás encontrar tus resguardos en esta sección para poder acceder a ellos de forma fácil cuando vayas al hotel\n\n\n¿Ya has hecho alguna reserva?\nVe a Opciones y entra con tu usuario.</string>	
+	<string name="yetNoBook">Todavía no has realizado ninguna reserva.\n\nCuando lo hayas hecho, podrás encontrar tus resguardos en esta sección para poder acceder a ellos de forma fácil cuando vayas al hotel\n\n\n¿Ya has hecho alguna reserva?\nVe a Perfil y entra con tu usuario.</string>	
 	<string name="mustInternet">Para usar esta aplicación debes tener conexión a internet</string>
 	<string name="tonight">Esta noche</string>
 	<string name="before">antes</string>
@@ -106,7 +106,8 @@
     <string name="pullRefresh">Volver a cargar</string>
     <string name="releaseRefresh">Soltar para refrescar</string>
     <string name="reloading">Cargando</string>
-    <string name="loginFacebook">O usa tu cuenta de Facebook:</string>
+    <string name="loading">Cargando</string>
+    <string name="loginFacebook">También puedes:</string>
     <string name="logoutAlert">Necesitas estar logado para poder hacer reservas. ¿Estás seguro que deseas salir?</string>
     <string name="soldOut">¡Agotado!</string>
 </resources>

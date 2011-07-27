@@ -58,7 +58,7 @@
 	<string name="nov">November</string>
 	<string name="dec">December</string>
 	<string name="bookingTonight">Book Tonight?</string>
-	<string name="yetNoBook">You haven't booked a hotel yet.\n\nWhen you do, you'll find your bookking receipts here for easy access when you chek in\n\n\nAlready booked a hotel?\nGo to Options and sign in.</string>	
+	<string name="yetNoBook">You haven't booked a hotel yet.\n\nWhen you do, you'll find your bookking receipts here for easy access when you chek in\n\n\nAlready booked a hotel?\nGo to Profile and sign in.</string>	
 	<string name="mustInternet">You must have an internet connection to use this app</string>
 	<string name="tonight">Tonight</string>
 	<string name="before">was</string>
@@ -105,7 +105,8 @@
     <string name="pullRefresh">Pull down to refresh</string>
     <string name="releaseRefresh">Release to refresh</string>
     <string name="reloading">Reloading</string>
-    <string name="loginFacebook">or, sign in with Facebook</string>
+    <string name="loading">Loading</string>
+    <string name="loginFacebook">You can also:</string>
     <string name="logoutAlert">You need to be signed in to book hotels. Sure you want to sign out?</string>
     <string name="soldOut">Sold Out!</string>
 </resources>

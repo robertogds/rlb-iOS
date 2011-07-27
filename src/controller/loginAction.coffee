@@ -7,7 +7,7 @@ root.xhrLogin.onload = (e) ->
     Titanium.App.Properties.setString("user",JSON.stringify(root.user))
     root.loginView.hide()
     root.loggedView.show()
-    root.loadLoggedUser()
+    root.loadLoggedUser()  
   else
     alert('Error: ' + login.detail)
 

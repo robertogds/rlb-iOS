@@ -45,6 +45,7 @@
   root.userLoggedSection.add(userLastNameRow);
   root.userLoggedSection.add(userEmailRow);
   root.loadLoggedUser = function() {
+    root.loggedView.remove(root.facebookButton);
     root.firstNameLabel.text = Ti.Locale.getString('firstName') + ': ' + root.user.firstName;
     root.lastNameLabel.text = Ti.Locale.getString('lastName') + ': ' + root.user.lastName;
     root.emailLabel.text = Ti.Locale.getString('email') + ': ' + root.user.email;
@@ -57,6 +58,8 @@
   root.loadLoggedFacebookUser = function() {
     var facebookButton;
     Ti.API.info('Entra en loggedFacebook');
+    root.loggedView.remove(root.editButton);
+    root.loggedView.remove(root.logoutButton);
     root.firstNameLabel.text = Ti.Locale.getString('firstName') + ': ' + root.facebookUser.first_name;
     root.lastNameLabel.text = Ti.Locale.getString('lastName') + ': ' + root.facebookUser.last_name;
     root.emailLabel.text = Ti.Locale.getString('email') + ': ' + root.facebookUser.email;

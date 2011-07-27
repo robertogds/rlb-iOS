@@ -1,5 +1,4 @@
 root.expiresView = Titanium.UI.createView
-  #backgroundColor: '#4e4f55'
   background: 'transparent'
   borderWidth: 0
   width:320

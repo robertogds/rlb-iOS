@@ -27,5 +27,6 @@ Titanium.Facebook.addEventListener 'logout', (e) ->
 
 # add the button.  Note that it doesn't need a click event or anything.
 root.facebookButton = Titanium.Facebook.createLoginButton 
-  top: 150
+  top: 230
   right: 30
+  style: 'wide'

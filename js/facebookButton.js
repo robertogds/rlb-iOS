@@ -28,7 +28,8 @@
     return root.loggedView.hide();
   });
   root.facebookButton = Titanium.Facebook.createLoginButton({
-    top: 150,
-    right: 30
+    top: 230,
+    right: 30,
+    style: 'wide'
   });
 }).call(this);

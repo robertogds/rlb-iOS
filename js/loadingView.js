@@ -14,7 +14,7 @@
     width: 80,
     borderWidth: 0,
     top: 4,
-    text: 'Cargando',
+    text: Ti.Locale.getString('loading'),
     color: '#fff',
     font: {
       fontSize: 14,

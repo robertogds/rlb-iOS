@@ -1,6 +1,6 @@
 Ti.include(
-  '/js/expiresView.js'
   '/js/cardTypeView.js'
+  '/js/expiresView.js'
   '/js/creditCardTable.js'
   '/js/bookingAction.js'
 )
