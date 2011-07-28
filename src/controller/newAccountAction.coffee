@@ -39,6 +39,7 @@ root.doRegister = (email,password,firstName,lastName,id) ->
     "password":password
     "firstName":firstName
     "lastName":lastName
+    "isFacebook":"false"
   root.xhrRegister.send(newUser)
 
 root.validateNewAccountData = (email,password,firstName,lastName) ->

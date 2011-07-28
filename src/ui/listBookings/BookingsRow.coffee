@@ -9,7 +9,7 @@ class BookingsRow
          colors:[{color:'#07151d',position:0.1},{color:'#0d1e28',position:1.0}]
 
       bookingLabel = Titanium.UI.createLabel
-        text: booking.checkinDate + '   '  + booking.hotelName +  '    ' + booking.priceCents + '€' 
+        text: booking.checkinDate + '   '  + booking.hotelName +  '    ' + booking.salePriceCents + '€' 
         color: '#fff'
         font:
           fontSize: 12

@@ -17,7 +17,7 @@ Titanium.Facebook.addEventListener 'login', (e) ->
       else if (e.error) 
         alert(e.error)
       else 
-        alert('Unknown response')
+        alert L('errorHappened')
   root.loginView.remove(root.loadingView)
 
 Titanium.Facebook.addEventListener 'logout', (e) ->

@@ -42,7 +42,8 @@
       "email": email,
       "password": password,
       "firstName": firstName,
-      "lastName": lastName
+      "lastName": lastName,
+      "isFacebook": "false"
     });
     return root.xhrRegister.send(newUser);
   };

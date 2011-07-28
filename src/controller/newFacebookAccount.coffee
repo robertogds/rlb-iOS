@@ -7,10 +7,11 @@ root.xhrFacebookRegister.onload = (e) ->
     root.facebookUser.rlbId = root.user.id
     root.facebookUser.rlbToken = root.user.token
     root.facebookUser.rlbSecret = root.user.secret
+    root.facebookUser.rlbPassword = root.user.password
     Ti.API.info response.content
   else
-    Ti.API.error response.detail
-    root.getFBUserId()
+    Ti.API.error response.content
+    alert L('errorHappened')
   Titanium.App.Properties.setString("facebookUser",JSON.stringify(root.facebookUser))
 
 
@@ -26,4 +27,5 @@ root.doFacebookRegister = (email,firstName,lastName) ->
     "password":password
     "firstName":firstName
     "lastName":lastName
+    "isFacebook":"true"
   root.xhrFacebookRegister.send(newUser)

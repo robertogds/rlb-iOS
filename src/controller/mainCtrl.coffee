@@ -28,7 +28,6 @@ Ti.include(
   '/js/forHotelsView.js'
   '/js/termsView.js'
   '/js/privacyView.js'
-  '/js/getFBUserIdAction.js'
 )
 
 
@@ -38,7 +37,11 @@ else if Titanium.Facebook.loggedIn
   if Titanium.App.Properties.hasProperty("facebookUser")
     root.facebookUser = JSON.parse(Titanium.App.Properties.getString("facebookUser"))
     root.user = root.facebookUser
-    root.getFBUserId()
+    root.user.id = root.facebookUser.rlbId
+    root.user.token = root.facebookUser.rlbToken 
+    root.user.secret = root.facebookUser.rlbSecret
+    root.user.password = root.facebookUser.rlbPassword
+    #root.getFBUserId()
   else
     Titanium.Facebook.logout()
 else

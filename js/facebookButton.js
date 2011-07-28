@@ -15,7 +15,7 @@
         } else if (e.error) {
           return alert(e.error);
         } else {
-          return alert('Unknown response');
+          return alert(L('errorHappened'));
         }
       });
     }

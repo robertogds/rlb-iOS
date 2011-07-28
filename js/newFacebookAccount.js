@@ -8,10 +8,11 @@
       root.facebookUser.rlbId = root.user.id;
       root.facebookUser.rlbToken = root.user.token;
       root.facebookUser.rlbSecret = root.user.secret;
+      root.facebookUser.rlbPassword = root.user.password;
       Ti.API.info(response.content);
     } else {
-      Ti.API.error(response.detail);
-      root.getFBUserId();
+      Ti.API.error(response.content);
+      alert(L('errorHappened'));
     }
     return Titanium.App.Properties.setString("facebookUser", JSON.stringify(root.facebookUser));
   };
@@ -27,7 +28,8 @@
       "email": email,
       "password": password,
       "firstName": firstName,
-      "lastName": lastName
+      "lastName": lastName,
+      "isFacebook": "true"
     });
     return root.xhrFacebookRegister.send(newUser);
   };
