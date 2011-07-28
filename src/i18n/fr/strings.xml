@@ -107,7 +107,7 @@
     <string name="releaseRefresh">Communiqué de se rafraîchir</string>
     <string name="reloading">rechargement</string>
     <string name="loading">rechargement</string>
-    <string name="loginFacebook">connectez-vous avec: </string>
+    <string name="loginFacebook">connectez avec Facebook</string>
     <string name="logoutAlert">Vous devez être connecté pour réserver des hôtels. Bien sûr, vous souhaitez vous déconnecter?</string>
     <string name="soldOut">épuisé!</string>
 </resources>

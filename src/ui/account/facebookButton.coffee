@@ -10,6 +10,7 @@ Titanium.Facebook.addEventListener 'login', (e) ->
       if e.success 
         root.facebookUser = JSON.parse(e.result)
         root.doFacebookRegister(root.facebookUser.email,root.facebookUser.first_name,root.facebookUser.last_name)
+        root.loginView.remove(root.loadingView)
         root.loginView.hide()
         root.loadLoggedFacebookUser() 
         root.loggedView.show()
@@ -17,7 +18,7 @@ Titanium.Facebook.addEventListener 'login', (e) ->
         alert(e.error)
       else 
         alert('Unknown response')
-  else alert 'Error' 
+  root.loginView.remove(root.loadingView)
 
 Titanium.Facebook.addEventListener 'logout', (e) ->
   root.facebookUser = null
@@ -30,3 +31,16 @@ root.facebookButton = Titanium.Facebook.createLoginButton
   top: 230
   right: 30
   style: 'wide'
+
+root.facebookLoginButton = Titanium.UI.createButton
+  backgroundImage:'/images/butt_facebook.png'
+  color: '#fff'
+  title: '    '+L('loginFacebook')
+  width:200
+  height:31
+  font:{fontSize:13,fontWeight:'bold',fontFamily:'Helvetica Neue'}
+  top: 230
+
+root.facebookLoginButton.addEventListener 'click', (e) ->
+  root.loginView.add(root.loadingView)
+  Titanium.Facebook.authorize()

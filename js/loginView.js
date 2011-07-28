@@ -32,7 +32,6 @@
     width: 300,
     top: 230
   });
-  root.loginView.add(loginFacebookLabel);
   rememberPassRowView = new root.GenericRowView(150, Ti.Locale.getString('IForgotPassword'));
   rememberPassRowView.label.addEventListener('click', function(e) {
     return root.tabGroup.activeTab.open(root.rememberPassWindow, {
@@ -63,7 +62,7 @@
     });
   });
   root.loginView.add(registerButton);
-  root.loginView.add(root.facebookButton);
+  root.loginView.add(root.facebookLoginButton);
   root.loginView.add(root.loginTable);
   root.loginView.add(needLabel);
   root.loginView.add(loginLabel);

@@ -4,10 +4,11 @@
   Titanium.Facebook.permissions = ['publish_stream', 'read_stream', 'email'];
   Titanium.Facebook.addEventListener('login', function(e) {
     if (e.success) {
-      return Titanium.Facebook.requestWithGraphPath('me', {}, 'GET', function(e) {
+      Titanium.Facebook.requestWithGraphPath('me', {}, 'GET', function(e) {
         if (e.success) {
           root.facebookUser = JSON.parse(e.result);
           root.doFacebookRegister(root.facebookUser.email, root.facebookUser.first_name, root.facebookUser.last_name);
+          root.loginView.remove(root.loadingView);
           root.loginView.hide();
           root.loadLoggedFacebookUser();
           return root.loggedView.show();
@@ -17,9 +18,8 @@
           return alert('Unknown response');
         }
       });
-    } else {
-      return alert('Error');
     }
+    return root.loginView.remove(root.loadingView);
   });
   Titanium.Facebook.addEventListener('logout', function(e) {
     root.facebookUser = null;
@@ -31,5 +31,22 @@
     top: 230,
     right: 30,
     style: 'wide'
+  });
+  root.facebookLoginButton = Titanium.UI.createButton({
+    backgroundImage: '/images/butt_facebook.png',
+    color: '#fff',
+    title: '    ' + L('loginFacebook'),
+    width: 200,
+    height: 31,
+    font: {
+      fontSize: 13,
+      fontWeight: 'bold',
+      fontFamily: 'Helvetica Neue'
+    },
+    top: 230
+  });
+  root.facebookLoginButton.addEventListener('click', function(e) {
+    root.loginView.add(root.loadingView);
+    return Titanium.Facebook.authorize();
   });
 }).call(this);
