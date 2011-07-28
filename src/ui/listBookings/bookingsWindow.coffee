@@ -4,7 +4,7 @@ Ti.include(
 )
 
 root.bookingsWindow.addEventListener 'focus', (e) ->
-  if Titanium.App.Properties.hasProperty("user")
+  if Titanium.App.Properties.hasProperty("user") or Titanium.Facebook.loggedIn
     root.showBookings()
   else
     root.noBookingsView.show()
