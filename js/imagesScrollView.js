@@ -1,9 +1,7 @@
 (function() {
   root.imagesScrollView = Titanium.UI.createScrollableView({
     showPagingControl: true,
-    pagingControlHeight: 20,
-    borderWidth: 0,
-    borderColor: 'red'
+    pagingControlHeight: 20
   });
   root.image1 = Titanium.UI.createImageView({
     top: 0

@@ -27,6 +27,7 @@
     return root.cardTypeView.show();
   });
   root.cardNumberText = Titanium.UI.createTextField({
+    backgroundColor: '#fff',
     width: '100%',
     color: '#336699',
     hintText: L('number'),
@@ -39,6 +40,7 @@
     return root.cardNameText.focus();
   });
   root.cardNameText = Titanium.UI.createTextField({
+    backgroundColor: '#fff',
     width: '100%',
     color: '#336699',
     hintText: L('cardName'),

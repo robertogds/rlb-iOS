@@ -22,16 +22,43 @@ root.oneDealButtonBarView.add(photosTab)
 
 
 bookingTab.addEventListener 'click', (e) ->
-  alert 'hizo clik en Booking'
+  currTab.backgroundColor = '#000'
+  #currTab.children[0].color = '#333'
+  this.backgroundColor = '#333'
+  this.children[0].color = '#FFF'
+  currTab = this
+  root.oneDealWindow.remove root.infoDealTable
+  root.oneDealWindow.remove root.mapView
+  root.oneDealWindow.add root.oneDealView
 
 infoTab.addEventListener 'click', (e) ->
-  alert 'hizo clik en Info'
+  currTab.backgroundColor = '#000'
+  #currTab.children[0].color = '#333'
+  this.backgroundColor = '#333'
+  this.children[0].color = '#FFF'
+  currTab = this
+  root.oneDealWindow.remove root.oneDealView 
+  root.oneDealWindow.remove root.mapView
+  root.oneDealWindow.add root.infoDealTable
 
 mapTab.addEventListener 'click', (e) ->
-  alert 'hizo clik en map'
+  currTab.backgroundColor = '#000'
+  #currTab.children[0].color = '#333'
+  this.backgroundColor = '#333'
+  this.children[0].color = '#FFF'
+  currTab = this
+  root.oneDealWindow.remove root.oneDealView
+  root.oneDealWindow.remove root.infoDealTable
+  root.oneDealWindow.add root.mapView
 
 photosTab.addEventListener 'click', (e) ->
-  alert 'hizo clik en photos'
+  currTab.backgroundColor = '#000'
+  #currTab.children[0].color = '#333'
+  this.backgroundColor = '#333'
+  this.children[0].color = '#FFF'
+  currTab = this
+  root.imagesWindow.add(root.imagesScrollView)
+  root.tabGroup.activeTab.open(root.imagesWindow,{animated:true})
 
 
 

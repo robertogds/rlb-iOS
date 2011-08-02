@@ -22,6 +22,7 @@ root.cardTypeLabel.addEventListener 'click', (e) ->
   root.cardTypeView.show()
 
 root.cardNumberText = Titanium.UI.createTextField
+  backgroundColor: '#fff'
   width: '100%'
   color:'#336699'
   hintText: L('number')
@@ -34,6 +35,7 @@ root.cardNumberText.addEventListener 'return', (e) ->
   root.cardNameText.focus()
 
 root.cardNameText = Titanium.UI.createTextField
+  backgroundColor: '#fff'
   width: '100%'
   color:'#336699'
   hintText: L('cardName')
