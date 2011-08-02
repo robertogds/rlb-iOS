@@ -3,8 +3,7 @@
   footerView = Titanium.UI.createView({
     backgroundColor: '#0d1e28',
     borderWidth: 0,
-    height: 100,
-    width: 320
+    height: 100
   });
   root.citiesTable = Titanium.UI.createTableView({
     data: [],

@@ -1,13 +1,12 @@
 (function() {
   var emailRow, firstNameRow, lastNameRow, passwordRow, sendButton;
   root.editAccountView = Titanium.UI.createView({
-    backgroundColor: 'transparent',
-    width: 320
+    backgroundColor: 'transparent'
   });
   root.editAccountTable = Titanium.UI.createTableView({
     top: 20,
     height: 175,
-    width: 300,
+    width: "95%",
     borderWidth: 0,
     borderRadius: 10,
     scrollable: false,

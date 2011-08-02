@@ -1,14 +1,17 @@
 root.loginTable = Titanium.UI.createTableView
   top: 40
-  height: 85
-  width: 300
+  height: 88
+  width: '95%'
   borderWidth:0
   borderRadius: 10
   scrollable: false
   moving: false
+  backgroundColor: '#fff'
 
 emailText = Titanium.UI.createTextField
+  width: '100%'
   color:'#336699'
+  backgroundColor: '#fff'
   hintText: Ti.Locale.getString('email')
   clearOnEdit: true
   paddingLeft: 10
@@ -20,6 +23,8 @@ emailText.addEventListener 'return', (e) ->
   passText.focus()
 
 passText = Titanium.UI.createTextField
+  backgroundColor: '#fff'
+  width: '100%'
   color:'#336699'
   hintText: Ti.Locale.getString('password')
   paddingLeft: 10

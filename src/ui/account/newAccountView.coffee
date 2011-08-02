@@ -4,18 +4,21 @@ Ti.include(
 
 root.newAccountView = Titanium.UI.createView
   backgroundColor: 'transparent'
-  width:320
+  width:'100%'
 
 root.newAccountTable = Titanium.UI.createTableView
   top: 20
-  height: 175
-  width: 300
+  height: '48%'
+  width: '95%'
   borderWidth:0
   borderRadius: 10
   scrollable: false
   moving: false
+  backgroundColor: '#fff'
 
 firstNameText = Titanium.UI.createTextField
+  backgroundColor: '#fff'
+  width: '100%'
   color:'#336699'
   hintText: Ti.Locale.getString('firstName')
   clearOnEdit: false
@@ -26,6 +29,8 @@ firstNameText.addEventListener 'return', (e) ->
   lastNameText.focus()
 
 lastNameText = Titanium.UI.createTextField
+  backgroundColor: '#fff'
+  width: '100%'
   color:'#336699'
   hintText: Ti.Locale.getString('lastName')
   clearOnEdit: false
@@ -36,6 +41,8 @@ lastNameText.addEventListener 'return', (e) ->
   emailText.focus()
 
 emailText = Titanium.UI.createTextField
+  backgroundColor: '#fff'
+  width: '100%'
   color:'#336699'
   hintText: Ti.Locale.getString('email')
   clearOnEdit: false
@@ -48,6 +55,8 @@ emailText.addEventListener 'return', (e) ->
 
 
 passwordText = Titanium.UI.createTextField
+  backgroundColor: '#fff'
+  width: '100%'
   color:'#336699'
   hintText: Ti.Locale.getString('password')
   paddingLeft: 10

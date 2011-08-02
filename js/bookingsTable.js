@@ -20,12 +20,22 @@
   });
   root.xhrBookings = Titanium.Network.createHTTPClient();
   root.xhrBookings.onload = function() {
-    var booking, bookingRow, bookings, data, _i, _len;
+    var booking, bookingLabel, bookingRow, bookings, data, _i, _len;
     bookings = JSON.parse(this.responseText);
     data = [];
     for (_i = 0, _len = bookings.length; _i < _len; _i++) {
       booking = bookings[_i];
       bookingRow = new root.BookingsRow(booking);
+      bookingLabel = Titanium.UI.createLabel({
+        text: booking.checkinDate + '   ' + booking.hotelName + '    ' + booking.salePriceCents + '€',
+        color: '#fff',
+        font: {
+          fontSize: 12,
+          fontWeight: 'bold'
+        },
+        left: 10
+      });
+      bookingRow.row.add(bookingLabel);
       data.push(bookingRow.row);
     }
     if (data.length === 0) {

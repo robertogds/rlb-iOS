@@ -2,7 +2,6 @@
   root.oneDealButtonBarView = Titanium.UI.createView({
     background: 'transparent',
     borderWidth: 0,
-    width: 320,
     top: 0
   });
   root.oneDealButtonBar = Titanium.UI.createButtonBar({
@@ -11,8 +10,7 @@
     backgroundFocusedColor: '#fff',
     top: 0,
     style: Titanium.UI.iPhone.SystemButtonStyle.BAR,
-    height: 40,
-    width: 320
+    height: 40
   });
   root.oneDealButtonBarView.add(root.oneDealButtonBar);
   root.oneDealButtonBar.addEventListener('click', function(e) {

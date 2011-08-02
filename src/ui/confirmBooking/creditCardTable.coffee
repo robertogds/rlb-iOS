@@ -1,11 +1,12 @@
 root.creditCardTable = Titanium.UI.createTableView
   top: 15
   height: 215
-  width: 300
+  width: '95%'
   borderWidth:0
   borderRadius: 10
   scrollable: false
   moving: false
+  backgroundColor: '#fff'
 
 root.cardTypeLabel = Titanium.UI.createLabel
   color:'#afafaf'
@@ -21,6 +22,7 @@ root.cardTypeLabel.addEventListener 'click', (e) ->
   root.cardTypeView.show()
 
 root.cardNumberText = Titanium.UI.createTextField
+  width: '100%'
   color:'#336699'
   hintText: L('number')
   clearOnEdit: false
@@ -32,6 +34,7 @@ root.cardNumberText.addEventListener 'return', (e) ->
   root.cardNameText.focus()
 
 root.cardNameText = Titanium.UI.createTextField
+  width: '100%'
   color:'#336699'
   hintText: L('cardName')
   clearOnEdit: false
@@ -60,6 +63,7 @@ root.expiresLabel.addEventListener 'click', (e) ->
   root.expiresView.show()
   
 root.cvcCodeText = Titanium.UI.createTextField
+  width: '100%'
   color:'#336699'
   hintText: L('cvcCode')
   paddingLeft: 10

@@ -5,24 +5,32 @@ class Generic2RowsView
       top:top
     @table = Titanium.UI.createTableView
       top: 10
-      height: 85
-      width: 300
+      height: 88
+      width: '95%'
       borderWidth:0
       borderRadius: 10
       scrollable: false
       moving: false
+      backgroundColor: '#fff'
     @label1 = Titanium.UI.createLabel
+      width: '100%'
+      height: '100%'
       borderWidth: 0
       text: text1
       color: '#000'
+      backgroundColor: '#fff'
       left: 8
       font:
         fontSize: 15
         fontWeight: 'bold'
     @label2 = Titanium.UI.createLabel
+      width: '100%'
+      height: '100%'
       borderWidth: 0
-      text: text2
+      borderColor: 'red'
+      text: text2 
       color: '#000'
+      backgroundColor: '#fff'
       left: 8
       font:
         fontSize: 15

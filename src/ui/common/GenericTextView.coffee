@@ -4,7 +4,6 @@ class GenericTextView
       backgroundColor: '#0d1e28' 
       borderWidth: 0
       height: 'auto'
-      width:320
       top: top
 
     @titleLabel = Titanium.UI.createLabel

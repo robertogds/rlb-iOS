@@ -3,19 +3,34 @@
   root.expiresView = Titanium.UI.createView({
     background: 'transparent',
     borderWidth: 0,
-    width: 320,
     top: 100
   });
   pickerView = Titanium.UI.createView({
     background: 'transparent',
     top: 150
   });
+  root.expiresPicker = Titanium.UI.createPicker();
+  pickerView.add(root.expiresPicker);
+  infoLabel = Titanium.UI.createLabel({
+    height: 60,
+    textAlign: 'center',
+    text: L('expires'),
+    color: '#fff',
+    font: {
+      fontSize: 14,
+      fontWeight: 'normal',
+      fontFamily: 'Helvetica Neue'
+    },
+    top: 0
+  });
   buttonView = Titanium.UI.createView({
     backgroundColor: '#75757f',
     opacity: 0.9,
     top: 0
   });
-  root.expiresPicker = Titanium.UI.createPicker();
+  expiresButton = new root.GenericButton(50, L('done')).button;
+  buttonView.add(infoLabel);
+  buttonView.add(expiresButton);
   root.expiresPicker.addEventListener('change', function(e) {
     if (e.row.month_item) {
       root.cardExpiresMonth = e.row.month_item;
@@ -122,28 +137,11 @@
   }));
   root.expiresPicker.add([monthColumn, yearColumn]);
   root.expiresPicker.selectionIndicator = true;
-  infoLabel = Titanium.UI.createLabel({
-    width: 320,
-    height: 60,
-    textAlign: 'center',
-    text: L('expires'),
-    color: '#fff',
-    font: {
-      fontSize: 14,
-      fontWeight: 'normal',
-      fontFamily: 'Helvetica Neue'
-    },
-    top: 0
-  });
-  expiresButton = new root.GenericButton(50, L('done')).button;
   expiresButton.addEventListener('click', function(e) {
     root.expiresLabel.text = root.cardExpiresMonth + '/' + root.cardExpiresYear;
     root.expiresView.hide();
     return root.cvcCodeText.focus();
   });
-  pickerView.add(root.expiresPicker);
-  buttonView.add(infoLabel);
-  buttonView.add(expiresButton);
   root.expiresView.add(buttonView);
   root.expiresView.add(pickerView);
   root.expiresView.hide();

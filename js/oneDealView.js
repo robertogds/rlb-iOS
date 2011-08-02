@@ -1,128 +1,48 @@
 (function() {
-  var addressView, antesLabel, priceView, sepVertView, separator1, separator2, separator3;
-  Ti.include('/js/oneDealButtonBar.js', '/js/oneDealMapView.js', '/js/imagesScrollView.js', '/js/infoDealTable.js');
+  var addressView, descriptionView, separator1, separator2;
+  Ti.include('/js/oneDealMapView.js', '/js/imagesScrollView.js', '/js/infoDealTable.js', '/js/priceView.js');
+  if (Titanium.Platform.name === 'android') {
+    Ti.include('/js/androidOneDealButtonBar.js');
+  } else {
+    Ti.include('/js/oneDealButtonBar.js');
+  }
   root.oneDealView = Titanium.UI.createView({
-    background: 'transparent',
-    borderWidth: 0,
-    width: 320,
+    backgroundColor: '#0d1e28',
+    width: Ti.Platform.displayCaps.platformWidth,
     top: 40
+  });
+  root.listImageView = Titanium.UI.createView({
+    top: 0,
+    height: '37%',
+    width: Ti.Platform.displayCaps.platformWidth
   });
   root.oneDealImage = Titanium.UI.createImageView({
     top: 0,
-    width: 320,
-    height: 120
+    width: Ti.Platform.displayCaps.platformWidth,
+    height: 'auto'
   });
+  root.listImageView.add(root.oneDealImage);
+  root.oneDealView.add(root.listImageView);
   root.oneDealImage.addEventListener('click', function(e) {
     root.imagesWindow.add(root.imagesScrollView);
     return root.tabGroup.activeTab.open(root.imagesWindow, {
       animated: true
     });
   });
-  separator1 = new root.GenericSeparatorView(120).view;
-  root.oneDealView.add(separator1);
-  separator2 = new root.GenericSeparatorView(200).view;
-  root.oneDealView.add(separator2);
-  priceView = Titanium.UI.createView({
-    backgroundColor: 'black',
-    borderWidth: 0,
-    width: 320,
-    top: 122,
-    height: 77
-  });
-  root.oneDealPriceLabel = Titanium.UI.createLabel({
-    width: 85,
-    textAlign: 'left',
-    color: '#fff',
-    font: {
-      fontSize: 36,
-      fontWeight: 'bold',
-      fontFamily: 'Helvetica Neue'
-    },
-    top: 0,
-    left: 15
-  });
-  priceView.add(root.oneDealPriceLabel);
-  sepVertView = Titanium.UI.createView({
-    backgroundColor: '#444547',
-    left: 105,
-    top: 26,
-    height: 28,
-    width: 1
-  });
-  priceView.add(sepVertView);
-  antesLabel = Titanium.UI.createLabel({
-    text: L('before'),
-    color: '#868d92',
-    left: 110,
-    font: {
-      fontSize: 16
-    },
-    width: 40,
-    height: 20,
-    top: 18
-  });
-  priceView.add(antesLabel);
-  root.oneDealNormalPriceLabel = Titanium.UI.createLabel({
-    width: 77,
-    height: 30,
-    textAlign: 'left',
-    color: '#868d92',
-    font: {
-      fontSize: 20,
-      fontWeight: 'bold',
-      fontFamily: 'Helvetica Neue'
-    },
-    top: 33,
-    left: 110
-  });
-  priceView.add(root.oneDealNormalPriceLabel);
-  root.bookingLabel = Titanium.UI.createLabel({
-    backgroundImage: '/images/booking_background.png',
-    width: 108,
-    height: 33,
-    borderRadius: 5,
-    backgroundColor: '#0098cb',
-    text: ' ' + L('bookingBlueButtonText'),
-    font: {
-      fontSize: 18,
-      fontWeight: 'bold',
-      fontFamily: 'Helvetica Neue'
-    },
-    top: 24,
-    left: 200
-  });
-  root.bookingLabel.addEventListener('click', function(e) {
-    return root.showBookingView();
-  });
-  root.soldOutLabel = Titanium.UI.createLabel({
-    width: 108,
-    height: 33,
-    borderRadius: 5,
-    backgroundColor: '#000000',
-    text: L('soldOut'),
-    color: '#ff0000',
-    font: {
-      fontSize: 18,
-      fontWeight: 'bold',
-      fontFamily: 'Helvetica Neue'
-    },
-    top: 24,
-    left: 200
-  });
-  priceView.add(root.soldOutLabel);
-  root.soldOutLabel.hide();
-  priceView.add(root.bookingLabel);
   addressView = Titanium.UI.createView({
-    backgroundColor: 'transparent',
-    borderWidth: 0,
-    borderColor: 'red',
-    width: 320,
-    top: 200,
-    height: 50
+    backgroundColor: '#0d1e28',
+    top: '61%',
+    height: '17%'
+  });
+  descriptionView = Titanium.UI.createView({
+    width: '100%',
+    backgroundColor: '#0d1e28',
+    top: '77%',
+    height: 65
   });
   root.oneDealAddressLabel = Titanium.UI.createLabel({
-    width: 280,
-    height: 40,
+    top: 0,
+    height: '100%',
     textAlign: 'left',
     color: '#fff',
     font: {
@@ -134,11 +54,8 @@
     left: 25
   });
   addressView.add(root.oneDealAddressLabel);
-  separator3 = new root.GenericSeparatorView(250).view;
-  root.oneDealView.add(separator3);
   root.descriptionLabel = Titanium.UI.createLabel({
-    width: 280,
-    height: 60,
+    height: '100%',
     textAlign: 'left',
     color: '#fff',
     font: {
@@ -146,17 +63,22 @@
       fontWeight: 'normal',
       fontFamily: 'Helvetica Neue'
     },
-    top: 260,
+    top: 0,
     left: 25
   });
-  root.oneDealView.add(root.oneDealImage);
-  root.oneDealView.add(priceView);
+  root.oneDealView.add(root.priceView);
   root.oneDealView.add(addressView);
-  root.oneDealView.add(root.descriptionLabel);
+  descriptionView.add(root.descriptionLabel);
+  root.oneDealView.add(descriptionView);
   root.oneDealWindow.add(root.oneDealButtonBarView);
   root.oneDealWindow.add(root.oneDealView);
+  separator1 = new root.GenericSeparatorView('61%').view;
+  root.oneDealView.add(separator1);
+  separator2 = new root.GenericSeparatorView('77%').view;
+  root.oneDealView.add(separator2);
   root.showDealView = function(deal) {
     var aroundRow, aroundTitle, aroundView, data, detailRow, detailTitle, detailView, foodDrinkRow, foodDrinkTitle, foodDrinkView, hotelRow, hotelTitle, hotelView, region, roomRow, roomTitle, roomView;
+    Ti.API.error("Empieza");
     root.deal = deal;
     if (deal.quantity === 0) {
       root.soldOutLabel.show();
@@ -210,11 +132,14 @@
     roomView = new root.GenericTextView(0, roomTitle, deal.roomText).view;
     foodDrinkView = new root.GenericTextView(0, foodDrinkTitle, deal.foodDrinkText).view;
     aroundView = new root.GenericTextView(0, aroundTitle, deal.aroundText).view;
+    Ti.API.error("paso2");
     detailRow.add(detailView);
     hotelRow.add(hotelView);
     roomRow.add(roomView);
     foodDrinkRow.add(foodDrinkView);
     aroundRow.add(aroundView);
+    root.infoHotelIpadLabel.text = deal.detailText;
+    Ti.API.error("Paso3");
     data = [];
     data.push(detailRow);
     data.push(hotelRow);
@@ -224,6 +149,7 @@
     root.infoDealTable.setData(data);
     root.oneDealWindow.remove(root.infoDealTable);
     root.oneDealWindow.remove(root.mapView);
-    return root.oneDealWindow.add(root.oneDealView);
+    root.oneDealWindow.add(root.oneDealView);
+    return Ti.API.error("PasoFINAL");
   };
 }).call(this);

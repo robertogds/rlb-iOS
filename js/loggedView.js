@@ -4,7 +4,6 @@
   root.loggedView = Titanium.UI.createView({
     backgroundColor: "transparent",
     borderWidth: 0,
-    width: 320,
     top: 1
   });
   customerView = new root.Generic2RowsView(200, Ti.Locale.getString('userSupport'), Ti.Locale.getString('feedback'));

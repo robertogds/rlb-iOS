@@ -1,6 +1,6 @@
 root.noDealsView = Titanium.UI.createView
   backgroundColor: '#0d1e28'
-  width:320
+  #width:320
 
 title = L('noDealsTitle')
 text = L('noDealsText')

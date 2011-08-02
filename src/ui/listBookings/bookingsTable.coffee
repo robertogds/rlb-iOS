@@ -1,6 +1,5 @@
 Ti.include('/js/BookingsRow.js')
 
-
 root.footerView = Titanium.UI.createView
     backgroundColor:'#0d1e28' 
     borderWidth: 0
@@ -27,6 +26,14 @@ root.xhrBookings.onload = () ->
   data = []
   for booking in bookings
     bookingRow = new root.BookingsRow(booking)
+    bookingLabel = Titanium.UI.createLabel
+      text: booking.checkinDate + '   '  + booking.hotelName +  '    ' + booking.salePriceCents + '€' 
+      color: '#fff'
+      font:
+        fontSize: 12
+        fontWeight: 'bold'
+      left: 10
+    bookingRow.row.add(bookingLabel)
     data.push(bookingRow.row)
   if data.length is 0
     root.noBookingsView.show()

@@ -14,8 +14,10 @@ rememberTable = Titanium.UI.createTableView
   borderRadius: 10
   scrollable: false
   moving: false
+  backgroundColor: '#fff'
 
 rememberEmailText = Titanium.UI.createTextField
+  width: '100%'
   color:'#336699'
   hintText: Ti.Locale.getString('email')
   paddingLeft: 10

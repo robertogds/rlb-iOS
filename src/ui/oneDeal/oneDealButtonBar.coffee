@@ -1,7 +1,7 @@
 root.oneDealButtonBarView = Titanium.UI.createView
   background: 'transparent'
   borderWidth: 0
-  width:320
+#  width:320
   top: 0
 
 root.oneDealButtonBar = Titanium.UI.createButtonBar
@@ -11,7 +11,7 @@ root.oneDealButtonBar = Titanium.UI.createButtonBar
   top:0
   style:Titanium.UI.iPhone.SystemButtonStyle.BAR
   height:40
-  width:320
+#  width:320
 
 root.oneDealButtonBarView.add root.oneDealButtonBar
 

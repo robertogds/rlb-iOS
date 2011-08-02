@@ -4,7 +4,6 @@
   root.optionsView = Titanium.UI.createView({
     background: 'transparent',
     borderWidth: 0,
-    width: 320,
     top: 0
   });
   versionLabel = Titanium.UI.createLabel({

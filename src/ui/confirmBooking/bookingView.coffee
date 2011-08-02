@@ -7,7 +7,7 @@ Ti.include(
 root.bookingView = Titanium.UI.createView
   backgroundColor: 'transparent'
   borderWidth: 0
-  width:320
+  #width:320
   top: 0
 
 confirmButton = new root.GenericButton(310,L('confirm')).button 

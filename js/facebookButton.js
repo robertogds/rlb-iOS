@@ -12,12 +12,12 @@
           root.loginView.hide();
           root.loadLoggedFacebookUser();
           return root.loggedView.show();
-        } else if (e.error) {
-          return alert(e.error);
         } else {
           return alert(L('errorHappened'));
         }
       });
+    } else {
+      alert(L('errorHappened'));
     }
     return root.loginView.remove(root.loadingView);
   });
@@ -27,17 +27,12 @@
     root.loginView.show();
     return root.loggedView.hide();
   });
-  root.facebookButton = Titanium.Facebook.createLoginButton({
-    top: 230,
-    right: 30,
-    style: 'wide'
-  });
   root.facebookLoginButton = Titanium.UI.createButton({
     backgroundImage: '/images/butt_facebook.png',
     color: '#fff',
     title: '    ' + L('loginFacebook'),
     width: 200,
-    height: 31,
+    height: 32,
     font: {
       fontSize: 13,
       fontWeight: 'bold',

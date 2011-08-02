@@ -4,7 +4,7 @@ class GenericSeparatorView
       backgroundColor: '#57585b' 
       top: top
       height: 1
-      width: 320
+      #width: 320
 
 root.GenericSeparatorView = GenericSeparatorView
   

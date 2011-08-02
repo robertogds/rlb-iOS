@@ -1,7 +1,7 @@
 root.userLoggedTable = Titanium.UI.createTableView
   top: 5
   height: 133
-  width: 300
+  width: '95%'
   borderWidth:0
   borderRadius: 10
   scrollable: false
@@ -37,7 +37,6 @@ root.userLoggedSection.add(userLastNameRow)
 root.userLoggedSection.add(userEmailRow)
 
 root.loadLoggedUser = () ->
-  root.loggedView.remove(root.facebookButton)
   root.firstNameLabel.text = Ti.Locale.getString('firstName')+ ': '+root.user.firstName
   root.lastNameLabel.text =  Ti.Locale.getString('lastName')+': '+root.user.lastName
   root.emailLabel.text = Ti.Locale.getString('email')+': '+root.user.email

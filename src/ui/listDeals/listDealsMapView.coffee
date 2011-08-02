@@ -1,8 +1,8 @@
 root.listDealsMapView = Titanium.Map.createView
   mapType: Titanium.Map.STANDARD_TYPE
   top: 0
-  width: 320
-  height: 440
+  width: '100%'
+  height: '98%'
   animate: true
   regionFit: true
   userLocation: true

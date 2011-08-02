@@ -14,10 +14,10 @@ Titanium.Facebook.addEventListener 'login', (e) ->
         root.loginView.hide()
         root.loadLoggedFacebookUser() 
         root.loggedView.show()
-      else if (e.error) 
-        alert(e.error)
       else 
         alert L('errorHappened')
+  else
+    alert L('errorHappened')
   root.loginView.remove(root.loadingView)
 
 Titanium.Facebook.addEventListener 'logout', (e) ->
@@ -26,18 +26,12 @@ Titanium.Facebook.addEventListener 'logout', (e) ->
   root.loginView.show()
   root.loggedView.hide()
 
-# add the button.  Note that it doesn't need a click event or anything.
-root.facebookButton = Titanium.Facebook.createLoginButton 
-  top: 230
-  right: 30
-  style: 'wide'
-
 root.facebookLoginButton = Titanium.UI.createButton
   backgroundImage:'/images/butt_facebook.png'
   color: '#fff'
   title: '    '+L('loginFacebook')
   width:200
-  height:31
+  height:32
   font:{fontSize:13,fontWeight:'bold',fontFamily:'Helvetica Neue'}
   top: 230
 

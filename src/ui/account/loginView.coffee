@@ -9,7 +9,6 @@ Ti.include(
 
 root.loginView = Titanium.UI.createView
   background: "transparent"
-  width: 320
   top: 0
 
 loginLabel = Titanium.UI.createLabel
@@ -21,21 +20,8 @@ loginLabel = Titanium.UI.createLabel
     fontSize: 14
     fontWeight: 'bold'
   height: 30
-  width: 300
+  #width: 300
   top: 5
-
-loginFacebookLabel = Titanium.UI.createLabel
-  borderWidth: 0
-  text: Ti.Locale.getString('loginFacebook')
-  color: '#fff'
-  left: 5
-  font:
-    fontSize: 14
-    fontWeight: 'bold'
-  height: 30
-  width: 300
-  top: 230
-#root.loginView.add(loginFacebookLabel)
 
 
 rememberPassRowView = new root.GenericRowView(150,Ti.Locale.getString('IForgotPassword'))
@@ -53,7 +39,7 @@ needLabel = Titanium.UI.createLabel
     fontSize: 14
     fontWeight: 'bold'
   height: 30
-  width: 300
+#  width: '95%'
   top: 270
 
 registerButton = new root.GenericButton(310,Ti.Locale.getString('register')).button

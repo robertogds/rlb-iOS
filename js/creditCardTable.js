@@ -3,11 +3,12 @@
   root.creditCardTable = Titanium.UI.createTableView({
     top: 15,
     height: 215,
-    width: 300,
+    width: '95%',
     borderWidth: 0,
     borderRadius: 10,
     scrollable: false,
-    moving: false
+    moving: false,
+    backgroundColor: '#fff'
   });
   root.cardTypeLabel = Titanium.UI.createLabel({
     color: '#afafaf',
@@ -26,6 +27,7 @@
     return root.cardTypeView.show();
   });
   root.cardNumberText = Titanium.UI.createTextField({
+    width: '100%',
     color: '#336699',
     hintText: L('number'),
     clearOnEdit: false,
@@ -37,6 +39,7 @@
     return root.cardNameText.focus();
   });
   root.cardNameText = Titanium.UI.createTextField({
+    width: '100%',
     color: '#336699',
     hintText: L('cardName'),
     clearOnEdit: false,
@@ -67,6 +70,7 @@
     return root.expiresView.show();
   });
   root.cvcCodeText = Titanium.UI.createTextField({
+    width: '100%',
     color: '#336699',
     hintText: L('cvcCode'),
     paddingLeft: 10,

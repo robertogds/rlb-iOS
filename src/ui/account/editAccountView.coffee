@@ -1,11 +1,11 @@
 root.editAccountView = Titanium.UI.createView
   backgroundColor: 'transparent'
-  width:320
+  #width:320
 
 root.editAccountTable = Titanium.UI.createTableView
   top: 20
   height: 175
-  width: 300
+  width: "95%"
   borderWidth:0
   borderRadius: 10
   scrollable: false

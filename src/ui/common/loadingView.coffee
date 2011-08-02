@@ -5,7 +5,7 @@ root.loadingView = Titanium.UI.createView
   opacity: 0.8
   width:140
   height:100
-  top: 120
+  top: '30%'
 
 root.loadLabel = Titanium.UI.createLabel
   textAlign: 'center'

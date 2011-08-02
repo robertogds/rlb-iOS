@@ -6,13 +6,15 @@ class GenericRowView
     table = Titanium.UI.createTableView
       top: 10
       height: 40
-      width: 300
+      width: '95%'
       borderWidth:0
       borderRadius: 10
       scrollable: false
       moving: false
+      backgroundColor: '#fff'
     @label = Titanium.UI.createLabel
-      borderWidth: 0
+      width: '100%'
+      height: '100%'
       text: text
       color: '#000'
       left: 8

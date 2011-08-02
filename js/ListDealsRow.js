@@ -124,7 +124,7 @@
         left: 0,
         top: 0,
         height: 120,
-        width: 320
+        width: '120%'
       });
       soldOutLabel = Titanium.UI.createLabel({
         borderWidth: 0,

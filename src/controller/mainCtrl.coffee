@@ -1,5 +1,8 @@
 root.url = 'http://rlb-back.appspot.com'
 root.surl = 'https://rlb-back.appspot.com'
+root.bgGradient =
+     type:'linear'
+     colors:[{color:'#07151d',position:0.1},{color:'#0d1e28',position:1.0}]
 
 
 Ti.include(
@@ -12,6 +15,7 @@ Ti.include(
   '/js/GenericMapAnnotation.js'
   '/js/GenericTextView.js'
   '/js/GenericMapRightButtonView.js'
+  '/js/GenericAndroidTab.js'
   '/js/errorView.js'
   '/js/loadingView.js'
   '/js/application.js'
@@ -21,7 +25,6 @@ Ti.include(
   '/js/citiesWindow.js'
   '/js/oneDealView.js'
   '/js/oneBookingView.js'
-  '/js/testView.js'
   '/js/optionsView.js'
   '/js/bookingView.js'
   '/js/aboutView.js'
@@ -29,7 +32,10 @@ Ti.include(
   '/js/termsView.js'
   '/js/privacyView.js'
 )
-
+Ti.API.info("Empieza")
+#alert Titanium.Platform.model
+#alert Titanium.Platform.name
+#alert Titanium.Platform.displayCaps.platformWidth
 
 if Titanium.App.Properties.hasProperty("user")
   root.user = JSON.parse(Titanium.App.Properties.getString("user"))

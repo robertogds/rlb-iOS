@@ -3,7 +3,6 @@
   supportView = Titanium.UI.createView({
     background: 'transparent',
     borderWidth: 0,
-    width: 320,
     top: 0
   });
   title = L('supportTitle');

@@ -1,11 +1,12 @@
 Ti.include(
-  '/js/oneDealMapView.js'
+#  '/js/oneDealButtonBar.js'
+#  '/js/oneDealMapView.js'
   '/js/imagesScrollView.js'
   '/js/infoDealTable.js'
   '/js/priceView.js'
 )
 if (Titanium.Platform.name == 'android') 
-  Ti.include('/js/androidOneDealButtonBar.js')
+  #Ti.include('/js/androidOneDealButtonBar.js')
 else
   Ti.include('/js/oneDealButtonBar.js')
 
@@ -17,13 +18,14 @@ root.oneDealView = Titanium.UI.createView
 root.listImageView = Titanium.UI.createView
   top: 0
   height: '37%'
-  width: Ti.Platform.displayCaps.platformWidth
+  width: '100%'
   #height: 120
 
 root.oneDealImage = Titanium.UI.createImageView 
   top: 0
-  width: Ti.Platform.displayCaps.platformWidth
-  height: 'auto'
+  width: '100%'
+  #width: 320
+  #height: 120
 
 root.listImageView.add(root.oneDealImage)
 root.oneDealView.add(root.listImageView)
@@ -41,10 +43,9 @@ addressView = Titanium.UI.createView
   height: '17%'
 
 descriptionView = Titanium.UI.createView
-  width: '100%'
   backgroundColor:'#0d1e28'
   top: '77%'
-  height: 65
+  #height: '20%'
 
 
 root.oneDealAddressLabel = Titanium.UI.createLabel
@@ -63,7 +64,7 @@ root.oneDealAddressLabel = Titanium.UI.createLabel
 addressView.add(root.oneDealAddressLabel)
 
 root.descriptionLabel = Titanium.UI.createLabel
-  #width: '90%'
+#  width: 280
   height: '100%'
   textAlign: 'left'
   color: '#fff'
@@ -76,11 +77,13 @@ root.descriptionLabel = Titanium.UI.createLabel
   left: 25
 
 root.oneDealView.add(root.priceView)
+#root.oneDealView.add(root.oneDealImage)
 root.oneDealView.add(addressView)
 descriptionView.add(root.descriptionLabel)
 root.oneDealView.add(descriptionView) 
+#root.oneDealView.add(root.descriptionLabel) 
 
-root.oneDealWindow.add(root.oneDealButtonBarView)
+#root.oneDealWindow.add(root.oneDealButtonBarView)
 root.oneDealWindow.add(root.oneDealView)
 
 separator1 = new root.GenericSeparatorView('61%').view
@@ -170,7 +173,9 @@ root.showDealView = (deal) ->
   data.push(foodDrinkRow)
   data.push(aroundRow)
   root.infoDealTable.setData(data)
-  root.oneDealWindow.remove root.infoDealTable
-  root.oneDealWindow.remove root.mapView
-  root.oneDealWindow.add root.oneDealView
+  #root.oneDealWindow.remove root.infoDealTable
+  #root.oneDealWindow.remove root.mapView
+  #root.oneDealWindow.add root.oneDealView
   Ti.API.error("PasoFINAL")
+
+

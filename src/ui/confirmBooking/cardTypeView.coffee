@@ -1,7 +1,7 @@
 root.cardTypeView = Titanium.UI.createView
   background: 'transparent'
   borderWidth: 0
-  width:320
+#  width:320
   top: 100
 
 pickerView = Titanium.UI.createView
@@ -31,7 +31,7 @@ root.cardTypePicker.addEventListener 'change', (e) ->
   1
 
 infoLabel = Titanium.UI.createLabel
-  width: 320
+#  width: 320
   height: 60
   textAlign: 'center'
   text: Ti.Locale.getString('selectCardType')

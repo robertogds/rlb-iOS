@@ -5,8 +5,7 @@
       this.view = Titanium.UI.createView({
         backgroundColor: '#57585b',
         top: top,
-        height: 1,
-        width: 320
+        height: 1
       });
     }
     return GenericSeparatorView;
