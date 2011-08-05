@@ -7,7 +7,7 @@
   });
   root.newAccountTable = Titanium.UI.createTableView({
     top: 20,
-    height: '48%',
+    height: 176,
     width: '95%',
     borderWidth: 0,
     borderRadius: 10,
@@ -77,10 +77,22 @@
   });
   root.newAccountSection = Titanium.UI.createTableViewSection();
   root.newAccountData = [];
-  firstNameRow = Titanium.UI.createTableViewRow();
-  lastNameRow = Titanium.UI.createTableViewRow();
-  emailRow = Titanium.UI.createTableViewRow();
-  passwordRow = Titanium.UI.createTableViewRow();
+  firstNameRow = Titanium.UI.createTableViewRow({
+    width: '100%',
+    height: 44
+  });
+  lastNameRow = Titanium.UI.createTableViewRow({
+    width: '100%',
+    height: 44
+  });
+  emailRow = Titanium.UI.createTableViewRow({
+    width: '100%',
+    height: 44
+  });
+  passwordRow = Titanium.UI.createTableViewRow({
+    width: '100%',
+    height: 44
+  });
   firstNameRow.add(firstNameText);
   lastNameRow.add(lastNameText);
   emailRow.add(emailText);

@@ -1,6 +1,6 @@
 priceContainerView = Titanium.UI.createView
   width: '100%'
-  top: '37%'
+  top: 120
   height: '24%'
 
 priceView = Titanium.UI.createView

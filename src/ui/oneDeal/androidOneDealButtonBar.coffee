@@ -53,12 +53,12 @@ mapTab.addEventListener 'click', (e) ->
 
 photosTab.addEventListener 'click', (e) ->
   currTab.backgroundColor = '#000'
-  #currTab.children[0].color = '#333'
   this.backgroundColor = '#333'
   this.children[0].color = '#FFF'
   currTab = this
   root.imagesWindow.add(root.imagesScrollView)
   root.tabGroup.activeTab.open(root.imagesWindow,{animated:true})
+  #root.imagesScrollView.scrollToView(root.image2)
 
 
 

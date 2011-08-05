@@ -44,9 +44,13 @@ passText.addEventListener 'return', (e) ->
 
 section = Titanium.UI.createTableViewSection()
 data = []
-row1 = Titanium.UI.createTableViewRow()
+row1 = Titanium.UI.createTableViewRow
+  width: '100%'
+  height: 44
 row1.add(emailText)
-row2 = Titanium.UI.createTableViewRow()
+row2 = Titanium.UI.createTableViewRow
+  width: '100%'
+  height: 44
 row2.add(passText)
 section.add(row1)
 section.add(row2)

@@ -1,32 +1,42 @@
 root.userLoggedTable = Titanium.UI.createTableView
   top: 5
-  height: 133
+  height: 132
   width: '95%'
   borderWidth:0
   borderRadius: 10
   scrollable: false
   moving: false
+  backgroundColor: '#fff'
 
 root.firstNameLabel = Titanium.UI.createLabel
+  backgroundColor: '#fff'
   color:'#afafaf'
   left: 11
   font:{fontSize:17,fontFamily:'Helvetica Neue'}
 
 root.lastNameLabel = Titanium.UI.createLabel
+  backgroundColor: '#fff'
   color:'#afafaf'
   left: 11
   font:{fontSize:17,fontFamily:'Helvetica Neue'}
 
 root.emailLabel = Titanium.UI.createLabel
+  backgroundColor: '#fff'
   color:'#afafaf'
   left: 11
   font:{fontSize:17,fontFamily:'Helvetica Neue'}
 
 root.userLoggedSection = Titanium.UI.createTableViewSection()
 root.userLoggedData = []
-userFirstNameRow = Titanium.UI.createTableViewRow()
-userLastNameRow = Titanium.UI.createTableViewRow()
-userEmailRow = Titanium.UI.createTableViewRow()
+userFirstNameRow = Titanium.UI.createTableViewRow
+  width: '100%'
+  height: 44
+userLastNameRow = Titanium.UI.createTableViewRow
+  width: '100%'
+  height: 44
+userEmailRow = Titanium.UI.createTableViewRow
+  width: '100%'
+  height: 44
 
 userFirstNameRow.add(root.firstNameLabel)
 userLastNameRow.add(root.lastNameLabel)
@@ -57,6 +67,6 @@ root.loadLoggedFacebookUser = () ->
   root.userLoggedTable.data = root.userLoggedData
   root.loggedView.add(root.userLoggedTable)
   facebookButton = Titanium.Facebook.createLoginButton 
-    top: 165
+    top: 155
     style: "wide"
   root.loggedView.add(facebookButton)

@@ -5,14 +5,18 @@
   });
   root.editAccountTable = Titanium.UI.createTableView({
     top: 20,
-    height: 175,
+    height: 176,
     width: "95%",
     borderWidth: 0,
     borderRadius: 10,
     scrollable: false,
-    moving: false
+    moving: false,
+    backgroundColor: '#fff'
   });
   root.firstNameText = Titanium.UI.createTextField({
+    height: '100%',
+    backgroundColor: '#fff',
+    width: '100%',
     color: '#336699',
     hintText: Ti.Locale.getString('firstName'),
     clearOnEdit: true,
@@ -23,6 +27,9 @@
     return root.lastNameText.focus();
   });
   root.lastNameText = Titanium.UI.createTextField({
+    height: '100%',
+    backgroundColor: '#fff',
+    width: '100%',
     color: '#336699',
     hintText: Ti.Locale.getString('lastName'),
     clearOnEdit: true,
@@ -33,6 +40,9 @@
     return root.emailText.focus();
   });
   root.emailText = Titanium.UI.createTextField({
+    height: '100%',
+    backgroundColor: '#fff',
+    width: '100%',
     color: '#336699',
     hintText: Ti.Locale.getString('email'),
     clearOnEdit: true,
@@ -44,6 +54,9 @@
     return root.passwordText.focus();
   });
   root.passwordText = Titanium.UI.createTextField({
+    height: '100%',
+    backgroundColor: '#fff',
+    width: '100%',
     color: '#336699',
     hintText: Ti.Locale.getString('password'),
     paddingLeft: 10,
@@ -55,10 +68,22 @@
   });
   root.editAccountSection = Titanium.UI.createTableViewSection();
   root.editAccountData = [];
-  firstNameRow = Titanium.UI.createTableViewRow();
-  lastNameRow = Titanium.UI.createTableViewRow();
-  emailRow = Titanium.UI.createTableViewRow();
-  passwordRow = Titanium.UI.createTableViewRow();
+  firstNameRow = Titanium.UI.createTableViewRow({
+    width: '100%',
+    height: 44
+  });
+  lastNameRow = Titanium.UI.createTableViewRow({
+    width: '100%',
+    height: 44
+  });
+  emailRow = Titanium.UI.createTableViewRow({
+    width: '100%',
+    height: 44
+  });
+  passwordRow = Titanium.UI.createTableViewRow({
+    width: '100%',
+    height: 44
+  });
   firstNameRow.add(root.firstNameText);
   lastNameRow.add(root.lastNameText);
   emailRow.add(root.emailText);

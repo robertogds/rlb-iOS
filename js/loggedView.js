@@ -6,8 +6,8 @@
     borderWidth: 0,
     top: 1
   });
-  customerView = new root.Generic2RowsView(200, Ti.Locale.getString('userSupport'), Ti.Locale.getString('feedback'));
-  root.editButton = new root.GenericButton(160, Ti.Locale.getString('editUser')).button;
+  customerView = new root.Generic2RowsView(210, Ti.Locale.getString('userSupport'), Ti.Locale.getString('feedback'));
+  root.editButton = new root.GenericButton(150, Ti.Locale.getString('editUser')).button;
   root.logoutButton = new root.GenericButton(310, Ti.Locale.getString('logout')).button;
   root.logoutButton.addEventListener('click', function(e) {
     return root.doLogout();

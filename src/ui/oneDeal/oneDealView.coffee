@@ -23,10 +23,10 @@ root.listImageView = Titanium.UI.createView
 root.oneDealImage = Titanium.UI.createImageView 
   top: 0
   width: Ti.Platform.displayCaps.platformWidth
-  height: 'auto'
+  height: 120
 
-root.listImageView.add(root.oneDealImage)
-root.oneDealView.add(root.listImageView)
+#root.listImageView.add(root.oneDealImage)
+root.oneDealView.add(root.oneDealImage)
 
 root.oneDealImage.addEventListener 'click', (e) ->
   root.imagesWindow.add(root.imagesScrollView)

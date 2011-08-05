@@ -107,7 +107,7 @@ class ListDealsRow
       left: 0
       top: 0
       height: 120
-      width: '120%'
+      width: '125%'
     
     soldOutLabel = Titanium.UI.createLabel
       borderWidth: 0

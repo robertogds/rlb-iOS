@@ -8,7 +8,7 @@
         top: top
       });
       table = Titanium.UI.createTableView({
-        top: 10,
+        top: 0,
         height: 40,
         width: '95%',
         borderWidth: 0,
@@ -31,7 +31,9 @@
       section = Titanium.UI.createTableViewSection();
       data = [];
       row = Titanium.UI.createTableViewRow({
-        hasChild: true
+        hasChild: true,
+        width: '100%',
+        height: 44
       });
       row.add(this.label);
       section.add(row);

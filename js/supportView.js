@@ -8,8 +8,8 @@
   title = L('supportTitle');
   text = L('supportText');
   supportTextView = new root.GenericTextView(0, title, text).view;
-  contactView = new root.Generic2RowsView(200, 'Email soporte@reallylatebooking.com', 'Llamar ');
-  contactView.table.height = 40;
+  contactView = new root.Generic2RowsView(200, 'soporte@reallylatebooking.com', 'Llamar ');
+  contactView.table.height = 44;
   contactView.label1.addEventListener('click', function(e) {
     var emailDialog;
     emailDialog = Titanium.UI.createEmailDialog();

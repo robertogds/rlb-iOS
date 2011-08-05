@@ -8,7 +8,7 @@ rememberView =  new root.GenericTextView(0,title,text).view
 
 rememberTable = Titanium.UI.createTableView
   top: 120
-  height: 40
+  height: 44
   width: 300
   borderWidth:0
   borderRadius: 10
@@ -17,6 +17,7 @@ rememberTable = Titanium.UI.createTableView
   backgroundColor: '#fff'
 
 rememberEmailText = Titanium.UI.createTextField
+  backgroundColor: '#fff'
   width: '100%'
   color:'#336699'
   hintText: Ti.Locale.getString('email')
@@ -29,7 +30,9 @@ rememberEmailText.addEventListener 'return', (e) ->
 
 section = Titanium.UI.createTableViewSection()
 data = []
-row = Titanium.UI.createTableViewRow()
+row = Titanium.UI.createTableViewRow
+  width: '100%'
+  height: 44
 row.add(rememberEmailText)
 section.add(row)
 data[0] = section

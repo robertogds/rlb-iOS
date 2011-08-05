@@ -4,7 +4,7 @@ class GenericRowView
       background: 'transparent'
       top:top
     table = Titanium.UI.createTableView
-      top: 10
+      top: 0
       height: 40
       width: '95%'
       borderWidth:0
@@ -23,7 +23,10 @@ class GenericRowView
         fontWeight: 'bold'
     section = Titanium.UI.createTableViewSection()
     data = []
-    row = Titanium.UI.createTableViewRow(hasChild:true)
+    row = Titanium.UI.createTableViewRow
+      hasChild:true
+      width: '100%'
+      height: 44
     row.add(@label)
     section.add(row)
     data[0] = section
