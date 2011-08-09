@@ -1,5 +1,7 @@
-root.url = 'http://rlb-back.appspot.com'
-root.surl = 'https://rlb-back.appspot.com'
+#root.url = 'http://rlb-back.appspot.com'
+#root.surl = 'https://rlb-back.appspot.com'
+root.url = 'http://192.168.1.35:9000'
+root.surl = 'http://192.168.1.35:9000'
 root.bgGradient =
      type:'linear'
      colors:[{color:'#07151d',position:0.1},{color:'#0d1e28',position:1.0}]

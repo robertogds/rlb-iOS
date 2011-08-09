@@ -21,6 +21,7 @@
   root.xhrBookings = Titanium.Network.createHTTPClient();
   root.xhrBookings.onload = function() {
     var booking, bookingLabel, bookingRow, bookings, data, _i, _len;
+    root.bookingsWindow.remove(root.errorView);
     bookings = JSON.parse(this.responseText);
     data = [];
     for (_i = 0, _len = bookings.length; _i < _len; _i++) {
@@ -49,7 +50,7 @@
   root.xhrBookings.onerror = function() {
     alert(L('errorHappened'));
     root.bookingsWindow.remove(root.loadingView);
-    return root.showError();
+    return root.showError(root.bookingsWindow);
   };
   root.xhrBookings.timedout = function() {
     return alert(L('errorHappened'));

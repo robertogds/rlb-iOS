@@ -20,6 +20,38 @@ root.oneDealButtonBarView.add(infoTab)
 root.oneDealButtonBarView.add(mapTab)
 root.oneDealButtonBarView.add(photosTab)
 
+makeImageScroll = () ->
+  imagesScrollView = Titanium.UI.createScrollableView
+    showPagingControl: true
+    pagingControlHeight: 20
+
+  image1 = Titanium.UI.createImageView
+    top: 0
+    image: root.image1.image
+
+  image2 = Titanium.UI.createImageView 
+    top: 0
+    image: root.image2.image
+
+  image3 = Titanium.UI.createImageView 
+    top: 0
+    image: root.image3.image
+
+  image4 = Titanium.UI.createImageView 
+    top: 0
+    image: root.image4.image
+
+  image5 = Titanium.UI.createImageView 
+    top: 0
+    image: root.image5.image
+
+  imagesScrollView.addView(image1)
+  imagesScrollView.addView(image2)
+  imagesScrollView.addView(image3)
+  imagesScrollView.addView(image4)
+  imagesScrollView.addView(image5)
+  imagesScrollView.currentPage=0
+  root.imagesWindow.add(imagesScrollView)
 
 bookingTab.addEventListener 'click', (e) ->
   currTab.backgroundColor = '#000'
@@ -51,14 +83,14 @@ mapTab.addEventListener 'click', (e) ->
   root.oneDealWindow.remove root.infoDealTable
   root.oneDealWindow.add root.mapView
 
-photosTab.addEventListener 'click', (e) ->
+photosTab.addEventListener 'click', (e) -> 
   currTab.backgroundColor = '#000'
   this.backgroundColor = '#333'
   this.children[0].color = '#FFF'
   currTab = this
-  root.imagesWindow.add(root.imagesScrollView)
+  makeImageScroll()
   root.tabGroup.activeTab.open(root.imagesWindow,{animated:true})
-  #root.imagesScrollView.scrollToView(root.image2)
+
 
 
 

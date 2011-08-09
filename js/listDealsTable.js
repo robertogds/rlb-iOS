@@ -27,6 +27,7 @@
   root.xhrDeals = Titanium.Network.createHTTPClient();
   root.xhrDeals.onload = function() {
     var data, deal, dealRow, deals, _i, _len;
+    root.citiesWindow.remove(root.errorView);
     deals = JSON.parse(this.responseText);
     root.createMap(deals);
     data = [];
@@ -49,12 +50,13 @@
   root.xhrDeals.onerror = function() {
     alert(L('errorHappened'));
     root.listDealsWindow.remove(root.loadingView);
-    return root.showError();
+    return root.showError(root.citiesWindow);
   };
   root.loadDeals = function(city) {
     root.listDealsWindow.add(root.loadingView);
     root.city = city;
     root.listDealsWindow.title = city.name;
+    root.xhrDeals.setTimeout(5000);
     root.xhrDeals.open('GET', root.url + '/deals/' + city.url);
     root.xhrDeals.setRequestHeader("Accept-Language", Titanium.Locale.currentLanguage);
     return root.xhrDeals.send();

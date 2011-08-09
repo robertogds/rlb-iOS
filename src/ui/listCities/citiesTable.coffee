@@ -20,6 +20,7 @@ root.citiesTable.addEventListener 'click', (e) ->
 root.xhrCities = Titanium.Network.createHTTPClient()
 
 root.xhrCities.onload = () ->
+  root.citiesWindow.remove(root.errorView)
   cities = JSON.parse(this.responseText)
   data = []
   for city in cities
@@ -29,15 +30,20 @@ root.xhrCities.onload = () ->
   root.citiesWindow.remove(root.loadingView)
 
 root.xhrCities.onerror = () ->
-  alert L('errorHappened')
+  Ti.API.info("Entra en error de ciudades onerror")
+  #alert L('errorHappened')
   root.citiesWindow.remove(root.loadingView)
-  root.showError()
+  #root.citiesWindow.add(root.errorView)
+  root.showError(root.citiesWindow)
 
 root.showCities = () ->
   if Titanium.Network.online is false
+    Ti.API.info("Entra en no hay internet")
     alert L('mustInternet')
-    root.showError()
+    #root.citiesWindow.add(root.errorView)
+    root.showError(root.citiesWindow)
   else
+    root.xhrCities.setTimeout(8000)
     root.citiesWindow.add(root.loadingView)
     root.xhrCities.open('GET', root.url+'/cities')
     root.xhrCities.setRequestHeader("Accept-Language",Titanium.Locale.currentLanguage)

@@ -55,11 +55,15 @@ root.tabGroup.addTab(root.accountTab)
 root.tabGroup.addTab(root.optionsTab)
 root.tabGroup.open()
 
-root.showError = () ->
-  root.errorWindow = new root.GenericWindow('Error').win
-  root.errorWindow.add(root.errorView)
-  root.errorWindow.open
-    modal:true
-    modalTransitionStyle: Ti.UI.iPhone.MODAL_TRANSITION_STYLE_FLIP_HORIZONTAL,
-    modalStyle: Ti.UI.iPhone.MODAL_PRESENTATION_FORMSHEET
-    navBarHidden:true
+root.showError = (window) ->
+  Ti.API.info("Entra en showError2")
+  #root.errorWindow = new root.GenericWindow('Error').win
+  root.errorWindow = window
+  #window.remove(root.errorView)
+  window.add(root.errorView)
+  #root.errorWindow.open
+   # modal:true
+   # fullscreen: true
+   # modalTransitionStyle: Ti.UI.iPhone.MODAL_TRANSITION_STYLE_FLIP_HORIZONTAL,
+   # modalStyle: Ti.UI.iPhone.MODAL_PRESENTATION_FORMSHEET
+   # navBarHidden:true

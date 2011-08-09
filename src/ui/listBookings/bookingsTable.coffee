@@ -22,6 +22,7 @@ root.bookingsTable.addEventListener 'click', (e) ->
 root.xhrBookings = Titanium.Network.createHTTPClient()
 
 root.xhrBookings.onload = () ->
+  root.bookingsWindow.remove(root.errorView)
   bookings = JSON.parse(this.responseText)
   data = []
   for booking in bookings
@@ -45,7 +46,7 @@ root.xhrBookings.onload = () ->
 root.xhrBookings.onerror = () ->
   alert L('errorHappened')
   root.bookingsWindow.remove(root.loadingView)
-  root.showError()
+  root.showError(root.bookingsWindow)
 
 root.xhrBookings.timedout = () ->
   alert L('errorHappened')

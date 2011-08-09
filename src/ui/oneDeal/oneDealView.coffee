@@ -34,16 +34,18 @@ root.oneDealImage.addEventListener 'click', (e) ->
 
 addressView = Titanium.UI.createView
   backgroundColor:'#0d1e28'
+  #backgroundColor:'red'
   #borderWidth: 1
   #borderColor: 'red'
   #width:'100%'
-  top: '61%'
-  height: '17%'
+  top: 197
+  height: 60
 
 descriptionView = Titanium.UI.createView
   width: '100%'
   backgroundColor:'#0d1e28'
-  top: '77%'
+  #backgroundColor:'red'
+  top: 257
   height: 65
 
 
@@ -58,7 +60,7 @@ root.oneDealAddressLabel = Titanium.UI.createLabel
     fontWeight: 'normal'
     fontFamily:'Helvetica Neue'
     fontWeight: 'bold'
-  left: 25
+  left: 20
 
 addressView.add(root.oneDealAddressLabel)
 
@@ -72,8 +74,8 @@ root.descriptionLabel = Titanium.UI.createLabel
     fontWeight: 'normal'
     fontFamily:'Helvetica Neue'
     #fontWeight: 'bold'
-  top: 0
-  left: 25
+  top: 2
+  left: 20
 
 root.oneDealView.add(root.priceView)
 root.oneDealView.add(addressView)
@@ -83,10 +85,10 @@ root.oneDealView.add(descriptionView)
 root.oneDealWindow.add(root.oneDealButtonBarView)
 root.oneDealWindow.add(root.oneDealView)
 
-separator1 = new root.GenericSeparatorView('61%').view
+separator1 = new root.GenericSeparatorView(197).view
 root.oneDealView.add(separator1)
 
-separator2 = new root.GenericSeparatorView('77%').view
+separator2 = new root.GenericSeparatorView(257).view
 root.oneDealView.add(separator2)
 
 root.showDealView = (deal) -> 

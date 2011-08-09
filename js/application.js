@@ -50,14 +50,9 @@
   root.tabGroup.addTab(root.accountTab);
   root.tabGroup.addTab(root.optionsTab);
   root.tabGroup.open();
-  root.showError = function() {
-    root.errorWindow = new root.GenericWindow('Error').win;
-    root.errorWindow.add(root.errorView);
-    return root.errorWindow.open({
-      modal: true,
-      modalTransitionStyle: Ti.UI.iPhone.MODAL_TRANSITION_STYLE_FLIP_HORIZONTAL,
-      modalStyle: Ti.UI.iPhone.MODAL_PRESENTATION_FORMSHEET,
-      navBarHidden: true
-    });
+  root.showError = function(window) {
+    Ti.API.info("Entra en showError2");
+    root.errorWindow = window;
+    return window.add(root.errorView);
   };
 }).call(this);

@@ -19,6 +19,7 @@
   root.xhrCities = Titanium.Network.createHTTPClient();
   root.xhrCities.onload = function() {
     var cities, city, cityRow, data, _i, _len;
+    root.citiesWindow.remove(root.errorView);
     cities = JSON.parse(this.responseText);
     data = [];
     for (_i = 0, _len = cities.length; _i < _len; _i++) {
@@ -30,15 +31,17 @@
     return root.citiesWindow.remove(root.loadingView);
   };
   root.xhrCities.onerror = function() {
-    alert(L('errorHappened'));
+    Ti.API.info("Entra en error de ciudades onerror");
     root.citiesWindow.remove(root.loadingView);
-    return root.showError();
+    return root.showError(root.citiesWindow);
   };
   root.showCities = function() {
     if (Titanium.Network.online === false) {
+      Ti.API.info("Entra en no hay internet");
       alert(L('mustInternet'));
-      return root.showError();
+      return root.showError(root.citiesWindow);
     } else {
+      root.xhrCities.setTimeout(8000);
       root.citiesWindow.add(root.loadingView);
       root.xhrCities.open('GET', root.url + '/cities');
       root.xhrCities.setRequestHeader("Accept-Language", Titanium.Locale.currentLanguage);

@@ -25,6 +25,7 @@ root.dealsTable.addEventListener 'click', (e) ->
 root.xhrDeals = Titanium.Network.createHTTPClient()
 
 root.xhrDeals.onload = () ->
+  root.citiesWindow.remove(root.errorView)
   deals = JSON.parse(this.responseText)
   root.createMap(deals)
   data = []
@@ -44,12 +45,13 @@ root.xhrDeals.onload = () ->
 root.xhrDeals.onerror = () ->
   alert L('errorHappened')
   root.listDealsWindow.remove(root.loadingView)
-  root.showError()
+  root.showError(root.citiesWindow)
 
 root.loadDeals = (city) ->
   root.listDealsWindow.add(root.loadingView)
   root.city = city
   root.listDealsWindow.title = city.name
+  root.xhrDeals.setTimeout(5000)
   root.xhrDeals.open('GET', root.url+'/deals/'+city.url)
   root.xhrDeals.setRequestHeader("Accept-Language",Titanium.Locale.currentLanguage)
   root.xhrDeals.send()
