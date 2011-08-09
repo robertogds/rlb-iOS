@@ -3,19 +3,24 @@
   root.xhrBooking.onload = function(e) {
     var response;
     Ti.API.info(this.responseText);
+    Ti.API.info('_____________________ ENTRA EN COMPRA CON EXITO ********************');
     root.confirmBookingWindow.remove(root.loadingView);
     response = JSON.parse(this.responseText);
     Ti.API.info(response);
     if (response.status === 201) {
-      root.showOneBookingView(response.content);
-      root.oneBookingWindow.backButtonTitle = Ti.Locale.getString('close');
-      root.oneBookingWindow.open({
-        modal: true,
-        modalTransitionStyle: Ti.UI.iPhone.MODAL_TRANSITION_STYLE_FLIP_HORIZONTAL,
-        modalStyle: Ti.UI.iPhone.MODAL_PRESENTATION_FORMSHEET,
-        navBarHidden: true
-      });
-      return root.oneBookingWindow.add(root.closeBookingButton);
+      if (Titanium.Platform.name === 'android') {
+        root.showOneBookingView(response.content);
+        return root.confirmBookingWindow.add(root.oneClassBookingView);
+      } else {
+        root.oneBookingWindow.backButtonTitle = Ti.Locale.getString('close');
+        root.oneBookingWindow.open({
+          modal: true,
+          modalTransitionStyle: Ti.UI.iPhone.MODAL_TRANSITION_STYLE_FLIP_HORIZONTAL,
+          modalStyle: Ti.UI.iPhone.MODAL_PRESENTATION_FORMSHEET,
+          navBarHidden: true
+        });
+        return root.oneBookingWindow.add(root.closeBookingButton);
+      }
     } else {
       return alert('Error: ' + response.detail);
     }
@@ -27,7 +32,9 @@
   };
   root.doBooking = function() {
     var newBook, signature, url;
+    Ti.API.info('_____________________ ENTRA EN COMPRAR ********************');
     root.confirmBookingWindow.add(root.loadingView);
+    Ti.API.info('Paso2');
     root.xhrBooking.setTimeout(5000);
     url = root.urlSignature('/booking');
     signature = root.doSignature(url);
@@ -46,7 +53,9 @@
       "creditCardCVC": root.cvcCodeText.value
     });
     Ti.API.info(newBook);
-    return root.xhrBooking.send(newBook);
+    Ti.API.info('Paso pre-compra');
+    root.xhrBooking.send(newBook);
+    return Ti.API.info('Paso post-compra');
   };
   root.validateBookingData = function() {
     if (!(root.user.id > 0)) {

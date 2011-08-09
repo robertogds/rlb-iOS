@@ -37,9 +37,11 @@
       data.push(dealRow.row);
     }
     if (data.length === 0) {
+      Ti.API.info('****** No hay hoteles activos en esta ciudad ********');
       root.listDealsWindow.add(root.noDealsView);
       root.noDealsView.show();
     } else {
+      Ti.API.info('****** OK HAY HOTELES! ********');
       root.noDealsView.hide();
       root.listDealsWindow.remove(root.noDealsView);
       root.dealsTable.setData(data);

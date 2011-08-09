@@ -28,9 +28,9 @@ root.oneDealImage = Titanium.UI.createImageView
 #root.listImageView.add(root.oneDealImage)
 root.oneDealView.add(root.oneDealImage)
 
-root.oneDealImage.addEventListener 'click', (e) ->
-  root.imagesWindow.add(root.imagesScrollView)
-  root.tabGroup.activeTab.open(root.imagesWindow,{animated:true})
+#root.oneDealImage.addEventListener 'click', (e) ->
+#  root.imagesWindow.add(root.imagesScrollView)
+#  root.tabGroup.activeTab.open(root.imagesWindow,{animated:true})
 
 addressView = Titanium.UI.createView
   backgroundColor:'#0d1e28'
@@ -157,14 +157,12 @@ root.showDealView = (deal) ->
   roomView =  new root.GenericTextView(0,roomTitle,deal.roomText).view
   foodDrinkView = new root.GenericTextView(0,foodDrinkTitle,deal.foodDrinkText).view
   aroundView = new root.GenericTextView(0,aroundTitle,deal.aroundText).view
-  Ti.API.error("paso2")
   detailRow.add(detailView)
   hotelRow.add(hotelView)
   roomRow.add(roomView)
   foodDrinkRow.add(foodDrinkView)
   aroundRow.add(aroundView)
   root.infoHotelIpadLabel.text = deal.detailText
-  Ti.API.error("Paso3")
   data = []
   data.push(detailRow)
   data.push(hotelRow)
@@ -175,4 +173,3 @@ root.showDealView = (deal) ->
   root.oneDealWindow.remove root.infoDealTable
   root.oneDealWindow.remove root.mapView
   root.oneDealWindow.add root.oneDealView
-  Ti.API.error("PasoFINAL")

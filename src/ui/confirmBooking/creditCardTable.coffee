@@ -1,6 +1,6 @@
 root.creditCardTable = Titanium.UI.createTableView
   top: 15
-  height: 215
+  height: 220
   width: '95%'
   borderWidth:0
   borderRadius: 10
@@ -9,8 +9,10 @@ root.creditCardTable = Titanium.UI.createTableView
   backgroundColor: '#fff'
 
 root.cardTypeLabel = Titanium.UI.createLabel
+  width: '90%'
   color:'#afafaf'
   left: 11
+  paddingLeft: 10
   text: L('cardType')
   font:{fontSize:17,fontFamily:'Helvetica Neue'}
 
@@ -65,6 +67,7 @@ root.expiresLabel.addEventListener 'click', (e) ->
   root.expiresView.show()
   
 root.cvcCodeText = Titanium.UI.createTextField
+  backgroundColor: '#fff'
   width: '100%'
   color:'#336699'
   hintText: L('cvcCode')
@@ -81,11 +84,21 @@ root.cvcCodeText.addEventListener 'return', (e) ->
 
 root.creditCardSection = Titanium.UI.createTableViewSection()
 root.creditCardData = []
-cardTypeRow = Titanium.UI.createTableViewRow()
-cardNumberRow = Titanium.UI.createTableViewRow()
-cardNameRow = Titanium.UI.createTableViewRow()
-expiresRow = Titanium.UI.createTableViewRow()
-cvcCodeRow = Titanium.UI.createTableViewRow()
+cardTypeRow = Titanium.UI.createTableViewRow
+  width: '100%'
+  height: 44
+cardNumberRow = Titanium.UI.createTableViewRow
+  width: '100%'
+  height: 44
+cardNameRow = Titanium.UI.createTableViewRow
+  width: '100%'
+  height: 44
+expiresRow = Titanium.UI.createTableViewRow
+  width: '100%'
+  height: 44
+cvcCodeRow = Titanium.UI.createTableViewRow
+  width: '100%'
+  height: 44
 
 cardTypeRow.add(root.cardTypeLabel)
 cardNumberRow.add(root.cardNumberText)

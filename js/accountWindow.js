@@ -1,6 +1,7 @@
 (function() {
   Ti.include('/js/userLoggedTable.js', '/js/loginView.js', '/js/loggedView.js', '/js/rememberPassAction.js', '/js/accountView.js');
   root.accountWindow.addEventListener('focus', function(e) {
+    Ti.API.info('__________________________ ABRE ACCOUNT ******************');
     if (Titanium.App.Properties.hasProperty("user")) {
       Ti.API.info('Entra en esta logado por RLB');
       root.loginView.hide();

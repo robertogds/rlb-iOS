@@ -53,9 +53,12 @@ makeImageScroll = () ->
   imagesScrollView.currentPage=0
   root.imagesWindow.add(imagesScrollView)
 
+root.imagesWindow.addEventListener 'blur', (e) ->
+  #Ti.API.info('__________________________ HA PERDIDO EL FOCUS ******************')
+  photosTab.backgroundColor = '#000'
+
 bookingTab.addEventListener 'click', (e) ->
   currTab.backgroundColor = '#000'
-  #currTab.children[0].color = '#333'
   this.backgroundColor = '#333'
   this.children[0].color = '#FFF'
   currTab = this
@@ -65,7 +68,6 @@ bookingTab.addEventListener 'click', (e) ->
 
 infoTab.addEventListener 'click', (e) ->
   currTab.backgroundColor = '#000'
-  #currTab.children[0].color = '#333'
   this.backgroundColor = '#333'
   this.children[0].color = '#FFF'
   currTab = this
@@ -75,7 +77,6 @@ infoTab.addEventListener 'click', (e) ->
 
 mapTab.addEventListener 'click', (e) ->
   currTab.backgroundColor = '#000'
-  #currTab.children[0].color = '#333'
   this.backgroundColor = '#333'
   this.children[0].color = '#FFF'
   currTab = this
@@ -84,12 +85,10 @@ mapTab.addEventListener 'click', (e) ->
   root.oneDealWindow.add root.mapView
 
 photosTab.addEventListener 'click', (e) -> 
-  currTab.backgroundColor = '#000'
-  this.backgroundColor = '#333'
-  this.children[0].color = '#FFF'
-  currTab = this
+  photosTab.backgroundColor = '#333'
   makeImageScroll()
   root.tabGroup.activeTab.open(root.imagesWindow,{animated:true})
+  photosTab.backgroundColor = '#000'
 
 
 

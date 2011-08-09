@@ -48,6 +48,7 @@ root.oneBookingWindow.add(root.oneClassBookingView)
 
 root.showBookingView = () ->
   if Titanium.App.Properties.hasProperty("user") or Titanium.Facebook.loggedIn
+    root.confirmBookingWindow.remove(root.oneClassBookingView)
     root.creditCardData[0] = root.creditCardSection
     root.creditCardTable.data = root.creditCardData
     root.bookingView.add(root.creditCardTable)
