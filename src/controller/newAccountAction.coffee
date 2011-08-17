@@ -1,7 +1,7 @@
 root.xhrRegister = Titanium.Network.createHTTPClient()
 
 root.xhrRegister.onload = (e) ->
-  root.newAccountWindow.remove(root.loadingView)
+  root.hideLoading(root.newAccountWindow)
   root.editAccountWindow.remove(root.loadingView)
   response = JSON.parse(this.responseText)
   if response.status is 200
@@ -16,7 +16,7 @@ root.xhrRegister.onload = (e) ->
     alert 'Error: ' + response.detail
 
 root.xhrRegister.onerror = (e) ->
-  root.newAccountWindow.remove(root.loadingView)
+  root.hideLoading(root.newAccountWindow)
   root.showError()
   Ti.API.error(e)
 

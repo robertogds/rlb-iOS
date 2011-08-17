@@ -46,16 +46,16 @@
       root.listDealsWindow.remove(root.noDealsView);
       root.dealsTable.setData(data);
     }
-    root.listDealsWindow.remove(root.loadingView);
+    root.hideLoading(root.listDealsWindow);
     return root.showDeals();
   };
   root.xhrDeals.onerror = function() {
     alert(L('errorHappened'));
-    root.listDealsWindow.remove(root.loadingView);
+    root.hideLoading(root.listDealsWindow);
     return root.showError(root.citiesWindow);
   };
   root.loadDeals = function(city) {
-    root.listDealsWindow.add(root.loadingView);
+    root.showLoading(root.listDealsWindow);
     root.city = city;
     root.listDealsWindow.title = city.name;
     root.xhrDeals.setTimeout(5000);

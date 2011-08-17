@@ -4,7 +4,7 @@
     var response;
     Ti.API.info(this.responseText);
     Ti.API.info('_____________________ ENTRA EN COMPRA CON EXITO ********************');
-    root.confirmBookingWindow.remove(root.loadingView);
+    root.hideLoading(root.confirmBookingWindow);
     response = JSON.parse(this.responseText);
     Ti.API.info(response);
     if (response.status === 201) {
@@ -26,15 +26,14 @@
     }
   };
   root.xhrBooking.onerror = function(e) {
-    root.confirmBookingWindow.remove(root.loadingView);
+    root.hideLoading(root.confirmBookingWindow);
     root.showError();
     return Ti.API.error(e);
   };
   root.doBooking = function() {
     var newBook, signature, url;
     Ti.API.info('_____________________ ENTRA EN COMPRAR ********************');
-    root.confirmBookingWindow.add(root.loadingView);
-    Ti.API.info('Paso2');
+    root.showLoading(root.confirmBookingWindow);
     root.xhrBooking.setTimeout(5000);
     url = root.urlSignature('/booking');
     signature = root.doSignature(url);

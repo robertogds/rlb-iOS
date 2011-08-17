@@ -15,12 +15,12 @@
     var response, termsText;
     response = JSON.parse(this.responseText);
     termsText = response.content;
-    root.termsWindow.remove(root.loadingView);
+    root.hideLoading(root.termsWindow);
     return root.termsView.textLabel.text = termsText;
   };
   root.xhrTerms.onerror = function() {
     alert(L('errorHappened'));
-    root.termsWindow.remove(root.loadingView);
+    root.hideLoading(root.termsWindow);
     return root.showError();
   };
   root.showTerms = function() {
@@ -31,7 +31,7 @@
       root.tabGroup.activeTab.open(root.termsWindow, {
         animated: true
       });
-      root.termsWindow.add(root.loadingView);
+      root.showLoading(root.termsWindow);
       root.xhrTerms.open('GET', root.url + '/info/use_terms');
       root.xhrTerms.setRequestHeader("Accept-Language", Titanium.Locale.currentLanguage);
       return root.xhrTerms.send();

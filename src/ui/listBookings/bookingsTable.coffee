@@ -41,11 +41,11 @@ root.xhrBookings.onload = () ->
   else
     root.bookingsTable.setData(data)
     root.bookingsTable.footerView = root.footerView
-  root.bookingsWindow.remove(root.loadingView)
+  root.hideLoading(root.bookingsWindow)
 
 root.xhrBookings.onerror = () ->
   alert L('errorHappened')
-  root.bookingsWindow.remove(root.loadingView)
+  root.hideLoading(root.bookingsWindow)
   root.showError(root.bookingsWindow)
 
 root.xhrBookings.timedout = () ->
@@ -53,7 +53,7 @@ root.xhrBookings.timedout = () ->
 
 root.showBookings = () ->
   root.noBookingsView.hide()
-  root.bookingsWindow.add(root.loadingView)
+  root.showLoading(root.bookingsWindow)
   url = root.urlSignature('/user/'+root.user.id+'/bookings')
   signature = root.doSignature(url)
   url = url + '/' + signature

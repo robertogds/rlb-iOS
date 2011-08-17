@@ -123,7 +123,7 @@ root.submitEdit = () ->
     lastName = root.lastNameText.value 
   validate = root.validateNewAccountData(email,password,firstName,lastName)
   if validate is true
-    root.editAccountWindow.add(root.loadingView)
+    root.showLoading(root.editAccountWindow)
     root.doRegister(email,password,firstName,lastName,root.user.id)
   else
     alert Ti.Locale.getString('reviewData') + ': ' + validate

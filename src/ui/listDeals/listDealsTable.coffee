@@ -41,16 +41,16 @@ root.xhrDeals.onload = () ->
     root.noDealsView.hide()
     root.listDealsWindow.remove(root.noDealsView)
     root.dealsTable.setData(data)
-  root.listDealsWindow.remove(root.loadingView)
+  root.hideLoading(root.listDealsWindow)
   root.showDeals()
 
 root.xhrDeals.onerror = () ->
   alert L('errorHappened')
-  root.listDealsWindow.remove(root.loadingView)
+  root.hideLoading(root.listDealsWindow)
   root.showError(root.citiesWindow)
 
 root.loadDeals = (city) ->
-  root.listDealsWindow.add(root.loadingView)
+  root.showLoading(root.listDealsWindow)
   root.city = city
   root.listDealsWindow.title = city.name
   root.xhrDeals.setTimeout(5000)

@@ -13,7 +13,7 @@
   });
   root.citiesWindow.add(root.citiesTable);
   root.citiesTable.addEventListener('click', function(e) {
-    root.citiesWindow.add(root.loadingView);
+    root.showLoading(root.citiesWindow);
     return root.loadDeals(e.row.city);
   });
   root.xhrCities = Titanium.Network.createHTTPClient();
@@ -28,11 +28,11 @@
       data.push(cityRow.row);
     }
     root.citiesTable.setData(data);
-    return root.citiesWindow.remove(root.loadingView);
+    return root.hideLoading(root.citiesWindow);
   };
   root.xhrCities.onerror = function() {
     Ti.API.info("Entra en error de ciudades onerror");
-    root.citiesWindow.remove(root.loadingView);
+    root.hideLoading(root.citiesWindow);
     return root.showError(root.citiesWindow);
   };
   root.showCities = function() {
@@ -42,7 +42,7 @@
       return root.showError(root.citiesWindow);
     } else {
       root.xhrCities.setTimeout(8000);
-      root.citiesWindow.add(root.loadingView);
+      root.showLoading(root.citiesWindow);
       root.xhrCities.open('GET', root.url + '/cities');
       root.xhrCities.setRequestHeader("Accept-Language", Titanium.Locale.currentLanguage);
       return root.xhrCities.send();

@@ -16,12 +16,12 @@
     var privacyText, response;
     response = JSON.parse(this.responseText);
     privacyText = response.content;
-    root.privacyWindow.remove(root.loadingView);
+    root.hideLoading(root.privacyWindow);
     return root.privacyView.textLabel.text = privacyText;
   };
   root.xhrPrivacy.onerror = function() {
     alert('Se produjo un error');
-    root.privacyWindow.remove(root.loadingView);
+    root.hideLoading(root.privacyWindow);
     return root.showError();
   };
   root.showPrivacy = function() {
@@ -32,7 +32,7 @@
       root.tabGroup.activeTab.open(root.privacyWindow, {
         animated: true
       });
-      root.privacyWindow.add(root.loadingView);
+      root.showLoading(root.privacyWindow);
       root.xhrPrivacy.open('GET', root.url + '/info/privacy');
       root.xhrPrivacy.setRequestHeader("Accept-Language", Titanium.Locale.currentLanguage);
       return root.xhrPrivacy.send();

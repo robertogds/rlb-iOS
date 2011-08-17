@@ -95,11 +95,15 @@ root.showDealView = (deal) ->
   Ti.API.error("Empieza")
   root.deal = deal
   if deal.quantity is 0 
-    root.soldOutLabel.show()
-    root.bookingLabel.hide()
+    root.priceView.remove(root.bookingLabel)
+    root.priceView.add(root.soldOutLabel)
+    #root.soldOutLabel.show()
+    #root.bookingLabel.hide()
   else
-    root.soldOutLabel.hide()
-    root.bookingLabel.show()
+    root.priceView.add(root.bookingLabel)
+    root.priceView.remove(root.soldOutLabel)
+    #root.soldOutLabel.hide()
+    #root.bookingLabel.show()
   # Map
   root.mapView.removeAllAnnotations()
   root.hotelAnnotation.latitude = deal.latitude

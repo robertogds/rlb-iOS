@@ -70,7 +70,7 @@ passwordText.addEventListener 'return', (e) ->
   lastName = lastNameText.value
   validate = root.validateNewAccountData(email,password,firstName,lastName)
   if validate is true
-    root.newAccountWindow.add(root.loadingView)
+    root.showLoading(root.newAccountWindow)
     root.doRegister(email,password,firstName,lastName)
   else
     alert Ti.Locale.getString('reviewData') + ': ' + validate
@@ -118,7 +118,7 @@ newAccountButton.addEventListener 'click', (e) ->
   lastName = lastNameText.value
   validate = root.validateNewAccountData(email,password,firstName,lastName)
   if validate is true
-    root.newAccountWindow.add(root.loadingView)
+    root.showLoading(root.newAccountWindow)
     root.doRegister(email,password,firstName,lastName)    
   else
     alert Ti.Locale.getString('reviewData') + validate

@@ -1,12 +1,12 @@
-priceContainerView = Titanium.UI.createView
-  width: '100%'
-  top: 120
-  height: '24%'
+#priceContainerView = Titanium.UI.createView
+#  width: '100%'
+#  top: 120
+#  height: '24%'
 
-priceView = Titanium.UI.createView
+root.priceView = Titanium.UI.createView
   backgroundColor: 'black'
   width:'100%'
-  top: 0
+  top: 120
   height: 77
 
 root.infoHotelIpadLabel = Titanium.UI.createLabel
@@ -46,8 +46,7 @@ root.oneDealNormalPriceLabel = Titanium.UI.createLabel
   top: '47%'
   left: 110
 
-priceView.add(root.oneDealPriceLabel)
-priceView.add(root.oneDealNormalPriceLabel)
+
 
 sepVertView = Titanium.UI.createView
   backgroundColor: '#444547' 
@@ -55,8 +54,6 @@ sepVertView = Titanium.UI.createView
   top: '34%'
   height: 28
   width: 1
-
-priceView.add(sepVertView)
 
 antesLabel = Titanium.UI.createLabel
   text: L('before')
@@ -67,7 +64,7 @@ antesLabel = Titanium.UI.createLabel
   width: 40
   height: 20
   top: '24%'
-priceView.add(antesLabel)
+
 
 root.bookingLabel = Titanium.UI.createLabel
   backgroundImage: '/images/booking_background.png'
@@ -102,8 +99,12 @@ root.soldOutLabel = Titanium.UI.createLabel
   top: '40%'
   left: '60%'
 
-#priceView.add(root.soldOutLabel)
-#root.soldOutLabel.hide()
-priceView.add(root.bookingLabel)
-priceContainerView.add(priceView) 
-root.priceView = priceContainerView
+root.priceView.add(root.oneDealPriceLabel)
+root.priceView.add(root.oneDealNormalPriceLabel)
+root.priceView.add(sepVertView)
+root.priceView.add(antesLabel)
+root.priceView.add(root.soldOutLabel)
+root.soldOutLabel.hide()
+root.priceView.add(root.bookingLabel)
+#priceContainerView.add(priceView) 
+#root.priceView = priceContainerView

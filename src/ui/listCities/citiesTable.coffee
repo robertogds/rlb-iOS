@@ -13,8 +13,12 @@ root.citiesTable = Titanium.UI.createTableView
 root.citiesWindow.add(root.citiesTable)
 
 root.citiesTable.addEventListener 'click', (e) ->
-  root.citiesWindow.add(root.loadingView)
+  #actInd = Titanium.UI.createActivityIndicator
+  #  height:50
+  #  width:10
+  root.showLoading(root.citiesWindow)
   root.loadDeals(e.row.city)
+  
 
   
 root.xhrCities = Titanium.Network.createHTTPClient()
@@ -27,13 +31,12 @@ root.xhrCities.onload = () ->
     cityRow = new root.citiesRow(city)
     data.push(cityRow.row)
   root.citiesTable.setData(data)
-  root.citiesWindow.remove(root.loadingView)
+  root.hideLoading(root.citiesWindow)
 
 root.xhrCities.onerror = () ->
   Ti.API.info("Entra en error de ciudades onerror")
   #alert L('errorHappened')
-  root.citiesWindow.remove(root.loadingView)
-  #root.citiesWindow.add(root.errorView)
+  root.hideLoading(root.citiesWindow)
   root.showError(root.citiesWindow)
 
 root.showCities = () ->
@@ -44,7 +47,7 @@ root.showCities = () ->
     root.showError(root.citiesWindow)
   else
     root.xhrCities.setTimeout(8000)
-    root.citiesWindow.add(root.loadingView)
+    root.showLoading(root.citiesWindow)
     root.xhrCities.open('GET', root.url+'/cities')
     root.xhrCities.setRequestHeader("Accept-Language",Titanium.Locale.currentLanguage)
     root.xhrCities.send()

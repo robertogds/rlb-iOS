@@ -18,12 +18,12 @@ root.xhrPrivacy = Titanium.Network.createHTTPClient()
 root.xhrPrivacy.onload = () ->
   response = JSON.parse(this.responseText)
   privacyText = response.content
-  root.privacyWindow.remove(root.loadingView)
+  root.hideLoading(root.privacyWindow)
   root.privacyView.textLabel.text = privacyText
 
 root.xhrPrivacy.onerror = () ->
   alert 'Se produjo un error'
-  root.privacyWindow.remove(root.loadingView)
+  root.hideLoading(root.privacyWindow)
   root.showError()
 
 root.showPrivacy = () ->
@@ -32,7 +32,7 @@ root.showPrivacy = () ->
     root.showError()
   else
     root.tabGroup.activeTab.open(root.privacyWindow,{animated:true})
-    root.privacyWindow.add(root.loadingView)
+    root.showLoading(root.privacyWindow)
     root.xhrPrivacy.open('GET', root.url+'/info/privacy')
     root.xhrPrivacy.setRequestHeader("Accept-Language",Titanium.Locale.currentLanguage)
     root.xhrPrivacy.send()

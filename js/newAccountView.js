@@ -69,7 +69,7 @@
     lastName = lastNameText.value;
     validate = root.validateNewAccountData(email, password, firstName, lastName);
     if (validate === true) {
-      root.newAccountWindow.add(root.loadingView);
+      root.showLoading(root.newAccountWindow);
       return root.doRegister(email, password, firstName, lastName);
     } else {
       return alert(Ti.Locale.getString('reviewData') + ': ' + validate);
@@ -119,7 +119,7 @@
     lastName = lastNameText.value;
     validate = root.validateNewAccountData(email, password, firstName, lastName);
     if (validate === true) {
-      root.newAccountWindow.add(root.loadingView);
+      root.showLoading(root.newAccountWindow);
       return root.doRegister(email, password, firstName, lastName);
     } else {
       return alert(Ti.Locale.getString('reviewData') + validate);

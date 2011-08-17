@@ -17,12 +17,12 @@ root.xhrTerms = Titanium.Network.createHTTPClient()
 root.xhrTerms.onload = () ->
   response = JSON.parse(this.responseText)
   termsText = response.content
-  root.termsWindow.remove(root.loadingView)
+  root.hideLoading(root.termsWindow)
   root.termsView.textLabel.text = termsText
 
 root.xhrTerms.onerror = () ->
   alert L('errorHappened')
-  root.termsWindow.remove(root.loadingView)
+  root.hideLoading(root.termsWindow)
   root.showError()
 
 root.showTerms = () ->
@@ -31,7 +31,7 @@ root.showTerms = () ->
     root.showError()
   else
     root.tabGroup.activeTab.open(root.termsWindow,{animated:true})
-    root.termsWindow.add(root.loadingView)
+    root.showLoading(root.termsWindow)
     root.xhrTerms.open('GET', root.url+'/info/use_terms')
     root.xhrTerms.setRequestHeader("Accept-Language",Titanium.Locale.currentLanguage)
     root.xhrTerms.send()

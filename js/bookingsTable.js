@@ -45,11 +45,11 @@
       root.bookingsTable.setData(data);
       root.bookingsTable.footerView = root.footerView;
     }
-    return root.bookingsWindow.remove(root.loadingView);
+    return root.hideLoading(root.bookingsWindow);
   };
   root.xhrBookings.onerror = function() {
     alert(L('errorHappened'));
-    root.bookingsWindow.remove(root.loadingView);
+    root.hideLoading(root.bookingsWindow);
     return root.showError(root.bookingsWindow);
   };
   root.xhrBookings.timedout = function() {
@@ -58,7 +58,7 @@
   root.showBookings = function() {
     var signature, url;
     root.noBookingsView.hide();
-    root.bookingsWindow.add(root.loadingView);
+    root.showLoading(root.bookingsWindow);
     url = root.urlSignature('/user/' + root.user.id + '/bookings');
     signature = root.doSignature(url);
     url = url + '/' + signature;

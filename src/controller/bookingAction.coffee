@@ -3,7 +3,7 @@ root.xhrBooking = Titanium.Network.createHTTPClient()
 root.xhrBooking.onload = (e) ->
   Ti.API.info this.responseText
   Ti.API.info '_____________________ ENTRA EN COMPRA CON EXITO ********************'
-  root.confirmBookingWindow.remove(root.loadingView)
+  root.hideLoading(root.confirmBookingWindow)
   response = JSON.parse(this.responseText)
   Ti.API.info(response)
   if response.status is 201
@@ -22,14 +22,13 @@ root.xhrBooking.onload = (e) ->
     alert 'Error: ' + response.detail
 
 root.xhrBooking.onerror = (e) ->
-  root.confirmBookingWindow.remove(root.loadingView)
+  root.hideLoading(root.confirmBookingWindow)
   root.showError()
   Ti.API.error(e)
 
 root.doBooking = () ->
   Ti.API.info '_____________________ ENTRA EN COMPRAR ********************'
-  root.confirmBookingWindow.add(root.loadingView)
-  Ti.API.info 'Paso2'
+  root.showLoading(root.confirmBookingWindow)
   root.xhrBooking.setTimeout(5000)
   url = root.urlSignature('/booking')
   signature = root.doSignature(url)

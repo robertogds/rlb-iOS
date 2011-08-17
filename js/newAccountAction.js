@@ -2,7 +2,7 @@
   root.xhrRegister = Titanium.Network.createHTTPClient();
   root.xhrRegister.onload = function(e) {
     var response;
-    root.newAccountWindow.remove(root.loadingView);
+    root.hideLoading(root.newAccountWindow);
     root.editAccountWindow.remove(root.loadingView);
     response = JSON.parse(this.responseText);
     if (response.status === 200) {
@@ -18,7 +18,7 @@
     }
   };
   root.xhrRegister.onerror = function(e) {
-    root.newAccountWindow.remove(root.loadingView);
+    root.hideLoading(root.newAccountWindow);
     root.showError();
     return Ti.API.error(e);
   };

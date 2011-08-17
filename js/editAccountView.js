@@ -127,7 +127,7 @@
     }
     validate = root.validateNewAccountData(email, password, firstName, lastName);
     if (validate === true) {
-      root.editAccountWindow.add(root.loadingView);
+      root.showLoading(root.editAccountWindow);
       return root.doRegister(email, password, firstName, lastName, root.user.id);
     } else {
       return alert(Ti.Locale.getString('reviewData') + ': ' + validate);

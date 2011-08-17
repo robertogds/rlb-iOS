@@ -21,12 +21,31 @@
       fontWeight: 'bold'
     }
   });
-  root.actInd = Titanium.UI.createActivityIndicator({
+  root.iphoneActInd = Titanium.UI.createActivityIndicator({
     height: 50,
     width: 10,
     top: 25
   });
+  root.androidActInd = Titanium.UI.createActivityIndicator({
+    height: 50,
+    width: 10,
+    message: Ti.Locale.getString('loading')
+  });
   root.loadingView.add(root.loadLabel);
-  root.loadingView.add(root.actInd);
-  root.actInd.show();
+  root.loadingView.add(root.iphoneActInd);
+  root.iphoneActInd.show();
+  root.showLoading = function(window) {
+    if (Titanium.Platform.name === 'android') {
+      return root.androidActInd.show();
+    } else {
+      return window.add(root.loadingView);
+    }
+  };
+  root.hideLoading = function(window) {
+    if (Titanium.Platform.name === 'android') {
+      return root.androidActInd.hide();
+    } else {
+      return window.remove(root.loadingView);
+    }
+  };
 }).call(this);
