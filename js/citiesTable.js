@@ -18,10 +18,33 @@
   });
   root.xhrCities = Titanium.Network.createHTTPClient();
   root.xhrCities.onload = function() {
-    var cities, city, cityRow, data, _i, _len;
+    var cities, city, cityRow, data, textLabel, textRow, _i, _len;
     root.citiesWindow.remove(root.errorView);
     cities = JSON.parse(this.responseText);
     data = [];
+    textRow = new root.GenericTextRow().row;
+    textRow.backgroundGradient = {
+      type: 'linear',
+      colors: [
+        {
+          color: '#07151d',
+          position: 0.1
+        }, {
+          color: '#07151d',
+          position: 1.0
+        }
+      ]
+    };
+    textLabel = Titanium.UI.createLabel({
+      text: L('citiesToday'),
+      color: '#fff',
+      font: {
+        fontSize: 12
+      },
+      left: 10
+    });
+    textRow.add(textLabel);
+    data.push(textRow);
     for (_i = 0, _len = cities.length; _i < _len; _i++) {
       city = cities[_i];
       cityRow = new root.citiesRow(city);
@@ -38,7 +61,10 @@
   root.showCities = function() {
     if (Titanium.Network.online === false) {
       Ti.API.info("Entra en no hay internet");
-      alert(L('mustInternet'));
+      Ti.UI.createAlertDialog({
+        title: 'ReallyLateBooking',
+        message: L('mustInternet')
+      }).show();
       return root.showError(root.citiesWindow);
     } else {
       root.xhrCities.setTimeout(8000);

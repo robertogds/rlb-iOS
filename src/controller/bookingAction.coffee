@@ -19,7 +19,7 @@ root.xhrBooking.onload = (e) ->
         navBarHidden:true
       root.oneBookingWindow.add(root.closeBookingButton)
   else
-    alert 'Error: ' + response.detail
+    Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:'Error: ' + response.detail}).show()
 
 root.xhrBooking.onerror = (e) ->
   root.hideLoading(root.confirmBookingWindow)

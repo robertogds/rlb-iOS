@@ -86,7 +86,10 @@
     var validate;
     validate = root.validateBookingData();
     if (validate !== true) {
-      return alert(L('reviewData') + ': ' + validate);
+      return Ti.UI.createAlertDialog({
+        title: 'ReallyLateBooking',
+        message: L('reviewData') + ': ' + validate
+      }).show();
     }
   });
   root.creditCardSection = Titanium.UI.createTableViewSection();

@@ -15,9 +15,9 @@ Titanium.Facebook.addEventListener 'login', (e) ->
         root.loadLoggedFacebookUser() 
         root.loggedView.show()
       else 
-        alert L('errorHappened')
+        Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('errorHappened')}).show()
   else
-    alert L('errorHappened')
+    Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('errorHappened')}).show()
   root.hideLoading(root.loginView)
 
 Titanium.Facebook.addEventListener 'logout', (e) ->

@@ -52,7 +52,10 @@
         animated: true
       });
     } else {
-      alert(L('mustUser'));
+      Ti.UI.createAlertDialog({
+        title: 'ReallyLateBooking',
+        message: L('mustUser')
+      }).show();
       root.tabGroup.setActiveTab(2);
     }
     return 1;

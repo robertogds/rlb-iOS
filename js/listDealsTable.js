@@ -18,15 +18,21 @@
   root.listDealsWindow.add(root.dealsTable);
   root.dealsTable.addEventListener('click', function(e) {
     Ti.API.error("PREVIO");
-    root.showDealView(e.row.deal);
-    root.tabGroup.activeTab.open(root.oneDealWindow, {
-      animated: true
-    });
+    if (e.row.deal === void 0) {
+      root.tabGroup.activeTab.open(root.why3Window, {
+        animated: true
+      });
+    } else {
+      root.showDealView(e.row.deal);
+      root.tabGroup.activeTab.open(root.oneDealWindow, {
+        animated: true
+      });
+    }
     return Ti.API.error("NO HACE MAS");
   });
   root.xhrDeals = Titanium.Network.createHTTPClient();
   root.xhrDeals.onload = function() {
-    var data, deal, dealRow, deals, _i, _len;
+    var data, deal, dealRow, deals, textLabel, textRow, _i, _len;
     root.citiesWindow.remove(root.errorView);
     deals = JSON.parse(this.responseText);
     root.createMap(deals);
@@ -41,6 +47,20 @@
       root.listDealsWindow.add(root.noDealsView);
       root.noDealsView.show();
     } else {
+      textRow = new root.GenericTextRow().row;
+      textRow.hasChild = true;
+      textRow.rightImage = '/images/blue_arrow.png';
+      textLabel = Titanium.UI.createLabel({
+        text: L('why3Title'),
+        color: '#fff',
+        font: {
+          fontSize: 14,
+          fontWeight: 'bold'
+        },
+        left: 10
+      });
+      textRow.add(textLabel);
+      data.push(textRow);
       Ti.API.info('****** OK HAY HOTELES! ********');
       root.noDealsView.hide();
       root.listDealsWindow.remove(root.noDealsView);
@@ -50,7 +70,10 @@
     return root.showDeals();
   };
   root.xhrDeals.onerror = function() {
-    alert(L('errorHappened'));
+    Ti.UI.createAlertDialog({
+      title: 'ReallyLateBooking',
+      message: L('errorHappened')
+    }).show();
     root.hideLoading(root.listDealsWindow);
     return root.showError(root.citiesWindow);
   };

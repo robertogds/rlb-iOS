@@ -26,7 +26,10 @@
   };
   root.showPrivacy = function() {
     if (Titanium.Network.online === false) {
-      alert(L('mustInternet'));
+      Ti.UI.createAlertDialog({
+        title: 'ReallyLateBooking',
+        message: L('mustInternet')
+      }).show();
       return root.showError();
     } else {
       root.tabGroup.activeTab.open(root.privacyWindow, {

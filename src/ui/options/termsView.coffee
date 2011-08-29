@@ -21,13 +21,13 @@ root.xhrTerms.onload = () ->
   root.termsView.textLabel.text = termsText
 
 root.xhrTerms.onerror = () ->
-  alert L('errorHappened')
+  Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('errorHappened')}).show()
   root.hideLoading(root.termsWindow)
   root.showError()
 
 root.showTerms = () ->
   if Titanium.Network.online is false
-    alert L('mustInternet')
+    Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('mustInternet')}).show()
     root.showError()
   else
     root.tabGroup.activeTab.open(root.termsWindow,{animated:true})

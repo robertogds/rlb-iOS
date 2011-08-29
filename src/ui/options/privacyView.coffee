@@ -28,7 +28,7 @@ root.xhrPrivacy.onerror = () ->
 
 root.showPrivacy = () ->
   if Titanium.Network.online is false
-    alert L('mustInternet')
+    Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('mustInternet')}).show()
     root.showError()
   else
     root.tabGroup.activeTab.open(root.privacyWindow,{animated:true})

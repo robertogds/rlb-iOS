@@ -9,7 +9,7 @@ root.xhrLogin.onload = (e) ->
     root.loggedView.show()
     root.loadLoggedUser()  
   else
-    alert('Error: ' + login.detail)
+    Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:'Error: ' + login.detail}).show()
 
 root.xhrLogin.onerror = (e) ->
   root.showError()

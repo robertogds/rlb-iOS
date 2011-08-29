@@ -12,7 +12,10 @@
       Ti.API.info(response.content);
     } else {
       Ti.API.error(response.content);
-      alert(L('errorHappened'));
+      Ti.UI.createAlertDialog({
+        title: 'ReallyLateBooking',
+        message: L('errorHappened')
+      }).show();
     }
     return Titanium.App.Properties.setString("facebookUser", JSON.stringify(root.facebookUser));
   };

@@ -19,6 +19,7 @@
   root.termsWindow = new root.GenericWindow(L('terms')).win;
   root.privacyWindow = new root.GenericWindow(L('privacy')).win;
   root.rememberPassWindow = new root.GenericWindow(L('resetPassword')).win;
+  root.why3Window = new root.GenericWindow('ReallyLateBooking').win;
   root.imagesWindow.backButtonTitle = L('back');
   root.imagesWindow.tabBarHidden = true;
   root.tabGroup = Titanium.UI.createTabGroup({

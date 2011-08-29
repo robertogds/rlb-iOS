@@ -14,7 +14,10 @@
       return root.editAccountWindow.close();
     } else {
       Ti.API.error(response.detail);
-      return alert('Error: ' + response.detail);
+      return Ti.UI.createAlertDialog({
+        title: 'ReallyLateBooking',
+        message: 'Error: ' + response.detail
+      }).show();
     }
   };
   root.xhrRegister.onerror = function(e) {

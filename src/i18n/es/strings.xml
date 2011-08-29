@@ -110,4 +110,7 @@
     <string name="loginFacebook">Entrar con Facebook</string>
     <string name="logoutAlert">Necesitas estar logado para poder hacer reservas. ¿Estás seguro que deseas salir?</string>
     <string name="soldOut">¡Agotado!</string>
+    <string name="citiesToday">Aquí es donde te ofrecemos habitaciones esta noche. Pronto estaremos en más ciudades.</string>
+    <string name="why3Title">¿Por qué sólo 3 hoteles por ciudad?</string>
+    <string name="why3Text">Sólo te ofrecemos un número limitado de hoteles por ciudad para poder negociar directamente con los hoteles y conseguir los precios más bajos posibles.\nLos hoteles que nos dan los mejores precios son recompensados saliendo en las ofertas de cada noche.</string>
 </resources>

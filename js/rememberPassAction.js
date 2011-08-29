@@ -8,7 +8,10 @@
     var response;
     response = JSON.parse(this.responseText);
     if (response.status === 200) {
-      alert(response.detail);
+      Ti.UI.createAlertDialog({
+        title: 'ReallyLateBooking',
+        message: 'Error: ' + response.detail
+      }).show();
       return root.rememberPassWindow.close();
     } else {
       return alert('Error: ' + response.detail);

@@ -72,7 +72,10 @@
       root.showLoading(root.newAccountWindow);
       return root.doRegister(email, password, firstName, lastName);
     } else {
-      return alert(Ti.Locale.getString('reviewData') + ': ' + validate);
+      return Ti.UI.createAlertDialog({
+        title: 'ReallyLateBooking',
+        message: L('reviewData') + ': ' + validate
+      }).show();
     }
   });
   root.newAccountSection = Titanium.UI.createTableViewSection();
@@ -122,7 +125,10 @@
       root.showLoading(root.newAccountWindow);
       return root.doRegister(email, password, firstName, lastName);
     } else {
-      return alert(Ti.Locale.getString('reviewData') + validate);
+      return Ti.UI.createAlertDialog({
+        title: 'ReallyLateBooking',
+        message: L('reviewData') + ': ' + validate
+      }).show();
     }
   });
   root.newAccountView.add(acceptLegalLabel);

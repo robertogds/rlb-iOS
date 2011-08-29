@@ -13,11 +13,17 @@
           root.loadLoggedFacebookUser();
           return root.loggedView.show();
         } else {
-          return alert(L('errorHappened'));
+          return Ti.UI.createAlertDialog({
+            title: 'ReallyLateBooking',
+            message: L('errorHappened')
+          }).show();
         }
       });
     } else {
-      alert(L('errorHappened'));
+      Ti.UI.createAlertDialog({
+        title: 'ReallyLateBooking',
+        message: L('errorHappened')
+      }).show();
     }
     return root.hideLoading(root.loginView);
   });

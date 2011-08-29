@@ -13,7 +13,7 @@ root.xhrRegister.onload = (e) ->
     root.editAccountWindow.close()
   else
     Ti.API.error response.detail
-    alert 'Error: ' + response.detail
+    Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:'Error: ' + response.detail}).show()
 
 root.xhrRegister.onerror = (e) ->
   root.hideLoading(root.newAccountWindow)

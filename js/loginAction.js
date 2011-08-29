@@ -10,7 +10,10 @@
       root.loggedView.show();
       return root.loadLoggedUser();
     } else {
-      return alert('Error: ' + login.detail);
+      return Ti.UI.createAlertDialog({
+        title: 'ReallyLateBooking',
+        message: 'Error: ' + login.detail
+      }).show();
     }
   };
   root.xhrLogin.onerror = function(e) {

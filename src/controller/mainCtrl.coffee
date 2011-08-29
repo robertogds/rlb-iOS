@@ -56,8 +56,6 @@ else
   Titanium.App.Properties.removeProperty("user")
   Titanium.App.Properties.removeProperty("facebookUser")
 
-
-
 root.showCities()
 
 root.urlSignature = (url) ->

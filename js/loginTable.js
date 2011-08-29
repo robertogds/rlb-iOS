@@ -42,7 +42,10 @@
       password = Titanium.Utils.md5HexDigest(password);
       return root.doLogin(email, password);
     } else {
-      return alert(Ti.Locale.getString('reviewData') + validate);
+      return Ti.UI.createAlertDialog({
+        title: 'ReallyLateBooking',
+        message: L('reviewData') + validate
+      }).show();
     }
   });
   section = Titanium.UI.createTableViewSection();

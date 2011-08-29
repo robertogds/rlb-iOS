@@ -73,7 +73,7 @@ passwordText.addEventListener 'return', (e) ->
     root.showLoading(root.newAccountWindow)
     root.doRegister(email,password,firstName,lastName)
   else
-    alert Ti.Locale.getString('reviewData') + ': ' + validate
+    Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('reviewData') + ': ' + validate}).show()
   
 root.newAccountSection = Titanium.UI.createTableViewSection()
 root.newAccountData = []
@@ -121,7 +121,7 @@ newAccountButton.addEventListener 'click', (e) ->
     root.showLoading(root.newAccountWindow)
     root.doRegister(email,password,firstName,lastName)    
   else
-    alert Ti.Locale.getString('reviewData') + validate
+    Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('reviewData') + ': '+ validate}).show()
 
 
 root.newAccountView.add(acceptLegalLabel)

@@ -39,8 +39,7 @@ passText.addEventListener 'return', (e) ->
     password = Titanium.Utils.md5HexDigest(password)
     root.doLogin(email,password)
   else
-   alert Ti.Locale.getString('reviewData') + validate
-
+    Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('reviewData') + validate}).show()
 
 section = Titanium.UI.createTableViewSection()
 data = []

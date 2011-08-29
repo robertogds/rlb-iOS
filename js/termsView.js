@@ -19,13 +19,19 @@
     return root.termsView.textLabel.text = termsText;
   };
   root.xhrTerms.onerror = function() {
-    alert(L('errorHappened'));
+    Ti.UI.createAlertDialog({
+      title: 'ReallyLateBooking',
+      message: L('errorHappened')
+    }).show();
     root.hideLoading(root.termsWindow);
     return root.showError();
   };
   root.showTerms = function() {
     if (Titanium.Network.online === false) {
-      alert(L('mustInternet'));
+      Ti.UI.createAlertDialog({
+        title: 'ReallyLateBooking',
+        message: L('mustInternet')
+      }).show();
       return root.showError();
     } else {
       root.tabGroup.activeTab.open(root.termsWindow, {

@@ -44,12 +44,12 @@ root.xhrBookings.onload = () ->
   root.hideLoading(root.bookingsWindow)
 
 root.xhrBookings.onerror = () ->
-  alert L('errorHappened')
+  Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('errorHappened')}).show()
   root.hideLoading(root.bookingsWindow)
   root.showError(root.bookingsWindow)
 
 root.xhrBookings.timedout = () ->
-  alert L('errorHappened')
+  Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('errorHappened')}).show()
 
 root.showBookings = () ->
   root.noBookingsView.hide()

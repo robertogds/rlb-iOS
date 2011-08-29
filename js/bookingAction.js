@@ -22,7 +22,10 @@
         return root.oneBookingWindow.add(root.closeBookingButton);
       }
     } else {
-      return alert('Error: ' + response.detail);
+      return Ti.UI.createAlertDialog({
+        title: 'ReallyLateBooking',
+        message: 'Error: ' + response.detail
+      }).show();
     }
   };
   root.xhrBooking.onerror = function(e) {

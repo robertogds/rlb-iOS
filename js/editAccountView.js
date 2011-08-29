@@ -130,7 +130,10 @@
       root.showLoading(root.editAccountWindow);
       return root.doRegister(email, password, firstName, lastName, root.user.id);
     } else {
-      return alert(Ti.Locale.getString('reviewData') + ': ' + validate);
+      return Ti.UI.createAlertDialog({
+        title: 'ReallyLateBooking',
+        message: L('reviewData') + ': ' + validate
+      }).show();
     }
   };
 }).call(this);

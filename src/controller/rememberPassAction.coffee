@@ -7,7 +7,7 @@ root.xhrRemember.onerror = (e) ->
 root.xhrRemember.onload = (e) ->
   response = JSON.parse(this.responseText)
   if response.status is 200
-    alert response.detail
+    Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:'Error: ' + response.detail}).show()
     root.rememberPassWindow.close()
   else
     alert('Error: ' + response.detail)

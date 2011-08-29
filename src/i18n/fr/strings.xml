@@ -110,4 +110,7 @@
     <string name="loginFacebook">connectez avec Facebook</string>
     <string name="logoutAlert">Vous devez être connecté pour réserver des hôtels. Bien sûr, vous souhaitez vous déconnecter?</string>
     <string name="soldOut">épuisé!</string>
+    <string name="citiesToday">C'est là que nous avons des chambres pour ce soir. Nous serons dans plus de villes.</string>
+    <string name="why3Title">pourquoi seulement 3 hôtels à vendre?</string>
+    <string name="why3Text">Nous montrons un nombre limité d'hôtels chaque nuit afin que nous puissions négocier directement avec les hôtels pour conduire le prix aussi bas que possible. Les hôtels qui nous donnent la meilleure valeur sont récompensés en étant en vedette à la vente chaque nuit</string>
 </resources>

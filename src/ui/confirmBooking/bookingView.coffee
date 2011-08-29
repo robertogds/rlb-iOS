@@ -55,6 +55,6 @@ root.showBookingView = () ->
     root.confirmBookingWindow.add(root.bookingView)
     root.tabGroup.activeTab.open(root.confirmBookingWindow,{animated:true})
   else
-    alert L('mustUser')
+    Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('mustUser')}).show()
     root.tabGroup.setActiveTab(2)
   1

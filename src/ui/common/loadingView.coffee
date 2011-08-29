@@ -4,7 +4,7 @@ root.loadingView = Titanium.UI.createView
   borderRadius: 10
   opacity: 0.8
   width:140
-  height:100
+  height:150
   top: '30%'
 
 root.loadLabel = Titanium.UI.createLabel
@@ -12,18 +12,17 @@ root.loadLabel = Titanium.UI.createLabel
   height: 20
   width: 80
   borderWidth: 0
-  top: 4
+  top: 12
   text: Ti.Locale.getString('loading')
   color: '#fff'
   font:
-    fontSize: 14
+    fontSize: 16
     fontWeight: 'bold'
 
 
 root.iphoneActInd = Titanium.UI.createActivityIndicator
-  height:50
-  width:10
-  top:25
+  style:Titanium.UI.iPhone.ActivityIndicatorStyle.BIG
+  top:30
 
 root.androidActInd = Titanium.UI.createActivityIndicator
   height:50

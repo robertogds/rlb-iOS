@@ -126,7 +126,7 @@ root.submitEdit = () ->
     root.showLoading(root.editAccountWindow)
     root.doRegister(email,password,firstName,lastName,root.user.id)
   else
-    alert Ti.Locale.getString('reviewData') + ': ' + validate
+    Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('reviewData') + ': ' + validate}).show()
  
 	
 

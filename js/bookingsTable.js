@@ -48,12 +48,18 @@
     return root.hideLoading(root.bookingsWindow);
   };
   root.xhrBookings.onerror = function() {
-    alert(L('errorHappened'));
+    Ti.UI.createAlertDialog({
+      title: 'ReallyLateBooking',
+      message: L('errorHappened')
+    }).show();
     root.hideLoading(root.bookingsWindow);
     return root.showError(root.bookingsWindow);
   };
   root.xhrBookings.timedout = function() {
-    return alert(L('errorHappened'));
+    return Ti.UI.createAlertDialog({
+      title: 'ReallyLateBooking',
+      message: L('errorHappened')
+    }).show();
   };
   root.showBookings = function() {
     var signature, url;
