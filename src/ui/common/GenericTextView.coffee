@@ -3,7 +3,7 @@ class GenericTextView
     @view = Titanium.UI.createView
       backgroundColor: '#0d1e28' 
       borderWidth: 0
-      height: 'auto'
+      height: '100%'
       top: top
 
     @titleLabel = Titanium.UI.createLabel

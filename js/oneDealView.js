@@ -11,17 +11,20 @@
     width: Ti.Platform.displayCaps.platformWidth,
     top: 40
   });
-  root.listImageView = Titanium.UI.createView({
-    top: 0,
-    height: '37%',
-    width: Ti.Platform.displayCaps.platformWidth
-  });
   root.oneDealImage = Titanium.UI.createImageView({
     top: 0,
     width: Ti.Platform.displayCaps.platformWidth,
     height: 120
   });
   root.oneDealView.add(root.oneDealImage);
+  if (Titanium.Platform.name !== 'android') {
+    root.oneDealImage.addEventListener('click', function(e) {
+      root.imagesWindow.add(root.imagesScrollView);
+      return root.tabGroup.activeTab.open(root.imagesWindow, {
+        animated: true
+      });
+    });
+  }
   addressView = Titanium.UI.createView({
     backgroundColor: '#0d1e28',
     top: 197,

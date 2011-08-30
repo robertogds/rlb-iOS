@@ -5,7 +5,7 @@
       this.view = Titanium.UI.createView({
         backgroundColor: '#0d1e28',
         borderWidth: 0,
-        height: 'auto',
+        height: '100%',
         top: top
       });
       this.titleLabel = Titanium.UI.createLabel({

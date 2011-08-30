@@ -1,8 +1,3 @@
-#priceContainerView = Titanium.UI.createView
-#  width: '100%'
-#  top: 120
-#  height: '24%'
-
 root.priceView = Titanium.UI.createView
   backgroundColor: 'black'
   width:'100%'
@@ -19,8 +14,6 @@ root.infoHotelIpadLabel = Titanium.UI.createLabel
   top: 80
   height: 110
   left: 25
-
-#priceContainerView.add(root.infoHotelIpadLabel)
 
 root.oneDealPriceLabel = Titanium.UI.createLabel
   width: 85
@@ -106,5 +99,3 @@ root.priceView.add(antesLabel)
 root.priceView.add(root.soldOutLabel)
 root.soldOutLabel.hide()
 root.priceView.add(root.bookingLabel)
-#priceContainerView.add(priceView) 
-#root.priceView = priceContainerView

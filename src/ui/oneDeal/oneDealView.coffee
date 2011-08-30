@@ -14,43 +14,31 @@ root.oneDealView = Titanium.UI.createView
   width: Ti.Platform.displayCaps.platformWidth
   top: 40
   
-root.listImageView = Titanium.UI.createView
-  top: 0
-  height: '37%'
-  width: Ti.Platform.displayCaps.platformWidth
-  #height: 120
-
 root.oneDealImage = Titanium.UI.createImageView 
   top: 0
   width: Ti.Platform.displayCaps.platformWidth
   height: 120
 
-#root.listImageView.add(root.oneDealImage)
 root.oneDealView.add(root.oneDealImage)
 
-#root.oneDealImage.addEventListener 'click', (e) ->
-#  root.imagesWindow.add(root.imagesScrollView)
-#  root.tabGroup.activeTab.open(root.imagesWindow,{animated:true})
+if (Titanium.Platform.name isnt 'android') 
+  root.oneDealImage.addEventListener 'click', (e) ->
+    root.imagesWindow.add(root.imagesScrollView)
+    root.tabGroup.activeTab.open(root.imagesWindow,{animated:true})
 
 addressView = Titanium.UI.createView
   backgroundColor:'#0d1e28'
-  #backgroundColor:'red'
-  #borderWidth: 1
-  #borderColor: 'red'
-  #width:'100%'
   top: 197
   height: 60
 
 descriptionView = Titanium.UI.createView
   width: '100%'
   backgroundColor:'#0d1e28'
-  #backgroundColor:'red'
   top: 257
   height: 65
 
 
 root.oneDealAddressLabel = Titanium.UI.createLabel
- # width: 280
   top: 0
   height: '100%'
   textAlign: 'left'

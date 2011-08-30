@@ -34,7 +34,8 @@
 	<string name="conectionError">La demande n'a pas été capable de charger \ n nConnexion \ ne peut pas être configurée correctement ou que vous n'avez pas de connexion internet \ n \ n \ nVeuillez, réessayez plus tard.</string>	
 	<string name="confirm">confirmer</string>
 	<string name="tryAgain">Essayez à nouveau</string>
-	<string name="adviceCard">We will not charge your credit card, as you will pay the hotel directly for your stay.\nPlease note that this reservation is not eligible for cancellation or change.</string>	
+	<string name="adviceCard">Nous ne facturons pas votre carte de crédit, que vous payez directement l'hôtel pour votre séjour.</string>
+	<string name="noRefundable">Cette réservation est non remboursable</string>	
 	<string name="booking">Réservation</string>
 	<string name="bookingBlueButtonText">le réserver</string>
 	<string name="mustUser">You must be logged in to do that</string>
@@ -112,5 +113,6 @@
     <string name="soldOut">épuisé!</string>
     <string name="citiesToday">C'est là que nous avons des chambres pour ce soir. Nous serons dans plus de villes.</string>
     <string name="why3Title">pourquoi seulement 3 hôtels à vendre?</string>
+    <string name="why3TitleShort">pourquoi seulement 3 hôtels?</string>
     <string name="why3Text">Nous montrons un nombre limité d'hôtels chaque nuit afin que nous puissions négocier directement avec les hôtels pour conduire le prix aussi bas que possible. Les hôtels qui nous donnent la meilleure valeur sont récompensés en étant en vedette à la vente chaque nuit</string>
 </resources>
