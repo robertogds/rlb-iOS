@@ -37,7 +37,7 @@
     var newBook, signature, url;
     Ti.API.info('_____________________ ENTRA EN COMPRAR ********************');
     root.showLoading(root.confirmBookingWindow);
-    root.xhrBooking.setTimeout(5000);
+    root.xhrBooking.setTimeout(15000);
     url = root.urlSignature('/booking');
     signature = root.doSignature(url);
     url = url + '/' + signature;
@@ -52,7 +52,10 @@
       "creditCard": root.cardNumberText.value,
       "creditCardName": root.cardNameText.value,
       "creditCardExpiry": root.expiresLabel.text,
-      "creditCardCVC": root.cvcCodeText.value
+      "creditCardCVC": root.cvcCodeText.value,
+      "bookingForEmail": root.bookingForEmail,
+      "bookingForFirstName": root.bookingForFirstName,
+      "bookingForLastName": root.bookingForLastName
     });
     Ti.API.info(newBook);
     Ti.API.info('Paso pre-compra');

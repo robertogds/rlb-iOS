@@ -33,8 +33,9 @@
 	<string name="forgotPasswordIntroEmail">Introduce el email que usaste para regístrate y te enviaremos una nueva.</string>
 	<string name="conectionError">La aplicación no puede cargar los datos necesarios.\n\nProbablemente se trate de un problema de conexión a Internet o una caída temporal de nuestros servidores debido a un fallo o tareas de mantenimiento\n\n\nPor favor vuelve a intentarlo en unos minutos.</string>	
 	<string name="confirm">Confirmar</string>
+	<string name="orderSummary">Reserva</string>
 	<string name="tryAgain">Intentar de nuevo</string>
-	<string name="adviceCard">ReallyLateBooking no hará ningún cargo en tu tarjeta de crédito. La estancia la pagarás en el hotel.</string>
+	<string name="adviceCard">No haremos ningún cargo en tu tarjeta de crédito. La estancia la pagarás en el hotel.\nPuedes guardar los datos de tu tarjeta para futuras compras.</string>
     <string name="noRefundable">Recuerda que la reserva no es anulable.</string>	
 	<string name="booking">Reserva</string>
 	<string name="bookingBlueButtonText">reservar</string>
@@ -115,4 +116,9 @@
     <string name="why3Title">¿Por qué sólo 3 hoteles por ciudad?</string>
     <string name="why3TitleShort">¿Por qué sólo 3 hoteles?</string>
     <string name="why3Text">Sólo te ofrecemos un número limitado de hoteles por ciudad para poder negociar directamente con los hoteles y conseguir los precios más bajos posibles.\nLos hoteles que nos dan los mejores precios son recompensados saliendo en las ofertas de cada noche.</string>
+    <string name="creditCard">Tarjeta de crédito</string>
+    <string name="extraNights">Noches Extra</string>
+    <string name="bookingFor">A nombre de</string>
+    <string name="save">Guardar</string>
+    <string name="noPaymentInfo">Falta tarjeta de crédito</string>
 </resources>

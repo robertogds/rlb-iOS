@@ -15,8 +15,8 @@ class ListDealsRow
     image = Titanium.UI.createImageView 
       image: deal.mainImageSmall
       borderRadius: 10
-      borderColor: '#fff'
-      borderWidth: 2
+      #borderColor: '#fff'
+      #borderWidth: 2
       left: 4
       width: 140
       height: 110

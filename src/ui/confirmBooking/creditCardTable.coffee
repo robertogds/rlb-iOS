@@ -20,7 +20,7 @@ root.cardTypeLabel.addEventListener 'click', (e) ->
   root.cardNameText.blur()
   root.cardNumberText.blur()
   root.cvcCodeText.blur()
-  root.bookingView.add(root.cardTypeView)
+  root.paymentView.add(root.cardTypeView)
   root.cardTypeView.show()
 
 root.cardNumberText = Titanium.UI.createTextField
@@ -46,7 +46,7 @@ root.cardNameText = Titanium.UI.createTextField
   returnKeyType: Titanium.UI.RETURNKEY_NEXT
 
 root.cardNameText.addEventListener 'return', (e) ->
-  root.bookingView.add(root.expiresView)
+  root.paymentView.add(root.expiresView)
   root.expiresView.show()
 
 root.cardExpiresMonth = '1'
@@ -63,7 +63,7 @@ root.expiresLabel.addEventListener 'click', (e) ->
   root.cardNameText.blur()
   root.cardNumberText.blur()
   root.cvcCodeText.blur()
-  root.bookingView.add(root.expiresView)
+  root.paymentView.add(root.expiresView)
   root.expiresView.show()
   
 root.cvcCodeText = Titanium.UI.createTextField

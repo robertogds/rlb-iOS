@@ -25,7 +25,7 @@
     root.cardNameText.blur();
     root.cardNumberText.blur();
     root.cvcCodeText.blur();
-    root.bookingView.add(root.cardTypeView);
+    root.paymentView.add(root.cardTypeView);
     return root.cardTypeView.show();
   });
   root.cardNumberText = Titanium.UI.createTextField({
@@ -51,7 +51,7 @@
     returnKeyType: Titanium.UI.RETURNKEY_NEXT
   });
   root.cardNameText.addEventListener('return', function(e) {
-    root.bookingView.add(root.expiresView);
+    root.paymentView.add(root.expiresView);
     return root.expiresView.show();
   });
   root.cardExpiresMonth = '1';
@@ -70,7 +70,7 @@
     root.cardNameText.blur();
     root.cardNumberText.blur();
     root.cvcCodeText.blur();
-    root.bookingView.add(root.expiresView);
+    root.paymentView.add(root.expiresView);
     return root.expiresView.show();
   });
   root.cvcCodeText = Titanium.UI.createTextField({

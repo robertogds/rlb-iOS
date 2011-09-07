@@ -1,6 +1,6 @@
 (function() {
-  root.url = 'http://rlb-back.appspot.com';
-  root.surl = 'https://rlb-back.appspot.com';
+  root.url = 'http://10.rlb-back.appspot.com';
+  root.surl = 'https://10.rlb-back.appspot.com';
   root.bgGradient = {
     type: 'linear',
     colors: [

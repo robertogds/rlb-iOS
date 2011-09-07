@@ -29,13 +29,13 @@ if (Titanium.Platform.name isnt 'android')
 addressView = Titanium.UI.createView
   backgroundColor:'#0d1e28'
   top: 197
-  height: 60
+  height: 40
 
 descriptionView = Titanium.UI.createView
   width: '100%'
   backgroundColor:'#0d1e28'
-  top: 257
-  height: 65
+  top: 247
+  height: 85
 
 
 root.oneDealAddressLabel = Titanium.UI.createLabel
@@ -62,36 +62,38 @@ root.descriptionLabel = Titanium.UI.createLabel
     fontWeight: 'normal'
     fontFamily:'Helvetica Neue'
     #fontWeight: 'bold'
-  top: 2
+  top: 6
   left: 20
+  right: 5
 
 root.oneDealView.add(root.priceView)
 root.oneDealView.add(addressView)
+
 descriptionView.add(root.descriptionLabel)
 root.oneDealView.add(descriptionView) 
 
 root.oneDealWindow.add(root.oneDealButtonBarView)
 root.oneDealWindow.add(root.oneDealView)
 
-separator1 = new root.GenericSeparatorView(197).view
+separator1 = new root.GenericSeparatorView(198).view
 root.oneDealView.add(separator1)
 
-separator2 = new root.GenericSeparatorView(257).view
+separator2 = new root.GenericSeparatorView(237).view
 root.oneDealView.add(separator2)
 
 root.showDealView = (deal) -> 
-  Ti.API.error("Empieza")
   root.deal = deal
+  Ti.API.info(deal)
   if deal.quantity is 0 
     root.priceView.remove(root.bookingLabel)
     root.priceView.add(root.soldOutLabel)
-    #root.soldOutLabel.show()
-    #root.bookingLabel.hide()
+    root.soldOutLabel.show()
+    root.bookingLabel.hide()
   else
     root.priceView.add(root.bookingLabel)
     root.priceView.remove(root.soldOutLabel)
-    #root.soldOutLabel.hide()
-    #root.bookingLabel.show()
+    root.soldOutLabel.hide()
+    root.bookingLabel.show()
   # Map
   root.mapView.removeAllAnnotations()
   root.hotelAnnotation.latitude = deal.latitude
@@ -112,8 +114,8 @@ root.showDealView = (deal) ->
   root.oneDealImage.image = deal.mainImageBig 
   root.oneDealPriceLabel.text = deal.salePriceCents + "€"
   root.oneDealNormalPriceLabel.text = deal.priceCents + "€"
-  root.oneDealAddressLabel.text = deal.address + '\n' + deal.city.name
-  root.descriptionLabel.text = deal.hotelText
+  root.oneDealAddressLabel.text = deal.address 
+  root.descriptionLabel.text = deal.detailText
 
   # Load Images of the deal
   root.image1.image = deal.image1
@@ -154,14 +156,14 @@ root.showDealView = (deal) ->
   roomRow.add(roomView)
   foodDrinkRow.add(foodDrinkView)
   aroundRow.add(aroundView)
-  root.infoHotelIpadLabel.text = deal.detailText
-  data = []
-  data.push(detailRow)
-  data.push(hotelRow)
-  data.push(roomRow)
-  data.push(foodDrinkRow)
-  data.push(aroundRow)
-  root.infoDealTable.setData(data)
+
+  infoData = []
+  infoData.push(detailRow)
+  infoData.push(hotelRow)
+  infoData.push(roomRow)
+  infoData.push(foodDrinkRow)
+  infoData.push(aroundRow)
+  root.infoDealTable.setData(infoData)
   root.oneDealWindow.remove root.infoDealTable
   root.oneDealWindow.remove root.mapView
   root.oneDealWindow.add root.oneDealView

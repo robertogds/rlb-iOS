@@ -52,7 +52,7 @@ root.showCities = () ->
     #root.citiesWindow.add(root.errorView)
     root.showError(root.citiesWindow)
   else
-    root.xhrCities.setTimeout(8000)
+    root.xhrCities.setTimeout(15000)
     root.showLoading(root.citiesWindow)
     root.xhrCities.open('GET', root.url+'/cities')
     root.xhrCities.setRequestHeader("Accept-Language",Titanium.Locale.currentLanguage)

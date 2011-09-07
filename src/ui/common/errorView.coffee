@@ -1,4 +1,4 @@
-errorCloseButton = new root.GenericButton(300,L('tryAgain')).button
+errorCloseButton = new root.GenericButton(320,L('tryAgain')).button
 
 title = Ti.Locale.getString('errorHappened')
 text = Ti.Locale.getString('conectionError')

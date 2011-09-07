@@ -6,7 +6,6 @@ Ti.include(
   '/js/accountView.js'
 )
 root.accountWindow.addEventListener 'focus', (e) ->
-  Ti.API.info('__________________________ ABRE ACCOUNT ******************')
   if Titanium.App.Properties.hasProperty("user")
     Ti.API.info 'Entra en esta logado por RLB'
     root.loginView.hide()

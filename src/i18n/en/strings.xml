@@ -33,8 +33,9 @@
 	<string name="forgotPasswordIntroEmail">Type the full email address you use to sign.</string>
 	<string name="conectionError">The application was not able to load\n\nConnection may not be configured correctly or you may not have internet connection\n\n\nPlease, try again later.</string>	
 	<string name="confirm">Confirm</string>
+	<string name="orderSummary">Order Summary</string>
 	<string name="tryAgain">Try again</string>
-	<string name="adviceCard">We will not charge your credit card, as you will pay the hotel directly for your stay.</string>
+	<string name="adviceCard">We will not charge your credit card, as you will pay the hotel directly for your stay.\nYou can save your card for future purchases.</string>
 	<string name="noRefundable">This reservation is non-refundable</string>	
 	<string name="booking">Booking</string>
 	<string name="bookingBlueButtonText">book it</string>
@@ -114,4 +115,9 @@
     <string name="why3Title">why only 3 hotels for sale?</string>
     <string name="why3TitleShort">why only 3 hotels?</string>
     <string name="why3Text">We show a limited number of hotels each night so we can negotiate directly with those hotels to drive the prices as low as possible. The hotels that give us the best value are rewarded by being featured for sale each night</string>
+    <string name="creditCard">Credit Card</string>
+    <string name="extraNights">Extra nights</string>
+    <string name="bookingFor">Booking For</string>
+    <string name="save">Save</string>
+    <string name="noPaymentInfo">No Payment Info</string>
 </resources>

@@ -11,7 +11,7 @@
   root.imagesWindow = new root.GenericWindow(L('photos')).win;
   root.newAccountWindow = new root.GenericWindow(L('newAccount')).win;
   root.editAccountWindow = new root.GenericWindow(L('editAccount')).win;
-  root.confirmBookingWindow = new root.GenericWindow(L('confirm')).win;
+  root.confirmBookingWindow = new root.GenericWindow(L('orderSummary')).win;
   root.supportWindow = new root.GenericWindow(L('userSupport')).win;
   root.errorWindow = new root.GenericWindow('Error').win;
   root.aboutWindow = new root.GenericWindow(L('about')).win;
@@ -19,6 +19,9 @@
   root.termsWindow = new root.GenericWindow(L('terms')).win;
   root.privacyWindow = new root.GenericWindow(L('privacy')).win;
   root.rememberPassWindow = new root.GenericWindow(L('resetPassword')).win;
+  root.paymentWindow = new root.GenericWindow(L('creditCard')).win;
+  root.bookingForWindow = new root.GenericWindow(L('bookingFor')).win;
+  root.nightsWindow = new root.GenericWindow(L('extraNights')).win;
   root.why3Window = new root.GenericWindow('ReallyLateBooking').win;
   root.imagesWindow.backButtonTitle = L('back');
   root.imagesWindow.tabBarHidden = true;

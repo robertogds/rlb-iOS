@@ -81,7 +81,7 @@
     root.showLoading(root.listDealsWindow);
     root.city = city;
     root.listDealsWindow.title = city.name;
-    root.xhrDeals.setTimeout(5000);
+    root.xhrDeals.setTimeout(15000);
     root.xhrDeals.open('GET', root.url + '/deals/' + city.url);
     root.xhrDeals.setRequestHeader("Accept-Language", Titanium.Locale.currentLanguage);
     return root.xhrDeals.send();
