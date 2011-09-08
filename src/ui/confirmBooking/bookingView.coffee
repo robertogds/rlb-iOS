@@ -3,6 +3,7 @@ Ti.include(
   '/js/expiresView.js'
   '/js/creditCardTable.js'
   '/js/paymentView.js'
+  '/js/nightsView.js'
   '/js/bookingAction.js'
   '/js/bookingWindow.js'
   '/js/bookingForView.js'
@@ -23,6 +24,7 @@ root.confirmTable = Titanium.UI.createTableView
 root.confirmTable.addEventListener 'click', (e) ->
   #alert e.row.id
   if e.row.id is "nights"
+    root.loadNightsView()
     root.tabGroup.activeTab.open(root.nightsWindow,{animated:true})
   if e.row.id is "user"
     root.tabGroup.activeTab.open(root.bookingForWindow,{animated:true})

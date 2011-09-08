@@ -1,6 +1,6 @@
 (function() {
   var bookingForTitleLabel, checkinLabel, checkinTitleLabel, checkoutTitleLabel, confirmButton, data, hotelLabel, nightsRow, nonRefundableLabel, paymentRow, separator1, separator2, totalLabel, userRow;
-  Ti.include('/js/cardTypeView.js', '/js/expiresView.js', '/js/creditCardTable.js', '/js/paymentView.js', '/js/bookingAction.js', '/js/bookingWindow.js', '/js/bookingForView.js');
+  Ti.include('/js/cardTypeView.js', '/js/expiresView.js', '/js/creditCardTable.js', '/js/paymentView.js', '/js/nightsView.js', '/js/bookingAction.js', '/js/bookingWindow.js', '/js/bookingForView.js');
   root.bookingView = Titanium.UI.createView({
     backgroundColor: 'black',
     borderWidth: 0,
@@ -16,6 +16,7 @@
   });
   root.confirmTable.addEventListener('click', function(e) {
     if (e.row.id === "nights") {
+      root.loadNightsView();
       root.tabGroup.activeTab.open(root.nightsWindow, {
         animated: true
       });
