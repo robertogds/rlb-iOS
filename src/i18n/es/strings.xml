@@ -121,4 +121,11 @@
     <string name="bookingFor">A nombre de</string>
     <string name="save">Guardar</string>
     <string name="noPaymentInfo">Falta tarjeta de crédito</string>
+    <string name="monday">Lunes</string>
+    <string name="tuesday">Martes</string>
+    <string name="wednesday">Miércoles</string>
+    <string name="thursday">Jueves</string>
+    <string name="friday">Viernes</string>
+    <string name="saturday">Sábado</string>
+    <string name="sunday">Domingo</string>
 </resources>

@@ -207,7 +207,6 @@
   root.bookingView.add(confirmButton);
   root.confirmBookingWindow.add(root.bookingView);
   root.showBookingView = function() {
-    var checkoutDate;
     if (Titanium.App.Properties.hasProperty("user") || Titanium.Facebook.loggedIn) {
       root.tabGroup.activeTab.open(root.confirmBookingWindow, {
         animated: true
@@ -215,10 +214,9 @@
       hotelLabel.text = root.deal.hotelName;
       root.priceLabel.text = root.deal.salePriceCents + ' €';
       root.checkinDate = new Date(root.deal.checkinDate);
-      checkoutDate = new Date(root.checkinDate.getTime() + 86400000);
-      checkinLabel.text = root.checkinDate.toLocaleDateString();
-      root.checkoutLabel.text = checkoutDate.toLocaleDateString();
-    } else {
+      root.checkoutDate = new Date(root.checkinDate.getTime() + 86400000);
+      checkinLabel.text = root.getLocaleDateString(root.checkinDate);
+      root.checkoutLabel.text = root.getLocaleDateString(root.checkoutDate);
       Ti.UI.createAlertDialog({
         title: 'ReallyLateBooking',
         message: L('mustUser')
