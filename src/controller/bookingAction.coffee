@@ -7,10 +7,12 @@ root.xhrBooking.onload = (e) ->
   response = JSON.parse(this.responseText)
   Ti.API.info(response)
   if response.status is 201
+    Ti.API.error 'Paso 2'
+    root.showOneBookingView(response.content)
     if (Titanium.Platform.name == 'android') 
-      root.showOneBookingView(response.content)
       root.confirmBookingWindow.add(root.oneClassBookingView)
     else
+      Ti.API.error 'Paso 3'
       root.oneBookingWindow.backButtonTitle = Ti.Locale.getString('close') 
       root.oneBookingWindow.open
         modal:true
@@ -39,7 +41,7 @@ root.doBooking = () ->
   newBook = JSON.stringify
     "userId": root.user.id
     "dealId": root.deal.id
-    "nights": "1"
+    "nights": root.extraNights
     "creditCardType": root.cardTypeLabel.text
     "creditCard" : root.cardNumberText.value
     "creditCardName": root.cardNameText.value

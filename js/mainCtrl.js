@@ -1,6 +1,6 @@
 (function() {
-  root.url = 'http://192.168.1.38:9000';
-  root.surl = 'http://192.168.1.38:9000';
+  root.url = 'http://10.rlb-back.appspot.com';
+  root.surl = 'https://10.rlb-back.appspot.com';
   root.bgGradient = {
     type: 'linear',
     colors: [

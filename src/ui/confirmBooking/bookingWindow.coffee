@@ -11,8 +11,11 @@ root.confirmBookingWindow.addEventListener 'focus', (e) ->
     root.cardNameText.value = root.creditCard.name
     root.expiresLabel.text = root.creditCard.expire
     root.cvcCodeText.value = root.creditCard.cvc
-  root.priceLabel.text = root.deal.salePriceCents + ' €'
-  #checkoutDate = new Date(root.checkinDate.getTime() + 86400000)
+  root.priceLabel.text = root.totalPrice + ' €'
+  if root.bookingNights > 1
+    root.totalLabel.text = L('total') + ' ' + root.bookingNights + ' ' + L('nights') 
+  else
+    root.totalLabel.text = L('total') + ' 1 ' + L('night')
   root.checkoutLabel.text = root.getLocaleDateString(root.checkoutDate)
   if root.cardTypeLabel.text is 'Tipo de tarjeta'
     root.paymentLabel.text = L('noPaymentInfo')

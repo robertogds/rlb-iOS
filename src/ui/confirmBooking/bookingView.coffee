@@ -24,8 +24,9 @@ root.confirmTable = Titanium.UI.createTableView
 root.confirmTable.addEventListener 'click', (e) ->
   #alert e.row.id
   if e.row.id is "nights"
-    root.loadNightsView()
-    root.tabGroup.activeTab.open(root.nightsWindow,{animated:true})
+    if root.deal.priceDay2 > 0
+      root.loadNightsView()
+      root.tabGroup.activeTab.open(root.nightsWindow,{animated:true})
   if e.row.id is "user"
     root.tabGroup.activeTab.open(root.bookingForWindow,{animated:true})
   if e.row.id is "payment"
@@ -40,11 +41,11 @@ hotelLabel = Titanium.UI.createLabel
     fontSize: 20
     fontWeight: 'bold'
 
-totalLabel = Titanium.UI.createLabel
+root.totalLabel = Titanium.UI.createLabel
   top:40
   left: 15
   height: 20
-  text: "Total por 1 noche:" 
+  text: L('total')
   color: '#868d92'
   font:
     fontSize: 20
@@ -72,12 +73,11 @@ paymentRow.rightImage =  '/images/blue_arrow.png'
 paymentRow.height = 60
 paymentRow.id = "payment"
 nightsRow = new root.GenericTextRow().row
-nightsRow.rightImage = '/images/blue_arrow.png'
 nightsRow.height = 60
 nightsRow.id = "nights"
 
 checkinTitleLabel = Titanium.UI.createLabel
-  text: "Check-in:" 
+  text: L('checkin') + ':' 
   color: '#fff'
   font:
     fontSize: 14
@@ -87,7 +87,7 @@ checkinTitleLabel = Titanium.UI.createLabel
   top: 10
 
 checkoutTitleLabel = Titanium.UI.createLabel
-  text: "Check-out:" 
+  text: L('checkout') + ':'
   color: '#fff'
   font:
     fontSize: 14
@@ -186,15 +186,17 @@ nonRefundableLabel = Titanium.UI.createLabel
     fontWeight: 'bold'
 
 root.bookingView.add(hotelLabel)
-root.bookingView.add(totalLabel)
+root.bookingView.add(root.totalLabel)
 root.bookingView.add(root.priceLabel)
 root.bookingView.add(nonRefundableLabel)
 root.bookingView.add(confirmButton)
 root.confirmBookingWindow.add(root.bookingView)
-#root.oneClassBookingView =  new root.GenericTextView(0,L('booking'),L('booking')).view
-#root.oneBookingWindow.add(root.oneClassBookingView)
+root.oneClassBookingView =  new root.GenericTextView(0,L('booking'),L('booking')).view
+root.oneBookingWindow.add(root.oneClassBookingView)
 
 root.showBookingView = () ->
+  root.bookingNights = 1
+  root.totalPrice = root.deal.salePriceCents
   if Titanium.App.Properties.hasProperty("user") or Titanium.Facebook.loggedIn
     root.tabGroup.activeTab.open(root.confirmBookingWindow,{animated:true})
     hotelLabel.text = root.deal.hotelName
@@ -203,6 +205,9 @@ root.showBookingView = () ->
     root.checkoutDate = new Date(root.checkinDate.getTime() + 86400000)
     checkinLabel.text = root.getLocaleDateString(root.checkinDate)
     root.checkoutLabel.text = root.getLocaleDateString(root.checkoutDate)
+    if root.deal.priceDay2 > 0 
+      nightsRow.rightImage = '/images/blue_arrow.png'
+    else nightsRow.rightImage = ''
+  else
     Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('mustUser')}).show()
     root.tabGroup.setActiveTab(2)
-  1

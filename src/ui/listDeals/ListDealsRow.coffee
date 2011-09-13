@@ -14,7 +14,7 @@ class ListDealsRow
 
     image = Titanium.UI.createImageView 
       image: deal.mainImageSmall
-      borderRadius: 10
+      borderRadius: 0
       #borderColor: '#fff'
       #borderWidth: 2
       left: 4
@@ -45,7 +45,7 @@ class ListDealsRow
         fontWeight: 'bold'
       height: 30
       width: 70
-      top: 40
+      top: 35
     @row.add(priceLabel)
 
     antesLabel = Titanium.UI.createLabel
@@ -81,24 +81,77 @@ class ListDealsRow
       width: 1
     @row.add(sepVertView)
 
-    roomTypeImage = Titanium.UI.createImageView 
+    tonightLabel = Titanium.UI.createLabel
+      text: "Tonight"
+      color: '#fff'
       left: 155
-      top: 80
-      height: 34
-      width: 88
+      borderWidth: 0
+      font:
+        fontSize: 12
+        fontWeight: 'bold'
+      height: 20
+      width: 70
+      top: 60
+    @row.add(tonightLabel)
+  
+    extraNightsLabel = Titanium.UI.createLabel
+      text: L('oneNight')
+      textAlign: "right"
+      color: '#868d92'
+      font:
+        fontSize: 12
+      height: 30
+      left: 230
+      width: 80
+      top: 85
+
+    if deal.priceDay2 > 0
+      extraNightsLabel.text = L('1-2Nights')
+    if deal.priceDay3 > 0
+      extraNightsLabel.text = L('1-3Nights')
+    if deal.priceDay4 > 0
+      extraNightsLabel.text = L('1-4Nights')
+    if deal.priceDay5 > 0
+      extraNightsLabel.text = L('1-5Nights')
+ 
+    @row.add(extraNightsLabel)
+
+    roomTypeLabel = Titanium.UI.createLabel
+      borderWidth:1
+      borderColor: '#0098cb'
+      width: 70
+      height: 25
+      borderRadius: 5
+      backgroundColor: '#0098cb'
+      text: deal.roomTypeText
+      textAlign: "center"
+      font:
+        fontSize: 14
+        fontWeight: 'bold'
+        fontFamily:'Helvetica Neue'
+      top: 87
+      left: 155
 
     if deal.roomType is 'lujo'
-      image = 'images/lujo.png'
+      if deal.roomTypeText is undefined or deal.roomTypeText is ''
+        roomTypeLabel.text = 'luxury'
+      roomTypeLabel.backgroundColor = "#e5e79d"
+      roomTypeLabel.borderColor = "#e5e79d"
       icon = '/images/yellow_arrow.png'
-    if deal.roomType is 'elegante'
+    if deal.roomType is 'elegante' 
+      if deal.roomTypeText is undefined or deal.roomTypeText is ''
+        roomTypeLabel.text = 'elegance'      
+      roomTypeLabel.backgroundColor = "#c7bcd2"
+      roomTypeLabel.borderColor = "#c7bcd2"
       icon = '/images/purple_arrow.png'
-      image = 'images/elegante.png'
-    if deal.roomType is 'confort'
+    if deal.roomType is 'confort' 
+      if deal.roomTypeText is undefined or deal.roomTypeText is ''
+        roomTypeLabel.text = 'basic'
+      roomTypeLabel.backgroundColor = "#a3bfd4"
+      roomTypeLabel.borderColor = "#a3bfd4"
       icon = '/images/blue_arrow.png'
-      image = 'images/confort.png'
 	
-    roomTypeImage.image = image
-    @row.add(roomTypeImage)
+    @row.add(roomTypeLabel)
     @row.rightImage = icon
     
     soldOutView = Titanium.UI.createView
