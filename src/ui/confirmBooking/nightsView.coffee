@@ -15,7 +15,7 @@ nightsTitleLabel = Titanium.UI.createLabel
 root.nightsView.add(nightsTitleLabel)
 
 checkinTitleLabel = Titanium.UI.createLabel
-  text: L('checkin')
+  text: L('checkin') + ': '
   color: '#fff'
   font:
     fontSize: 14
@@ -25,10 +25,10 @@ checkinTitleLabel = Titanium.UI.createLabel
   top: 40
 
 checkoutTitleLabel = Titanium.UI.createLabel
-  text: L('checkout') 
+  text: L('checkout') + ': '
   color: '#fff'
   font:
-    fontSize: 14
+    fontSize: 16
     fontWeight: 'bold'
   left: 10
   height: 20
@@ -37,18 +37,38 @@ checkoutTitleLabel = Titanium.UI.createLabel
 nightsCheckinLabel = Titanium.UI.createLabel
   color: '#868d92'
   font:
-    fontSize: 14
-  left: 90
+    fontSize: 16
+  left: 80
   top: 40
   height: 20
 
 nightsCheckoutLabel = Titanium.UI.createLabel
   color: '#868d92'
   font:
-    fontSize: 14
-  left: 90
+    fontSize: 16
+  left: 80
   top: 62
   height: 20
+
+totalLabel = Titanium.UI.createLabel
+  top: 40
+  height: 10
+  text: L('total')
+  left: 240
+  color: '#868d92'
+  font:
+    fontSize: 10
+    fontWeight: 'bold'
+
+nightsTotalLabel = Titanium.UI.createLabel
+  text: '129€'
+  color: '#fff'
+  font:
+    fontSize: 26
+    fontWeight: 'bold'
+  left: 240
+  height: 30
+  top: 45
 
 night1View = Titanium.UI.createView
   borderWidth:2
@@ -66,6 +86,7 @@ night1View.addEventListener 'click', (e) ->
   root.checkoutDate = new Date(root.checkinDate.getTime() + 86400000)
   root.bookingNights = 1
   root.totalPrice = root.deal.salePriceCents
+  nightsTotalLabel.text = root.totalPrice + ' €'
   pullButton(night2View)
   pullButton(night3View)
   pullButton(night4View)
@@ -321,11 +342,13 @@ root.nightsView.add(nightsCheckoutLabel)
 root.nightsView.add(nightsCheckinLabel)
 root.nightsView.add(checkinTitleLabel)
 root.nightsView.add(checkoutTitleLabel)
+root.nightsView.add(nightsTotalLabel)
+#root.nightsView.add(totalLabel)
 root.nightsWindow.add(root.nightsView)
 
 confirmButton = new root.GenericButton(310,L('save')).button 
 confirmButton.addEventListener 'click', (e) ->
-  root.nightsWindow.close
+  root.nightsWindow.close()
 root.nightsView.add(confirmButton)
 
 pushButton = (view)->
@@ -357,6 +380,7 @@ pushButton = (view)->
       night5PriceLabel.color = '#fff'
       root.totalPrice = root.deal.salePriceCents + root.deal.priceDay2 + root.deal.priceDay3 + root.deal.priceDay4 + root.deal.priceDay5
   nightsCheckoutLabel.text = root.getLocaleDateString(root.checkoutDate)
+  nightsTotalLabel.text = root.totalPrice + ' €'
 
 pullButton = (view)->
   view.borderWidth = 1
@@ -383,10 +407,12 @@ pullButton = (view)->
   nightsCheckoutLabel.text = root.getLocaleDateString(root.checkoutDate)
 
 root.loadNightsView = ()->
+  nightsTotalLabel.text = root.totalPrice + ' €'
   nightsCheckinLabel.text = root.getLocaleDateString(root.checkinDate)
   nightsCheckoutLabel.text = root.getLocaleDateString(root.checkoutDate)
   night1DayofweekLabel.text = root.getDayOfWeekString(root.checkinDate)
   night1DateLabel.text = root.getShortMonthString(root.checkinDate) + ' ' + root.checkinDate.getDate()
+  night1PriceLabel.text = root.deal.salePriceCents + ' €'
   if root.deal.priceDay2 > 0
     day2 = new Date(root.checkinDate.getTime() + 86400000 )
     night2DayofweekLabel.text = root.getDayOfWeekString(day2)

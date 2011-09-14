@@ -1,7 +1,10 @@
 root.xhrLogin = Titanium.Network.createHTTPClient()
 
 root.xhrLogin.onload = (e) ->
-  login = JSON.parse(this.responseText)
+  try
+    login = JSON.parse(this.responseText)
+  catch error
+    Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('errorHappened') + '\n' + error}).show()
   if login.status is 200
     root.user = login.content
     Titanium.App.Properties.setString("user",JSON.stringify(root.user))
@@ -10,6 +13,7 @@ root.xhrLogin.onload = (e) ->
     root.loadLoggedUser()  
   else
     Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:'Error: ' + login.detail}).show()
+  root.hideLoading(root.accountWindow)
 
 root.xhrLogin.onerror = (e) ->
   root.showError()

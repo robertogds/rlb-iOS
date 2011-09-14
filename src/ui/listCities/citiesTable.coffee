@@ -13,8 +13,9 @@ root.citiesTable = Titanium.UI.createTableView
 root.citiesWindow.add(root.citiesTable)
 
 root.citiesTable.addEventListener 'click', (e) ->
-  root.showLoading(root.citiesWindow)
-  root.loadDeals(e.row.city)
+  if e.row.city isnt undefined
+    root.showLoading(root.citiesWindow)
+    root.loadDeals(e.row.city)
   
 root.xhrCities = Titanium.Network.createHTTPClient()
 
@@ -23,6 +24,7 @@ root.xhrCities.onload = () ->
   cities = JSON.parse(this.responseText)
   data = []
   textRow = new root.GenericTextRow().row
+  textRow.rightImage = ''
   textRow.backgroundGradient = 
     type:'linear'
     colors:[{color:'#07151d',position:0.1},{color:'#07151d',position:1.0}]

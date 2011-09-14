@@ -54,7 +54,7 @@ addressView.add(root.oneDealAddressLabel)
 
 root.descriptionLabel = Titanium.UI.createLabel
   #width: '90%'
-  height: '100%'
+  height: 75
   textAlign: 'left'
   color: '#fff'
   font:
@@ -62,7 +62,7 @@ root.descriptionLabel = Titanium.UI.createLabel
     fontWeight: 'normal'
     fontFamily:'Helvetica Neue'
     #fontWeight: 'bold'
-  top: 6
+  top: 0
   left: 20
   right: 5
 

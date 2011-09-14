@@ -2,19 +2,27 @@
   root.xhrLogin = Titanium.Network.createHTTPClient();
   root.xhrLogin.onload = function(e) {
     var login;
-    login = JSON.parse(this.responseText);
+    try {
+      login = JSON.parse(this.responseText);
+    } catch (error) {
+      Ti.UI.createAlertDialog({
+        title: 'ReallyLateBooking',
+        message: L('errorHappened') + '\n' + error
+      }).show();
+    }
     if (login.status === 200) {
       root.user = login.content;
       Titanium.App.Properties.setString("user", JSON.stringify(root.user));
       root.loginView.hide();
       root.loggedView.show();
-      return root.loadLoggedUser();
+      root.loadLoggedUser();
     } else {
-      return Ti.UI.createAlertDialog({
+      Ti.UI.createAlertDialog({
         title: 'ReallyLateBooking',
         message: 'Error: ' + login.detail
       }).show();
     }
+    return root.hideLoading(root.accountWindow);
   };
   root.xhrLogin.onerror = function(e) {
     root.showError();

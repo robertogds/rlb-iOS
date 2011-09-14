@@ -40,6 +40,7 @@
     validate = root.validateLoginData(email, password);
     if (validate === true) {
       password = Titanium.Utils.md5HexDigest(password);
+      root.showLoading(root.accountWindow);
       return root.doLogin(email, password);
     } else {
       return Ti.UI.createAlertDialog({

@@ -2,6 +2,7 @@
 <resources>
     <string name="cities">villes</string>
     <string name="errorHappened">Une erreur est survenue</string>
+      <string name="errorBooking">An error has occurred\nWe received an incorrect response so we don't know if your booking is correct. Please contact with help@reallylatebooking.com to confirm if your booking is ok </string>
 	<string name="errorUser">Utilisateur non valide</string>
 	<string name="errorNoDeal">aucune offre</string>
 	<string name="errorCardType">Invalid Card Type</string>
@@ -139,4 +140,5 @@
     <string name="night">Night</string>
     <string name="nights">Nights</string>
     <string name="addNights">Add extra nights to your stay</string>
+    <string name="bookingForExplain">You can use this option to book on behalf of another person, for example a friend who does not have ReallyLateBooking.\n\nThe reservation confirmation will arrive by email with the locator to be provided on site.</string>
 </resources>

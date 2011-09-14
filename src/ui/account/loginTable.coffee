@@ -37,6 +37,7 @@ passText.addEventListener 'return', (e) ->
   validate = root.validateLoginData(email,password)
   if validate is true
     password = Titanium.Utils.md5HexDigest(password)
+    root.showLoading(root.accountWindow)
     root.doLogin(email,password)
   else
     Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('reviewData') + validate}).show()

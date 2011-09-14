@@ -107,6 +107,7 @@
   acceptLegalLabel = Titanium.UI.createLabel({
     borderWidth: 0,
     top: 300,
+    color: "#fff",
     text: Ti.Locale.getString('acceptTerms'),
     left: 8,
     font: {

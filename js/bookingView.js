@@ -9,7 +9,7 @@
   root.confirmTable = Titanium.UI.createTableView({
     backgroundColor: '#0d1e28',
     separatorColor: '#1b3c50',
-    top: 70,
+    top: 80,
     height: 180,
     scrollable: false,
     moving: false
@@ -68,8 +68,8 @@
       fontWeight: 'bold'
     }
   });
-  separator1 = new root.GenericSeparatorView(70).view;
-  separator2 = new root.GenericSeparatorView(249).view;
+  separator1 = new root.GenericSeparatorView(80).view;
+  separator2 = new root.GenericSeparatorView(259).view;
   userRow = new root.GenericTextRow().row;
   userRow.rightImage = '/images/blue_arrow.png';
   userRow.height = 60;

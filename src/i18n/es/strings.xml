@@ -2,6 +2,7 @@
 <resources>
     <string name="cities">Ciudades</string>
     <string name="errorHappened">Se ha producido un error</string>
+    <string name="errorBooking">Se ha producido un error\nHemos recibido una respuesta incorrecta de la central de reservas por lo que no podemos asegurar que la reserva se haya realizado con éxito. Por favor ponte en contacto con soporte@reallylatebooking.com para confirmar que la reserva es correcta.</string>
 	<string name="errorUser">Usuario incorrecto</string>
 	<string name="errorNoDeal">No hay ofertas</string>
 	<string name="errorCardType">Tipo de tarjeta incorrecto</string>
@@ -113,9 +114,9 @@
     <string name="logoutAlert">Necesitas estar logado para poder hacer reservas. ¿Estás seguro que deseas salir?</string>
     <string name="soldOut">¡Agotado!</string>
     <string name="citiesToday">Aquí es donde te ofrecemos habitaciones esta noche. Pronto estaremos en más ciudades.</string>
-    <string name="why3Title">¿Por qué sólo 3 hoteles por ciudad?</string>
-    <string name="why3TitleShort">¿Por qué sólo 3 hoteles?</string>
-    <string name="why3Text">Sólo te ofrecemos un número limitado de hoteles por ciudad para poder negociar directamente con los hoteles y conseguir los precios más bajos posibles.\nLos hoteles que nos dan los mejores precios son recompensados saliendo en las ofertas de cada noche.</string>
+    <string name="why3Title">¿Por qué tan pocos hoteles por ciudad?</string>
+    <string name="why3TitleShort">¿Por qué tan pocos hoteles?</string>
+    <string name="why3Text">Sólo te ofrecemos un número limitado de hoteles por ciudad para poder negociar directamente con los hoteles y conseguir los precios más bajos posibles.\n\nLos hoteles que nos dan los mejores precios son recompensados saliendo en las ofertas de cada noche.\n\nSeleccionamos personalmente los hoteles que ofrecen una mejor relación calidad/precio en cada ciudad </string>
     <string name="creditCard">Tarjeta de crédito</string>
     <string name="extraNights">Noches Extra</string>
     <string name="bookingFor">A nombre de</string>
@@ -139,4 +140,5 @@
     <string name="night">Noche</string>
     <string name="nights">Noches</string>
     <string name="addNights">Añade noches extra a tu reserva</string>
+    <string name="bookingForExplain">Puedes utilizar esta opción para reservar a nombre de otra persona, por ejemplo un amigo que no tenga ReallyLateBooking.\n\nLa confirmación de la reserva le llegará por email con el localizador que deberá presentar en el hotel.</string>
 </resources>

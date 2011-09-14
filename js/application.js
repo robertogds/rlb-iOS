@@ -53,10 +53,9 @@
   root.tabGroup.addTab(root.bookingTab);
   root.tabGroup.addTab(root.accountTab);
   root.tabGroup.addTab(root.optionsTab);
-  root.tabGroup.open();
   root.showError = function(window) {
-    Ti.API.info("Entra en showError2");
-    root.errorWindow = window;
+    Ti.API.info("Entra en root.showError");
+    root.errorWindow = new root.GenericWindow('Error').win;
     return window.add(root.errorView);
   };
 }).call(this);

@@ -3,7 +3,7 @@ root.bookingForView = Titanium.UI.createView
   width: Ti.Platform.displayCaps.platformWidth
 
 root.bookingForTable = Titanium.UI.createTableView
-  top: 20
+  top: 150
   height: 132
   width: '95%'
   borderWidth:0
@@ -76,9 +76,9 @@ root.bookingForSection.add(lastNameRow)
 root.bookingForSection.add(emailRow)
 
 bookingForLabel = Titanium.UI.createLabel
-  borderWidth: 0
-  top: 150
-  text: "Introduce los datos para realizar la reserva a nombre de otra persona.\nLa confirmación de la reserva le llegará por email con el localizador que deberá presentar en el hotel."
+  top: 5
+  height:140
+  text: L('bookingForExplain')
   left: 8
   color: '#fff'
   font:
@@ -89,11 +89,11 @@ root.bookingForView.add(bookingForLabel)
 bookingForButton = new root.GenericButton(300,Ti.Locale.getString('save')).button
 
 bookingForButton.addEventListener 'click', (e) ->
-  root.bookingForEmail = emailText.value
-  root.bookingForFirstName = firstNameText.value
-  root.bookingForLastName = lastNameText.value
-  validate = root.validateBookingForData(root.bookingForEmail,root.bookingForFirstName,root.bookingForLastName)
+  validate = root.validateBookingForData(emailText.value,firstNameText.value,lastNameText.value)
   if validate is true
+    root.bookingForEmail = emailText.value
+    root.bookingForFirstName = firstNameText.value
+    root.bookingForLastName = lastNameText.value
     root.bookingForWindow.close()  
   else
     Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('reviewData') + ': '+ validate}).show()

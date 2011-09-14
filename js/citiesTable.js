@@ -13,8 +13,10 @@
   });
   root.citiesWindow.add(root.citiesTable);
   root.citiesTable.addEventListener('click', function(e) {
-    root.showLoading(root.citiesWindow);
-    return root.loadDeals(e.row.city);
+    if (e.row.city !== void 0) {
+      root.showLoading(root.citiesWindow);
+      return root.loadDeals(e.row.city);
+    }
   });
   root.xhrCities = Titanium.Network.createHTTPClient();
   root.xhrCities.onload = function() {
@@ -23,6 +25,7 @@
     cities = JSON.parse(this.responseText);
     data = [];
     textRow = new root.GenericTextRow().row;
+    textRow.rightImage = '';
     textRow.backgroundGradient = {
       type: 'linear',
       colors: [

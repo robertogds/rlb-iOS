@@ -5,6 +5,7 @@ class ListDealsRow
       rightImage: '/images/blue_arrow.png'
       identionLevel: 200
       height: 120
+      selectionStyle: 'none'
       backgroundGradient:
         type:'linear'
         colors:[{color:'#07151d',position:0.1},{color:'#0d1e28',position:1.0}]
@@ -82,7 +83,7 @@ class ListDealsRow
     @row.add(sepVertView)
 
     tonightLabel = Titanium.UI.createLabel
-      text: "Tonight"
+      text: L('tonight')
       color: '#fff'
       left: 155
       borderWidth: 0
@@ -123,6 +124,8 @@ class ListDealsRow
       height: 25
       borderRadius: 5
       backgroundColor: '#0098cb'
+      backGroundSelectedColor: 'red'
+      highlightedColor: '#fff'
       text: deal.roomTypeText
       textAlign: "center"
       font:

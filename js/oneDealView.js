@@ -51,7 +51,7 @@
   });
   addressView.add(root.oneDealAddressLabel);
   root.descriptionLabel = Titanium.UI.createLabel({
-    height: '100%',
+    height: 75,
     textAlign: 'left',
     color: '#fff',
     font: {
@@ -59,7 +59,7 @@
       fontWeight: 'normal',
       fontFamily: 'Helvetica Neue'
     },
-    top: 6,
+    top: 0,
     left: 20,
     right: 5
   });

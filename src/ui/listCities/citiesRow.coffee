@@ -4,6 +4,7 @@ class CitiesRow
       hasChild: true
       city: city
       rightImage: '/images/yellow_arrow.png'
+      selectionStyle: 'none'
       backgroundGradient:
         type:'linear'
         colors:[{color:'#07151d',position:0.1},{color:'#0d1e28',position:1.0}]

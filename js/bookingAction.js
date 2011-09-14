@@ -5,7 +5,14 @@
     Ti.API.info(this.responseText);
     Ti.API.info('_____________________ ENTRA EN COMPRA CON EXITO ********************');
     root.hideLoading(root.confirmBookingWindow);
-    response = JSON.parse(this.responseText);
+    try {
+      response = JSON.parse(this.responseText);
+    } catch (error) {
+      Ti.UI.createAlertDialog({
+        title: 'ReallyLateBooking',
+        message: L('errorBooking')
+      }).show();
+    }
     Ti.API.info(response);
     if (response.status === 201) {
       Ti.API.error('Paso 2');
@@ -26,7 +33,7 @@
     } else {
       return Ti.UI.createAlertDialog({
         title: 'ReallyLateBooking',
-        message: 'Error: ' + response.detail
+        message: L('errorBooking')
       }).show();
     }
   };
@@ -49,7 +56,7 @@
     newBook = JSON.stringify({
       "userId": root.user.id,
       "dealId": root.deal.id,
-      "nights": root.extraNights,
+      "nights": root.bookingNights,
       "creditCardType": root.cardTypeLabel.text,
       "creditCard": root.cardNumberText.value,
       "creditCardName": root.cardNameText.value,

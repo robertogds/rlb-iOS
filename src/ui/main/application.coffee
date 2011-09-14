@@ -57,12 +57,16 @@ root.tabGroup.addTab(root.dealsTab)
 root.tabGroup.addTab(root.bookingTab)
 root.tabGroup.addTab(root.accountTab)
 root.tabGroup.addTab(root.optionsTab)
-root.tabGroup.open()
+
+
+
+#root.tabGroup.open()
+
 
 root.showError = (window) ->
-  Ti.API.info("Entra en showError2")
-  #root.errorWindow = new root.GenericWindow('Error').win
-  root.errorWindow = window
+  Ti.API.info("Entra en root.showError")
+  root.errorWindow = new root.GenericWindow('Error').win
+  #root.errorWindow = window
   #window.remove(root.errorView)
   window.add(root.errorView)
   #root.errorWindow.open

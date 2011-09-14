@@ -8,6 +8,7 @@
         rightImage: '/images/blue_arrow.png',
         identionLevel: 200,
         height: 120,
+        selectionStyle: 'none',
         backgroundGradient: {
           type: 'linear',
           colors: [
@@ -96,7 +97,7 @@
       });
       this.row.add(sepVertView);
       tonightLabel = Titanium.UI.createLabel({
-        text: "Tonight",
+        text: L('tonight'),
         color: '#fff',
         left: 155,
         borderWidth: 0,
@@ -141,6 +142,8 @@
         height: 25,
         borderRadius: 5,
         backgroundColor: '#0098cb',
+        backGroundSelectedColor: 'red',
+        highlightedColor: '#fff',
         text: deal.roomTypeText,
         textAlign: "center",
         font: {

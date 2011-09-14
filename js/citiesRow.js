@@ -7,6 +7,7 @@
         hasChild: true,
         city: city,
         rightImage: '/images/yellow_arrow.png',
+        selectionStyle: 'none',
         backgroundGradient: {
           type: 'linear',
           colors: [

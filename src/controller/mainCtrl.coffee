@@ -1,12 +1,40 @@
-root.url = 'http://10.rlb-back.appspot.com'
-root.surl = 'https://10.rlb-back.appspot.com'
+root.url = 'http://rlb-back.appspot.com'
+root.surl = 'https://rlb-back.appspot.com'
 #root.url = 'http://192.168.1.33:9000'
 #root.surl = 'http://192.168.1.33:9000'
 root.bgGradient =
      type:'linear'
      colors:[{color:'#07151d',position:0.1},{color:'#0d1e28',position:1.0}]
 
+startupWindow = Ti.UI.createWindow
+  height: "100%"
+  width: "100%"
+  backgroundColor:'#000'
+  navBarHidden: true
+  zIndex:1
 
+startupView =Titanium.UI.createImageView
+  image:'images/Default.png'
+  top:-20.0
+
+startupAnimation = Titanium.UI.createAnimation
+  curve:Ti.UI.ANIMATION_CURVE_EASE_IN_OUT
+  opacity:0
+  duration:3000
+startupWindow.add(startupView)
+startupWindow.open
+  #modal:true
+  #fullscreen: true
+  #modalTransitionStyle: 'none'
+  #modalStyle: Ti.UI.iPhone.MODAL_PRESENTATION_FORMSHEET
+  navBarHidden:false
+startupView.animate(startupAnimation)
+startupAnimation.addEventListener 'complete', (e) ->
+  root.tabGroup.open()
+  startupWindow.close()
+  root.showCities()
+  
+	
 Ti.include(
   '/js/dateUtil.js'
   '/js/GenericWindow.js'
@@ -57,7 +85,7 @@ else
   Titanium.App.Properties.removeProperty("user")
   Titanium.App.Properties.removeProperty("facebookUser")
 
-root.showCities()
+#root.showCities()
 
 root.urlSignature = (url) ->
   timestamp = new Date().getTime()

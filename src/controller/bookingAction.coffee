@@ -4,7 +4,10 @@ root.xhrBooking.onload = (e) ->
   Ti.API.info this.responseText
   Ti.API.info '_____________________ ENTRA EN COMPRA CON EXITO ********************'
   root.hideLoading(root.confirmBookingWindow)
-  response = JSON.parse(this.responseText)
+  try
+    response = JSON.parse(this.responseText)
+  catch error
+    Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('errorBooking')}).show()
   Ti.API.info(response)
   if response.status is 201
     Ti.API.error 'Paso 2'
@@ -21,7 +24,7 @@ root.xhrBooking.onload = (e) ->
         navBarHidden:true
       root.oneBookingWindow.add(root.closeBookingButton)
   else
-    Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:'Error: ' + response.detail}).show()
+    Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('errorBooking')}).show()
 
 root.xhrBooking.onerror = (e) ->
   root.hideLoading(root.confirmBookingWindow)
@@ -41,7 +44,7 @@ root.doBooking = () ->
   newBook = JSON.stringify
     "userId": root.user.id
     "dealId": root.deal.id
-    "nights": root.extraNights
+    "nights": root.bookingNights
     "creditCardType": root.cardTypeLabel.text
     "creditCard" : root.cardNumberText.value
     "creditCardName": root.cardNameText.value

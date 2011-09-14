@@ -9,6 +9,7 @@
   root.showOneBookingView = function(booking) {
     var text, title;
     this.booking = booking;
+    Ti.API.error(booking);
     title = L('booking') + ' : ' + booking.code;
     text = L('hotel') + ': ' + booking.hotelName + '\n' + L('bookingDate') + ': ' + booking.checkinDate + '\n\n';
     text = text + L('salePrice') + ': ' + booking.salePriceCents + '€ ' + L('regularPrice') + ': ' + booking.priceCents + ' € \n\n\n';
