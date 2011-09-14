@@ -109,6 +109,7 @@
     <string name="releaseRefresh">Release to refresh</string>
     <string name="reloading">Reloading</string>
     <string name="loading">Loading</string>
+    <string name="updatingHotels">Updating Hotels</string>
     <string name="loginFacebook">Connect with Facebook</string>
     <string name="logoutAlert">You need to be signed in to book hotels. Sure you want to sign out?</string>
     <string name="soldOut">Sold Out!</string>

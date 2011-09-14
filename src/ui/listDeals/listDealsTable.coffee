@@ -65,7 +65,7 @@ root.xhrDeals.onerror = () ->
   root.showError(root.citiesWindow)
 
 root.loadDeals = (city) ->
-  root.showLoading(root.listDealsWindow)
+  root.showLoading(root.listDealsWindow,L('updatingHotels'))
   root.city = city
   root.listDealsWindow.title = city.name
   root.xhrDeals.setTimeout(15000)

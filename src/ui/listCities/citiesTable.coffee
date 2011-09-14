@@ -14,7 +14,7 @@ root.citiesWindow.add(root.citiesTable)
 
 root.citiesTable.addEventListener 'click', (e) ->
   if e.row.city isnt undefined
-    root.showLoading(root.citiesWindow)
+    root.showLoading(root.citiesWindow,L('updatingHotels'))
     root.loadDeals(e.row.city)
   
 root.xhrCities = Titanium.Network.createHTTPClient()

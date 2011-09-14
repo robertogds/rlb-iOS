@@ -9,8 +9,8 @@ root.loadingView = Titanium.UI.createView
 
 root.loadLabel = Titanium.UI.createLabel
   textAlign: 'center'
-  height: 20
-  width: 80
+  height: 50
+  width: 120
   borderWidth: 0
   top: 12
   text: Ti.Locale.getString('loading')
@@ -34,7 +34,11 @@ root.loadingView.add(root.loadLabel)
 root.loadingView.add(root.iphoneActInd)
 root.iphoneActInd.show()
 
-root.showLoading = (window) ->
+root.showLoading = (window,text) ->
+  if text isnt undefined
+    root.loadLabel.text = text
+  else
+    root.loadLabel.text = Ti.Locale.getString('loading')
   if (Titanium.Platform.name == 'android') 
     root.androidActInd.show()
   else

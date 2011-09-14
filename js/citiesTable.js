@@ -14,7 +14,7 @@
   root.citiesWindow.add(root.citiesTable);
   root.citiesTable.addEventListener('click', function(e) {
     if (e.row.city !== void 0) {
-      root.showLoading(root.citiesWindow);
+      root.showLoading(root.citiesWindow, L('updatingHotels'));
       return root.loadDeals(e.row.city);
     }
   });

@@ -23,16 +23,13 @@ startupAnimation = Titanium.UI.createAnimation
   duration:3000
 startupWindow.add(startupView)
 startupWindow.open
-  #modal:true
-  #fullscreen: true
-  #modalTransitionStyle: 'none'
-  #modalStyle: Ti.UI.iPhone.MODAL_PRESENTATION_FORMSHEET
   navBarHidden:false
 startupView.animate(startupAnimation)
+
 startupAnimation.addEventListener 'complete', (e) ->
   root.tabGroup.open()
   startupWindow.close()
-  root.showCities()
+  
   
 	
 Ti.include(
@@ -85,7 +82,7 @@ else
   Titanium.App.Properties.removeProperty("user")
   Titanium.App.Properties.removeProperty("facebookUser")
 
-#root.showCities()
+root.showCities()
 
 root.urlSignature = (url) ->
   timestamp = new Date().getTime()

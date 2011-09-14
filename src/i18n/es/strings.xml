@@ -110,6 +110,7 @@
     <string name="releaseRefresh">Soltar para refrescar</string>
     <string name="reloading">Cargando</string>
     <string name="loading">Cargando</string>
+    <string name="updatingHotels">Actualizando Hoteles</string>
     <string name="loginFacebook">Entrar con Facebook</string>
     <string name="logoutAlert">Necesitas estar logado para poder hacer reservas. ¿Estás seguro que deseas salir?</string>
     <string name="soldOut">¡Agotado!</string>
