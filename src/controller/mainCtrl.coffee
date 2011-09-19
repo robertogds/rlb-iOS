@@ -75,6 +75,8 @@ else if Titanium.Facebook.loggedIn
     root.user.token = root.facebookUser.rlbToken 
     root.user.secret = root.facebookUser.rlbSecret
     root.user.password = root.facebookUser.rlbPassword
+    root.user.firstName = root.facebookUser.first_name
+    root.user.lastName =  root.facebookUser.last_name
     #root.getFBUserId()
   else
     Titanium.Facebook.logout()

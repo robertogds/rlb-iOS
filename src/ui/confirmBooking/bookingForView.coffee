@@ -86,7 +86,7 @@ bookingForLabel = Titanium.UI.createLabel
     #fontWeight: 'bold'
 root.bookingForView.add(bookingForLabel)
 
-bookingForButton = new root.GenericButton(300,Ti.Locale.getString('save')).button
+bookingForButton = new root.GenericButton(300,Ti.Locale.getString('change')).button
 
 bookingForButton.addEventListener 'click', (e) ->
   validate = root.validateBookingForData(emailText.value,firstNameText.value,lastNameText.value)

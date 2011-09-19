@@ -1,7 +1,11 @@
 root.confirmBookingWindow.addEventListener 'focus', (e) ->
-  root.bookingForEmailLabel.text = root.user.email
-  root.bookingForNameLabel.text = root.user.firstName + ' ' + root.user.lastName
-  if root.bookingForFirstName isnt undefined
+  if root.bookingForFirstName is undefined
+    root.bookingForEmail = root.user.email
+    root.bookingForFirstName = root.user.firstName
+    root.bookingForLastName = root.user.lastName
+    root.bookingForEmailLabel.text = root.user.email
+    root.bookingForNameLabel.text = root.user.firstName + ' ' + root.user.lastName
+  else
     root.bookingForNameLabel.text = root.bookingForFirstName + ' ' + root.bookingForLastName
     root.bookingForEmailLabel.text = root.bookingForEmail
   if Titanium.App.Properties.hasProperty("creditCard")

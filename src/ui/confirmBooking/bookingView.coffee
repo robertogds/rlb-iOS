@@ -72,9 +72,10 @@ paymentRow = new root.GenericTextRow().row
 paymentRow.rightImage =  '/images/blue_arrow.png'
 paymentRow.height = 60
 paymentRow.id = "payment"
-nightsRow = new root.GenericTextRow().row
-nightsRow.height = 60
-nightsRow.id = "nights"
+root.nightsRow = new root.GenericTextRow().row
+root.nightsRow.rightImage =  '/images/blue_arrow.png'
+root.nightsRow.height = 60
+root.nightsRow.id = "nights"
 
 checkinTitleLabel = Titanium.UI.createLabel
   text: L('checkin') + ':' 
@@ -147,17 +148,17 @@ root.paymentLabel = Titanium.UI.createLabel
   left: 10
   height: 20
 
-nightsRow.add(checkinTitleLabel)
-nightsRow.add(checkoutTitleLabel)
-nightsRow.add(checkinLabel)
-nightsRow.add(root.checkoutLabel)
+root.nightsRow.add(checkinTitleLabel)
+root.nightsRow.add(checkoutTitleLabel)
+root.nightsRow.add(checkinLabel)
+root.nightsRow.add(root.checkoutLabel)
 userRow.add(bookingForTitleLabel)
 userRow.add(root.bookingForNameLabel)
 userRow.add(root.bookingForEmailLabel)
 paymentRow.add(root.paymentLabel)
 
 data = []
-data.push(nightsRow)
+data.push(root.nightsRow)
 data.push(userRow)
 data.push(paymentRow)
 root.confirmTable.setData(data)
@@ -198,16 +199,13 @@ root.showBookingView = () ->
   root.bookingNights = 1
   root.totalPrice = root.deal.salePriceCents
   if Titanium.App.Properties.hasProperty("user") or Titanium.Facebook.loggedIn
-    root.tabGroup.activeTab.open(root.confirmBookingWindow,{animated:true})
     hotelLabel.text = root.deal.hotelName
     root.priceLabel.text = root.deal.salePriceCents + ' €'  
     root.checkinDate = new Date(root.deal.checkinDate)
     root.checkoutDate = new Date(root.checkinDate.getTime() + 86400000)
     checkinLabel.text = root.getLocaleDateString(root.checkinDate)
     root.checkoutLabel.text = root.getLocaleDateString(root.checkoutDate)
-    if root.deal.priceDay2 > 0 
-      nightsRow.rightImage = '/images/blue_arrow.png'
-    else nightsRow.rightImage = ''
+    root.tabGroup.activeTab.open(root.confirmBookingWindow,{animated:true})
   else
     Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('mustUser')}).show()
     root.tabGroup.setActiveTab(2)

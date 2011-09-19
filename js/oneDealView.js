@@ -76,7 +76,6 @@
   root.showDealView = function(deal) {
     var aroundRow, aroundTitle, aroundView, detailRow, detailTitle, detailView, foodDrinkRow, foodDrinkTitle, foodDrinkView, hotelRow, hotelTitle, hotelView, infoData, region, roomRow, roomTitle, roomView;
     root.deal = deal;
-    Ti.API.info(deal);
     if (deal.quantity === 0) {
       root.priceView.remove(root.bookingLabel);
       root.priceView.add(root.soldOutLabel);
@@ -147,6 +146,16 @@
     root.infoDealTable.setData(infoData);
     root.oneDealWindow.remove(root.infoDealTable);
     root.oneDealWindow.remove(root.mapView);
-    return root.oneDealWindow.add(root.oneDealView);
+    root.oneDealWindow.add(root.oneDealView);
+    if (Titanium.App.Properties.hasProperty("user") || Titanium.Facebook.loggedIn) {
+      root.bookingForEmail = root.user.email;
+      root.bookingForFirstName = root.user.firstName;
+      root.bookingForLastName = root.user.lastName;
+    }
+    if (root.deal.priceDay2 > 0) {
+      return root.nightsRow.rightImage = '/images/blue_arrow.png';
+    } else {
+      return root.nightsRow.rightImage = '';
+    }
   };
 }).call(this);

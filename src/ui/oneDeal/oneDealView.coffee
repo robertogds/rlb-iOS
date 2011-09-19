@@ -83,7 +83,6 @@ root.oneDealView.add(separator2)
 
 root.showDealView = (deal) -> 
   root.deal = deal
-  Ti.API.info(deal)
   if deal.quantity is 0 
     root.priceView.remove(root.bookingLabel)
     root.priceView.add(root.soldOutLabel)
@@ -167,3 +166,14 @@ root.showDealView = (deal) ->
   root.oneDealWindow.remove root.infoDealTable
   root.oneDealWindow.remove root.mapView
   root.oneDealWindow.add root.oneDealView
+
+  if Titanium.App.Properties.hasProperty("user") or Titanium.Facebook.loggedIn
+    root.bookingForEmail = root.user.email
+    root.bookingForFirstName = root.user.firstName
+    root.bookingForLastName = root.user.lastName   
+
+  if root.deal.priceDay2 > 0 
+    root.nightsRow.rightImage = '/images/blue_arrow.png'
+  else 
+    root.nightsRow.rightImage = ''
+
