@@ -58,15 +58,13 @@ root.tabGroup.addTab(root.bookingTab)
 root.tabGroup.addTab(root.accountTab)
 root.tabGroup.addTab(root.optionsTab)
 
-
-
-#root.tabGroup.open()
+root.tabGroup.open()
 
 
 root.showError = (window) ->
   Ti.API.info("Entra en root.showError")
-  root.errorWindow = new root.GenericWindow('Error').win
-  #root.errorWindow = window
+  #root.errorWindow = new root.GenericWindow('Error').win
+  root.errorWindow = window
   #window.remove(root.errorView)
   window.add(root.errorView)
   #root.errorWindow.open
@@ -75,3 +73,4 @@ root.showError = (window) ->
    # modalTransitionStyle: Ti.UI.iPhone.MODAL_TRANSITION_STYLE_FLIP_HORIZONTAL,
    # modalStyle: Ti.UI.iPhone.MODAL_PRESENTATION_FORMSHEET
    # navBarHidden:true
+  Ti.API.info("Sale de root.showError")

@@ -16,15 +16,16 @@ root.citiesTable.addEventListener 'click', (e) ->
   if e.row.city isnt undefined
     root.showLoading(root.citiesWindow,L('updatingHotels'))
     root.loadDeals(e.row.city)
-  
+ 
 root.xhrCities = Titanium.Network.createHTTPClient()
 
 root.xhrCities.onload = () ->
   root.citiesWindow.remove(root.errorView)
+  Ti.API.info("Paso1")
+  Ti.API.info(this.responseText)
   cities = JSON.parse(this.responseText)
   data = []
   textRow = new root.GenericTextRow().row
-  textRow.rightImage = ''
   textRow.backgroundGradient = 
     type:'linear'
     colors:[{color:'#07151d',position:0.1},{color:'#07151d',position:1.0}]
@@ -34,13 +35,16 @@ root.xhrCities.onload = () ->
     font:
       fontSize: 12
     left: 10
+    width: '90%'
   textRow.add(textLabel)
   data.push(textRow)
+
   for city in cities
     cityRow = new root.citiesRow(city)
     data.push(cityRow.row)
   root.citiesTable.setData(data)
   root.hideLoading(root.citiesWindow)
+  Ti.API.info("showCities Paso 6 FIN")
 
 root.xhrCities.onerror = () ->
   Ti.API.info("Entra en error de ciudades onerror")
@@ -48,15 +52,17 @@ root.xhrCities.onerror = () ->
   root.showError(root.citiesWindow)
 
 root.showCities = () ->
+  Ti.API.info("Entra en showCities")
   if Titanium.Network.online is false
     Ti.API.info("Entra en no hay internet")
     Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('mustInternet')}).show()
-    #root.citiesWindow.add(root.errorView)
     root.showError(root.citiesWindow)
   else
     root.xhrCities.setTimeout(15000)
+    Ti.API.info("showCities pasa timeout")
     root.showLoading(root.citiesWindow)
     root.xhrCities.open('GET', root.url+'/cities')
     root.xhrCities.setRequestHeader("Accept-Language",Titanium.Locale.currentLanguage)
     root.xhrCities.send()
+    Ti.API.info("showCities hace llamada")
   

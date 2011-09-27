@@ -54,7 +54,7 @@ addressView.add(root.oneDealAddressLabel)
 
 root.descriptionLabel = Titanium.UI.createLabel
   #width: '90%'
-  height: 75
+  height: 80
   textAlign: 'left'
   color: '#fff'
   font:
@@ -172,8 +172,8 @@ root.showDealView = (deal) ->
     root.bookingForFirstName = root.user.firstName
     root.bookingForLastName = root.user.lastName   
 
-  if root.deal.priceDay2 > 0 
-    root.nightsRow.rightImage = '/images/blue_arrow.png'
-  else 
-    root.nightsRow.rightImage = ''
+  #if root.deal.priceDay2 > 0 
+    #root.nightsRow.rightImage = '/images/blue_arrow.png'
+  #else 
+    #root.nightsRow.rightImage = ''
 

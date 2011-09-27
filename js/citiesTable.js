@@ -22,10 +22,11 @@
   root.xhrCities.onload = function() {
     var cities, city, cityRow, data, textLabel, textRow, _i, _len;
     root.citiesWindow.remove(root.errorView);
+    Ti.API.info("Paso1");
+    Ti.API.info(this.responseText);
     cities = JSON.parse(this.responseText);
     data = [];
     textRow = new root.GenericTextRow().row;
-    textRow.rightImage = '';
     textRow.backgroundGradient = {
       type: 'linear',
       colors: [
@@ -44,7 +45,8 @@
       font: {
         fontSize: 12
       },
-      left: 10
+      left: 10,
+      width: '90%'
     });
     textRow.add(textLabel);
     data.push(textRow);
@@ -54,7 +56,8 @@
       data.push(cityRow.row);
     }
     root.citiesTable.setData(data);
-    return root.hideLoading(root.citiesWindow);
+    root.hideLoading(root.citiesWindow);
+    return Ti.API.info("showCities Paso 6 FIN");
   };
   root.xhrCities.onerror = function() {
     Ti.API.info("Entra en error de ciudades onerror");
@@ -62,6 +65,7 @@
     return root.showError(root.citiesWindow);
   };
   root.showCities = function() {
+    Ti.API.info("Entra en showCities");
     if (Titanium.Network.online === false) {
       Ti.API.info("Entra en no hay internet");
       Ti.UI.createAlertDialog({
@@ -71,10 +75,12 @@
       return root.showError(root.citiesWindow);
     } else {
       root.xhrCities.setTimeout(15000);
+      Ti.API.info("showCities pasa timeout");
       root.showLoading(root.citiesWindow);
       root.xhrCities.open('GET', root.url + '/cities');
       root.xhrCities.setRequestHeader("Accept-Language", Titanium.Locale.currentLanguage);
-      return root.xhrCities.send();
+      root.xhrCities.send();
+      return Ti.API.info("showCities hace llamada");
     }
   };
 }).call(this);

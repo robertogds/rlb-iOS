@@ -1,21 +1,21 @@
-Ti.include( 
-  '/js/newFacebookAccount.js'
-)
 Titanium.Facebook.appid = "210123832352906"
 Titanium.Facebook.permissions = ['publish_stream', 'read_stream', 'email']
 
+doFacebookLogin = () ->
+  Titanium.Facebook.requestWithGraphPath 'me', {}, 'GET', (e) ->
+    if e.success 
+      root.facebookUser = JSON.parse(e.result)
+      root.doFacebookRegister(root.facebookUser.email,root.facebookUser.first_name,root.facebookUser.last_name)
+      root.hideLoading(root.loginView)
+      root.loginView.hide()
+      root.loadLoggedFacebookUser() 
+      root.loggedView.show()
+    else 
+      Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('errorHappened')}).show()
+	
 Titanium.Facebook.addEventListener 'login', (e) ->
   if e.success   
-    Titanium.Facebook.requestWithGraphPath 'me', {}, 'GET', (e) ->
-      if e.success 
-        root.facebookUser = JSON.parse(e.result)
-        root.doFacebookRegister(root.facebookUser.email,root.facebookUser.first_name,root.facebookUser.last_name)
-        root.hideLoading(root.loginView)
-        root.loginView.hide()
-        root.loadLoggedFacebookUser() 
-        root.loggedView.show()
-      else 
-        Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('errorHappened')}).show()
+    doFacebookLogin()  
   else
     Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('errorHappened')}).show()
   root.hideLoading(root.loginView)

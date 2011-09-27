@@ -68,7 +68,7 @@
         font: {
           fontSize: 10
         },
-        height: 10,
+        height: 15,
         width: 40,
         top: 40
       });
@@ -107,7 +107,7 @@
         },
         height: 20,
         width: 70,
-        top: 60
+        top: 63
       });
       this.row.add(tonightLabel);
       extraNightsLabel = Titanium.UI.createLabel({
@@ -118,32 +118,31 @@
           fontSize: 12
         },
         height: 30,
-        left: 230,
+        left: 228,
         width: 80,
         top: 85
       });
       if (deal.priceDay2 > 0) {
-        extraNightsLabel.text = L('1-2Nights');
+        extraNightsLabel.text = L('stayTwoNights');
       }
       if (deal.priceDay3 > 0) {
-        extraNightsLabel.text = L('1-3Nights');
+        extraNightsLabel.text = L('stayThreeNights');
       }
       if (deal.priceDay4 > 0) {
-        extraNightsLabel.text = L('1-4Nights');
+        extraNightsLabel.text = L('stayFourNights');
       }
       if (deal.priceDay5 > 0) {
-        extraNightsLabel.text = L('1-5Nights');
+        extraNightsLabel.text = L('stayFiveNights');
       }
       this.row.add(extraNightsLabel);
       roomTypeLabel = Titanium.UI.createLabel({
         borderWidth: 1,
-        borderColor: '#0098cb',
+        borderColor: 'white',
         width: 70,
         height: 25,
         borderRadius: 5,
-        backgroundColor: '#0098cb',
-        backGroundSelectedColor: 'red',
-        highlightedColor: '#fff',
+        backgroundColor: 'white',
+        color: 'black',
         text: deal.roomTypeText,
         textAlign: "center",
         font: {
@@ -155,7 +154,7 @@
         left: 155
       });
       if (deal.roomType === 'lujo') {
-        if (deal.roomTypeText === void 0 || deal.roomTypeText === '') {
+        if (deal.roomTypeText === null || deal.roomTypeText.length < 2) {
           roomTypeLabel.text = 'luxury';
         }
         roomTypeLabel.backgroundColor = "#e5e79d";
@@ -163,7 +162,7 @@
         icon = '/images/yellow_arrow.png';
       }
       if (deal.roomType === 'elegante') {
-        if (deal.roomTypeText === void 0 || deal.roomTypeText === '') {
+        if (deal.roomTypeText === null || deal.roomTypeText.length < 2) {
           roomTypeLabel.text = 'elegance';
         }
         roomTypeLabel.backgroundColor = "#c7bcd2";
@@ -171,7 +170,7 @@
         icon = '/images/purple_arrow.png';
       }
       if (deal.roomType === 'confort') {
-        if (deal.roomTypeText === void 0 || deal.roomTypeText === '') {
+        if (deal.roomTypeText === null || deal.roomTypeText.length < 2) {
           roomTypeLabel.text = 'basic';
         }
         roomTypeLabel.backgroundColor = "#a3bfd4";

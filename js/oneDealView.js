@@ -51,7 +51,7 @@
   });
   addressView.add(root.oneDealAddressLabel);
   root.descriptionLabel = Titanium.UI.createLabel({
-    height: 75,
+    height: 80,
     textAlign: 'left',
     color: '#fff',
     font: {
@@ -150,12 +150,7 @@
     if (Titanium.App.Properties.hasProperty("user") || Titanium.Facebook.loggedIn) {
       root.bookingForEmail = root.user.email;
       root.bookingForFirstName = root.user.firstName;
-      root.bookingForLastName = root.user.lastName;
-    }
-    if (root.deal.priceDay2 > 0) {
-      return root.nightsRow.rightImage = '/images/blue_arrow.png';
-    } else {
-      return root.nightsRow.rightImage = '';
+      return root.bookingForLastName = root.user.lastName;
     }
   };
 }).call(this);

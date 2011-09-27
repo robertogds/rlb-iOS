@@ -12,7 +12,7 @@ root.paymentView.add(infoImage)
 
 adviseCardLabel = Titanium.UI.createLabel
   borderWidth: 0
-  borderColor: 'red'
+  borderColor: '#0d1e28'
   height: 60
   top: 240
   text: L('adviceCard')

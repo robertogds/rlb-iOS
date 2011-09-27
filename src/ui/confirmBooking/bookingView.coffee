@@ -27,6 +27,7 @@ root.confirmTable.addEventListener 'click', (e) ->
     if root.deal.priceDay2 > 0
       root.loadNightsView()
       root.tabGroup.activeTab.open(root.nightsWindow,{animated:true})
+    else Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:"No hay noches extra disponibles para hoy"}).show()
   if e.row.id is "user"
     root.tabGroup.activeTab.open(root.bookingForWindow,{animated:true})
   if e.row.id is "payment"
@@ -34,7 +35,7 @@ root.confirmTable.addEventListener 'click', (e) ->
 
 hotelLabel = Titanium.UI.createLabel
   top:4
-  height: 24
+  height: 28
   color: '#fff'
   textAlign: 'center'
   font:
@@ -44,7 +45,7 @@ hotelLabel = Titanium.UI.createLabel
 root.totalLabel = Titanium.UI.createLabel
   top:40
   left: 15
-  height: 20
+  height: 28
   text: L('total')
   color: '#868d92'
   font:
@@ -76,6 +77,11 @@ root.nightsRow = new root.GenericTextRow().row
 root.nightsRow.rightImage =  '/images/blue_arrow.png'
 root.nightsRow.height = 60
 root.nightsRow.id = "nights"
+
+nightsRow = new root.GenericTextRow().row
+nightsRow.rightImage =  '/images/blue_arrow.png'
+nightsRow.height = 60
+nightsRow.id = "nights"
 
 checkinTitleLabel = Titanium.UI.createLabel
   text: L('checkin') + ':' 
@@ -200,7 +206,7 @@ root.showBookingView = () ->
   root.totalPrice = root.deal.salePriceCents
   if Titanium.App.Properties.hasProperty("user") or Titanium.Facebook.loggedIn
     hotelLabel.text = root.deal.hotelName
-    root.priceLabel.text = root.deal.salePriceCents + ' €'  
+    root.priceLabel.text = root.deal.salePriceCents + ' €' 
     root.checkinDate = new Date(root.deal.checkinDate)
     root.checkoutDate = new Date(root.checkinDate.getTime() + 86400000)
     checkinLabel.text = root.getLocaleDateString(root.checkinDate)

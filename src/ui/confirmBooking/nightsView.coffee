@@ -4,7 +4,7 @@ root.nightsView = Titanium.UI.createView
 
 nightsTitleLabel = Titanium.UI.createLabel
   top: 5
-  height: 20
+  height: 22
   text: L('addNights')
   left: 8
   color: '#fff'
@@ -28,7 +28,7 @@ checkoutTitleLabel = Titanium.UI.createLabel
   text: L('checkout') + ': '
   color: '#fff'
   font:
-    fontSize: 16
+    fontSize: 14
     fontWeight: 'bold'
   left: 10
   height: 20
@@ -37,16 +37,16 @@ checkoutTitleLabel = Titanium.UI.createLabel
 nightsCheckinLabel = Titanium.UI.createLabel
   color: '#868d92'
   font:
-    fontSize: 16
-  left: 80
+    fontSize: 14
+  left: 90
   top: 40
   height: 20
 
 nightsCheckoutLabel = Titanium.UI.createLabel
   color: '#868d92'
   font:
-    fontSize: 16
-  left: 80
+    fontSize: 14
+  left: 90
   top: 62
   height: 20
 
@@ -70,272 +70,60 @@ nightsTotalLabel = Titanium.UI.createLabel
   height: 30
   top: 45
 
-night1View = Titanium.UI.createView
-  borderWidth:2
-  id:1
-  borderColor: 'black'
-  left: 20
-  height: 100
-  width: 90
-  top: 100
-  backgroundGradient:
-    type:'linear'
-    colors:[{color:'#0098cb',position:0.1},{color:'#017096',position:1.0}]
- 
-night1View.addEventListener 'click', (e) ->
+night1View = new root.GenericNightView(1,100,20)
+night1View.view.visible = true
+night1View.view.backgroundColor = '#017096'
+night1View.view.backgroundGradient =
+  type:'linear'
+  colors:[{color:'#0098cb',position:0.1},{color:'#017096',position:1.0}]
+night1View.view.borderWidth = 2
+night1View.dayOfWeekLabel.color = '#fff'
+night1View.dateLabel.color = '#fff'
+night1View.priceLabel.color = '#fff'
+
+night1View.view.addEventListener 'click', (e) ->
   root.checkoutDate = new Date(root.checkinDate.getTime() + 86400000)
   root.bookingNights = 1
   root.totalPrice = root.deal.salePriceCents
-  nightsTotalLabel.text = root.totalPrice + ' €'
+  nightsTotalLabel.text = root.totalPrice + ' €' 
   pullButton(night2View)
   pullButton(night3View)
   pullButton(night4View)
   pullButton(night5View)
 
-night1DayofweekLabel = 	Titanium.UI.createLabel
-  textAlign: 'center'
-  color: '#fff'
-  font:
-    fontSize: 14
-    fontWeight: 'bold'
-  top: 10
-  height: 20
-
-night1DateLabel = Titanium.UI.createLabel
-  textAlign: 'center'
-  color: '#fff'
-  font:
-    fontSize: 14
-  top: 30
-  height: 20
-	
-night1PriceLabel = 	Titanium.UI.createLabel
-  textAlign: 'center'
-  color: '#fff'
-  font:
-    fontSize: 20
-    fontWeight: 'bold'
-  top: 60
-  height: 20
-
-night1View.add(night1DayofweekLabel)
-night1View.add(night1DateLabel)
-night1View.add(night1PriceLabel)
-
-night2View = Titanium.UI.createView
-  id:2
-  visible: false
-  borderWidth:1
-  borderColor: 'black'
-  left: 110
-  height: 100
-  width: 90
-  top: 100
-  backgroundGradient:
-    type:'linear'
-    colors:[{color:'#ededed',position:0.1},{color:'#c2c1c1',position:1.0}]
-	
-night2View.addEventListener 'click', (e) ->
+night2View = new root.GenericNightView(2,100,110) 
+night2View.view.addEventListener 'click', (e) ->
   pushButton(night2View)
   pullButton(night3View)
   pullButton(night4View)
   pullButton(night5View)
-  
 
-night2DayofweekLabel = Titanium.UI.createLabel
-  textAlign: 'center'
-  color: '#000'
-  text: "Monday"
-  font:
-    fontSize: 14
-    fontWeight: 'bold'
-  top: 10
-  height: 20
-
-night2DateLabel = Titanium.UI.createLabel
-  textAlign: 'center'
-  color: '#000'
-  text: "AUG 29"
-  font:
-    fontSize: 14
-  top: 30
-  height: 20
-
-night2PriceLabel = Titanium.UI.createLabel
-  textAlign: 'center'
-  color: '#000'
-  text: "89€"
-  font:
-    fontSize: 20
-    fontWeight: 'bold'
-  top: 60
-  height: 20
-
-night2View.add(night2DayofweekLabel)
-night2View.add(night2DateLabel)
-night2View.add(night2PriceLabel)
-	
-night3View = Titanium.UI.createView
-  id:3
-  visible: false
-  borderWidth:1
-  borderColor: 'black'
-  left: 200
-  height: 100
-  width: 90
-  top: 100
-  backgroundGradient:
-    type:'linear'
-    colors:[{color:'#ededed',position:0.1},{color:'#c2c1c1',position:1.0}]
-
-night3View.addEventListener 'click', (e) ->
+night3View = new root.GenericNightView(3,100,200) 
+night3View.view.addEventListener 'click', (e) ->
   pushButton(night2View)
   pushButton(night3View)
   pullButton(night4View)
   pullButton(night5View)
-
-night3DayofweekLabel = Titanium.UI.createLabel
-  textAlign: 'center'
-  color: '#000'
-  text: "Monday"
-  font:
-    fontSize: 14
-    fontWeight: 'bold'
-  top: 10
-  height: 20
-
-night3DateLabel = Titanium.UI.createLabel
-  textAlign: 'center'
-  color: '#000'
-  text: "AUG 29"
-  font:
-    fontSize: 14
-  top: 30
-  height: 20
-
-night3PriceLabel = Titanium.UI.createLabel
-  textAlign: 'center'
-  color: '#000'
-  text: "89€"
-  font:
-    fontSize: 20
-    fontWeight: 'bold'
-  top: 60
-  height: 20
-
-night3View.add(night3DayofweekLabel)
-night3View.add(night3DateLabel)
-night3View.add(night3PriceLabel)
-
-night4View = Titanium.UI.createView
-  visible: false
-  id:4
-  borderWidth:1
-  borderColor: 'black'
-  left: 20
-  height: 100
-  width: 90
-  top: 200
-  backgroundGradient:
-    type:'linear'
-    colors:[{color:'#ededed',position:0.1},{color:'#c2c1c1',position:1.0}]
 	
-night4View.addEventListener 'click', (e) ->
+night4View = new root.GenericNightView(4,200,20) 
+night4View.view.addEventListener 'click', (e) ->
   pushButton(night2View)
   pushButton(night3View)
   pushButton(night4View)
   pullButton(night5View)
 
-night4DayofweekLabel = Titanium.UI.createLabel
-  textAlign: 'center'
-  color: '#000'
-  text: "Monday"
-  font:
-    fontSize: 14
-    fontWeight: 'bold'
-  top: 10
-  height: 20
-
-night4DateLabel = Titanium.UI.createLabel
-  textAlign: 'center'
-  color: '#000'
-  text: "AUG 29"
-  font:
-    fontSize: 14
-  top: 30
-  height: 20
-
-night4PriceLabel = Titanium.UI.createLabel
-  textAlign: 'center'
-  color: '#000'
-  text: "89€"
-  font:
-    fontSize: 20
-    fontWeight: 'bold'
-  top: 60
-  height: 20
-
-night4View.add(night4DayofweekLabel)
-night4View.add(night4DateLabel)
-night4View.add(night4PriceLabel)
- 
-night5View = Titanium.UI.createView
-  id:5
-  visible: false
-  borderWidth:1
-  borderColor: 'black'
-  left: 110
-  height: 100
-  width: 90
-  top: 200
-  backgroundGradient:
-    type:'linear'
-    colors:[{color:'#ededed',position:0.1},{color:'#c2c1c1',position:1.0}]
-
-night5View.addEventListener 'click', (e) ->
+night5View = new root.GenericNightView(5,200,110) 
+night5View.view.addEventListener 'click', (e) ->
   pushButton(night2View)
   pushButton(night3View)
   pushButton(night4View)
   pushButton(night5View)
 
-night5DayofweekLabel = Titanium.UI.createLabel
-  textAlign: 'center'
-  color: '#000'
-  text: "Monday"
-  font:
-    fontSize: 14
-    fontWeight: 'bold'
-  top: 10
-  height: 20
-
-night5DateLabel = Titanium.UI.createLabel
-  textAlign: 'center'
-  color: '#000'
-  text: "AUG 29"
-  font:
-    fontSize: 14
-  top: 30
-  height: 20
-
-night5PriceLabel = Titanium.UI.createLabel
-  textAlign: 'center'
-  color: '#000'
-  text: "89€"
-  font:
-    fontSize: 20
-    fontWeight: 'bold'
-  top: 60
-  height: 20
-
-night5View.add(night5DayofweekLabel)
-night5View.add(night5DateLabel)
-night5View.add(night5PriceLabel)
-
-root.nightsView.add(night1View)
-root.nightsView.add(night2View)
-root.nightsView.add(night3View)
-root.nightsView.add(night4View)
-root.nightsView.add(night5View)
+root.nightsView.add(night1View.view)
+root.nightsView.add(night2View.view)
+root.nightsView.add(night3View.view)
+root.nightsView.add(night4View.view)
+root.nightsView.add(night5View.view)
 
 
 root.nightsView.add(nightsCheckoutLabel)
@@ -351,97 +139,77 @@ confirmButton.addEventListener 'click', (e) ->
   root.nightsWindow.close()
 root.nightsView.add(confirmButton)
 
-pushButton = (view)->
-  view.borderWidth = 2
-  view.backgroundGradient = 
+pushButton = (nightView)->
+  nightView.view.borderWidth = 2
+  nightView.view.backgroundGradient = 
     type:'linear'
     colors:[{color:'#0098cb',position:0.1},{color:'#017096',position:1.0}]
-  root.checkoutDate = new Date(root.checkinDate.getTime() + (86400000 * view.id))
-  root.bookingNights = view.id
-  switch view.id 
+  nightView.view.backgroundColor = '#017096'
+  root.checkoutDate = new Date(root.checkinDate.getTime() + (86400000 * nightView.view.id))
+  root.bookingNights = nightView.view.id
+  nightView.dayOfWeekLabel.color = '#fff'
+  nightView.dateLabel.color = '#fff'
+  nightView.priceLabel.color = '#fff'
+  switch nightView.view.id 
     when 2
-      night2DayofweekLabel.color = '#fff'
-      night2DateLabel.color = '#fff'
-      night2PriceLabel.color = '#fff'
       root.totalPrice = root.deal.salePriceCents + root.deal.priceDay2
     when 3
-      night3DayofweekLabel.color = '#fff'
-      night3DateLabel.color = '#fff'
-      night3PriceLabel.color = '#fff'
       root.totalPrice = root.deal.salePriceCents + root.deal.priceDay2 + root.deal.priceDay3
     when 4
-      night4DayofweekLabel.color = '#fff'
-      night4DateLabel.color = '#fff'
-      night4PriceLabel.color = '#fff'
       root.totalPrice = root.deal.salePriceCents + root.deal.priceDay2 + root.deal.priceDay3 + root.deal.priceDay4
     when 5
-      night5DayofweekLabel.color = '#fff'
-      night5DateLabel.color = '#fff'
-      night5PriceLabel.color = '#fff'
       root.totalPrice = root.deal.salePriceCents + root.deal.priceDay2 + root.deal.priceDay3 + root.deal.priceDay4 + root.deal.priceDay5
   nightsCheckoutLabel.text = root.getLocaleDateString(root.checkoutDate)
   nightsTotalLabel.text = root.totalPrice + ' €'
 
-pullButton = (view)->
-  view.borderWidth = 1
-  view.backgroundGradient = 
+pullButton = (nightView)->
+  nightView.view.borderWidth = 1
+  nightView.view.backgroundGradient = 
     type:'linear'
     colors:[{color:'#ededed',position:0.1},{color:'#c2c1c1',position:1.0}]
-  switch view.id 
-    when 2 
-      night2DayofweekLabel.color = '#000'
-      night2DateLabel.color = '#000'
-      night2PriceLabel.color = '#000' 
-    when 3 
-      night3DayofweekLabel.color = '#000'
-      night3DateLabel.color = '#000'
-      night3PriceLabel.color = '#000'
-    when 4 
-      night4DayofweekLabel.color = '#000'
-      night4DateLabel.color = '#000'
-      night4PriceLabel.color = '#000' 
-    when 5 
-      night5DayofweekLabel.color = '#000'
-      night5DateLabel.color = '#000'
-      night5PriceLabel.color = '#000'
+  nightView.view.backgroundColor = '#c2c1c1'
+  nightView.dayOfWeekLabel.color = '#000'
+  nightView.dateLabel.color = '#000'
+  nightView.priceLabel.color = '#000'
   nightsCheckoutLabel.text = root.getLocaleDateString(root.checkoutDate)
 
 root.loadNightsView = ()->
   nightsTotalLabel.text = root.totalPrice + ' €'
   nightsCheckinLabel.text = root.getLocaleDateString(root.checkinDate)
   nightsCheckoutLabel.text = root.getLocaleDateString(root.checkoutDate)
-  night1DayofweekLabel.text = root.getDayOfWeekString(root.checkinDate)
-  night1DateLabel.text = root.getShortMonthString(root.checkinDate) + ' ' + root.checkinDate.getDate()
-  night1PriceLabel.text = root.deal.salePriceCents + ' €'
+  night1View.dayOfWeekLabel.text = root.getDayOfWeekString(root.checkinDate)
+  night1View.dateLabel.text = root.getShortMonthString(root.checkinDate) + ' ' + root.checkinDate.getDate()
+  night1View.priceLabel.text = root.deal.salePriceCents + ' €'
+
   if root.deal.priceDay2 > 0
     day2 = new Date(root.checkinDate.getTime() + 86400000 )
-    night2DayofweekLabel.text = root.getDayOfWeekString(day2)
-    night2DateLabel.text = root.getShortMonthString(day2) + ' ' + day2.getDate()
-    night2PriceLabel.text = root.deal.priceDay2 + '€'
-    night2View.visible = true
-  else night2View.visible = false
+    night2View.dayOfWeekLabel.text = root.getDayOfWeekString(day2)
+    night2View.dateLabel.text = root.getShortMonthString(day2) + ' ' + day2.getDate()
+    night2View.priceLabel.text = root.deal.priceDay2 + '€'
+    night2View.view.visible = true
+  else night2View.view.visible = false
 
   if root.deal.priceDay3 > 0
     day3 = new Date(root.checkinDate.getTime() + 86400000 * 2)
-    night3DayofweekLabel.text = root.getDayOfWeekString(day3)
-    night3DateLabel.text = root.getShortMonthString(day3) + ' ' + day3.getDate()
-    night3PriceLabel.text = root.deal.priceDay3 + '€'
-    night3View.visible = true
-  else night3View.visible = false
+    night3View.dayOfWeekLabel.text = root.getDayOfWeekString(day3)
+    night3View.dateLabel.text = root.getShortMonthString(day3) + ' ' + day3.getDate()
+    night3View.priceLabel.text = root.deal.priceDay3 + '€'
+    night3View.view.visible = true
+  else night3View.view.visible = false
     
   if root.deal.priceDay4 > 0
     day4 = new Date(root.checkinDate.getTime() + 86400000 * 3)
-    night4DayofweekLabel.text = root.getDayOfWeekString(day4)
-    night4DateLabel.text = root.getShortMonthString(day4) + ' ' + day4.getDate()
-    night4PriceLabel.text = root.deal.priceDay4 + '€'
-    night4View.visible = true
+   	night4View.dayOfWeekLabel.text = root.getDayOfWeekString(day4)
+    night4View.dateLabel.text = root.getShortMonthString(day4) + ' ' + day4.getDate()
+    night4View.priceLabel.text = root.deal.priceDay4 + '€'
+    night4View.view.visible = true
   else night4View.visible = false
 
   if root.deal.priceDay5 > 0
     day5 = new Date(root.checkinDate.getTime() + 86400000 * 4)
-    night5DayofweekLabel.text = root.getDayOfWeekString(day5)
-    night5DateLabel.text = root.getShortMonthString(day5) + ' ' + day5.getDate()
-    night5PriceLabel.text = root.deal.priceDay5 + '€'
-    night5View.visible = true
+    night5View.dayOfWeekLabel.text = root.getDayOfWeekString(day5)
+    night5View.dateLabel.text = root.getShortMonthString(day5) + ' ' + day5.getDate()
+    night5View.priceLabel.text = root.deal.priceDay5 + '€'
+    night5View.view.visible = true
   else night5View.visible = false
   

@@ -1,5 +1,6 @@
 root.confirmBookingWindow.addEventListener 'focus', (e) ->
-  if root.bookingForFirstName is undefined
+  Ti.API.info("Paso 11 >>>>>>>>")
+  if root.bookingForFirstName is null
     root.bookingForEmail = root.user.email
     root.bookingForFirstName = root.user.firstName
     root.bookingForLastName = root.user.lastName
@@ -21,8 +22,10 @@ root.confirmBookingWindow.addEventListener 'focus', (e) ->
   else
     root.totalLabel.text = L('total') + ' 1 ' + L('night') + ':'
   root.checkoutLabel.text = root.getLocaleDateString(root.checkoutDate)
-  if root.cardTypeLabel.text is 'Tipo de tarjeta'
+  Ti.API.info "************** " + root.cardNumberText.value
+  if root.cardNumberText.value is null or root.cardNumberText.value < 10 
+    Ti.API.info "************** ENTRA EN NO HAY TIPO DE TARJETA"
     root.paymentLabel.text = L('noPaymentInfo')
   else root.paymentLabel.text = L('creditCard') + ':  ' + root.cardTypeLabel.text + '   ' + root.cardNumberText.value
-
+  Ti.API.info("Sale bookingWindow focus >>>>>>>>")
 

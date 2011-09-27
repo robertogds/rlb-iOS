@@ -5,32 +5,6 @@ root.surl = 'https://rlb-back.appspot.com'
 root.bgGradient =
      type:'linear'
      colors:[{color:'#07151d',position:0.1},{color:'#0d1e28',position:1.0}]
-
-startupWindow = Ti.UI.createWindow
-  height: "100%"
-  width: "100%"
-  backgroundColor:'#000'
-  navBarHidden: true
-  zIndex:1
-
-startupView =Titanium.UI.createImageView
-  image:'images/Default.png'
-  top:-20.0
-
-startupAnimation = Titanium.UI.createAnimation
-  curve:Ti.UI.ANIMATION_CURVE_EASE_IN_OUT
-  opacity:0
-  duration:3000
-startupWindow.add(startupView)
-startupWindow.open
-  navBarHidden:false
-startupView.animate(startupAnimation)
-
-startupAnimation.addEventListener 'complete', (e) ->
-  root.tabGroup.open()
-  startupWindow.close()
-  
-  
 	
 Ti.include(
   '/js/dateUtil.js'
@@ -38,6 +12,7 @@ Ti.include(
   '/js/GenericSeparatorView.js'
   '/js/Generic2RowsView.js'
   '/js/GenericRowView.js'
+  '/js/GenericNightView.js'
   '/js/GenericTextRow.js'
   '/js/GenericButton.js'
   '/js/GenericMapAnnotation.js'
@@ -60,7 +35,7 @@ Ti.include(
   '/js/termsView.js'
   '/js/privacyView.js'
 )
-Ti.API.info("Empieza")
+Ti.API.info("mainCtrl Empieza")
 #alert Titanium.Platform.model
 #alert Titanium.Platform.name
 #alert Titanium.Platform.displayCaps.platformWidth
@@ -77,7 +52,6 @@ else if Titanium.Facebook.loggedIn
     root.user.password = root.facebookUser.rlbPassword
     root.user.firstName = root.facebookUser.first_name
     root.user.lastName =  root.facebookUser.last_name
-    #root.getFBUserId()
   else
     Titanium.Facebook.logout()
 else
@@ -85,6 +59,7 @@ else
   Titanium.App.Properties.removeProperty("facebookUser")
 
 root.showCities()
+root.citiesDate = new Date()
 
 root.urlSignature = (url) ->
   timestamp = new Date().getTime()

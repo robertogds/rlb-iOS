@@ -1,5 +1,5 @@
 (function() {
-  var bookingForTitleLabel, checkinLabel, checkinTitleLabel, checkoutTitleLabel, confirmButton, data, hotelLabel, nonRefundableLabel, paymentRow, separator1, separator2, userRow;
+  var bookingForTitleLabel, checkinLabel, checkinTitleLabel, checkoutTitleLabel, confirmButton, data, hotelLabel, nightsRow, nonRefundableLabel, paymentRow, separator1, separator2, userRow;
   Ti.include('/js/cardTypeView.js', '/js/expiresView.js', '/js/creditCardTable.js', '/js/paymentView.js', '/js/nightsView.js', '/js/bookingAction.js', '/js/bookingWindow.js', '/js/bookingForView.js');
   root.bookingView = Titanium.UI.createView({
     backgroundColor: 'black',
@@ -21,6 +21,11 @@
         root.tabGroup.activeTab.open(root.nightsWindow, {
           animated: true
         });
+      } else {
+        Ti.UI.createAlertDialog({
+          title: 'ReallyLateBooking',
+          message: "No hay noches extra disponibles para hoy"
+        }).show();
       }
     }
     if (e.row.id === "user") {
@@ -36,7 +41,7 @@
   });
   hotelLabel = Titanium.UI.createLabel({
     top: 4,
-    height: 24,
+    height: 28,
     color: '#fff',
     textAlign: 'center',
     font: {
@@ -47,7 +52,7 @@
   root.totalLabel = Titanium.UI.createLabel({
     top: 40,
     left: 15,
-    height: 20,
+    height: 28,
     text: L('total'),
     color: '#868d92',
     font: {
@@ -82,6 +87,10 @@
   root.nightsRow.rightImage = '/images/blue_arrow.png';
   root.nightsRow.height = 60;
   root.nightsRow.id = "nights";
+  nightsRow = new root.GenericTextRow().row;
+  nightsRow.rightImage = '/images/blue_arrow.png';
+  nightsRow.height = 60;
+  nightsRow.id = "nights";
   checkinTitleLabel = Titanium.UI.createLabel({
     text: L('checkin') + ':',
     color: '#fff',
