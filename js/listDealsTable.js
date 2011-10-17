@@ -36,10 +36,13 @@
     root.citiesWindow.remove(root.errorView);
     deals = JSON.parse(this.responseText);
     root.createMap(deals);
+    Ti.API.info('deals: ' + this.responseText);
     data = [];
     for (_i = 0, _len = deals.length; _i < _len; _i++) {
       deal = deals[_i];
+      Ti.API.info('Entra en un deal' + deal);
       dealRow = new root.listDealsRow(deal);
+      Ti.API.info('antes de hacer el data.push');
       data.push(dealRow.row);
     }
     if (data.length === 0) {
@@ -59,7 +62,9 @@
         },
         left: 10
       });
+      Ti.API.info('Metimos why3');
       textRow.add(textLabel);
+      Ti.API.info('hace textlabel');
       data.push(textRow);
       Ti.API.info('****** OK HAY HOTELES! ********');
       root.noDealsView.hide();
@@ -67,7 +72,9 @@
       root.dealsTable.setData(data);
     }
     root.hideLoading(root.listDealsWindow);
-    return root.showDeals();
+    root.hideLoading(root.citiesWindow);
+    root.showDeals();
+    return Ti.API.info('Termina onLoad Deals');
   };
   root.xhrDeals.onerror = function() {
     Ti.UI.createAlertDialog({
@@ -78,13 +85,17 @@
     return root.showError(root.citiesWindow);
   };
   root.loadDeals = function(city) {
+    Ti.API.info('Entra en loadDeals');
     root.showLoading(root.listDealsWindow, L('updatingHotels'));
+    Ti.API.info('Pasa de show loading');
     root.city = city;
     root.listDealsWindow.title = city.name;
+    Ti.API.info('Antes de hacer la llamada');
     root.xhrDeals.setTimeout(15000);
     root.xhrDeals.open('GET', root.url + '/deals/' + city.url);
     root.xhrDeals.setRequestHeader("Accept-Language", Titanium.Locale.currentLanguage);
-    return root.xhrDeals.send();
+    root.xhrDeals.send();
+    return Ti.API.info('Termina loadDeals');
   };
   root.showDeals = function() {
     if (root.currentWindow !== 'deals') {

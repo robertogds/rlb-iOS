@@ -154,7 +154,7 @@
         left: 155
       });
       if (deal.roomType === 'lujo') {
-        if (deal.roomTypeText === null || deal.roomTypeText.length < 2) {
+        if (deal.roomTypeText === void 0 || deal.roomTypeText.length < 2) {
           roomTypeLabel.text = 'luxury';
         }
         roomTypeLabel.backgroundColor = "#e5e79d";
@@ -162,7 +162,7 @@
         icon = '/images/yellow_arrow.png';
       }
       if (deal.roomType === 'elegante') {
-        if (deal.roomTypeText === null || deal.roomTypeText.length < 2) {
+        if (deal.roomTypeText === void 0 || deal.roomTypeText.length < 2) {
           roomTypeLabel.text = 'elegance';
         }
         roomTypeLabel.backgroundColor = "#c7bcd2";
@@ -170,7 +170,7 @@
         icon = '/images/purple_arrow.png';
       }
       if (deal.roomType === 'confort') {
-        if (deal.roomTypeText === null || deal.roomTypeText.length < 2) {
+        if (deal.roomTypeText === void 0 || deal.roomTypeText.length < 2) {
           roomTypeLabel.text = 'basic';
         }
         roomTypeLabel.backgroundColor = "#a3bfd4";

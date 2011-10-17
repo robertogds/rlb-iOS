@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="cities">Cities</string>
+    <string name="countries">Countries</string>
     <string name="errorHappened">An error has occurred</string>
     <string name="errorBooking">An error has occurred\nWe received an incorrect response so we don't know if your booking has been completed. Please contact with help@reallylatebooking.com</string>
 	<string name="errorUser">Invalid User</string>

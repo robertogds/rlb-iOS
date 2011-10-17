@@ -9,6 +9,6 @@
   errorCloseButton.addEventListener('click', function(e) {
     root.errorWindow.remove(root.errorView);
     root.tabGroup.setActiveTab(0);
-    return root.showCities();
+    return root.showCountries();
   });
 }).call(this);

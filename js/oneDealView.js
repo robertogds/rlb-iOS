@@ -150,7 +150,12 @@
     if (Titanium.App.Properties.hasProperty("user") || Titanium.Facebook.loggedIn) {
       root.bookingForEmail = root.user.email;
       root.bookingForFirstName = root.user.firstName;
-      return root.bookingForLastName = root.user.lastName;
+      root.bookingForLastName = root.user.lastName;
+    }
+    if (root.deal.priceDay2 > 0) {
+      return root.nightsRow.rightImage = '/images/blue_arrow.png';
+    } else {
+      return root.nightsRow.rightImage = '';
     }
   };
 }).call(this);

@@ -1,6 +1,7 @@
 (function() {
-  root.url = 'http://rlb-back.appspot.com';
-  root.surl = 'https://rlb-back.appspot.com';
+  root.url = 'http://15.rlb-back.appspot.com';
+  root.surl = 'https://15.rlb-back.appspot.com';
+  root.country = 'spain';
   root.bgGradient = {
     type: 'linear',
     colors: [
@@ -13,7 +14,7 @@
       }
     ]
   };
-  Ti.include('/js/dateUtil.js', '/js/GenericWindow.js', '/js/GenericSeparatorView.js', '/js/Generic2RowsView.js', '/js/GenericRowView.js', '/js/GenericNightView.js', '/js/GenericTextRow.js', '/js/GenericButton.js', '/js/GenericMapAnnotation.js', '/js/GenericTextView.js', '/js/GenericMapRightButtonView.js', '/js/GenericAndroidTab.js', '/js/errorView.js', '/js/loadingView.js', '/js/application.js', '/js/listDealsWindow.js', '/js/accountWindow.js', '/js/bookingsWindow.js', '/js/citiesWindow.js', '/js/oneDealView.js', '/js/oneBookingView.js', '/js/optionsView.js', '/js/bookingView.js', '/js/aboutView.js', '/js/forHotelsView.js', '/js/termsView.js', '/js/privacyView.js');
+  Ti.include('/js/dateUtil.js', '/js/GenericWindow.js', '/js/GenericSeparatorView.js', '/js/Generic2RowsView.js', '/js/GenericRowView.js', '/js/GenericNightView.js', '/js/GenericTextRow.js', '/js/GenericButton.js', '/js/GenericMapAnnotation.js', '/js/GenericTextView.js', '/js/GenericMapRightButtonView.js', '/js/GenericAndroidTab.js', '/js/errorView.js', '/js/loadingView.js', '/js/application.js', '/js/listDealsWindow.js', '/js/accountWindow.js', '/js/bookingsWindow.js', '/js/citiesWindow.js', '/js/countriesWindow.js', '/js/oneDealView.js', '/js/oneBookingView.js', '/js/optionsView.js', '/js/bookingView.js', '/js/aboutView.js', '/js/forHotelsView.js', '/js/termsView.js', '/js/privacyView.js');
   Ti.API.info("mainCtrl Empieza");
   if (Titanium.App.Properties.hasProperty("user")) {
     root.user = JSON.parse(Titanium.App.Properties.getString("user"));
@@ -34,7 +35,8 @@
     Titanium.App.Properties.removeProperty("user");
     Titanium.App.Properties.removeProperty("facebookUser");
   }
-  root.showCities();
+  root.showCountries();
+  root.countriesDate = new Date();
   root.citiesDate = new Date();
   root.urlSignature = function(url) {
     var timestamp, token;

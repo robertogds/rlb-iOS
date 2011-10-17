@@ -2,6 +2,7 @@ Titanium.UI.setBackgroundColor('#000')
 
 # Application Windows
 root.citiesWindow = new root.GenericWindow(L('cities')).win
+root.countriesWindow = new root.GenericWindow(L('countries')).win
 root.listDealsWindow = new root.GenericWindow('Madrid').win
 root.listDealsMapWindow = new root.GenericWindow(L('map')).win
 root.bookingsWindow = new root.GenericWindow(L('yourBookings')).win
@@ -35,8 +36,8 @@ root.tabGroup = Titanium.UI.createTabGroup
 
 root.dealsTab = Titanium.UI.createTab
   icon:'icons/icon_deal.png'
-  title:L('cities')
-  window: root.citiesWindow
+  title:L('countries')
+  window: root.countriesWindow
   
 root.bookingTab = Titanium.UI.createTab
   icon:'icons/icon_buy.png'
@@ -62,15 +63,6 @@ root.tabGroup.open()
 
 
 root.showError = (window) ->
-  Ti.API.info("Entra en root.showError")
-  #root.errorWindow = new root.GenericWindow('Error').win
   root.errorWindow = window
-  #window.remove(root.errorView)
   window.add(root.errorView)
-  #root.errorWindow.open
-   # modal:true
-   # fullscreen: true
-   # modalTransitionStyle: Ti.UI.iPhone.MODAL_TRANSITION_STYLE_FLIP_HORIZONTAL,
-   # modalStyle: Ti.UI.iPhone.MODAL_PRESENTATION_FORMSHEET
-   # navBarHidden:true
-  Ti.API.info("Sale de root.showError")
+

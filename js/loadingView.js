@@ -22,6 +22,7 @@
     }
   });
   root.iphoneActInd = Titanium.UI.createActivityIndicator({
+    style: Titanium.UI.iPhone.ActivityIndicatorStyle.BIG,
     top: 30
   });
   root.androidActInd = Titanium.UI.createActivityIndicator({

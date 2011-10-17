@@ -1,5 +1,5 @@
 (function() {
-  var bookingForTitleLabel, checkinLabel, checkinTitleLabel, checkoutTitleLabel, confirmButton, data, hotelLabel, nightsRow, nonRefundableLabel, paymentRow, separator1, separator2, userRow;
+  var bookingForTitleLabel, checkinLabel, checkinTitleLabel, checkoutTitleLabel, confirmButton, data, hotelLabel, nonRefundableLabel, paymentRow, separator1, separator2, userRow;
   Ti.include('/js/cardTypeView.js', '/js/expiresView.js', '/js/creditCardTable.js', '/js/paymentView.js', '/js/nightsView.js', '/js/bookingAction.js', '/js/bookingWindow.js', '/js/bookingForView.js');
   root.bookingView = Titanium.UI.createView({
     backgroundColor: 'black',
@@ -87,10 +87,6 @@
   root.nightsRow.rightImage = '/images/blue_arrow.png';
   root.nightsRow.height = 60;
   root.nightsRow.id = "nights";
-  nightsRow = new root.GenericTextRow().row;
-  nightsRow.rightImage = '/images/blue_arrow.png';
-  nightsRow.height = 60;
-  nightsRow.id = "nights";
   checkinTitleLabel = Titanium.UI.createLabel({
     text: L('checkin') + ':',
     color: '#fff',

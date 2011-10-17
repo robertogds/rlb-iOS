@@ -14,6 +14,7 @@
   root.citiesWindow.add(root.citiesTable);
   root.citiesTable.addEventListener('click', function(e) {
     if (e.row.city !== void 0) {
+      Ti.API.info('Entra en click a ciudad');
       root.showLoading(root.citiesWindow, L('updatingHotels'));
       return root.loadDeals(e.row.city);
     }
@@ -21,8 +22,8 @@
   root.xhrCities = Titanium.Network.createHTTPClient();
   root.xhrCities.onload = function() {
     var cities, city, cityRow, data, textLabel, textRow, _i, _len;
+    Ti.API.info("Entra en onload");
     root.citiesWindow.remove(root.errorView);
-    Ti.API.info("Paso1");
     Ti.API.info(this.responseText);
     cities = JSON.parse(this.responseText);
     data = [];
@@ -56,7 +57,11 @@
       data.push(cityRow.row);
     }
     root.citiesTable.setData(data);
+    root.hideLoading(root.countriesWindow);
     root.hideLoading(root.citiesWindow);
+    root.tabGroup.activeTab.open(root.citiesWindow, {
+      animated: true
+    });
     return Ti.API.info("showCities Paso 6 FIN");
   };
   root.xhrCities.onerror = function() {
@@ -64,8 +69,8 @@
     root.hideLoading(root.citiesWindow);
     return root.showError(root.citiesWindow);
   };
-  root.showCities = function() {
-    Ti.API.info("Entra en showCities");
+  root.showCities = function(url) {
+    Ti.API.info("Enter in showCities");
     if (Titanium.Network.online === false) {
       Ti.API.info("Entra en no hay internet");
       Ti.UI.createAlertDialog({
@@ -75,9 +80,9 @@
       return root.showError(root.citiesWindow);
     } else {
       root.xhrCities.setTimeout(15000);
-      Ti.API.info("showCities pasa timeout");
+      Ti.API.info("showCities pasa timeout y llama a " + root.url + '/cities/' + url);
       root.showLoading(root.citiesWindow);
-      root.xhrCities.open('GET', root.url + '/cities');
+      root.xhrCities.open('GET', root.url + '/cities/' + url);
       root.xhrCities.setRequestHeader("Accept-Language", Titanium.Locale.currentLanguage);
       root.xhrCities.send();
       return Ti.API.info("showCities hace llamada");

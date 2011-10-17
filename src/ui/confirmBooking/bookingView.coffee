@@ -22,7 +22,6 @@ root.confirmTable = Titanium.UI.createTableView
   moving: false
 
 root.confirmTable.addEventListener 'click', (e) ->
-  #alert e.row.id
   if e.row.id is "nights"
     if root.deal.priceDay2 > 0
       root.loadNightsView()
@@ -77,11 +76,6 @@ root.nightsRow = new root.GenericTextRow().row
 root.nightsRow.rightImage =  '/images/blue_arrow.png'
 root.nightsRow.height = 60
 root.nightsRow.id = "nights"
-
-nightsRow = new root.GenericTextRow().row
-nightsRow.rightImage =  '/images/blue_arrow.png'
-nightsRow.height = 60
-nightsRow.id = "nights"
 
 checkinTitleLabel = Titanium.UI.createLabel
   text: L('checkin') + ':' 

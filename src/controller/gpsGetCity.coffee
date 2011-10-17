@@ -54,24 +54,58 @@ else
   Titanium.Geolocation.accuracy = Titanium.Geolocation.ACCURACY_BEST
   Titanium.Geolocation.distanceFilter = 10
 
-  Titanium.Geolocation.getCurrentPosition = (e) ->
+  Titanium.Geolocation.getCurrentPosition (e) ->
     if (!e.success || e.error)
       currentLocation.text = 'error: ' + JSON.stringify(e.error)
       Ti.API.info("Code translation: "+translateErrorCode(e.code))
       alert('error ' + JSON.stringify(e.error))
       return
   
-  longitude = e.coords.longitude
-  latitude = e.coords.latitude
-  altitude = e.coords.altitude
-  heading = e.coords.heading
-  accuracy = e.coords.accuracy
-  speed = e.coords.speed
-  timestamp = e.coords.timestamp
-  altitudeAccuracy = e.coords.altitudeAccuracy
-  Ti.API.info('speed ' + speed)
-  currentLocation.text = 'long:' + longitude + ' lat: ' + latitude
-  Titanium.API.info('geo - current location: ' + new Date(timestamp) + ' long ' + longitude + ' lat ' + latitude + ' accuracy ' + accuracy)
+    longitude = e.coords.longitude
+    latitude = e.coords.latitude
+    altitude = e.coords.altitude
+    heading = e.coords.heading
+    accuracy = e.coords.accuracy
+    speed = e.coords.speed
+    timestamp = e.coords.timestamp
+    altitudeAccuracy = e.coords.altitudeAccuracy
+    Ti.API.info('speed ' + speed)
+    currentLocation.text = 'long:' + longitude + ' lat: ' + latitude
+    Titanium.API.info('geo - current location: ' + new Date(timestamp) + ' long ' + longitude + ' lat ' + latitude + ' accuracy ' + accuracy)
+
+  locationCallback = (e) ->
+    if (!e.success || e.error)
+      currentLocation.text = 'error: ' + JSON.stringify(e.error)
+      Ti.API.info("Code translation: "+translateErrorCode(e.code))
+      alert('error ' + JSON.stringify(e.error))
+      return
+
+    longitude = e.coords.longitude
+    latitude = e.coords.latitude
+    altitude = e.coords.altitude
+    heading = e.coords.heading
+    accuracy = e.coords.accuracy
+    speed = e.coords.speed
+    timestamp = e.coords.timestamp
+    altitudeAccuracy = e.coords.altitudeAccuracy
+    alert 'long:' + longitude + ' lat: ' + latitude
+
+  Titanium.Geolocation.reverseGeocoder latitude,longitude,(evt) ->
+    if (evt.success)
+      places = evt.places
+      if (places && places.length) 
+        reverseGeo.text = places[0].address
+      else 
+        reverseGeo.text = "No address found"
+        Ti.API.debug("reverse geolocation result = "+JSON.stringify(evt));
+    else 
+      errorDialog = Ti.UI.createAlertDialog
+        title:'Reverse geo error'
+        message:evt.error
+      errorDialog.show()
+      Ti.API.info("Code translation: "+translateErrorCode(e.code))
+
+
 
 translateErrorCode = (code) -> 
   if (code == null)

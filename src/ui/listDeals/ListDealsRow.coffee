@@ -135,19 +135,19 @@ class ListDealsRow
       left: 155
 
     if deal.roomType is 'lujo'
-      if deal.roomTypeText is null or deal.roomTypeText.length < 2
+      if deal.roomTypeText is undefined or deal.roomTypeText.length < 2
         roomTypeLabel.text = 'luxury'
       roomTypeLabel.backgroundColor = "#e5e79d"
       roomTypeLabel.borderColor = "#e5e79d"
       icon = '/images/yellow_arrow.png'
     if deal.roomType is 'elegante' 
-      if deal.roomTypeText is null or deal.roomTypeText.length < 2
+      if deal.roomTypeText is undefined or deal.roomTypeText.length < 2
         roomTypeLabel.text = 'elegance'      
       roomTypeLabel.backgroundColor = "#c7bcd2"
       roomTypeLabel.borderColor = "#c7bcd2"
       icon = '/images/purple_arrow.png'
     if deal.roomType is 'confort' 
-      if deal.roomTypeText is null or deal.roomTypeText.length < 2
+      if deal.roomTypeText is undefined or deal.roomTypeText.length < 2
         roomTypeLabel.text = 'basic'
       roomTypeLabel.backgroundColor = "#a3bfd4"
       roomTypeLabel.borderColor = "#a3bfd4"

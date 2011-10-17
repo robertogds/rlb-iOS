@@ -65,6 +65,9 @@
   acercaView = new root.Generic2RowsView(20, L('aboutRLB'), L('toHotels'));
   legalView = new root.Generic2RowsView(150, L('terms'), L('privacyPolicy'));
   acercaView.label1.addEventListener('click', function(e) {
+    var aboutView;
+    aboutView = new root.GenericTextView(0, L('aboutTitle'), L('aboutText')).view;
+    root.aboutScrollView.add(aboutView);
     return root.tabGroup.activeTab.open(root.aboutWindow, {
       animated: true
     });

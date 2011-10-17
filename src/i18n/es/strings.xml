@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="cities">Ciudades</string>
+    <string name="countries">Países</string>
     <string name="errorHappened">Se ha producido un error</string>
     <string name="errorBooking">Se ha producido un error\nHemos recibido una respuesta incorrecta de la central de reservas por lo que no podemos asegurar que la reserva se haya realizado con éxito. Por favor ponte en contacto con soporte@reallylatebooking.com para confirmar que la reserva es correcta.</string>
 	<string name="errorUser">Usuario incorrecto</string>

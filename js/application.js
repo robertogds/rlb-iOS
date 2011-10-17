@@ -1,6 +1,7 @@
 (function() {
   Titanium.UI.setBackgroundColor('#000');
   root.citiesWindow = new root.GenericWindow(L('cities')).win;
+  root.countriesWindow = new root.GenericWindow(L('countries')).win;
   root.listDealsWindow = new root.GenericWindow('Madrid').win;
   root.listDealsMapWindow = new root.GenericWindow(L('map')).win;
   root.bookingsWindow = new root.GenericWindow(L('yourBookings')).win;
@@ -31,8 +32,8 @@
   });
   root.dealsTab = Titanium.UI.createTab({
     icon: 'icons/icon_deal.png',
-    title: L('cities'),
-    window: root.citiesWindow
+    title: L('countries'),
+    window: root.countriesWindow
   });
   root.bookingTab = Titanium.UI.createTab({
     icon: 'icons/icon_buy.png',
@@ -55,9 +56,7 @@
   root.tabGroup.addTab(root.optionsTab);
   root.tabGroup.open();
   root.showError = function(window) {
-    Ti.API.info("Entra en root.showError");
     root.errorWindow = window;
-    window.add(root.errorView);
-    return Ti.API.info("Sale de root.showError");
+    return window.add(root.errorView);
   };
 }).call(this);

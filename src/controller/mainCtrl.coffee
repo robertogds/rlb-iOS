@@ -1,5 +1,6 @@
-root.url = 'http://rlb-back.appspot.com'
-root.surl = 'https://rlb-back.appspot.com'
+root.url = 'http://15.rlb-back.appspot.com'
+root.surl = 'https://15.rlb-back.appspot.com'
+root.country = 'spain'
 #root.url = 'http://192.168.1.33:9000'
 #root.surl = 'http://192.168.1.33:9000'
 root.bgGradient =
@@ -26,6 +27,7 @@ Ti.include(
   '/js/accountWindow.js'
   '/js/bookingsWindow.js'
   '/js/citiesWindow.js'
+  '/js/countriesWindow.js'
   '/js/oneDealView.js'
   '/js/oneBookingView.js'
   '/js/optionsView.js'
@@ -58,7 +60,8 @@ else
   Titanium.App.Properties.removeProperty("user")
   Titanium.App.Properties.removeProperty("facebookUser")
 
-root.showCities()
+root.showCountries()
+root.countriesDate = new Date()
 root.citiesDate = new Date()
 
 root.urlSignature = (url) ->

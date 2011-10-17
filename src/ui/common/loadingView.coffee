@@ -21,7 +21,7 @@ root.loadLabel = Titanium.UI.createLabel
 
 
 root.iphoneActInd = Titanium.UI.createActivityIndicator
-  #style:Titanium.UI.iPhone.ActivityIndicatorStyle.BIG
+  style:Titanium.UI.iPhone.ActivityIndicatorStyle.BIG
   top:30
 
 root.androidActInd = Titanium.UI.createActivityIndicator

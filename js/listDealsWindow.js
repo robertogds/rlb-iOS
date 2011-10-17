@@ -1,3 +1,4 @@
 (function() {
-  Ti.include('/js/why3View.js', '/js/ListDealsRow.js', '/js/listDealsMapView.js', '/js/listDealsTable.js', '/js/noDealsView.js');
+  Ti.include('/js/why3View.js', '/js/ListDealsRow.js', '/js/listDealsMapView.js', '/js/listDealsTable.js', '/js/pullRefresh.js', '/js/noDealsView.js');
+  root.listDealsWindow.addEventListener('focus', function(e) {});
 }).call(this);
