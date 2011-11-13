@@ -67,7 +67,7 @@ pulling = false
 reloading = false
 
 beginReloading = () ->
-  #just mock out the reload
+  root.reloadDeals = true
   root.loadDeals(root.city)
   setTimeout(endReloading,3000)
 

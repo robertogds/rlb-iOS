@@ -1,8 +1,13 @@
 class ListDealsRow
-  constructor: (deal) ->
+  constructor: (deal,n) ->
+    imagex = {}
+    imagex[1] = '/images/listado1_320x118.jpg'
+    imagex[2] = '/images/listado2_320x118.jpg'
+    imagex[3] = '/images/listado3_320x118.jpg'
+    textColor = "white"
     @row = Ti.UI.createTableViewRow
       hasChild: true
-      rightImage: '/images/blue_arrow.png'
+      #rightImage: '/images/blue_arrow.png'
       identionLevel: 200
       height: 120
       selectionStyle: 'none'
@@ -14,47 +19,72 @@ class ListDealsRow
       color: '#fff'
 
     image = Titanium.UI.createImageView 
-      image: deal.mainImageSmall
+      #image: deal.mainImageSmall
+      image: imagex[n]
       borderRadius: 0
       #borderColor: '#fff'
       #borderWidth: 2
-      left: 4
-      width: 140
-      height: 110
+      left: 0
+      width: 320
+      height: 118
     @row.add(image)
 
-    hotelLabel = Titanium.UI.createLabel
+    hotelBarLabel = Titanium.UI.createLabel
       borderWidth: 0
+      backgroundColor: '#0d1e28'
+      #backgroundColor: 'black'
+      opacity: 0.6
+      color: '#fff'
+      left: 0
+      height: 17
+      width: 320
+      top: 0
+    @row.add(hotelBarLabel)
+
+    hotelLabel = Titanium.UI.createLabel
       text: deal.hotelName
       color: '#fff'
-      left: 155
+      left: 5
       font:
         fontSize: 14
         fontWeight: 'bold'
-      height: 30
-      width: 160
-      top: 5
+      height: 17
+      width: 250
+      top: 0
     @row.add(hotelLabel)
+
+    priceTag = Titanium.UI.createLabel
+      opacity: 0.9
+      backgroundImage: '/images/price_bas5.png'
+      left: 245
+      borderWidth: 0
+      textAlign: 'center' 
+      height: 100
+      width: 71
+      top: 0
+    @row.add(priceTag)
 
     priceLabel = Titanium.UI.createLabel
       text: deal.salePriceCents + "€"
-      color: '#fff'
-      left: 155
+      color: textColor
+      left: 241
       borderWidth: 0
+      textAlign: 'center'
       font:
-        fontSize: 28
-        fontWeight: 'bold'
-      height: 30
-      width: 70
-      top: 35
+        fontSize: 22
+        fontWeight: 'bold'  
+      height: 35
+      width: 80
+      top: 15
     @row.add(priceLabel)
 
     antesLabel = Titanium.UI.createLabel
       text: L('before')
-      color: '#868d92'
-      left: 230
+      color: '#eeeeee'
+      textAlign: 'left'
+      left: 256
       font:
-        fontSize: 10
+        fontSize: 9
       height: 15
       width: 40
       top: 40
@@ -62,49 +92,28 @@ class ListDealsRow
 
     normalPriceLabel = Titanium.UI.createLabel
       text: deal.priceCents + "€"
-      color: '#868d92'
-      left: 230
+      color: '#eeeeee'
+      left: 256
       borderWidth: 0
       textAlign: 'left'
       font:
-        fontSize: 14
+        fontSize: 12
         fontWeight: 'bold'
       height: 30
       width: 35
       top: 45
     @row.add(normalPriceLabel)
-
-    sepVertView = Titanium.UI.createView
-      backgroundColor: '#444547' 
-      left: 225
-      top: 42
-      height: 25
-      width: 1
-    @row.add(sepVertView)
-
-    tonightLabel = Titanium.UI.createLabel
-      text: L('tonight')
-      color: '#fff'
-      left: 155
-      borderWidth: 0
-      font:
-        fontSize: 12
-        fontWeight: 'bold'
-      height: 20
-      width: 70
-      top: 63
-    @row.add(tonightLabel)
   
     extraNightsLabel = Titanium.UI.createLabel
       text: L('oneNight')
-      textAlign: "right"
-      color: '#868d92'
+      textAlign: "center"
+      color: textColor
       font:
-        fontSize: 12
-      height: 30
-      left: 228
-      width: 80
-      top: 85
+        fontSize: 10
+      height: 20
+      left: 250
+      width: 60
+      top: 68
 
     if deal.priceDay2 > 0
       extraNightsLabel.text = L('stayTwoNights')
@@ -118,43 +127,48 @@ class ListDealsRow
     @row.add(extraNightsLabel)
 
     roomTypeLabel = Titanium.UI.createLabel
-      borderWidth:1
-      borderColor: 'white'
-      width: 70
-      height: 25
-      borderRadius: 5
-      backgroundColor: 'white'
-      color: 'black'
+      width: 80
+      height: 20
+      color: textColor
       text: deal.roomTypeText
       textAlign: "center"
       font:
-        fontSize: 14
+        fontSize: 10
         fontWeight: 'bold'
         fontFamily:'Helvetica Neue'
-      top: 87
-      left: 155
+      top: 2
+      left: 241
 
     if deal.roomType is 'lujo'
-      if deal.roomTypeText is undefined or deal.roomTypeText.length < 2
-        roomTypeLabel.text = 'luxury'
-      roomTypeLabel.backgroundColor = "#e5e79d"
-      roomTypeLabel.borderColor = "#e5e79d"
+      if deal.roomTypeText is undefined or deal.roomTypeText is null or deal.roomTypeText.length < 2
+        roomTypeLabel.text = 'LUXURY'
+      else roomTypeLabel.text = deal.roomTypeText.toUpperCase()
+      #roomTypeLabel.backgroundColor = "#e5e79d"
+      #hotelLabel.backgroundColor = "#e5e79d"
+      #roomTypeLabel.borderColor = "#e5e79d"
+      priceTag.backgroundImage = "/images/price_lux5.png"
       icon = '/images/yellow_arrow.png'
     if deal.roomType is 'elegante' 
-      if deal.roomTypeText is undefined or deal.roomTypeText.length < 2
-        roomTypeLabel.text = 'elegance'      
-      roomTypeLabel.backgroundColor = "#c7bcd2"
-      roomTypeLabel.borderColor = "#c7bcd2"
+      if deal.roomTypeText is undefined or deal.rootmTypeText is null or deal.roomTypeText.length < 2
+        roomTypeLabel.text = 'ELEGANCE' 
+      else roomTypeLabel.text = deal.roomTypeText.toUpperCase()     
+      #roomTypeLabel.backgroundColor = "#c7bcd2"
+      #hotelLabel.backgroundColor = "#c7bcd2"
+      #roomTypeLabel.borderColor = "#c7bcd2"
+      priceTag.backgroundImage = "/images/price_ele5.png"
       icon = '/images/purple_arrow.png'
     if deal.roomType is 'confort' 
-      if deal.roomTypeText is undefined or deal.roomTypeText.length < 2
-        roomTypeLabel.text = 'basic'
-      roomTypeLabel.backgroundColor = "#a3bfd4"
-      roomTypeLabel.borderColor = "#a3bfd4"
+      if deal.roomTypeText is undefined or deal.roomTypeText is null or deal.roomTypeText.length < 2
+        roomTypeLabel.text = 'BASIC'
+      else roomTypeLabel.text = deal.roomTypeText.toUpperCase()
+      #roomTypeLabel.backgroundColor = "#a3bfd4"
+      #hotelLabel.backgroundColor = "#a3bfd4"
+      #roomTypeLabel.borderColor = "#a3bfd4"
+      priceTag.backgroundImage = "/images/price_bas5.png"
       icon = '/images/blue_arrow.png'
 	
     @row.add(roomTypeLabel)
-    @row.rightImage = icon
+    #@row.rightImage = icon
     
     soldOutView = Titanium.UI.createView
       opacity: 0.6

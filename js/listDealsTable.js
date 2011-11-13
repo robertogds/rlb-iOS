@@ -16,6 +16,7 @@
   });
   root.listDealsWindow.rightNavButton = mapButton;
   root.listDealsWindow.add(root.dealsTable);
+  root.reloadDeals = false;
   root.dealsTable.addEventListener('click', function(e) {
     Ti.API.error("PREVIO");
     if (e.row.deal === void 0) {
@@ -30,18 +31,18 @@
     }
     return Ti.API.error("NO HACE MAS");
   });
-  root.xhrDeals = Titanium.Network.createHTTPClient();
-  root.xhrDeals.onload = function() {
-    var data, deal, dealRow, deals, textLabel, textRow, _i, _len;
+  root.populateDealsTable = function(deals) {
+    var data, deal, dealRow, id, textLabel, textRow, _i, _len;
+    id = 0;
     root.citiesWindow.remove(root.errorView);
-    deals = JSON.parse(this.responseText);
     root.createMap(deals);
     Ti.API.info('deals: ' + this.responseText);
     data = [];
     for (_i = 0, _len = deals.length; _i < _len; _i++) {
       deal = deals[_i];
-      Ti.API.info('Entra en un deal' + deal);
-      dealRow = new root.listDealsRow(deal);
+      id = id + 1;
+      Ti.API.info('Entra en un deal' + id);
+      dealRow = new root.listDealsRow(deal, id);
       Ti.API.info('antes de hacer el data.push');
       data.push(dealRow.row);
     }
@@ -73,36 +74,19 @@
     }
     root.hideLoading(root.listDealsWindow);
     root.hideLoading(root.citiesWindow);
-    root.showDeals();
-    return Ti.API.info('Termina onLoad Deals');
-  };
-  root.xhrDeals.onerror = function() {
-    Ti.UI.createAlertDialog({
-      title: 'ReallyLateBooking',
-      message: L('errorHappened')
-    }).show();
-    root.hideLoading(root.listDealsWindow);
-    return root.showError(root.citiesWindow);
-  };
-  root.loadDeals = function(city) {
-    Ti.API.info('Entra en loadDeals');
-    root.showLoading(root.listDealsWindow, L('updatingHotels'));
-    Ti.API.info('Pasa de show loading');
-    root.city = city;
-    root.listDealsWindow.title = city.name;
-    Ti.API.info('Antes de hacer la llamada');
-    root.xhrDeals.setTimeout(15000);
-    root.xhrDeals.open('GET', root.url + '/deals/' + city.url);
-    root.xhrDeals.setRequestHeader("Accept-Language", Titanium.Locale.currentLanguage);
-    root.xhrDeals.send();
-    return Ti.API.info('Termina loadDeals');
-  };
-  root.showDeals = function() {
-    if (root.currentWindow !== 'deals') {
+    if (root.reloadDeals === false) {
       root.tabGroup.activeTab.open(root.listDealsWindow, {
         animated: true
       });
     }
-    return root.currentWindow = 'deals';
+    root.reloadDeals = false;
+    return Ti.API.error('TERMINA CARGA DEALS');
+  };
+  root.loadDeals = function(city) {
+    Ti.API.info('Entra en loadDeals');
+    root.showLoading(root.listDealsWindow, L('updatingHotels'));
+    root.city = city;
+    root.listDealsWindow.title = city.name;
+    return root.fetchDeals(city);
   };
 }).call(this);

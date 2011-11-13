@@ -1,11 +1,15 @@
 (function() {
   var ListDealsRow;
   ListDealsRow = (function() {
-    function ListDealsRow(deal) {
-      var antesLabel, extraNightsLabel, hotelLabel, icon, image, normalPriceLabel, priceLabel, roomTypeLabel, sepVertView, soldOutLabel, soldOutView, tonightLabel;
+    function ListDealsRow(deal, n) {
+      var antesLabel, extraNightsLabel, hotelBarLabel, hotelLabel, icon, image, imagex, normalPriceLabel, priceLabel, priceTag, roomTypeLabel, soldOutLabel, soldOutView, textColor;
+      imagex = {};
+      imagex[1] = '/images/listado1_320x118.jpg';
+      imagex[2] = '/images/listado2_320x118.jpg';
+      imagex[3] = '/images/listado3_320x118.jpg';
+      textColor = "white";
       this.row = Ti.UI.createTableViewRow({
         hasChild: true,
-        rightImage: '/images/blue_arrow.png',
         identionLevel: 200,
         height: 120,
         selectionStyle: 'none',
@@ -26,47 +30,70 @@
         color: '#fff'
       });
       image = Titanium.UI.createImageView({
-        image: deal.mainImageSmall,
+        image: imagex[n],
         borderRadius: 0,
-        left: 4,
-        width: 140,
-        height: 110
+        left: 0,
+        width: 320,
+        height: 118
       });
       this.row.add(image);
-      hotelLabel = Titanium.UI.createLabel({
+      hotelBarLabel = Titanium.UI.createLabel({
         borderWidth: 0,
+        backgroundColor: '#0d1e28',
+        opacity: 0.6,
+        color: '#fff',
+        left: 0,
+        height: 17,
+        width: 320,
+        top: 0
+      });
+      this.row.add(hotelBarLabel);
+      hotelLabel = Titanium.UI.createLabel({
         text: deal.hotelName,
         color: '#fff',
-        left: 155,
+        left: 5,
         font: {
           fontSize: 14,
           fontWeight: 'bold'
         },
-        height: 30,
-        width: 160,
-        top: 5
+        height: 17,
+        width: 250,
+        top: 0
       });
       this.row.add(hotelLabel);
+      priceTag = Titanium.UI.createLabel({
+        opacity: 0.9,
+        backgroundImage: '/images/price_bas5.png',
+        left: 245,
+        borderWidth: 0,
+        textAlign: 'center',
+        height: 100,
+        width: 71,
+        top: 0
+      });
+      this.row.add(priceTag);
       priceLabel = Titanium.UI.createLabel({
         text: deal.salePriceCents + "€",
-        color: '#fff',
-        left: 155,
+        color: textColor,
+        left: 241,
         borderWidth: 0,
+        textAlign: 'center',
         font: {
-          fontSize: 28,
+          fontSize: 22,
           fontWeight: 'bold'
         },
-        height: 30,
-        width: 70,
-        top: 35
+        height: 35,
+        width: 80,
+        top: 15
       });
       this.row.add(priceLabel);
       antesLabel = Titanium.UI.createLabel({
         text: L('before'),
-        color: '#868d92',
-        left: 230,
+        color: '#eeeeee',
+        textAlign: 'left',
+        left: 256,
         font: {
-          fontSize: 10
+          fontSize: 9
         },
         height: 15,
         width: 40,
@@ -75,12 +102,12 @@
       this.row.add(antesLabel);
       normalPriceLabel = Titanium.UI.createLabel({
         text: deal.priceCents + "€",
-        color: '#868d92',
-        left: 230,
+        color: '#eeeeee',
+        left: 256,
         borderWidth: 0,
         textAlign: 'left',
         font: {
-          fontSize: 14,
+          fontSize: 12,
           fontWeight: 'bold'
         },
         height: 30,
@@ -88,39 +115,17 @@
         top: 45
       });
       this.row.add(normalPriceLabel);
-      sepVertView = Titanium.UI.createView({
-        backgroundColor: '#444547',
-        left: 225,
-        top: 42,
-        height: 25,
-        width: 1
-      });
-      this.row.add(sepVertView);
-      tonightLabel = Titanium.UI.createLabel({
-        text: L('tonight'),
-        color: '#fff',
-        left: 155,
-        borderWidth: 0,
-        font: {
-          fontSize: 12,
-          fontWeight: 'bold'
-        },
-        height: 20,
-        width: 70,
-        top: 63
-      });
-      this.row.add(tonightLabel);
       extraNightsLabel = Titanium.UI.createLabel({
         text: L('oneNight'),
-        textAlign: "right",
-        color: '#868d92',
+        textAlign: "center",
+        color: textColor,
         font: {
-          fontSize: 12
+          fontSize: 10
         },
-        height: 30,
-        left: 228,
-        width: 80,
-        top: 85
+        height: 20,
+        left: 250,
+        width: 60,
+        top: 68
       });
       if (deal.priceDay2 > 0) {
         extraNightsLabel.text = L('stayTwoNights');
@@ -136,49 +141,47 @@
       }
       this.row.add(extraNightsLabel);
       roomTypeLabel = Titanium.UI.createLabel({
-        borderWidth: 1,
-        borderColor: 'white',
-        width: 70,
-        height: 25,
-        borderRadius: 5,
-        backgroundColor: 'white',
-        color: 'black',
+        width: 80,
+        height: 20,
+        color: textColor,
         text: deal.roomTypeText,
         textAlign: "center",
         font: {
-          fontSize: 14,
+          fontSize: 10,
           fontWeight: 'bold',
           fontFamily: 'Helvetica Neue'
         },
-        top: 87,
-        left: 155
+        top: 2,
+        left: 241
       });
       if (deal.roomType === 'lujo') {
-        if (deal.roomTypeText === void 0 || deal.roomTypeText.length < 2) {
-          roomTypeLabel.text = 'luxury';
+        if (deal.roomTypeText === void 0 || deal.roomTypeText === null || deal.roomTypeText.length < 2) {
+          roomTypeLabel.text = 'LUXURY';
+        } else {
+          roomTypeLabel.text = deal.roomTypeText.toUpperCase();
         }
-        roomTypeLabel.backgroundColor = "#e5e79d";
-        roomTypeLabel.borderColor = "#e5e79d";
+        priceTag.backgroundImage = "/images/price_lux5.png";
         icon = '/images/yellow_arrow.png';
       }
       if (deal.roomType === 'elegante') {
-        if (deal.roomTypeText === void 0 || deal.roomTypeText.length < 2) {
-          roomTypeLabel.text = 'elegance';
+        if (deal.roomTypeText === void 0 || deal.rootmTypeText === null || deal.roomTypeText.length < 2) {
+          roomTypeLabel.text = 'ELEGANCE';
+        } else {
+          roomTypeLabel.text = deal.roomTypeText.toUpperCase();
         }
-        roomTypeLabel.backgroundColor = "#c7bcd2";
-        roomTypeLabel.borderColor = "#c7bcd2";
+        priceTag.backgroundImage = "/images/price_ele5.png";
         icon = '/images/purple_arrow.png';
       }
       if (deal.roomType === 'confort') {
-        if (deal.roomTypeText === void 0 || deal.roomTypeText.length < 2) {
-          roomTypeLabel.text = 'basic';
+        if (deal.roomTypeText === void 0 || deal.roomTypeText === null || deal.roomTypeText.length < 2) {
+          roomTypeLabel.text = 'BASIC';
+        } else {
+          roomTypeLabel.text = deal.roomTypeText.toUpperCase();
         }
-        roomTypeLabel.backgroundColor = "#a3bfd4";
-        roomTypeLabel.borderColor = "#a3bfd4";
+        priceTag.backgroundImage = "/images/price_bas5.png";
         icon = '/images/blue_arrow.png';
       }
       this.row.add(roomTypeLabel);
-      this.row.rightImage = icon;
       soldOutView = Titanium.UI.createView({
         opacity: 0.6,
         backgroundColor: '#ffffff',

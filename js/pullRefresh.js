@@ -73,6 +73,7 @@
   pulling = false;
   reloading = false;
   beginReloading = function() {
+    root.reloadDeals = true;
     root.loadDeals(root.city);
     return setTimeout(endReloading, 3000);
   };

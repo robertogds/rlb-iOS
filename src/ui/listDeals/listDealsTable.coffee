@@ -14,6 +14,8 @@ root.listDealsWindow.rightNavButton = mapButton
 
 root.listDealsWindow.add(root.dealsTable)
 
+root.reloadDeals = false
+
 root.dealsTable.addEventListener 'click', (e) ->
   Ti.API.error("PREVIO")
   if e.row.deal is undefined 
@@ -24,18 +26,16 @@ root.dealsTable.addEventListener 'click', (e) ->
   Ti.API.error("NO HACE MAS")
 
 
-# This will handle the JSON
-root.xhrDeals = Titanium.Network.createHTTPClient()
-
-root.xhrDeals.onload = () ->
+root.populateDealsTable = (deals) ->
+  id = 0
   root.citiesWindow.remove(root.errorView)
-  deals = JSON.parse(this.responseText)
   root.createMap(deals)
   Ti.API.info 'deals: ' + this.responseText
   data = []
   for deal in deals
-    Ti.API.info 'Entra en un deal' + deal
-    dealRow = new root.listDealsRow(deal)
+    id = id + 1
+    Ti.API.info 'Entra en un deal' + id
+    dealRow = new root.listDealsRow(deal,id)
     Ti.API.info 'antes de hacer el data.push'
     data.push(dealRow.row)
   if data.length is 0
@@ -63,31 +63,20 @@ root.xhrDeals.onload = () ->
     root.dealsTable.setData(data)
   root.hideLoading(root.listDealsWindow)
   root.hideLoading(root.citiesWindow)
-  root.showDeals()
-  Ti.API.info 'Termina onLoad Deals'
-
-root.xhrDeals.onerror = () ->
-  Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('errorHappened')}).show()
-  root.hideLoading(root.listDealsWindow)
-  root.showError(root.citiesWindow)
+  if root.reloadDeals is false
+    root.tabGroup.activeTab.open(root.listDealsWindow,{animated:true})
+  root.reloadDeals = false
+  Ti.API.error 'TERMINA CARGA DEALS'
 
 root.loadDeals = (city) ->
-  Ti.API.info 'Entra en loadDeals'
-  root.showLoading(root.listDealsWindow,L('updatingHotels'))
-  Ti.API.info 'Pasa de show loading'
-  root.city = city
-  root.listDealsWindow.title = city.name
-  Ti.API.info 'Antes de hacer la llamada'
-  root.xhrDeals.setTimeout(15000)
-  root.xhrDeals.open('GET', root.url+'/deals/'+city.url)
-  root.xhrDeals.setRequestHeader("Accept-Language",Titanium.Locale.currentLanguage)
-  root.xhrDeals.send()
-  Ti.API.info 'Termina loadDeals'
+	Ti.API.info 'Entra en loadDeals'
+	root.showLoading(root.listDealsWindow,L('updatingHotels'))
+	root.city = city
+	root.listDealsWindow.title = city.name
+	root.fetchDeals(city)
 
-root.showDeals = () -> 
-  if root.currentWindow isnt 'deals'
-    root.tabGroup.activeTab.open(root.listDealsWindow,{animated:true})
-  root.currentWindow = 'deals'
+
+
   
 
 
