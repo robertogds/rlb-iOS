@@ -19,7 +19,6 @@ root.citiesTable.addEventListener 'click', (e) ->
     root.loadDeals(e.row.city)
  
 
-
 root.populateCitiesTable = (cities) ->
   root.citiesWindow.remove(root.errorView)
   data = []
@@ -45,7 +44,5 @@ root.populateCitiesTable = (cities) ->
   root.tabGroup.activeTab.open(root.citiesWindow,{animated:true})
   Ti.API.error 'TERMINA CARGA CIUDADES'
 
-
-#root.showCities = (url) ->
 
   

@@ -10,6 +10,7 @@ root.bgGradient =
      colors:[{color:'#07151d',position:0.1},{color:'#0d1e28',position:1.0}]
 
 Ti.include(
+	'/js/mocks.js'
     '/js/gpsData.js'
     '/js/fetchCities.js'
     '/js/fetchCountries.js'
@@ -36,8 +37,8 @@ Ti.include(
     '/js/countriesWindow.js'
     '/js/oneDealView.js'
     '/js/oneBookingView.js'
-    '/js/optionsView.js'
     '/js/bookingView.js'
+    '/js/optionsView.js'
     '/js/aboutView.js'
     '/js/forHotelsView.js'
     '/js/termsView.js'
@@ -68,7 +69,8 @@ loadUser = () ->
 
 loadUser()
 #root.fetchDealsFake()
-root.initializeGPS()
+root.mockFetchCities()
+#root.initializeGPS()
 
 
 root.urlSignature = (url) ->

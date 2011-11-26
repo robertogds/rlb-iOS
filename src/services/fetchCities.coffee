@@ -40,6 +40,6 @@ root.fetchCities = (url)->
 		else
 			Ti.API.info "No se necesita cargar ciudades"
 			root.populateCitiesTable(root.listCities[root.cityUrl])
-		
-		
-	
+
+root.mockFetchCities = () ->
+	root.populateCitiesTable(root.mockCities)

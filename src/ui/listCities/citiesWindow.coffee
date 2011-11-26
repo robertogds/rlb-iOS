@@ -1,6 +1,8 @@
 Ti.include(
-  '/js/citiesRow.js'
-  '/js/citiesTable.js'
+  '/js/cityRow.js'
+  '/js/cityColumn.js'
+  #'/js/citiesTable.js'
+  '/js/citiesStatic.js'
 )
 root.citiesWindow.addEventListener 'focus', (e) ->
 	#root.fetchCities()

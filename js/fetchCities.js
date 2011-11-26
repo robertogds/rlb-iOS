@@ -49,4 +49,7 @@
       }
     }
   };
+  root.mockFetchCities = function() {
+    return root.populateCitiesTable(root.mockCities);
+  };
 }).call(this);
