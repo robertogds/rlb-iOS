@@ -1,7 +1,7 @@
 (function() {
   root.citiesTable = Titanium.UI.createTableView({
     data: [],
-    backgroundImage: '/images/texture1.jpg',
+    backgroundImage: '/images/texture11.jpg',
     separatorColor: 'transparent'
   });
   root.citiesWindow.add(root.citiesTable);
@@ -26,8 +26,13 @@
         cityColumn = new root.cityColumn(list[1], list[2], list[3]);
         data.push(cityColumn.row);
         n = 0;
+        list[1] = void 0;
+        list[2] = void 0;
+        list[3] = void 0;
       }
     }
+    cityColumn = new root.cityColumn(list[1], list[2], list[3]);
+    data.push(cityColumn.row);
     root.citiesTable.setData(data);
     root.hideLoading(root.countriesWindow);
     root.hideLoading(root.citiesWindow);

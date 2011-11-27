@@ -10,8 +10,12 @@
         backgroundColor: 'transparent'
       });
       row1 = new root.cityRow(this.row, city1, 0);
-      row2 = new root.cityRow(this.row, city2, 106);
-      row3 = new root.cityRow(this.row, city3, 212);
+      if (city2 !== void 0) {
+        row2 = new root.cityRow(this.row, city2, 106);
+      }
+      if (city3 !== void 0) {
+        row3 = new root.cityRow(this.row, city3, 212);
+      }
     }
     return CityColumn;
   })();

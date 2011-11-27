@@ -32,8 +32,7 @@
   root.cardTypePicker.add(data);
   root.cardTypePicker.addEventListener('change', function(e) {
     root.cardType = e.row.custom_item;
-    root.cardTypeLabel.text = e.row.custom_item;
-    return 1;
+    return root.cardTypeLabel.text = e.row.custom_item;
   });
   infoLabel = Titanium.UI.createLabel({
     height: 60,

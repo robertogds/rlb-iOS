@@ -8,10 +8,11 @@ class CityColumn
 			#backgroundGradient:
 			#	type:'linear'
 			#	colors:[{color:'#07151d',position:0.1},{color:'#0d1e28',position:1.0}]
-    	
 		row1 = new root.cityRow(@row,city1,0)
-		row2 = new root.cityRow(@row,city2,106)
-		row3 = new root.cityRow(@row,city3,212)
+		if city2 isnt undefined
+			row2 = new root.cityRow(@row,city2,106)
+		if city3 isnt undefined
+			row3 = new root.cityRow(@row,city3,212)
 		
 
 root.cityColumn = CityColumn

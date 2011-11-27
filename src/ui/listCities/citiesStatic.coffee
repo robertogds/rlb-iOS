@@ -2,7 +2,7 @@ root.citiesTable = Titanium.UI.createTableView
 	data: []
 	#backgroundColor: 'white'
 	#backgroundColor: '#08151d'
-	backgroundImage: '/images/texture1.jpg'
+	backgroundImage: '/images/texture11.jpg'
 	#separatorColor: '#0d1e28'
 	separatorColor: 'transparent'
 
@@ -23,9 +23,15 @@ root.populateCitiesTable = (cities) ->
 		n++
 		list[n] = city
 		if n is 3
-		  cityColumn = new root.cityColumn(list[1],list[2],list[3])
-		  data.push(cityColumn.row)
-		  n = 0
+			cityColumn = new root.cityColumn(list[1],list[2],list[3])
+			data.push(cityColumn.row)
+			n = 0
+			list[1] = undefined
+			list[2] = undefined
+			list[3] = undefined
+		
+	cityColumn = new root.cityColumn(list[1],list[2],list[3])
+	data.push(cityColumn.row)
 	root.citiesTable.setData(data)
 	root.hideLoading(root.countriesWindow)
 	root.hideLoading(root.citiesWindow)
