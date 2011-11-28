@@ -2,7 +2,7 @@ root.citiesTable = Titanium.UI.createTableView
 	data: []
 	#backgroundColor: 'white'
 	#backgroundColor: '#08151d'
-	backgroundImage: '/images/texture11.jpg'
+	backgroundImage: '/images/texture2.jpg'
 	#separatorColor: '#0d1e28'
 	separatorColor: 'transparent'
 

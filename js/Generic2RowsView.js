@@ -1,6 +1,6 @@
 (function() {
   var Generic2RowsView;
-  Generic2RowsView = (function() {
+  Generic2RowsView = function() {
     function Generic2RowsView(top, text1, text2) {
       var data, row1, row2, section;
       this.view = Titanium.UI.createView({
@@ -63,6 +63,6 @@
       this.view.add(this.table);
     }
     return Generic2RowsView;
-  })();
+  }();
   root.Generic2RowsView = Generic2RowsView;
 }).call(this);

@@ -1,6 +1,6 @@
 (function() {
   var CountriesRow;
-  CountriesRow = (function() {
+  CountriesRow = function() {
     function CountriesRow(country) {
       var countryLabel;
       this.row = Ti.UI.createTableViewRow({
@@ -34,6 +34,6 @@
       this.row.add(countryLabel);
     }
     return CountriesRow;
-  })();
+  }();
   root.countriesRow = CountriesRow;
 }).call(this);

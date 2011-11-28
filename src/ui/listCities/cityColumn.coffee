@@ -1,7 +1,7 @@
 class CityColumn
 	constructor: (city1,city2,city3) ->
 		@row = Ti.UI.createTableViewRow
-			height: 91
+			height: 107
 			hasChild: false
 			selectionStyle: 'none'
 			backgroundColor: 'transparent'
@@ -10,9 +10,9 @@ class CityColumn
 			#	colors:[{color:'#07151d',position:0.1},{color:'#0d1e28',position:1.0}]
 		row1 = new root.cityRow(@row,city1,0)
 		if city2 isnt undefined
-			row2 = new root.cityRow(@row,city2,106)
+			row2 = new root.cityRow(@row,city2,107)
 		if city3 isnt undefined
-			row3 = new root.cityRow(@row,city3,212)
+			row3 = new root.cityRow(@row,city3,214)
 		
 
 root.cityColumn = CityColumn

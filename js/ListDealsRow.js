@@ -1,6 +1,6 @@
 (function() {
   var ListDealsRow;
-  ListDealsRow = (function() {
+  ListDealsRow = function() {
     function ListDealsRow(deal, n) {
       var antesLabel, extraNightsLabel, hotelBarLabel, hotelLabel, icon, image, imagex, normalPriceLabel, priceLabel, priceTag, roomTypeLabel, soldOutLabel, soldOutView, textColor;
       imagex = {};
@@ -209,6 +209,6 @@
       }
     }
     return ListDealsRow;
-  })();
+  }();
   root.listDealsRow = ListDealsRow;
 }).call(this);

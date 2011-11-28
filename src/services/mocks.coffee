@@ -26,73 +26,73 @@ root.mockCities = [
 	{
 		'name' : 'A coruña'
 		'url' : 'a_coruna'
-		'image' : '/images/coruna.png'
+		'image' : '/images/RLB_a coruña_def.png'
 		'hasZones' : false		
 	}
 	{
 		'name' : 'Barcelona'
 		'url' : 'barcelona'
-		'image' : '/images/barcelona.png'
+		'image' : '/images/RLB_barcelona_def.png'
 		'hasZones' : false		
 	}
 	{
 		'name' : 'Berlín'
 		'url' : 'berlin'
-		'image' : '/images/berlin.png'
+		'image' : '/images/RLB_berlin_def.png'
 		'hasZones' : false		
 	}
 	{
 		'name' : 'Bilbao'
 		'url' : 'bilbao'
-		'image' : '/images/bilbao.png'
+		'image' : '/images/RLB_bilbao_def.png'
 		'hasZones' : false		
 	}
 	{
 		'name' : 'Londres'
 		'url' : 'london'
-		'image' : '/images/london.png'	
+		'image' : '/images/RLB_london_def.png'	
 		'hasZones' : false	
 	}
 	{
 		'name' : 'Madrid'
 		'url' : 'madrid'
-		'image' : '/images/madrid.png'
+		'image' : '/images/RLB_madrid_def.png'
 		'hasZones' : true		
 	}
 	{
 		'name' : 'Milán'
 		'url' : 'milan'
-		'image' : '/images/milano.png'
+		'image' : '/images/RLB_milan_def.png'
 		'hasZones' : false		
 	}
 	{
 		'name' : 'Málaga'
 		'url' : 'malaga'
-		'image' : '/images/malaga.png'
+		'image' : '/images/RLB_santiago_300pp.png'
 		'hasZones' : false		
 	}
 	{
 		'name' : 'París'
 		'url' : 'paris'
-		'image' : '/images/paris_base51.png'
+		'image' : '/images/RLB_santiago_150pp.png'
 		'hasZones' : false		
 	}
 	{
 		'name' : 'Santiago'
 		'url' : 'santiago'
-		'image' : '/images/santiago.png'
+		'image' : '/images/RLB_santiago_def.tif'
 		'hasZones' : false		
 	}
 	{
 		'name' : 'Sevilla'
 		'url' : 'sevilla'
-		'image' : '/images/sevilla.png'
+		'image' : '/images/RLB_santiago_150pp.png'
 		'hasZones' : false		
 	}
 	{
 		'name' : 'Valencia'
 		'url' : 'valencia'
-		'image' : '/images/valencia.png'
+		'image' : '/images/RLB_santiago_107.jpg'
 		'hasZones' : false		
 	}
 	{

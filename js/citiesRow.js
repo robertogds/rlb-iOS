@@ -1,6 +1,6 @@
 (function() {
   var CitiesRow;
-  CitiesRow = (function() {
+  CitiesRow = function() {
     function CitiesRow(city) {
       var cityLabel;
       this.row = Ti.UI.createTableViewRow({
@@ -34,6 +34,6 @@
       this.row.add(cityLabel);
     }
     return CitiesRow;
-  })();
+  }();
   root.citiesRow = CitiesRow;
 }).call(this);
