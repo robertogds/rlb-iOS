@@ -10,8 +10,8 @@ root.bgGradient =
      colors:[{color:'#07151d',position:0.1},{color:'#0d1e28',position:1.0}]
 
 Ti.include(
-    '/js/gpsData.js'
 	'/js/mocks.js'
+    '/js/gpsData.js'
     '/js/fetchCities.js'
     '/js/fetchCountries.js'
     '/js/fetchDeals.js'

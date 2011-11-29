@@ -5,7 +5,7 @@
       var cityBarLabel, cityImage, cityLabel;
       cityImage = Titanium.UI.createImageView({
         borderRadius: 0,
-        borderWidth: 0,
+        borderWidth: 1,
         borderColor: 'black',
         image: city.image,
         city: city,

@@ -2,7 +2,7 @@ class CityRow
 	constructor: (row,city,left) ->    	
 		cityImage = Titanium.UI.createImageView
 			borderRadius: 0
-			borderWidth: 0
+			borderWidth: 1
 			#borderColor: '#1b3c50'
 			borderColor: 'black'
 			image: city.image

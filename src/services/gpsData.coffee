@@ -4,6 +4,22 @@ locationAdded = false
 root.gpsCountry = undefined
 root.gpsCity = undefined
 
+Number.prototype.toDeg = () ->
+	return this * 180 / Math.PI
+
+Number.prototype.toRad = () ->
+	return this * Math.PI / 180
+
+getNearCity = (lat,lon) ->
+	R = 6371
+	for city in root.mockCities
+		dLat = (city.latitude - lat).toRad()
+		dLon = (city.longitude - lon).toRad()
+		a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(lat.toRad()) * Math.cos(city.latitude.toRad()) * Match.sin(dLon/2) * Math.sin(dLon/2)
+		c = 2 * Match.atan2(Math.sqrt(a),Math.sqrt(1-a))
+		d = R * c
+		alert 'La distancia con ' + city.nae + ' es de: ' + d ' Km'
+
 
 translateErrorCode = (code) ->
 	if (code == null)
@@ -52,6 +68,7 @@ root.getGPSData = () ->
 		altitudeAccuracy = e.coords.altitudeAccuracy
 		Ti.API.info('speed ' + speed)
 		Ti.API.info('long:' + longitude + ' lat: ' + latitude)
+		getNearCity(latitude,longitude)
 		Titanium.API.info('geo - current location: ' + new Date(timestamp) + ' long ' + longitude + ' lat ' + latitude + ' accuracy ' + accuracy)
 		Titanium.Geolocation.reverseGeocoder latitude,longitude,(evt) ->
 			Ti.API.info("Entra en reverseGeocoder: " + evt.places[0].city + " " + evt.places[0].country)

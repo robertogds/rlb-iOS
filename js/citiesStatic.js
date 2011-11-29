@@ -1,7 +1,7 @@
 (function() {
   root.citiesTable = Titanium.UI.createTableView({
     data: [],
-    backgroundImage: '/images/texture2.jpg',
+    backgroundImage: '/images/texture3.jpg',
     separatorColor: 'transparent'
   });
   root.citiesWindow.add(root.citiesTable);

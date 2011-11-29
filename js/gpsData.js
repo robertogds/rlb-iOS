@@ -1,10 +1,32 @@
 (function() {
-  var locationAdded, translateErrorCode;
+  var getNearCity, locationAdded, translateErrorCode;
   Ti.Geolocation.preferredProvider = "gps";
   Ti.Geolocation.purpose = "Get Current Location";
   locationAdded = false;
   root.gpsCountry = void 0;
   root.gpsCity = void 0;
+  Number.prototype.toDeg = function() {
+    return this * 180 / Math.PI;
+  };
+  Number.prototype.toRad = function() {
+    return this * Math.PI / 180;
+  };
+  getNearCity = function(lat, lon) {
+    var R, a, c, city, d, dLat, dLon, _i, _len, _ref, _results;
+    R = 6371;
+    _ref = root.mockCities;
+    _results = [];
+    for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+      city = _ref[_i];
+      dLat = (city.latitude - lat).toRad();
+      dLon = (city.longitude - lon).toRad();
+      a = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(lat.toRad()) * Math.cos(city.latitude.toRad()) * Match.sin(dLon / 2) * Math.sin(dLon / 2);
+      c = 2 * Match.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      d = R * c;
+      _results.push(alert('La distancia con ' + city.nae + ' es de: ' + d(' Km')));
+    }
+    return _results;
+  };
   translateErrorCode = function(code) {
     if (code === null) {
       return null;
@@ -74,6 +96,7 @@
       altitudeAccuracy = e.coords.altitudeAccuracy;
       Ti.API.info('speed ' + speed);
       Ti.API.info('long:' + longitude + ' lat: ' + latitude);
+      getNearCity(latitude, longitude);
       Titanium.API.info('geo - current location: ' + new Date(timestamp) + ' long ' + longitude + ' lat ' + latitude + ' accuracy ' + accuracy);
       Titanium.Geolocation.reverseGeocoder(latitude, longitude, function(evt) {
         var city, citypre, gpsCountry, places;
