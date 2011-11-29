@@ -1,5 +1,5 @@
 root.accountView = Titanium.UI.createView
-  backgroundColor: '#0d1e28'
+  backgroundColor: 'transparent'
   #width:320
 
 

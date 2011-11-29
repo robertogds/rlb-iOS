@@ -4,7 +4,7 @@ class CityRow
 			borderRadius: 0
 			borderWidth: 0
 			#borderColor: '#1b3c50'
-			#borderColor: 'white'
+			borderColor: 'black'
 			image: city.image
 			city: city
 			left: left 

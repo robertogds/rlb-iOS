@@ -23,62 +23,62 @@
     {
       'name': 'A coruña',
       'url': 'a_coruna',
-      'image': '/images/RLB_a coruña_def.png',
+      'image': '/images/coruna.jpg',
       'hasZones': false
     }, {
       'name': 'Barcelona',
       'url': 'barcelona',
-      'image': '/images/RLB_barcelona_def.png',
+      'image': '/images/barcelona.jpg',
       'hasZones': false
     }, {
       'name': 'Berlín',
       'url': 'berlin',
-      'image': '/images/RLB_berlin_def.png',
+      'image': '/images/berlin.jpg',
       'hasZones': false
     }, {
       'name': 'Bilbao',
       'url': 'bilbao',
-      'image': '/images/RLB_bilbao_def.png',
+      'image': '/images/bilbao.jpg',
       'hasZones': false
     }, {
       'name': 'Londres',
       'url': 'london',
-      'image': '/images/RLB_london_def.png',
+      'image': '/images/london.jpg',
       'hasZones': false
     }, {
       'name': 'Madrid',
       'url': 'madrid',
-      'image': '/images/RLB_madrid_def.png',
+      'image': '/images/madrid.jpg',
       'hasZones': true
     }, {
       'name': 'Milán',
       'url': 'milan',
-      'image': '/images/RLB_milan_def.png',
+      'image': '/images/milan.jpg',
       'hasZones': false
     }, {
       'name': 'Málaga',
       'url': 'malaga',
-      'image': '/images/RLB_santiago_300pp.png',
+      'image': '/images/malaga.jpg',
       'hasZones': false
     }, {
       'name': 'París',
       'url': 'paris',
-      'image': '/images/RLB_santiago_150pp.png',
+      'image': '/images/paris.jpg',
       'hasZones': false
     }, {
       'name': 'Santiago',
       'url': 'santiago',
-      'image': '/images/RLB_santiago_def.tif',
+      'image': '/images/santiago.jpg',
       'hasZones': false
     }, {
       'name': 'Sevilla',
       'url': 'sevilla',
-      'image': '/images/RLB_santiago_150pp.png',
+      'image': '/images/sevilla.jpg',
       'hasZones': false
     }, {
       'name': 'Valencia',
       'url': 'valencia',
-      'image': '/images/RLB_santiago_107.jpg',
+      'image': '/images/valencia.jpg',
       'hasZones': false
     }, {
       'name': 'Valladolid',

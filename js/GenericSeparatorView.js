@@ -1,6 +1,6 @@
 (function() {
   var GenericSeparatorView;
-  GenericSeparatorView = function() {
+  GenericSeparatorView = (function() {
     function GenericSeparatorView(top) {
       this.view = Titanium.UI.createView({
         backgroundColor: '#57585b',
@@ -9,6 +9,6 @@
       });
     }
     return GenericSeparatorView;
-  }();
+  })();
   root.GenericSeparatorView = GenericSeparatorView;
 }).call(this);

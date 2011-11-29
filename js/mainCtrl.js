@@ -1,7 +1,7 @@
 (function() {
   var loadUser;
-  root.url = 'http://18.rlb-back.appspot.com';
-  root.surl = 'https://18.rlb-back.appspot.com';
+  root.url = 'http://rlb-back.appspot.com';
+  root.surl = 'https://rlb-back.appspot.com';
   root.country = 'spain';
   root.countriesDate = new Date();
   root.bgGradient = {

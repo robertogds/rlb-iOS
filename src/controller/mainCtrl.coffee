@@ -1,5 +1,5 @@
-root.url = 'http://18.rlb-back.appspot.com'
-root.surl = 'https://18.rlb-back.appspot.com'
+root.url = 'http://rlb-back.appspot.com'
+root.surl = 'https://rlb-back.appspot.com'
 #root.url = 'http://192.168.1.33:9000'
 #root.surl = 'http://192.168.1.33:9000'
 root.country = 'spain'
