@@ -12,20 +12,31 @@
     return this * Math.PI / 180;
   };
   getNearCity = function(lat, lon) {
-    var R, a, c, city, d, dLat, dLon, _i, _len, _ref, _results;
+    var R, a, c, city, cityLatRad, dLat, dLon, distance, latRad, lowDistance, nearCity, _i, _len, _ref;
     R = 6371;
-    _ref = root.mockCities;
-    _results = [];
+    lowDistance = 1000;
+    nearCity = void 0;
+    _ref = root.staticCities;
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
       city = _ref[_i];
-      dLat = (city.latitude - lat).toRad();
-      dLon = (city.longitude - lon).toRad();
-      a = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(lat.toRad()) * Math.cos(city.latitude.toRad()) * Match.sin(dLon / 2) * Math.sin(dLon / 2);
-      c = 2 * Match.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-      d = R * c;
-      _results.push(alert('La distancia con ' + city.nae + ' es de: ' + d(' Km')));
+      Ti.API.error('city.latitude = ' + city.latitude * Math.PI / 180);
+      cityLatRad = city.latitude * Math.PI / 180;
+      latRad = lat * Math.PI / 180;
+      dLat = (city.latitude - lat) * Math.PI / 180;
+      dLon = (city.longitude - lon) * Math.PI / 180;
+      a = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(latRad) * Math.cos(cityLatRad) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+      c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      distance = R * c;
+      if (distance < lowDistance) {
+        nearCity = city;
+        lowDistance = distance;
+      }
     }
-    return _results;
+    if (lowDistance < 100 && nearCity !== void 0) {
+      return root.fetchDeals(nearCity);
+    } else {
+      return alert('No hemos podido encontrar ofertas cerca de tu posición');
+    }
   };
   translateErrorCode = function(code) {
     if (code === null) {
@@ -50,6 +61,7 @@
   };
   root.initializeGPS = function() {
     var authorization;
+    root.showLoading(root.citiesWindow, 'Getting GPS Location');
     root.isGPS = true;
     if (Titanium.Geolocation.locationServicesEnabled === false) {
       Titanium.UI.createAlertDialog({
@@ -75,7 +87,6 @@
     return root.getGPSData();
   };
   root.getGPSData = function() {
-    root.showLoading(root.countriesWindow, 'Getting GPS Location');
     Titanium.Geolocation.accuracy = Titanium.Geolocation.ACCURACY_BEST;
     Titanium.Geolocation.distanceFilter = 10;
     return Titanium.Geolocation.getCurrentPosition(function(e) {
@@ -83,7 +94,10 @@
       Ti.API.info("Entra en getCurrentPosition ");
       if (!e.success || e.error) {
         Ti.API.info("Code translation: " + translateErrorCode(e.code));
-        alert('error ' + JSON.stringify(e.error));
+        Ti.UI.createAlertDialog({
+          title: 'ReallyLateBooking',
+          message: JSON.stringify(e.error)
+        }).show();
         return;
       }
       longitude = e.coords.longitude;
@@ -98,38 +112,8 @@
       Ti.API.info('long:' + longitude + ' lat: ' + latitude);
       getNearCity(latitude, longitude);
       Titanium.API.info('geo - current location: ' + new Date(timestamp) + ' long ' + longitude + ' lat ' + latitude + ' accuracy ' + accuracy);
-      Titanium.Geolocation.reverseGeocoder(latitude, longitude, function(evt) {
-        var city, citypre, gpsCountry, places;
-        Ti.API.info("Entra en reverseGeocoder: " + evt.places[0].city + " " + evt.places[0].country);
-        if (evt.success) {
-          places = evt.places;
-          if (places && places.length) {
-            gpsCountry = places[0].country;
-            citypre = JSON.stringify({
-              "name": places[0].city,
-              "url": "madrid"
-            });
-            city = JSON.parse(citypre);
-            root.fetchDeals(city);
-            root.gpsFetchCities = function() {};
-            return root.gpsFetchDeals = function() {};
-          } else {
-            Ti.API.error("No address found");
-            Ti.API.debug("reverse geolocation result = " + JSON.stringify(evt));
-            return root.fetchCountries();
-          }
-        } else {
-          Ti.UI.createAlertDialog({
-            title: 'ReallyLateBooking',
-            message: evt.error
-          }).show();
-          errorDialog.show();
-          Ti.API.info("Code translation: " + translateErrorCode(e.code));
-          return Titanium.API.info('geo - location updated: ' + new Date(timestamp) + ' long ' + longitude + ' lat ' + latitude + ' accuracy ' + accuracy);
-        }
-      });
       locationAdded = true;
-      return root.hideLoading(root.countriesWindow);
+      return root.hideLoading(root.citiesWindow);
     });
   };
 }).call(this);

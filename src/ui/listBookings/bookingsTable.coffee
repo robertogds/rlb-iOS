@@ -1,14 +1,14 @@
 Ti.include('/js/BookingsRow.js')
 
 root.footerView = Titanium.UI.createView
-    backgroundColor:'#0d1e28' 
+    backgroundColor:'transparent' 
     borderWidth: 0
     height:100
     width:320
 
 root.bookingsTable = Titanium.UI.createTableView
   data: []
-  backgroundColor: '#0d1e28'
+  backgroundColor: 'transparent'
   separatorColor: '#1b3c50'
 
 root.bookingsWindow.add(root.bookingsTable)

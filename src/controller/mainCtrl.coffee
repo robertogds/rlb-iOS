@@ -12,7 +12,7 @@ root.bgGradient =
 Ti.include(
 	'/js/mocks.js'
     '/js/gpsData.js'
-    '/js/fetchCities.js'
+    #'/js/fetchCities.js'
     '/js/fetchCountries.js'
     '/js/fetchDeals.js'
     '/js/dateUtil.js'
@@ -66,10 +66,7 @@ loadUser = () ->
 
 
 # Main Program
-
 loadUser()
-#root.fetchDealsFake()
-root.mockFetchCities()
 #root.initializeGPS()
 
 

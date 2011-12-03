@@ -50,6 +50,7 @@
     }
   };
   root.mockFetchCities = function() {
-    return root.populateCitiesTable(root.mockCities);
+    Ti.API.info("Entra en cargar ciudades estatíco");
+    return root.populateCitiesTable(root.staticCities);
   };
 }).call(this);

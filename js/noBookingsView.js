@@ -1,7 +1,7 @@
 (function() {
   var noBookingsView, text, title;
   root.noBookingsView = Titanium.UI.createView({
-    backgroundColor: '#0d1e28'
+    backgroundColor: 'transparent'
   });
   title = L('bookingTonight');
   text = L('yetNoBook');

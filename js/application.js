@@ -1,5 +1,5 @@
 (function() {
-  Titanium.UI.setBackgroundColor('#000');
+  Titanium.UI.setBackgroundColor('black');
   root.citiesWindow = new root.GenericWindow(L('cities')).win;
   root.countriesWindow = new root.GenericWindow(L('countries')).win;
   root.listDealsWindow = new root.GenericWindow('Madrid').win;
@@ -27,13 +27,13 @@
   root.imagesWindow.backButtonTitle = L('back');
   root.imagesWindow.tabBarHidden = true;
   root.tabGroup = Titanium.UI.createTabGroup({
-    barColor: '#000',
+    barColor: 'transparent',
     id: 'tabGroup'
   });
   root.dealsTab = Titanium.UI.createTab({
     icon: 'icons/icon_deal.png',
-    title: L('countries'),
-    window: root.countriesWindow
+    title: L('cities'),
+    window: root.citiesWindow
   });
   root.bookingTab = Titanium.UI.createTab({
     icon: 'icons/icon_buy.png',

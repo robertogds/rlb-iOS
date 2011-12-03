@@ -1,23 +1,18 @@
 (function() {
-  var antesLabel, sepVertView;
+  var antesLabel, barPriceView, sepVertView;
   root.priceView = Titanium.UI.createView({
+    backgroundColor: 'transparent',
+    width: '100%',
+    top: 150,
+    height: 50
+  });
+  barPriceView = Titanium.UI.createView({
     backgroundColor: 'black',
-    width: '100%',
-    top: 120,
-    height: 77
+    opacity: '0.6',
+    top: 0,
+    height: 50
   });
-  root.infoHotelIpadLabel = Titanium.UI.createLabel({
-    width: '100%',
-    color: 'white',
-    font: {
-      fontSize: 14,
-      fontWeight: 'normal',
-      fontFamily: 'Helvetica Neue'
-    },
-    top: 80,
-    height: 110,
-    left: 25
-  });
+  root.priceView.add(barPriceView);
   root.oneDealPriceLabel = Titanium.UI.createLabel({
     width: 85,
     height: 40,
@@ -28,7 +23,6 @@
       fontWeight: 'bold',
       fontFamily: 'Helvetica Neue'
     },
-    top: '25%',
     left: 15
   });
   root.oneDealNormalPriceLabel = Titanium.UI.createLabel({
@@ -41,13 +35,12 @@
       fontWeight: 'bold',
       fontFamily: 'Helvetica Neue'
     },
-    top: '47%',
+    top: '20',
     left: 110
   });
   sepVertView = Titanium.UI.createView({
     backgroundColor: '#444547',
     left: 105,
-    top: '34%',
     height: 28,
     width: 1
   });
@@ -56,11 +49,11 @@
     color: '#868d92',
     left: 110,
     font: {
-      fontSize: 16
+      fontSize: 14
     },
     width: 40,
     height: 20,
-    top: '24%'
+    top: '2'
   });
   root.bookingLabel = Titanium.UI.createLabel({
     backgroundImage: '/images/booking_background.png',
@@ -76,7 +69,6 @@
       fontWeight: 'bold',
       fontFamily: 'Helvetica Neue'
     },
-    top: '30%',
     left: '60%'
   });
   root.bookingLabel.addEventListener('click', function(e) {
@@ -94,7 +86,6 @@
       fontWeight: 'bold',
       fontFamily: 'Helvetica Neue'
     },
-    top: '40%',
     left: '60%'
   });
   root.priceView.add(root.oneDealPriceLabel);

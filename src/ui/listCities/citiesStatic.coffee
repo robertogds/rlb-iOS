@@ -1,12 +1,18 @@
 root.citiesTable = Titanium.UI.createTableView
 	data: []
-	#backgroundColor: 'white'
-	#backgroundColor: '#08151d'
-	backgroundImage: '/images/texture3.jpg'
-	#separatorColor: '#0d1e28'
+	backgroundColor: 'transparent'
+	#backgroundImage: '/images/texture3.jpg'
 	separatorColor: 'transparent'
 
 root.citiesWindow.add(root.citiesTable)
+
+gpsButton = Titanium.UI.createButton
+	title: 'GPS'
+
+gpsButton.addEventListener 'click', (e) ->
+	root.initializeGPS()
+
+root.citiesWindow.rightNavButton = gpsButton
 
 root.citiesTable.addEventListener 'click', (e) ->
 	if e.row.city isnt undefined
@@ -14,25 +20,21 @@ root.citiesTable.addEventListener 'click', (e) ->
 		root.showLoading(root.citiesWindow,L('updatingHotels'))
 		root.loadDeals(e.row.city)
 
-root.populateCitiesTable = (cities) ->
-	root.citiesWindow.remove(root.errorView)
-	data = []
-	n = 0
-	list = {}
-	for city in cities
-		n++
-		list[n] = city
-		if n is 3
-			cityColumn = new root.cityColumn(list[1],list[2],list[3])
-			data.push(cityColumn.row)
-			n = 0
-			list[1] = undefined
-			list[2] = undefined
-			list[3] = undefined
+citiesData = []
+n = 0
+list = {}
+for city in root.staticCities
+	n++
+	list[n] = city
+	if n is 3
+		cityColumn = new root.cityColumn(list[1],list[2],list[3])
+		citiesData.push(cityColumn.row)
+		n = 0
+		list[1] = undefined
+		list[2] = undefined
+		list[3] = undefined
 		
-	cityColumn = new root.cityColumn(list[1],list[2],list[3])
-	data.push(cityColumn.row)
-	root.citiesTable.setData(data)
-	root.hideLoading(root.countriesWindow)
-	root.hideLoading(root.citiesWindow)
-	root.tabGroup.activeTab.open(root.citiesWindow,{animated:true})
+cityColumn = new root.cityColumn(list[1],list[2],list[3])
+citiesData.push(cityColumn.row)
+root.citiesTable.setData(citiesData)
+

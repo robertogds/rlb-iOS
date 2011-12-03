@@ -1,9 +1,6 @@
 class ListDealsRow
   constructor: (deal,n) ->
     imagex = {}
-    imagex[1] = '/images/listado1_320x118.jpg'
-    imagex[2] = '/images/listado2_320x118.jpg'
-    imagex[3] = '/images/listado3_320x118.jpg'
     textColor = "white"
     @row = Ti.UI.createTableViewRow
       hasChild: true
@@ -19,14 +16,11 @@ class ListDealsRow
       color: '#fff'
 
     image = Titanium.UI.createImageView 
-      #image: deal.mainImageSmall
-      image: imagex[n]
+      image: deal.mainImageBig
       borderRadius: 0
-      #borderColor: '#fff'
-      #borderWidth: 2
       left: 0
       width: 320
-      height: 118
+      height: 120
     @row.add(image)
 
     hotelBarLabel = Titanium.UI.createLabel
@@ -146,7 +140,7 @@ class ListDealsRow
       #roomTypeLabel.backgroundColor = "#e5e79d"
       #hotelLabel.backgroundColor = "#e5e79d"
       #roomTypeLabel.borderColor = "#e5e79d"
-      priceTag.backgroundImage = "/images/price_lux5.png"
+      priceTag.backgroundImage = "/images/price_luxury1.png"
       icon = '/images/yellow_arrow.png'
     if deal.roomType is 'elegante' 
       if deal.roomTypeText is undefined or deal.rootmTypeText is null or deal.roomTypeText.length < 2
@@ -155,7 +149,7 @@ class ListDealsRow
       #roomTypeLabel.backgroundColor = "#c7bcd2"
       #hotelLabel.backgroundColor = "#c7bcd2"
       #roomTypeLabel.borderColor = "#c7bcd2"
-      priceTag.backgroundImage = "/images/price_ele5.png"
+      priceTag.backgroundImage = "/images/price_elegance1.png"
       icon = '/images/purple_arrow.png'
     if deal.roomType is 'confort' 
       if deal.roomTypeText is undefined or deal.roomTypeText is null or deal.roomTypeText.length < 2
@@ -164,7 +158,7 @@ class ListDealsRow
       #roomTypeLabel.backgroundColor = "#a3bfd4"
       #hotelLabel.backgroundColor = "#a3bfd4"
       #roomTypeLabel.borderColor = "#a3bfd4"
-      priceTag.backgroundImage = "/images/price_bas5.png"
+      priceTag.backgroundImage = "/images/price_basic1.png"
       icon = '/images/blue_arrow.png'
 	
     @row.add(roomTypeLabel)

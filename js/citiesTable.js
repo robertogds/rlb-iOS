@@ -1,14 +1,14 @@
 (function() {
   var footerView;
   footerView = Titanium.UI.createView({
-    backgroundColor: '#0d1e28',
+    backgroundColor: 'transparent',
     borderWidth: 0,
     height: 100
   });
   root.citiesTable = Titanium.UI.createTableView({
     data: [],
-    backgroundColor: '#0d1e28',
-    separatorColor: '#1b3c50',
+    backgroundColor: 'transparent',
+    separatorColor: 'transparent',
     footerView: footerView
   });
   root.citiesWindow.add(root.citiesTable);
@@ -55,9 +55,6 @@
     root.citiesTable.setData(data);
     root.hideLoading(root.countriesWindow);
     root.hideLoading(root.citiesWindow);
-    root.tabGroup.activeTab.open(root.citiesWindow, {
-      animated: true
-    });
     return Ti.API.error('TERMINA CARGA CIUDADES');
   };
 }).call(this);

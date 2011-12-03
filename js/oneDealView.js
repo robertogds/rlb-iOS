@@ -14,7 +14,7 @@
   root.oneDealImage = Titanium.UI.createImageView({
     top: 0,
     width: Ti.Platform.displayCaps.platformWidth,
-    height: 120
+    height: 200
   });
   root.oneDealView.add(root.oneDealImage);
   if (Titanium.Platform.name !== 'android') {
@@ -102,7 +102,7 @@
     root.mapView.setLocation(region);
     root.mapView.addAnnotation(root.hotelAnnotation);
     root.oneDealWindow.title = deal.hotelName;
-    root.oneDealImage.image = deal.mainImageBig;
+    root.oneDealImage.image = '/images/320x200.png';
     root.oneDealPriceLabel.text = deal.salePriceCents + "€";
     root.oneDealNormalPriceLabel.text = deal.priceCents + "€";
     root.oneDealAddressLabel.text = deal.address;

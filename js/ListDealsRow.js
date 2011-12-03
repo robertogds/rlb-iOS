@@ -4,9 +4,6 @@
     function ListDealsRow(deal, n) {
       var antesLabel, extraNightsLabel, hotelBarLabel, hotelLabel, icon, image, imagex, normalPriceLabel, priceLabel, priceTag, roomTypeLabel, soldOutLabel, soldOutView, textColor;
       imagex = {};
-      imagex[1] = '/images/listado1_320x118.jpg';
-      imagex[2] = '/images/listado2_320x118.jpg';
-      imagex[3] = '/images/listado3_320x118.jpg';
       textColor = "white";
       this.row = Ti.UI.createTableViewRow({
         hasChild: true,
@@ -30,11 +27,11 @@
         color: '#fff'
       });
       image = Titanium.UI.createImageView({
-        image: imagex[n],
+        image: deal.mainImageBig,
         borderRadius: 0,
         left: 0,
         width: 320,
-        height: 118
+        height: 120
       });
       this.row.add(image);
       hotelBarLabel = Titanium.UI.createLabel({
@@ -160,7 +157,7 @@
         } else {
           roomTypeLabel.text = deal.roomTypeText.toUpperCase();
         }
-        priceTag.backgroundImage = "/images/price_lux5.png";
+        priceTag.backgroundImage = "/images/price_luxury1.png";
         icon = '/images/yellow_arrow.png';
       }
       if (deal.roomType === 'elegante') {
@@ -169,7 +166,7 @@
         } else {
           roomTypeLabel.text = deal.roomTypeText.toUpperCase();
         }
-        priceTag.backgroundImage = "/images/price_ele5.png";
+        priceTag.backgroundImage = "/images/price_elegance1.png";
         icon = '/images/purple_arrow.png';
       }
       if (deal.roomType === 'confort') {
@@ -178,7 +175,7 @@
         } else {
           roomTypeLabel.text = deal.roomTypeText.toUpperCase();
         }
-        priceTag.backgroundImage = "/images/price_bas5.png";
+        priceTag.backgroundImage = "/images/price_basic1.png";
         icon = '/images/blue_arrow.png';
       }
       this.row.add(roomTypeLabel);

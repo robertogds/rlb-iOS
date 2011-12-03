@@ -1,4 +1,4 @@
-Titanium.UI.setBackgroundColor('#000')
+Titanium.UI.setBackgroundColor('black')
 
 # Application Windows
 root.citiesWindow = new root.GenericWindow(L('cities')).win
@@ -31,18 +31,19 @@ root.imagesWindow.tabBarHidden = true
 
 # Application Tabs 336699
 root.tabGroup = Titanium.UI.createTabGroup
-  barColor:'#000'
-  id:'tabGroup'
+	barColor:'transparent' 
+	id:'tabGroup'
 
 root.dealsTab = Titanium.UI.createTab
-  icon:'icons/icon_deal.png'
-  title:L('countries')
-  window: root.countriesWindow
+	icon:'icons/icon_deal.png'
+	title:L('cities')
+	window: root.citiesWindow
   
 root.bookingTab = Titanium.UI.createTab
   icon:'icons/icon_buy.png'
   title:L('bookings')
   window: root.bookingsWindow
+
     
 root.accountTab = Titanium.UI.createTab
   icon:'icons/icon_user.png'
@@ -63,6 +64,6 @@ root.tabGroup.open()
 
 
 root.showError = (window) ->
-  root.errorWindow = window
-  window.add(root.errorView)
+	root.errorWindow = window
+	window.add(root.errorView)
 

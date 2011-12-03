@@ -1,5 +1,7 @@
 root.noDealsView = Titanium.UI.createView
-  backgroundColor: '#0d1e28'
+	#backgroundColor: 'transparent'
+	backgroundImage: '/images/Texture.png'
+
   #width:320
 
 title = L('noDealsTitle')

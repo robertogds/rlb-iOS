@@ -1,7 +1,7 @@
 (function() {
   var closedView, text, title;
   root.noDealsView = Titanium.UI.createView({
-    backgroundColor: '#0d1e28'
+    backgroundImage: '/images/Texture.png'
   });
   title = L('noDealsTitle');
   text = L('noDealsText');

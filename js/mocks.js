@@ -19,7 +19,7 @@
       'priceCents': 180
     }
   ];
-  root.mockCities = [
+  root.staticCities = [
     {
       'name': 'A coruña',
       'url': 'a_coruna',
@@ -111,13 +111,6 @@
       'hasZones': false,
       'latitude': '41.64900974',
       'longitude': '-4.72485135'
-    }, {
-      'name': 'Zaragoza',
-      'url': 'zaragoza',
-      'image': '/images/zaragoza.png',
-      'hasZones': false,
-      'latitude': '41.63769007',
-      'longitude': '-0.90407878'
     }
   ];
   root.zones['madrid'] = [

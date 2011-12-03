@@ -42,4 +42,5 @@ root.fetchCities = (url)->
 			root.populateCitiesTable(root.listCities[root.cityUrl])
 
 root.mockFetchCities = () ->
-	root.populateCitiesTable(root.mockCities)
+	Ti.API.info "Entra en cargar ciudades estatíco"
+	root.populateCitiesTable(root.staticCities)

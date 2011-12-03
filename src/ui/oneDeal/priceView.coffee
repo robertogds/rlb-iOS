@@ -1,19 +1,15 @@
 root.priceView = Titanium.UI.createView
-  backgroundColor: 'black'
+  backgroundColor: 'transparent'
   width:'100%'
-  top: 120
-  height: 77
+  top: 150
+  height: 50
 
-root.infoHotelIpadLabel = Titanium.UI.createLabel
-  width:'100%'
-  color: 'white'
-  font:
-    fontSize: 14
-    fontWeight: 'normal'
-    fontFamily:'Helvetica Neue'
-  top: 80
-  height: 110
-  left: 25
+barPriceView = Titanium.UI.createView
+	backgroundColor: 'black'
+	opacity: '0.6'
+	top:0
+	height: 50
+root.priceView.add(barPriceView)
 
 root.oneDealPriceLabel = Titanium.UI.createLabel
   width: 85
@@ -24,7 +20,7 @@ root.oneDealPriceLabel = Titanium.UI.createLabel
     fontSize: 36
     fontWeight: 'bold'
     fontFamily:'Helvetica Neue'
-  top: '25%'
+  #top: '10'
   left: 15
 
 root.oneDealNormalPriceLabel = Titanium.UI.createLabel
@@ -36,15 +32,13 @@ root.oneDealNormalPriceLabel = Titanium.UI.createLabel
     fontSize: 20
     fontWeight: 'bold'
     fontFamily:'Helvetica Neue'
-  top: '47%'
+  top: '20'
   left: 110
-
-
 
 sepVertView = Titanium.UI.createView
   backgroundColor: '#444547' 
   left: 105
-  top: '34%'
+  #top: '34%'
   height: 28
   width: 1
 
@@ -53,10 +47,10 @@ antesLabel = Titanium.UI.createLabel
   color: '#868d92'
   left: 110
   font:
-    fontSize: 16
+    fontSize: 14
   width: 40
   height: 20
-  top: '24%'
+  top: '2'
 
 
 root.bookingLabel = Titanium.UI.createLabel
@@ -72,7 +66,7 @@ root.bookingLabel = Titanium.UI.createLabel
     fontSize: 18
     fontWeight: 'bold'
     fontFamily:'Helvetica Neue'
-  top: '30%'
+  #top: '30%'
   left: '60%'
 
 root.bookingLabel.addEventListener 'click', (e) ->
@@ -89,7 +83,7 @@ root.soldOutLabel = Titanium.UI.createLabel
     fontSize: 18
     fontWeight: 'bold'
     fontFamily:'Helvetica Neue'
-  top: '40%'
+  #top: '40%'
   left: '60%'
 
 root.priceView.add(root.oneDealPriceLabel)
