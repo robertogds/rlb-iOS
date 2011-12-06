@@ -36,11 +36,11 @@
       this.row.add(image);
       hotelBarLabel = Titanium.UI.createLabel({
         borderWidth: 0,
-        backgroundColor: '#0d1e28',
-        opacity: 0.6,
+        backgroundColor: 'black',
+        opacity: 0.7,
         color: '#fff',
         left: 0,
-        height: 17,
+        height: 20,
         width: 320,
         top: 0
       });
@@ -53,7 +53,7 @@
           fontSize: 14,
           fontWeight: 'bold'
         },
-        height: 17,
+        height: 20,
         width: 250,
         top: 0
       });

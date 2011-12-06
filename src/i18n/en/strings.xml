@@ -40,7 +40,7 @@
 	<string name="adviceCard">We will not charge your credit card, as you will pay the hotel directly for your stay.\nYou can save your card for future purchases.</string>
 	<string name="noRefundable">This reservation is non-refundable</string>	
 	<string name="booking">Booking</string>
-	<string name="bookingBlueButtonText">book it</string>
+	<string name="bookingBlueButtonText">book it for tonight</string>
 	<string name="mustUser">You must be logged in to do that</string>
 	<string name="selectCardType">Select Card Type</string>
 	<string name="done">Done</string>
@@ -143,4 +143,11 @@
     <string name="nights">Nights</string>
     <string name="addNights">Add extra nights to your stay</string>
     <string name="bookingForExplain">You can use this option to book on behalf of another person, for example a friend who does not have ReallyLateBooking.\n\nThe reservation confirmation will arrive by email with the locator to be provided on site.</string>
+	<string name="noDealsGPS">No deals available in your current position, select a city from the list</string>
+	<string name="geoOff">Your device has geo turned off - turn it on</string>
+	<string name="youGeoDisallow">You have disallowed from running geolocation services</string>
+	<string name="systemGeoDisallow">Your system has disallowed from running geolocation services</string>
+	<string name="shareTwitter">Using #reallylatebooking for booking %1$ en %2$ por %3$ € http://reallylatebooking.com via @rlatebooking</string>
+	<string name="shareFacebook">Using #reallylatebooking for booking %1$ en %2$ por %3$ € http://reallylatebooking.com via @rlatebooking</string>
+	<string name="shareEmail">Using ReallyLateBooking for booking %1$ en %2$ por %3$ € http://reallylatebooking.com</string>
 </resources>

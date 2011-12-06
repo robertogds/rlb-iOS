@@ -33,9 +33,12 @@
       }
     }
     if (lowDistance < 100 && nearCity !== void 0) {
-      return root.fetchDeals(nearCity);
+      return root.loadDeals(nearCity);
     } else {
-      return alert('No hemos podido encontrar ofertas cerca de tu posición');
+      return Ti.UI.createAlertDialog({
+        title: 'ReallyLateBooking',
+        message: L('noDealsGPS')
+      }).show();
     }
   };
   translateErrorCode = function(code) {
@@ -66,23 +69,23 @@
     if (Titanium.Geolocation.locationServicesEnabled === false) {
       Titanium.UI.createAlertDialog({
         title: 'ReallyLateBooking',
-        message: 'Your device has geo turned off - turn it on.'
+        message: L('geoOff')
       }).show();
-      return root.fetchCountries();
+      return root.hideLoading(root.citiesWindow);
     }
     authorization = Titanium.Geolocation.locationServicesAuthorization;
     if (authorization === Titanium.Geolocation.AUTHORIZATION_DENIED) {
       Ti.UI.createAlertDialog({
         title: 'ReallyLateBooking',
-        message: 'You have disallowed from running geolocation services.'
+        message: L('youGeoDisallow')
       }).show();
-      return root.fetchCountries();
+      return root.hideLoading(root.citiesWindow);
     } else if (authorization === Titanium.Geolocation.AUTHORIZATION_RESTRICTED) {
       Ti.UI.createAlertDialog({
         title: 'ReallyLateBooking',
-        message: 'Your system has disallowed from running geolocation services.'
+        message: L('systemGeoDisallow')
       }).show();
-      return root.fetchCountries();
+      return root.hideLoading(root.citiesWindow);
     }
     return root.getGPSData();
   };
@@ -98,6 +101,7 @@
           title: 'ReallyLateBooking',
           message: JSON.stringify(e.error)
         }).show();
+        root.hideLoading(root.citiesWindow);
         return;
       }
       longitude = e.coords.longitude;
@@ -112,8 +116,7 @@
       Ti.API.info('long:' + longitude + ' lat: ' + latitude);
       getNearCity(latitude, longitude);
       Titanium.API.info('geo - current location: ' + new Date(timestamp) + ' long ' + longitude + ' lat ' + latitude + ' accuracy ' + accuracy);
-      locationAdded = true;
-      return root.hideLoading(root.citiesWindow);
+      return locationAdded = true;
     });
   };
 }).call(this);

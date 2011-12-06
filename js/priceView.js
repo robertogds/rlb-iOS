@@ -3,12 +3,12 @@
   root.priceView = Titanium.UI.createView({
     backgroundColor: 'transparent',
     width: '100%',
-    top: 150,
+    top: 230,
     height: 50
   });
   barPriceView = Titanium.UI.createView({
     backgroundColor: 'black',
-    opacity: '0.6',
+    opacity: '0.8',
     top: 0,
     height: 50
   });
@@ -55,44 +55,32 @@
     height: 20,
     top: '2'
   });
-  root.bookingLabel = Titanium.UI.createLabel({
-    backgroundImage: '/images/booking_background.png',
-    borderWidth: 1,
-    borderColor: '#0098cb',
-    width: 108,
-    height: 33,
-    borderRadius: 5,
-    backgroundColor: '#0098cb',
-    text: ' ' + L('bookingBlueButtonText'),
-    font: {
-      fontSize: 18,
-      fontWeight: 'bold',
-      fontFamily: 'Helvetica Neue'
-    },
-    left: '60%'
+  root.shareFacebookImage = Titanium.UI.createImageView({
+    top: 8,
+    width: 40,
+    height: 37,
+    left: 170,
+    image: '/images/share_facebook2.png'
   });
-  root.bookingLabel.addEventListener('click', function(e) {
-    return root.showBookingView();
+  root.shareTwitterImage = Titanium.UI.createImageView({
+    top: 8,
+    width: 40,
+    height: 37,
+    left: 220,
+    image: '/images/share_twitter2.png'
   });
-  root.soldOutLabel = Titanium.UI.createLabel({
-    width: 108,
-    height: 33,
-    borderRadius: 5,
-    backgroundColor: '#000000',
-    text: L('soldOut'),
-    color: '#ff0000',
-    font: {
-      fontSize: 18,
-      fontWeight: 'bold',
-      fontFamily: 'Helvetica Neue'
-    },
-    left: '60%'
+  root.shareEmailImage = Titanium.UI.createImageView({
+    top: 8,
+    width: 40,
+    height: 37,
+    left: 270,
+    image: '/images/share_mail.png'
   });
+  root.priceView.add(root.shareFacebookImage);
+  root.priceView.add(root.shareTwitterImage);
+  root.priceView.add(root.shareEmailImage);
   root.priceView.add(root.oneDealPriceLabel);
   root.priceView.add(root.oneDealNormalPriceLabel);
   root.priceView.add(sepVertView);
   root.priceView.add(antesLabel);
-  root.priceView.add(root.soldOutLabel);
-  root.soldOutLabel.hide();
-  root.priceView.add(root.bookingLabel);
 }).call(this);

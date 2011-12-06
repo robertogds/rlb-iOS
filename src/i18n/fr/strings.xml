@@ -40,7 +40,7 @@
 	<string name="adviceCard">Nous ne facturons pas votre carte de crédit, vous payez directement l'hôtel pour votre séjour.</string>
 	<string name="noRefundable">Cette réservation est non remboursable</string>	
 	<string name="booking">Réservation</string>
-	<string name="bookingBlueButtonText">le réserver</string>
+	<string name="bookingBlueButtonText">le réserver pour ce soir</string>
 	<string name="mustUser">Vous devez être connecté pour faire cela</string>
 	<string name="selectCardType">Sélectionner le type de carte</string>
 	<string name="done">Fait</string>
@@ -146,4 +146,11 @@
     <string name="nights">Nuits</string>
     <string name="addNights">Ajouter nuits supplémentaires à votre séjour</string>
     <string name="bookingForExplain">Vous pouvez utiliser cette option à réserver pour le compte d'une autre personne, par exemple un ami qui n'a pas ReallyLateBooking.\n\nLa confirmation de la réservation vous parviendra par e-mail avec le localisateur.</string>
+	<string name="noDealsGPS">Aucune offres disponibles dans votre position actuelle, sélectionnez une ville dans la liste</string>
+	<string name="geoOff">Votre appareil est éteint géolocalisation - allumez-le</string>
+	<string name="youGeoDisallow">Vous avez refusées de fonctionner les services de géolocalisation</string>
+	<string name="systemGeoDisallow">Your system has disallowed from running geolocation services</string>
+	<string name="shareTwitter">Usando #reallylatebooking para reservar %1$ en %2$ por %3$ € http://reallylatebooking.com via @rlatebooking</string>
+	<string name="shareFacebook">Using #reallylatebooking for booking %1$ en %2$ por %3$ € http://reallylatebooking.com via @rlatebooking</string>
+	<string name="shareEmail">Using #reallylatebooking for booking %1$ en %2$ por %3$ € http://reallylatebooking.com via @rlatebooking</string>
 </resources>

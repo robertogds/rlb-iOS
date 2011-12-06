@@ -8,7 +8,6 @@
   root.errorView.add(errorCloseButton);
   errorCloseButton.addEventListener('click', function(e) {
     root.errorWindow.remove(root.errorView);
-    root.tabGroup.setActiveTab(0);
-    return root.showCountries();
+    return root.tabGroup.setActiveTab(0);
   });
 }).call(this);

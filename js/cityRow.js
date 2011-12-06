@@ -20,23 +20,23 @@
         color: 'white',
         textAlign: 'center',
         font: {
-          fontSize: 13,
+          fontSize: 14,
           fontWeight: 'bold'
         },
         left: left,
-        height: 12,
+        height: 14,
         width: 107,
-        top: 93
+        top: 90
       });
       cityBarLabel = Titanium.UI.createLabel({
         borderWidth: 0,
         backgroundColor: 'black',
-        opacity: 0.6,
+        opacity: 0.3,
         color: '#fff',
         left: left,
-        height: 15,
+        height: 18,
         width: 107,
-        top: 91
+        top: 89
       });
       row.add(cityImage);
       row.add(cityBarLabel);

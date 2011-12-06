@@ -27,8 +27,9 @@ getNearCity = (lat,lon) ->
 			nearCity = city
 			lowDistance = distance
 	if lowDistance < 100 and nearCity isnt undefined
-		root.fetchDeals(nearCity)
-	else alert 'No hemos podido encontrar ofertas cerca de tu posición'
+		root.loadDeals(nearCity)
+	else 
+		Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('noDealsGPS')}).show()
 
 translateErrorCode = (code) ->
 	if (code == null)
@@ -46,15 +47,15 @@ root.initializeGPS = () ->
 	root.showLoading(root.citiesWindow,'Getting GPS Location')
 	root.isGPS = true
 	if Titanium.Geolocation.locationServicesEnabled is false
-		Titanium.UI.createAlertDialog({title:'ReallyLateBooking',message:'Your device has geo turned off - turn it on.'}).show()
-		return root.fetchCountries()
+		Titanium.UI.createAlertDialog({title:'ReallyLateBooking',message:L('geoOff')}).show()
+		return root.hideLoading(root.citiesWindow)
 	authorization = Titanium.Geolocation.locationServicesAuthorization
 	if authorization is Titanium.Geolocation.AUTHORIZATION_DENIED
-		Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:'You have disallowed from running geolocation services.'}).show()
-		return root.fetchCountries()
+		Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('youGeoDisallow')}).show()
+		return root.hideLoading(root.citiesWindow)
 	else if authorization is Titanium.Geolocation.AUTHORIZATION_RESTRICTED
-		Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:'Your system has disallowed from running geolocation services.'}).show()
-		return root.fetchCountries()
+		Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('systemGeoDisallow')}).show()
+		return root.hideLoading(root.citiesWindow)
 	root.getGPSData()	
 
 
@@ -66,6 +67,7 @@ root.getGPSData = () ->
 		if  (!e.success || e.error)
 			Ti.API.info("Code translation: "+translateErrorCode(e.code))
 			Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:JSON.stringify(e.error)}).show()
+			root.hideLoading(root.citiesWindow)
 			return
 		longitude = e.coords.longitude
 		latitude = e.coords.latitude
@@ -80,4 +82,4 @@ root.getGPSData = () ->
 		getNearCity(latitude,longitude)
 		Titanium.API.info('geo - current location: ' + new Date(timestamp) + ' long ' + longitude + ' lat ' + latitude + ' accuracy ' + accuracy)
 		locationAdded = true
-		root.hideLoading(root.citiesWindow)
+		

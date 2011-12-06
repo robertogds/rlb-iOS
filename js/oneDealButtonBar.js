@@ -4,7 +4,7 @@
     borderWidth: 0,
     top: 0
   });
-  root.oneDealButtonBar = Titanium.UI.createButtonBar({
+  root.oneDealButtonBar = Titanium.UI.createTabbedBar({
     labels: [L('booking'), L('info'), L('map'), L('photos')],
     backgroundColor: '#000',
     backgroundFocusedColor: '#fff',

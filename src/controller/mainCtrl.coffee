@@ -11,9 +11,8 @@ root.bgGradient =
 
 Ti.include(
 	'/js/mocks.js'
+	'/js/sharekit.js'
     '/js/gpsData.js'
-    #'/js/fetchCities.js'
-    '/js/fetchCountries.js'
     '/js/fetchDeals.js'
     '/js/dateUtil.js'
     '/js/GenericWindow.js'
@@ -35,7 +34,7 @@ Ti.include(
     '/js/bookingsWindow.js'
     '/js/citiesWindow.js'
     '/js/countriesWindow.js'
-    '/js/oneDealView.js'
+    '/js/showDeal.js'
     '/js/oneBookingView.js'
     '/js/optionsView.js'
 	'/js/bookingView.js'
@@ -67,7 +66,7 @@ loadUser = () ->
 
 # Main Program
 loadUser()
-#root.initializeGPS()
+root.initializeGPS()
 
 
 root.urlSignature = (url) ->

@@ -10,4 +10,3 @@ root.errorView.add(errorCloseButton)
 errorCloseButton.addEventListener 'click', (e) ->
   root.errorWindow.remove(root.errorView)
   root.tabGroup.setActiveTab(0)
-  root.showCountries()
