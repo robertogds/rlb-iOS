@@ -97,7 +97,7 @@ root.staticCities = [
 	}
 	{
 		'name' : 'Santiago'
-		'url' : 'santiago'
+		'url' : 'santiago_de_compostela'
 		'image' : '/images/santiago.jpg'
 		'hasZones' : false	
 		'latitude' : '42.8797739300837'

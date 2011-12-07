@@ -41,22 +41,22 @@
     root.shareTwitterImage.addEventListener('click', function(e) {
       return root.sharekit.share({
         title: 'ReallyLateBooking',
-        text: String.format(L('shareTwitter'), deal.hotelName, deal.city.name, deal.salePriceCents),
+        text: String.format(L('shareTwitter'), deal.hotelName, deal.city.name),
         sharer: 'Twitter'
       });
     });
     root.shareFacebookImage.addEventListener('click', function(e) {
       return root.sharekit.share({
         title: 'ReallyLateBooking',
-        text: String.format(L('shareFacebook'), deal.hotelName, deal.city.name, deal.salePriceCents),
+        text: String.format(L('shareFacebook'), deal.hotelName, deal.city.name),
         sharer: 'Facebook'
       });
     });
     root.shareEmailImage.addEventListener('click', function(e) {
       var emailDialog;
       emailDialog = Titanium.UI.createEmailDialog();
-      emailDialog.subject = L('forHotelsSubject');
-      emailDialog.messageBody = String.format(L('shareEmail'), 'Hotel PEPE', 'Madrid', 'precio');
+      emailDialog.subject = L('shareEmailSubject');
+      emailDialog.messageBody = String.format(L('shareEmail'), deal.hotelName, deal.city.name);
       return emailDialog.open();
     });
     root.image1.image = deal.image1;
