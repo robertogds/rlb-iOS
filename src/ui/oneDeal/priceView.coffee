@@ -61,8 +61,7 @@ root.bookingButtonLabel = Titanium.UI.createLabel
 	height: 35
 	borderRadius: 5
 	backgroundColor: '#0098cb'
-	#text: L('bookingBlueButtonText') + '     '
-	text: 'Reservar    '
+	text: L('bookingBlueButtonText') + '     '
 	textAlign: 'center'
 	font:
 		fontSize: 18

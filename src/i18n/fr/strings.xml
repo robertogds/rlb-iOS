@@ -40,7 +40,7 @@
 	<string name="adviceCard">Nous ne facturons pas votre carte de crédit, vous payez directement l'hôtel pour votre séjour.</string>
 	<string name="noRefundable">Cette réservation est non remboursable</string>	
 	<string name="booking">Réservation</string>
-	<string name="bookingBlueButtonText">le réserver pour ce soir</string>
+	<string name="bookingBlueButtonText">réserver</string>
 	<string name="mustUser">Vous devez être connecté pour faire cela</string>
 	<string name="selectCardType">Sélectionner le type de carte</string>
 	<string name="done">Fait</string>
@@ -151,7 +151,7 @@
 	<string name="youGeoDisallow">Vous avez refusées de fonctionner les services de géolocalisation</string>
 	<string name="systemGeoDisallow">Votre system a refusé de fonctionner les services de géolocalisation</string>
 	<string name="shareTwitter">Je suis utilisant #reallylatebooking pour réserver %1$s en %2$s pour %3$s € http://reallylatebooking.com via @rlatebooking</string>
-	<string name="shareFacebook">He encontrado una oferta incréible para el %s en %s usando la app móvil ReallyLateBooking.\n Compruébalo tú mismo en http://reallylatebooking.com</string>
-	<string name="shareEmail">Estoy usando ReallyLateBooking, una applicación móvil (iphone y android) para reservar hoteles para el mismo día con importantes descuentos.\n He encontrado el %s en %s por un precio increíble.\n Descárgate la app para ver la oferta en http://reallylatebooking.com</string>
-	<string name="shareEmailSubject">Mira esta oferta en ReallyLateBooking</string>
+	<string name="shareFacebook">J'ai trouvé un prix incroyable pour %s à %s en utilisant l'application mobile ReallyLateBooking. \n Voyez vous-même sur http://reallylatebooking.com</string>
+	<string name="shareEmail">J'utilise ReallyLateBooking, une application mobile (iPhone et Android)  pour réserver des hôtels pour le même jour avec des rabais. \n J'ai trouvé le %s en %s pour un prix incroyable. \n Download l'application pour voir l'offre http://reallylatebooking.com</string>
+	<string name="shareEmailSubject">Regardez cette offre ReallyLateBooking</string>
 </resources>

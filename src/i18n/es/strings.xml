@@ -40,7 +40,7 @@
 	<string name="adviceCard">No haremos ningún cargo en tu tarjeta de crédito. La estancia la pagarás en el hotel.\nPuedes guardar los datos de tu tarjeta para futuras compras.</string>
     <string name="noRefundable">Recuerda que la reserva no es anulable.</string>	
 	<string name="booking">Reserva</string>
-	<string name="bookingBlueButtonText">reservar para esta noche</string>
+	<string name="bookingBlueButtonText">reservar</string>
 	<string name="mustUser">Debes estar registrado para poder hacer una reserva</string>
 	<string name="selectCardType">Selecciona el tipo de tarjeta</string>
 	<string name="done">Hecho</string>
