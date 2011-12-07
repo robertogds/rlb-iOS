@@ -16,6 +16,7 @@ root.citiesWindow.rightNavButton = gpsButton
 root.citiesTable.addEventListener 'click', (e) ->
 	if e.row.city isnt undefined
 		Ti.API.info 'Entra en click a ciudad'
+		Titanium.Analytics.featureEvent('click.city',{city:e.row.city.name})
 		root.showLoading(root.citiesWindow,L('updatingHotels'))
 		root.loadDeals(e.row.city)
 

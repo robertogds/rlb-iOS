@@ -1,5 +1,5 @@
 (function() {
-  var acercaView, facebookIcon, facebookLabel, legalView, socialView, twitterIcon, twitterLabel, versionLabel;
+  var acercaView, emailIcon, facebookIcon, legalView, socialView, twitterIcon, versionLabel;
   Ti.include('/js/supportView.js');
   root.optionsView = Titanium.UI.createView({
     background: 'transparent',
@@ -7,15 +7,17 @@
     top: 0
   });
   versionLabel = Titanium.UI.createLabel({
-    borderWidth: 0,
+    borderWidth: 1,
+    borderColor: '#868d92',
+    borderRadius: 5,
     text: 'Version: ' + Titanium.App.version,
     color: '#868d92',
     textAlign: 'center',
     font: {
       fontSize: 14
     },
-    height: 30,
-    width: 300,
+    height: 20,
+    width: 120,
     top: 340
   });
   socialView = Titanium.UI.createView({
@@ -23,45 +25,53 @@
     height: 80
   });
   facebookIcon = Titanium.UI.createImageView({
-    image: 'icons/facebook.png',
-    height: 24,
-    width: 24,
-    left: 40,
-    top: 1
+    image: '/images/facebook_share.png',
+    height: 22,
+    width: 60,
+    left: 50,
+    top: 10
   });
   twitterIcon = Titanium.UI.createImageView({
-    image: 'icons/twitter.png',
-    height: 24,
-    width: 24,
-    top: 30,
-    left: 40
+    image: '/images/twitter_share.png',
+    height: 22,
+    width: 60,
+    top: 10,
+    left: 130
   });
-  facebookLabel = Titanium.UI.createLabel({
-    text: 'facebook.com/reallylatebooking',
-    color: '#fff',
-    font: {
-      fontSize: 14,
-      fontWeight: 'bold'
-    },
-    height: 20,
-    top: 1,
-    left: 70
+  emailIcon = Titanium.UI.createImageView({
+    image: '/images/email_share.png',
+    height: 21,
+    width: 57,
+    top: 10,
+    left: 210
   });
-  twitterLabel = Titanium.UI.createLabel({
-    text: '@rlatebooking',
-    color: '#fff',
-    font: {
-      fontSize: 14,
-      fontWeight: 'bold'
-    },
-    height: 20,
-    top: 30,
-    left: 70
+  twitterIcon.addEventListener('click', function(e) {
+    Titanium.Analytics.featureEvent('share.tweet.generic');
+    return root.sharekit.share({
+      title: 'ReallyLateBooking',
+      text: L('shareRLBTwitter'),
+      sharer: 'Twitter'
+    });
+  });
+  facebookIcon.addEventListener('click', function(e) {
+    Titanium.Analytics.featureEvent('share.facebook.generic');
+    return root.sharekit.share({
+      title: 'ReallyLateBooking',
+      text: L('shareRLBFacebook'),
+      sharer: 'Facebook'
+    });
+  });
+  emailIcon.addEventListener('click', function(e) {
+    var emailDialog;
+    Titanium.Analytics.featureEvent('share.email.generic');
+    emailDialog = Titanium.UI.createEmailDialog();
+    emailDialog.subject = L('shareRLBEmailSubject');
+    emailDialog.messageBody = L('shareRLBEmail');
+    return emailDialog.open();
   });
   socialView.add(facebookIcon);
-  socialView.add(facebookLabel);
   socialView.add(twitterIcon);
-  socialView.add(twitterLabel);
+  socialView.add(emailIcon);
   acercaView = new root.Generic2RowsView(20, L('aboutRLB'), L('toHotels'));
   legalView = new root.Generic2RowsView(150, L('terms'), L('privacyPolicy'));
   acercaView.label1.addEventListener('click', function(e) {
@@ -83,9 +93,9 @@
   legalView.label2.addEventListener('click', function(e) {
     return root.showPrivacy();
   });
-  root.optionsView.add(socialView);
   root.optionsView.add(acercaView.view);
   root.optionsView.add(legalView.view);
   root.optionsView.add(versionLabel);
+  root.optionsView.add(socialView);
   root.optionsWindow.add(root.optionsView);
 }).call(this);

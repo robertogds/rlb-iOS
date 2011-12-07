@@ -150,8 +150,12 @@
 	<string name="geoOff">Votre appareil est éteint géolocalisation - allumez-le</string>
 	<string name="youGeoDisallow">Vous avez refusées de fonctionner les services de géolocalisation</string>
 	<string name="systemGeoDisallow">Votre system a refusé de fonctionner les services de géolocalisation</string>
-	<string name="shareTwitter">Je suis utilisant #reallylatebooking pour réserver %1$s en %2$s pour %3$s € http://reallylatebooking.com via @rlatebooking</string>
-	<string name="shareFacebook">J'ai trouvé un prix incroyable pour %s à %s en utilisant l'application mobile ReallyLateBooking. \n Voyez vous-même sur http://reallylatebooking.com</string>
+	<string name="shareTwitter">Je suis utilisant #reallylatebooking pour réserver %s en %s http://reallylatebooking.com via @rlatebooking</string>
+	<string name="shareFacebook">J'ai trouvé un prix incroyable pour %s à %s en utilisant l'application mobile ReallyLateBooking</string>
 	<string name="shareEmail">J'utilise ReallyLateBooking, une application mobile (iPhone et Android)  pour réserver des hôtels pour le même jour avec des rabais. \n J'ai trouvé le %s en %s pour un prix incroyable. \n Download l'application pour voir l'offre http://reallylatebooking.com</string>
 	<string name="shareEmailSubject">Regardez cette offre ReallyLateBooking</string>
+	<string name="shareRLBTwitter">Je suis utilisant #reallylatebooking pour réserver des hôtels pour le même jour avec des rabais via @rlatebooking</string>
+	<string name="shareRLBFacebook">J'utilise ReallyLateBooking, une application mobile (iPhone et Android)  pour réserver des hôtels pour le même jour avec des rabais.\n Download l'application pour voir l'offre http://reallylatebooking.com</string>
+	<string name="shareRLBEmail">J'utilise ReallyLateBooking, une application mobile (iPhone et Android)  pour réserver des hôtels pour le même jour avec des rabais.\nDownload l'application pour voir l'offre http://reallylatebooking.com</string>
+	<string name="shareRLBEmailSubject">Essayez ReallyLateBooking</string>
 </resources>

@@ -16,6 +16,9 @@
   root.citiesTable.addEventListener('click', function(e) {
     if (e.row.city !== void 0) {
       Ti.API.info('Entra en click a ciudad');
+      Titanium.Analytics.featureEvent('click.city', {
+        city: e.row.city.name
+      });
       root.showLoading(root.citiesWindow, L('updatingHotels'));
       return root.loadDeals(e.row.city);
     }

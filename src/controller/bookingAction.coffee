@@ -27,12 +27,14 @@ root.xhrBooking.onload = (e) ->
     Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('errorBooking')}).show()
 
 root.xhrBooking.onerror = (e) ->
-  root.hideLoading(root.confirmBookingWindow)
-  root.showError()
-  Ti.API.error(e)
+	Titanium.Analytics.featureEvent('booking.error')
+	root.hideLoading(root.confirmBookingWindow)
+	root.showError()
+	Ti.API.error(e)
 
 root.doBooking = () ->
   Ti.API.info '_____________________ ENTRA EN COMPRAR ********************'
+  Titanium.Analytics.featureEvent('booking')
   root.showLoading(root.confirmBookingWindow)
   root.xhrBooking.setTimeout(15000)
   url = root.urlSignature('/booking')

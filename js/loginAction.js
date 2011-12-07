@@ -29,6 +29,7 @@
     return Ti.API.error(e);
   };
   root.doLogin = function(email, password) {
+    Titanium.Analytics.featureEvent('login');
     root.xhrLogin.setTimeout(15000);
     root.xhrLogin.open("POST", root.surl + "/users/login");
     root.xhrLogin.setRequestHeader("Content-Type", "application/json; charset=utf-8");

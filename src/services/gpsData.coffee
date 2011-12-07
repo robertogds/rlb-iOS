@@ -15,7 +15,6 @@ getNearCity = (lat,lon) ->
 	lowDistance = 1000
 	nearCity = undefined
 	for city in root.staticCities
-		Ti.API.error 'city.latitude = ' + city.latitude * Math.PI / 180
 		cityLatRad = city.latitude * Math.PI / 180
 		latRad =  lat * Math.PI / 180
 		dLat = (city.latitude - lat) * Math.PI / 180

@@ -38,6 +38,7 @@
     }
   };
   root.xhrBooking.onerror = function(e) {
+    Titanium.Analytics.featureEvent('booking.error');
     root.hideLoading(root.confirmBookingWindow);
     root.showError();
     return Ti.API.error(e);
@@ -45,6 +46,7 @@
   root.doBooking = function() {
     var newBook, signature, url;
     Ti.API.info('_____________________ ENTRA EN COMPRAR ********************');
+    Titanium.Analytics.featureEvent('booking');
     root.showLoading(root.confirmBookingWindow);
     root.xhrBooking.setTimeout(15000);
     url = root.urlSignature('/booking');

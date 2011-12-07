@@ -16,31 +16,32 @@ root.xhrRegister.onload = (e) ->
     Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:'Error: ' + response.detail}).show()
 
 root.xhrRegister.onerror = (e) ->
-  root.hideLoading(root.newAccountWindow)
-  root.showError()
-  Ti.API.error(e)
+	root.hideLoading(root.newAccountWindow)
+	root.showError()
+	Ti.API.error(e)
 
 root.doRegister = (email,password,firstName,lastName,id) ->
-  root.xhrRegister.setTimeout(8000)
-  if id > 0
-    url = root.urlSignature("/user/" + id)
-    signature = root.doSignature(url)
-    url = root.surl + url + '/' + signature
-    proto = 'PUT'
-  else
-    password = Titanium.Utils.md5HexDigest(password)
-    url = root.url + "/users"
-    proto = 'POST'  
-  root.xhrRegister.open(proto,url)
-  root.xhrRegister.setRequestHeader("Content-Type","application/json; charset=utf-8")
-  root.xhrRegister.setRequestHeader("Accept-Language",Titanium.Locale.currentLanguage)
-  newUser = JSON.stringify
-    "email":email
-    "password":password
-    "firstName":firstName
-    "lastName":lastName
-    "isFacebook":"false"
-  root.xhrRegister.send(newUser)
+	Titanium.Analytics.featureEvent('register')
+	root.xhrRegister.setTimeout(8000)
+	if id > 0
+		url = root.urlSignature("/user/" + id)
+		signature = root.doSignature(url)
+		url = root.surl + url + '/' + signature
+		proto = 'PUT'
+	else
+		password = Titanium.Utils.md5HexDigest(password)
+		url = root.url + "/users"
+		proto = 'POST'  
+	root.xhrRegister.open(proto,url)
+	root.xhrRegister.setRequestHeader("Content-Type","application/json; charset=utf-8")
+	root.xhrRegister.setRequestHeader("Accept-Language",Titanium.Locale.currentLanguage)
+	newUser = JSON.stringify
+		"email":email
+		"password":password
+		"firstName":firstName
+		"lastName":lastName
+		"isFacebook":"false"
+	root.xhrRegister.send(newUser)
 
 root.validateNewAccountData = (email,password,firstName,lastName) ->
   return Ti.Locale.getString('errorEmail') unless email.length > 3

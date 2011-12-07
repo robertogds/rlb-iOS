@@ -19,7 +19,6 @@
     _ref = root.staticCities;
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
       city = _ref[_i];
-      Ti.API.error('city.latitude = ' + city.latitude * Math.PI / 180);
       cityLatRad = city.latitude * Math.PI / 180;
       latRad = lat * Math.PI / 180;
       dLat = (city.latitude - lat) * Math.PI / 180;

@@ -27,6 +27,7 @@
   };
   root.doRegister = function(email, password, firstName, lastName, id) {
     var newUser, proto, signature, url;
+    Titanium.Analytics.featureEvent('register');
     root.xhrRegister.setTimeout(8000);
     if (id > 0) {
       url = root.urlSignature("/user/" + id);
