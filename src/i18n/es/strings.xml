@@ -148,7 +148,7 @@
 	<string name="geoOff">Tu dispositivo tiene el GPS apagado, enciéndelo para poder geolocalizarte</string>
 	<string name="youGeoDisallow">Has restringido los permisos para poder geolocalizar desde esta aplicación</string>
 	<string name="systemGeoDisallow">El sistema ha restringido los permisos para ejecutar servicios de geolocalización</string>
-	<string name="shareTwitter">Usando #reallylatebooking para reservar en el %1$ en %2$ por %3$ € http://reallylatebooking.com via @rlatebooking</string>
-	<string name="shareFacebook">Usando #reallylatebooking para reservar en el %1$ en %2$ por %3$ € http://reallylatebooking.com via @rlatebooking</string>
-	<string name="shareEmail">Usando #reallylatebooking para reservar en el %1$ en %2$ por %3$ € http://reallylatebooking.com via @rlatebooking</string>
+	<string name="shareTwitter">Usando #reallylatebooking para reservar en el %1$s en %2$s por %3$s € http://reallylatebooking.com via @rlatebooking</string>
+	<string name="shareFacebook">Reserva esta noche en el %1$s en %2$s por %3$s € usando la app móvil ReallyLateBooking  http://reallylatebooking.com</string>
+	<string name="shareEmail">Reserva esta noche en el %1$s en %2$s por %3$s € usando la app móvil ReallyLateBooking  http://reallylatebooking.com</string>
 </resources>

@@ -147,7 +147,7 @@
 	<string name="geoOff">Your device has geo turned off - turn it on</string>
 	<string name="youGeoDisallow">You have disallowed from running geolocation services</string>
 	<string name="systemGeoDisallow">Your system has disallowed from running geolocation services</string>
-	<string name="shareTwitter">Using #reallylatebooking for booking %1$ en %2$ por %3$ € http://reallylatebooking.com via @rlatebooking</string>
-	<string name="shareFacebook">Using #reallylatebooking for booking %1$ en %2$ por %3$ € http://reallylatebooking.com via @rlatebooking</string>
-	<string name="shareEmail">Using ReallyLateBooking for booking %1$ en %2$ por %3$ € http://reallylatebooking.com</string>
+	<string name="shareTwitter">Using #reallylatebooking for booking %1$s in %2$s for %3$s € http://reallylatebooking.com via @rlatebooking</string>
+	<string name="shareFacebook">Book %1$s in %2$s for %3$s € for tonight on the ReallyLateBooking mobile app  http://reallylatebooking.com</string>
+	<string name="shareEmail">Book %1$s in %2$s for %3$s € for tonight on the ReallyLateBooking mobile app  http://reallylatebooking.com</string>
 </resources>

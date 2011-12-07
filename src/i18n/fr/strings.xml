@@ -150,7 +150,7 @@
 	<string name="geoOff">Votre appareil est éteint géolocalisation - allumez-le</string>
 	<string name="youGeoDisallow">Vous avez refusées de fonctionner les services de géolocalisation</string>
 	<string name="systemGeoDisallow">Your system has disallowed from running geolocation services</string>
-	<string name="shareTwitter">Usando #reallylatebooking para reservar %1$ en %2$ por %3$ € http://reallylatebooking.com via @rlatebooking</string>
-	<string name="shareFacebook">Using #reallylatebooking for booking %1$ en %2$ por %3$ € http://reallylatebooking.com via @rlatebooking</string>
-	<string name="shareEmail">Using #reallylatebooking for booking %1$ en %2$ por %3$ € http://reallylatebooking.com via @rlatebooking</string>
+	<string name="shareTwitter">Usando #reallylatebooking para reservar %1$s en %2$s por %3$s € http://reallylatebooking.com via @rlatebooking</string>
+	<string name="shareFacebook">Using #reallylatebooking for booking %1$s en %2$s por %3$s € http://reallylatebooking.com via @rlatebooking</string>
+	<string name="shareEmail">Using #reallylatebooking for booking %1$s en %2$s por %3$s € http://reallylatebooking.com via @rlatebooking</string>
 </resources>

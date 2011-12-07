@@ -31,7 +31,7 @@
   });
   barBookingButtonView = Titanium.UI.createView({
     backgroundColor: 'black',
-    opacity: '0.8',
+    opacity: '0.7',
     top: 0,
     height: 50
   });
@@ -41,11 +41,12 @@
     borderWidth: 1,
     borderColor: '#0098cb',
     color: '#000',
-    width: 280,
+    width: 260,
     height: 33,
     borderRadius: 5,
     backgroundColor: '#0098cb',
-    text: ' ' + L('bookingBlueButtonText'),
+    text: L('bookingBlueButtonText') + '     ',
+    textAlign: 'center',
     font: {
       fontSize: 18,
       fontWeight: 'bold',

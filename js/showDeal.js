@@ -39,26 +39,24 @@
     root.hotelNameLabel.text = deal.hotelName;
     root.oneDealWindow.setTitleControl(root.titleView);
     root.shareTwitterImage.addEventListener('click', function(e) {
-      root.sharekit.share;
-      return {
+      return root.sharekit.share({
         title: 'ReallyLateBooking',
         text: String.format(L('shareTwitter'), deal.hotelName, deal.city.name, deal.salePriceCents),
         sharer: 'Twitter'
-      };
+      });
     });
     root.shareFacebookImage.addEventListener('click', function(e) {
-      root.sharekit.share;
-      return {
+      return root.sharekit.share({
         title: 'ReallyLateBooking',
         text: String.format(L('shareFacebook'), deal.hotelName, deal.city.name, deal.salePriceCents),
         sharer: 'Facebook'
-      };
+      });
     });
     root.shareEmailImage.addEventListener('click', function(e) {
       var emailDialog;
       emailDialog = Titanium.UI.createEmailDialog();
       emailDialog.subject = L('forHotelsSubject');
-      emailDialog.messageBody = String.format(L('shareEmail'), deal.hotelName, deal.city.name, deal.salePriceCents);
+      emailDialog.messageBody = String.format(L('shareEmail'), 'Hotel PEPE', 'Madrid', 'precio');
       return emailDialog.open();
     });
     root.image1.image = deal.image1;

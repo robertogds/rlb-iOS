@@ -6,7 +6,7 @@ root.priceView = Titanium.UI.createView
 
 barPriceView = Titanium.UI.createView
 	backgroundColor: 'black'
-	opacity: '0.8'
+	opacity: '0.7'
 	top:0
 	height: 50
 root.priceView.add(barPriceView)
