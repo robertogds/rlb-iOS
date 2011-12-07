@@ -5,13 +5,13 @@
     Ti.API.info(deal);
     root.deal = deal;
     if (deal.quantity === 0) {
-      root.bookingButtonView.remove(root.bookingButtonLabel);
-      root.bookingButtonView.add(root.soldOutLabel);
+      root.priceView.remove(root.bookingButtonLabel);
+      root.priceView.add(root.soldOutLabel);
       root.soldOutLabel.show();
       root.bookingButtonLabel.hide();
     } else {
-      root.bookingButtonView.add(root.bookingButtonLabel);
-      root.bookingButtonView.remove(root.soldOutLabel);
+      root.priceView.add(root.bookingButtonLabel);
+      root.priceView.remove(root.soldOutLabel);
       root.soldOutLabel.hide();
       root.bookingButtonLabel.show();
     }

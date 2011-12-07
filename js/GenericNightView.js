@@ -1,6 +1,6 @@
 (function() {
   var GenericNightView;
-  GenericNightView = (function() {
+  GenericNightView = function() {
     function GenericNightView(id, top, left) {
       this.view = Titanium.UI.createView({
         visible: false,
@@ -59,6 +59,6 @@
       this.view.add(this.priceLabel);
     }
     return GenericNightView;
-  })();
+  }();
   root.GenericNightView = GenericNightView;
 }).call(this);

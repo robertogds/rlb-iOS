@@ -1,6 +1,6 @@
 (function() {
   var CityRow;
-  CityRow = (function() {
+  CityRow = function() {
     function CityRow(row, city, left) {
       var cityBarLabel, cityImage, cityLabel;
       cityImage = Titanium.UI.createImageView({
@@ -49,5 +49,5 @@
     }
     root.cityRow = CityRow;
     return CityRow;
-  })();
+  }();
 }).call(this);
