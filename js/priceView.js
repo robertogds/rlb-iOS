@@ -64,7 +64,7 @@
     height: 35,
     borderRadius: 5,
     backgroundColor: '#0098cb',
-    text: 'Reservar    ',
+    text: L('bookingBlueButtonText') + '     ',
     textAlign: 'center',
     font: {
       fontSize: 18,

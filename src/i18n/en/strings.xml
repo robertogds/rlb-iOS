@@ -40,7 +40,7 @@
 	<string name="adviceCard">We will not charge your credit card, as you will pay the hotel directly for your stay.\nYou can save your card for future purchases.</string>
 	<string name="noRefundable">This reservation is non-refundable</string>	
 	<string name="booking">Booking</string>
-	<string name="bookingBlueButtonText">book it for tonight</string>
+	<string name="bookingBlueButtonText">book it</string>
 	<string name="mustUser">You must be logged in to do that</string>
 	<string name="selectCardType">Select Card Type</string>
 	<string name="done">Done</string>
