@@ -1,6 +1,6 @@
 (function() {
   var GenericButton;
-  GenericButton = function() {
+  GenericButton = (function() {
     function GenericButton(top, title) {
       this.button = Titanium.UI.createButton({
         backgroundImage: '/images/BUTT_drk_off.png',
@@ -19,6 +19,6 @@
       });
     }
     return GenericButton;
-  }();
+  })();
   root.GenericButton = GenericButton;
 }).call(this);

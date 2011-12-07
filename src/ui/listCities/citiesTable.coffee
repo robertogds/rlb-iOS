@@ -41,7 +41,6 @@ root.populateCitiesTable = (cities) ->
   root.citiesTable.setData(data)
   root.hideLoading(root.countriesWindow)
   root.hideLoading(root.citiesWindow)
-  Ti.API.error 'TERMINA CARGA CIUDADES'
 
 
   

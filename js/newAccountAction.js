@@ -51,16 +51,16 @@
     return root.xhrRegister.send(newUser);
   };
   root.validateNewAccountData = function(email, password, firstName, lastName) {
-    if (email.length <= 3) {
+    if (!(email.length > 3)) {
       return Ti.Locale.getString('errorEmail');
     }
-    if (password.length <= 3) {
+    if (!(password.length > 3)) {
       return Ti.Locale.getString('errorPassword');
     }
-    if (firstName.length <= 0) {
+    if (!(firstName.length > 0)) {
       return Ti.Locale.getString('errorFirstName');
     }
-    if (lastName.length <= 0) {
+    if (!(lastName.length > 0)) {
       return Ti.Locale.getString('errorLastName');
     }
     return true;

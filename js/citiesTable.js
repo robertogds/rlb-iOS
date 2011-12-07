@@ -54,7 +54,6 @@
     }
     root.citiesTable.setData(data);
     root.hideLoading(root.countriesWindow);
-    root.hideLoading(root.citiesWindow);
-    return Ti.API.error('TERMINA CARGA CIUDADES');
+    return root.hideLoading(root.citiesWindow);
   };
 }).call(this);

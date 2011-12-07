@@ -149,7 +149,7 @@
 	<string name="youGeoDisallow">Has restringido los permisos para poder geolocalizar desde esta aplicación</string>
 	<string name="systemGeoDisallow">El sistema ha restringido los permisos para ejecutar servicios de geolocalización</string>
 	<string name="shareTwitter">Usando la app para móviles #reallylatebooking para reservar en el %s en %s http://reallylatebooking.com via @rlatebooking</string>
-	<string name="shareFacebook">He encontrado una oferta increíble para el %s en %s usando la app móvil ReallyLateBooking.\n Compruébalo tú mismo en http://reallylatebooking.com</string>
+	<string name="shareFacebook">Una oferta increíble para el %s en %s\n Compruébalo tú mismo en http://reallylatebooking.com</string>
 	<string name="shareEmail">Estoy usando ReallyLateBooking, una applicación móvil (iphone y android) para reservar hoteles para el mismo día con importantes descuentos.\n He encontrado el %s en %s por un precio increíble.\n Descárgate la app para ver la oferta en http://reallylatebooking.com</string>
 	<string name="shareEmailSubject">Mira esta oferta en ReallyLateBooking</string>
 </resources>

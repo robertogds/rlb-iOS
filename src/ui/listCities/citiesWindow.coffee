@@ -4,5 +4,3 @@ Ti.include(
   #'/js/citiesTable.js'
   '/js/citiesStatic.js'
 )
-root.citiesWindow.addEventListener 'focus', (e) ->
-	#root.mockFetchCities()

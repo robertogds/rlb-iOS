@@ -1,6 +1,6 @@
 (function() {
   var CityColumn;
-  CityColumn = function() {
+  CityColumn = (function() {
     function CityColumn(city1, city2, city3) {
       var row1, row2, row3;
       this.row = Ti.UI.createTableViewRow({
@@ -18,6 +18,6 @@
       }
     }
     return CityColumn;
-  }();
+  })();
   root.cityColumn = CityColumn;
 }).call(this);
