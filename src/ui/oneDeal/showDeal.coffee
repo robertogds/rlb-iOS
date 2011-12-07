@@ -46,19 +46,19 @@ root.showDealView = (deal) ->
 	root.shareTwitterImage.addEventListener 'click', (e) ->
 		root.sharekit.share
 			title: 'ReallyLateBooking'
-			text: String.format(L('shareTwitter'),deal.hotelName,deal.city.name,deal.salePriceCents)
+			text: String.format(L('shareTwitter'),deal.hotelName,deal.city.name)
 			sharer: 'Twitter'
 	
 	root.shareFacebookImage.addEventListener 'click', (e) ->
 		root.sharekit.share
 			title: 'ReallyLateBooking'
-			text: String.format(L('shareFacebook'),deal.hotelName,deal.city.name,deal.salePriceCents)
+			text: String.format(L('shareFacebook'),deal.hotelName,deal.city.name)
 			sharer: 'Facebook'
 		
 	root.shareEmailImage.addEventListener 'click', (e) ->
 		emailDialog = Titanium.UI.createEmailDialog()
-		emailDialog.subject = L('forHotelsSubject')
-		emailDialog.messageBody = String.format(L('shareEmail'),'Hotel PEPE','Madrid','precio')
+		emailDialog.subject = L('shareEmailSubject')
+		emailDialog.messageBody = String.format(L('shareEmail'),deal.hotelName,deal.city.name)
 		emailDialog.open()
 		
 	# Load Images of the deal

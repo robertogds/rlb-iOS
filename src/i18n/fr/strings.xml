@@ -150,7 +150,8 @@
 	<string name="geoOff">Votre appareil est éteint géolocalisation - allumez-le</string>
 	<string name="youGeoDisallow">Vous avez refusées de fonctionner les services de géolocalisation</string>
 	<string name="systemGeoDisallow">Your system has disallowed from running geolocation services</string>
-	<string name="shareTwitter">Usando #reallylatebooking para reservar %1$s en %2$s por %3$s € http://reallylatebooking.com via @rlatebooking</string>
-	<string name="shareFacebook">Using #reallylatebooking for booking %1$s en %2$s por %3$s € http://reallylatebooking.com via @rlatebooking</string>
-	<string name="shareEmail">Using #reallylatebooking for booking %1$s en %2$s por %3$s € http://reallylatebooking.com via @rlatebooking</string>
+	<string name="shareTwitter">Usando la app para móviles #reallylatebooking para reservar en el %s en %s http://reallylatebooking.com via @rlatebooking</string>
+	<string name="shareFacebook">He encontrado una oferta incréible para el %s en %s usando la app móvil ReallyLateBooking.\n Compruébalo tú mismo en http://reallylatebooking.com</string>
+	<string name="shareEmail">Estoy usando ReallyLateBooking, una applicación móvil (iphone y android) para reservar hoteles para el mismo día con importantes descuentos.\n He encontrado el %s en %s por un precio increíble.\n Descárgate la app para ver la oferta en http://reallylatebooking.com</string>
+	<string name="shareEmailSubject">Mira esta oferta en ReallyLateBooking</string>
 </resources>

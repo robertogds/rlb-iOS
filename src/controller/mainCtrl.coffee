@@ -33,7 +33,7 @@ Ti.include(
     '/js/accountWindow.js'
     '/js/bookingsWindow.js'
     '/js/citiesWindow.js'
-    '/js/countriesWindow.js'
+    #'/js/countriesWindow.js'
     '/js/showDeal.js'
     '/js/oneBookingView.js'
     '/js/optionsView.js'
