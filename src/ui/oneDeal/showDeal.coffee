@@ -56,10 +56,28 @@ root.showDealView = (deal) ->
 			sharer: 'Facebook'
 		
 	root.shareEmailImage.addEventListener 'click', (e) ->
-		emailDialog = Titanium.UI.createEmailDialog()
-		emailDialog.subject = L('shareEmailSubject')
-		emailDialog.messageBody = String.format(L('shareEmail'),deal.hotelName,deal.city.name)
-		emailDialog.open()
+		#emailDialog = Titanium.UI.createEmailDialog()
+		#emailDialog.subject = L('shareEmailSubject')
+		#emailDialog.messageBody = String.format(L('shareEmail'),deal.hotelName,deal.city.name)
+		#emailDialog.open()
+		data = 
+			link: "http://www.reallylatebooking.com"
+			name: "ReallyLateBooking Same Day Hotel Booking"
+			message: "Checkout this cool open source project for creating mobile apps"
+			caption: "Mira lo que he encontrado en ReallyLateBooking!"
+			picture: deal.image10
+			description: String.format(L('shareFacebook'),deal.hotelName,deal.city.name)
+			
+		Titanium.Facebook.dialog "feed", data, (e) ->
+			if (e.success) 
+				alert("Success!  From FB: " + e.result)
+			else 
+				if (e.error) 
+					alert(e.error)
+				else if (e.cancelled)
+					alert('Cancelled')
+				else 
+					alert("Unkown result");
 		
 	# Load Images of the deal
 	root.image1.image = deal.image1

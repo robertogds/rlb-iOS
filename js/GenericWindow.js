@@ -1,6 +1,6 @@
 (function() {
   var GenericWindow;
-  GenericWindow = function() {
+  GenericWindow = (function() {
     function GenericWindow(theTitle) {
       this.win = Ti.UI.createWindow({
         title: theTitle,
@@ -8,6 +8,6 @@
       });
     }
     return GenericWindow;
-  }();
+  })();
   root.GenericWindow = GenericWindow;
 }).call(this);

@@ -114,13 +114,13 @@
   root.bookingForView.add(root.bookingForTable);
   root.bookingForWindow.add(root.bookingForView);
   root.validateBookingForData = function(email, firstName, lastName) {
-    if (email.length <= 3) {
+    if (!(email.length > 3)) {
       return Ti.Locale.getString('errorEmail');
     }
-    if (firstName.length <= 0) {
+    if (!(firstName.length > 0)) {
       return Ti.Locale.getString('errorFirstName');
     }
-    if (lastName.length <= 0) {
+    if (!(lastName.length > 0)) {
       return Ti.Locale.getString('errorLastName');
     }
     return true;

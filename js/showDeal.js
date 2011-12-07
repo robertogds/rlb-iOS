@@ -53,11 +53,28 @@
       });
     });
     root.shareEmailImage.addEventListener('click', function(e) {
-      var emailDialog;
-      emailDialog = Titanium.UI.createEmailDialog();
-      emailDialog.subject = L('shareEmailSubject');
-      emailDialog.messageBody = String.format(L('shareEmail'), deal.hotelName, deal.city.name);
-      return emailDialog.open();
+      var data;
+      data = {
+        link: "http://www.reallylatebooking.com",
+        name: "ReallyLateBooking Same Day Hotel Booking",
+        message: "Checkout this cool open source project for creating mobile apps",
+        caption: "Mira lo que he encontrado en ReallyLateBooking!",
+        picture: deal.image10,
+        description: String.format(L('shareFacebook'), deal.hotelName, deal.city.name)
+      };
+      return Titanium.Facebook.dialog("feed", data, function(e) {
+        if (e.success) {
+          return alert("Success!  From FB: " + e.result);
+        } else {
+          if (e.error) {
+            return alert(e.error);
+          } else if (e.cancelled) {
+            return alert('Cancelled');
+          } else {
+            return alert("Unkown result");
+          }
+        }
+      });
     });
     root.image1.image = deal.image1;
     root.image2.image = deal.image2;

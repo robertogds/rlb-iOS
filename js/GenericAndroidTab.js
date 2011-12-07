@@ -1,6 +1,6 @@
 (function() {
   var GenericAndroidTab;
-  GenericAndroidTab = function() {
+  GenericAndroidTab = (function() {
     function GenericAndroidTab(width, left, colorTab, colorLabel, text) {
       Ti.API.info('Entra con width = ' + width);
       this.view = Titanium.UI.createView({
@@ -18,6 +18,6 @@
       this.view.add(this.label);
     }
     return GenericAndroidTab;
-  }();
+  })();
   root.GenericAndroidTab = GenericAndroidTab;
 }).call(this);
