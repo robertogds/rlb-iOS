@@ -147,8 +147,8 @@
 	<string name="geoOff">Your device has geo turned off - turn it on</string>
 	<string name="youGeoDisallow">You have disallowed from running geolocation services</string>
 	<string name="systemGeoDisallow">Your system has disallowed from running geolocation services</string>
-	<string name="shareTwitter">Usando la app para móviles #reallylatebooking para reservar en el %s en %s http://reallylatebooking.com via @rlatebooking</string>
-	<string name="shareFacebook">He encontrado una oferta incréible para el %s en %s usando la app móvil ReallyLateBooking.\n Compruébalo tú mismo en http://reallylatebooking.com</string>
-	<string name="shareEmail">Estoy usando ReallyLateBooking, una applicación móvil (iphone y android) para reservar hoteles para el mismo día con importantes descuentos.\n He encontrado el %s en %s por un precio increíble.\n Descárgate la app para ver la oferta en http://reallylatebooking.com</string>
-	<string name="shareEmailSubject">Mira esta oferta en ReallyLateBooking</string>
+	<string name="shareTwitter">Using the mobile app #reallylatebooking to book the %s at %s via http://reallylatebooking.com @rlatebooking</string>
+	<string name="shareFacebook">I found an incredible deal for %s to %s using the mobile app ReallyLateBooking. \n Try it yourself at http://reallylatebooking.com</string>
+	<string name="shareEmail">I'm using ReallyLateBooking, a mobile application (iphone and android) to book hotels for the same day with discounts. \n I found the %s in %s for an incredible price. \n Download the app to see the offer http://reallylatebooking.com</string>
+	<string name="shareEmailSubject">Look this deal at ReallyLateBooking</string>
 </resources>
