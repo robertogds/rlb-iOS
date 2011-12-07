@@ -61,7 +61,7 @@
     borderColor: '#0098cb',
     color: '#000',
     width: 120,
-    height: 28,
+    height: 35,
     borderRadius: 5,
     backgroundColor: '#0098cb',
     text: 'Reservar    ',
