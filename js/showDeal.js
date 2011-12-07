@@ -2,7 +2,6 @@
   Ti.include('/js/oneDealMapView.js', '/js/imagesScrollView.js', '/js/infoDealTable.js', '/js/priceView.js', '/js/oneDealView.js');
   root.showDealView = function(deal) {
     var aroundRow, aroundTitle, aroundView, detailRow, detailTitle, detailView, foodDrinkRow, foodDrinkTitle, foodDrinkView, hotelRow, hotelTitle, hotelView, infoData, region, roomRow, roomTitle, roomView;
-    Ti.API.info(deal);
     root.deal = deal;
     if (deal.quantity === 0) {
       root.priceView.remove(root.bookingButtonLabel);

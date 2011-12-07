@@ -135,10 +135,10 @@
     <string name="saturday">Samedi</string>
     <string name="sunday">Dimanche</string>
     <string name="oneNight">1 nuit</string>
-    <string name="stayTwoNights">Restez 1-2 nuits</string>
-    <string name="stayThreeNights">Restez 1-3 nuits</string>
-    <string name="stayFourNights">Restez 1-4 nuits</string>
-    <string name="stayFiveNights">Restez 1-5 nuits</string>
+    <string name="stayTwoNights">1-2 nuits</string>
+    <string name="stayThreeNights">1-3 nuits</string>
+    <string name="stayFourNights">1-4 nuits</string>
+    <string name="stayFiveNights">1-5 nuits</string>
     <string name="checkin">Check-in</string>
     <string name="checkout">Check-out</string>
     <string name="total">Total</string>

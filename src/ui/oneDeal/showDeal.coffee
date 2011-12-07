@@ -6,7 +6,7 @@ Ti.include(
   '/js/oneDealView.js'
 )
 root.showDealView = (deal) ->
-	Ti.API.info deal
+	#Ti.API.info deal
 	root.deal = deal
 	if deal.quantity is 0
 		root.priceView.remove(root.bookingButtonLabel)
