@@ -1,16 +1,23 @@
 (function() {
   var termsScrollView, title;
+
   termsScrollView = Titanium.UI.createScrollView({
     contentWidth: 'auto',
     contentHeight: 'auto',
     top: 0,
     showVerticalScrollIndicator: true
   });
+
   title = L('terms');
+
   root.termsView = new root.GenericTextView(0, title, '');
+
   termsScrollView.add(root.termsView.view);
+
   root.termsWindow.add(termsScrollView);
+
   root.xhrTerms = Titanium.Network.createHTTPClient();
+
   root.xhrTerms.onload = function() {
     var response, termsText;
     response = JSON.parse(this.responseText);
@@ -18,6 +25,7 @@
     root.hideLoading(root.termsWindow);
     return root.termsView.textLabel.text = termsText;
   };
+
   root.xhrTerms.onerror = function() {
     Ti.UI.createAlertDialog({
       title: 'ReallyLateBooking',
@@ -26,6 +34,7 @@
     root.hideLoading(root.termsWindow);
     return root.showError();
   };
+
   root.showTerms = function() {
     if (Titanium.Network.online === false) {
       Ti.UI.createAlertDialog({
@@ -43,4 +52,5 @@
       return root.xhrTerms.send();
     }
   };
+
 }).call(this);

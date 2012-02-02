@@ -16,57 +16,88 @@ root.listDealsWindow.add(root.dealsTable)
 
 root.reloadDeals = false
 
+root.why3Row = new root.GenericTextRow().row
+root.why3Row.hasChild = true
+root.why3Row.rightImage = '/images/blue_arrow.png'
+textLabel = Titanium.UI.createLabel
+	text: L('why3Title')
+	color: '#fff'
+	font:
+		fontSize: 14
+		fontWeight: 'bold'
+	left: 10
+root.why3Row.add(textLabel)
+
 root.dealsTable.addEventListener 'click', (e) ->
-  Ti.API.error("PREVIO")
   if e.row.deal is undefined 
     root.tabGroup.activeTab.open(root.why3Window,{animated:true})
   else
     root.showDealView(e.row.deal)
     root.tabGroup.activeTab.open(root.oneDealWindow,{animated:true})
-  Ti.API.error("NO HACE MAS")
 
+root.showDeals = (deals) ->
+	Ti.API.info "Entra en showDeals: " + deals.length
+	root.citiesWindow.remove(root.errorView)
+	root.createMap(deals)
+	if deals.length is 0 
+		root.endPopulate(true)
+	else if root.city.type is 'zone'
+		root.populateDealsZoneTable(deals)
+	else 
+		root.populateDealsTable(deals)
 
 root.populateDealsTable = (deals) ->
-  id = 0
-  root.citiesWindow.remove(root.errorView)
-  root.createMap(deals)
-  Ti.API.info 'deals: ' + this.responseText
-  data = []
-  for deal in deals
-    id = id + 1
-    Ti.API.info 'Entra en un deal' + id
-    dealRow = new root.listDealsRow(deal,id)
-    Ti.API.info 'antes de hacer el data.push'
-    data.push(dealRow.row)
-  if data.length is 0
-    Ti.API.info '****** No hay hoteles activos en esta ciudad ********'
-    root.listDealsWindow.add(root.noDealsView)
-    root.noDealsView.show()
-  else
-    textRow = new root.GenericTextRow().row
-    textRow.hasChild = true
-    textRow.rightImage = '/images/blue_arrow.png'
-    textLabel = Titanium.UI.createLabel
-      text: L('why3Title')
-      color: '#fff'
-      font:
-        fontSize: 14
-        fontWeight: 'bold'
-      left: 10
-    Ti.API.info 'Metimos why3'
-    textRow.add(textLabel)
-    Ti.API.info 'hace textlabel'
-    data.push(textRow)
-    Ti.API.info '****** OK HAY HOTELES! ********'
-    root.noDealsView.hide()
-    root.listDealsWindow.remove(root.noDealsView)
-    root.dealsTable.setData(data)
-  root.hideLoading(root.listDealsWindow)
-  root.hideLoading(root.citiesWindow)
-  if root.reloadDeals is false
-    root.tabGroup.activeTab.open(root.listDealsWindow,{animated:true})
-  root.reloadDeals = false
-  Ti.API.error 'TERMINA CARGA DEALS'
+	data = []
+	for deal in deals
+		dealRow = new root.listDealsRow(deal)
+		data.push(dealRow.row)
+	data.push(root.why3Row)
+	root.noDealsView.hide()
+	root.listDealsWindow.remove(root.noDealsView)
+	root.dealsTable.setData(data)
+	root.endPopulate(false)
+
+
+root.populateDealsZoneTable = (deals) -> 
+	data = []
+	header = new root.dealHeaderView(root.city.name)
+	section = Ti.UI.createTableViewSection
+		headerView: header.view
+	name = "empty"
+	for deal in deals
+		city = deal.city
+		dealRow = new root.listDealsRow(deal)
+		if name is "empty"
+			header.text = city.name
+			name = city.name
+		if city.name isnt name
+			data.push(section)
+			header = new root.dealHeaderView(city.name)
+			section = Ti.UI.createTableViewSection
+				headerView: header.view
+			name = city.name
+			section.add(dealRow.row)
+		else section.add(dealRow.row)
+	data.push(section)	
+	data.push(root.why3Row)
+	root.noDealsView.hide()
+	root.listDealsWindow.remove(root.noDealsView)
+	root.dealsTable.setData(data)			
+	root.endPopulate(false)
+	
+	
+root.endPopulate = (empty) ->
+	Ti.API.info "Entra en endPopulate"
+	if empty is true
+		Ti.API.info '****** No hay hoteles activos en esta ciudad ********'
+		root.listDealsWindow.add(root.noDealsView)
+		root.noDealsView.show()
+	root.hideLoading(root.listDealsWindow)
+	root.hideLoading(root.citiesWindow)
+	if root.reloadDeals is false
+		root.tabGroup.activeTab.open(root.listDealsWindow,{animated:true})
+	root.reloadDeals = false
+		
 
 root.loadDeals = (city) ->
 	Ti.API.info 'Entra en loadDeals'

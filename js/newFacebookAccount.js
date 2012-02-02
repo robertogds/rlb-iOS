@@ -1,5 +1,7 @@
 (function() {
+
   root.xhrFacebookRegister = Titanium.Network.createHTTPClient();
+
   root.xhrFacebookRegister.onload = function(e) {
     var response;
     response = JSON.parse(this.responseText);
@@ -19,6 +21,7 @@
     }
     return Titanium.App.Properties.setString("facebookUser", JSON.stringify(root.facebookUser));
   };
+
   root.doFacebookRegister = function(email, firstName, lastName) {
     var newUser, password, proto, url;
     password = Titanium.Utils.md5HexDigest("facebookUser");
@@ -36,4 +39,5 @@
     });
     return root.xhrFacebookRegister.send(newUser);
   };
+
 }).call(this);

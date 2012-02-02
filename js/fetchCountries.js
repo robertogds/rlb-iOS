@@ -1,19 +1,23 @@
 (function() {
+
   root.countriesDate = new Date();
+
   root.listCountries = void 0;
+
   root.xhrCountries = Titanium.Network.createHTTPClient();
+
   root.xhrCountries.onload = function() {
     Ti.API.info(this.responseText);
     root.listCountries = JSON.parse(this.responseText);
     root.populateCountriesTable(root.listCountries);
-    if (root.isGPS) {
-      return root.gpsFetchCities();
-    }
+    if (root.isGPS) return root.gpsFetchCities();
   };
+
   root.xhrCountries.onerror = function() {
     root.hideLoading(root.countriesWindow);
     return root.showError(root.countriesWindow);
   };
+
   root.fetchCountries = function() {
     var diffTime, now;
     if (Titanium.Network.online === false) {
@@ -39,4 +43,5 @@
       }
     }
   };
+
 }).call(this);

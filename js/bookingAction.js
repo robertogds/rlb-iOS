@@ -1,5 +1,7 @@
 (function() {
+
   root.xhrBooking = Titanium.Network.createHTTPClient();
+
   root.xhrBooking.onload = function(e) {
     var response;
     Ti.API.info(this.responseText);
@@ -37,12 +39,14 @@
       }).show();
     }
   };
+
   root.xhrBooking.onerror = function(e) {
     Titanium.Analytics.featureEvent('booking.error');
     root.hideLoading(root.confirmBookingWindow);
     root.showError();
     return Ti.API.error(e);
   };
+
   root.doBooking = function() {
     var newBook, signature, url;
     Ti.API.info('_____________________ ENTRA EN COMPRAR ********************');
@@ -73,13 +77,10 @@
     root.xhrBooking.send(newBook);
     return Ti.API.info('Paso post-compra');
   };
+
   root.validateBookingData = function() {
-    if (!(root.user.id > 0)) {
-      return Ti.Locale.getString('errorUser');
-    }
-    if (!(root.deal.id > 0)) {
-      return Ti.Locale.getString('errorNoDeal');
-    }
+    if (!(root.user.id > 0)) return Ti.Locale.getString('errorUser');
+    if (!(root.deal.id > 0)) return Ti.Locale.getString('errorNoDeal');
     if (root.cardTypeLabel.text === 'Tipo de tarjeta') {
       return Ti.Locale.getString('errorCardType');
     }
@@ -100,4 +101,5 @@
     }
     return true;
   };
+
 }).call(this);

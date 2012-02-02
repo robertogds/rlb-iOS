@@ -1,9 +1,11 @@
 (function() {
   var checkinTitleLabel, checkoutTitleLabel, confirmButton, night1View, night2View, night3View, night4View, night5View, nightsCheckinLabel, nightsCheckoutLabel, nightsTitleLabel, nightsTotalLabel, pullButton, pushButton, totalLabel;
+
   root.nightsView = Titanium.UI.createView({
     backgroundColor: '#0d1e28',
     width: Ti.Platform.displayCaps.platformWidth
   });
+
   nightsTitleLabel = Titanium.UI.createLabel({
     top: 5,
     height: 22,
@@ -15,7 +17,9 @@
       fontWeight: 'bold'
     }
   });
+
   root.nightsView.add(nightsTitleLabel);
+
   checkinTitleLabel = Titanium.UI.createLabel({
     text: L('checkin') + ': ',
     color: '#fff',
@@ -27,6 +31,7 @@
     height: 20,
     top: 40
   });
+
   checkoutTitleLabel = Titanium.UI.createLabel({
     text: L('checkout') + ': ',
     color: '#fff',
@@ -38,6 +43,7 @@
     height: 20,
     top: 62
   });
+
   nightsCheckinLabel = Titanium.UI.createLabel({
     color: '#868d92',
     font: {
@@ -47,6 +53,7 @@
     top: 40,
     height: 20
   });
+
   nightsCheckoutLabel = Titanium.UI.createLabel({
     color: '#868d92',
     font: {
@@ -56,6 +63,7 @@
     top: 62,
     height: 20
   });
+
   totalLabel = Titanium.UI.createLabel({
     top: 40,
     height: 10,
@@ -67,6 +75,7 @@
       fontWeight: 'bold'
     }
   });
+
   nightsTotalLabel = Titanium.UI.createLabel({
     text: '129€',
     color: '#fff',
@@ -78,9 +87,13 @@
     height: 30,
     top: 45
   });
+
   night1View = new root.GenericNightView(1, 100, 20);
+
   night1View.view.visible = true;
+
   night1View.view.backgroundColor = '#017096';
+
   night1View.view.backgroundGradient = {
     type: 'linear',
     colors: [
@@ -93,10 +106,15 @@
       }
     ]
   };
+
   night1View.view.borderWidth = 2;
+
   night1View.dayOfWeekLabel.color = '#fff';
+
   night1View.dateLabel.color = '#fff';
+
   night1View.priceLabel.color = '#fff';
+
   night1View.view.addEventListener('click', function(e) {
     root.checkoutDate = new Date(root.checkinDate.getTime() + 86400000);
     root.bookingNights = 1;
@@ -107,50 +125,73 @@
     pullButton(night4View);
     return pullButton(night5View);
   });
+
   night2View = new root.GenericNightView(2, 100, 110);
+
   night2View.view.addEventListener('click', function(e) {
     pushButton(night2View);
     pullButton(night3View);
     pullButton(night4View);
     return pullButton(night5View);
   });
+
   night3View = new root.GenericNightView(3, 100, 200);
+
   night3View.view.addEventListener('click', function(e) {
     pushButton(night2View);
     pushButton(night3View);
     pullButton(night4View);
     return pullButton(night5View);
   });
+
   night4View = new root.GenericNightView(4, 200, 20);
+
   night4View.view.addEventListener('click', function(e) {
     pushButton(night2View);
     pushButton(night3View);
     pushButton(night4View);
     return pullButton(night5View);
   });
+
   night5View = new root.GenericNightView(5, 200, 110);
+
   night5View.view.addEventListener('click', function(e) {
     pushButton(night2View);
     pushButton(night3View);
     pushButton(night4View);
     return pushButton(night5View);
   });
+
   root.nightsView.add(night1View.view);
+
   root.nightsView.add(night2View.view);
+
   root.nightsView.add(night3View.view);
+
   root.nightsView.add(night4View.view);
+
   root.nightsView.add(night5View.view);
+
   root.nightsView.add(nightsCheckoutLabel);
+
   root.nightsView.add(nightsCheckinLabel);
+
   root.nightsView.add(checkinTitleLabel);
+
   root.nightsView.add(checkoutTitleLabel);
+
   root.nightsView.add(nightsTotalLabel);
+
   root.nightsWindow.add(root.nightsView);
+
   confirmButton = new root.GenericButton(310, L('save')).button;
+
   confirmButton.addEventListener('click', function(e) {
     return root.nightsWindow.close();
   });
+
   root.nightsView.add(confirmButton);
+
   pushButton = function(nightView) {
     nightView.view.borderWidth = 2;
     nightView.view.backgroundGradient = {
@@ -187,6 +228,7 @@
     nightsCheckoutLabel.text = root.getLocaleDateString(root.checkoutDate);
     return nightsTotalLabel.text = root.totalPrice + ' €';
   };
+
   pullButton = function(nightView) {
     nightView.view.borderWidth = 1;
     nightView.view.backgroundGradient = {
@@ -207,6 +249,7 @@
     nightView.priceLabel.color = '#000';
     return nightsCheckoutLabel.text = root.getLocaleDateString(root.checkoutDate);
   };
+
   root.loadNightsView = function() {
     var day2, day3, day4, day5;
     nightsTotalLabel.text = root.totalPrice + ' €';
@@ -252,4 +295,5 @@
       return night5View.visible = false;
     }
   };
+
 }).call(this);

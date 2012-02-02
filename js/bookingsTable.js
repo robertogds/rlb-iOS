@@ -1,24 +1,31 @@
 (function() {
+
   Ti.include('/js/BookingsRow.js');
+
   root.footerView = Titanium.UI.createView({
     backgroundColor: 'transparent',
     borderWidth: 0,
     height: 100,
     width: 320
   });
+
   root.bookingsTable = Titanium.UI.createTableView({
     data: [],
     backgroundColor: 'transparent',
     separatorColor: '#1b3c50'
   });
+
   root.bookingsWindow.add(root.bookingsTable);
+
   root.bookingsTable.addEventListener('click', function(e) {
     root.showOneBookingView(e.row.booking);
     return root.tabGroup.activeTab.open(root.oneBookingWindow, {
       animated: true
     });
   });
+
   root.xhrBookings = Titanium.Network.createHTTPClient();
+
   root.xhrBookings.onload = function() {
     var booking, bookingLabel, bookingRow, bookings, data, _i, _len;
     root.bookingsWindow.remove(root.errorView);
@@ -47,6 +54,7 @@
     }
     return root.hideLoading(root.bookingsWindow);
   };
+
   root.xhrBookings.onerror = function() {
     Ti.UI.createAlertDialog({
       title: 'ReallyLateBooking',
@@ -55,12 +63,14 @@
     root.hideLoading(root.bookingsWindow);
     return root.showError(root.bookingsWindow);
   };
+
   root.xhrBookings.timedout = function() {
     return Ti.UI.createAlertDialog({
       title: 'ReallyLateBooking',
       message: L('errorHappened')
     }).show();
   };
+
   root.showBookings = function() {
     var signature, url;
     root.noBookingsView.hide();
@@ -72,4 +82,5 @@
     root.xhrBookings.setRequestHeader("Accept-Language", Titanium.Locale.currentLanguage);
     return root.xhrBookings.send();
   };
+
 }).call(this);

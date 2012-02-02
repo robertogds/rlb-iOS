@@ -4,6 +4,7 @@ root.surl = 'https://rlb-back.appspot.com'
 #root.surl = 'http://192.168.1.33:9000'
 root.country = 'spain'
 root.countriesDate = new Date()
+root.cell = {}
 
 root.bgGradient =
      type:'linear'
@@ -11,9 +12,12 @@ root.bgGradient =
 
 Ti.include(
 	'/js/mocks.js'
+	'/js/staticCities.js'
+	'/js/staticZones.js'
 	'/js/sharekit.js'
     '/js/gpsData.js'
     '/js/fetchDeals.js'
+	'/js/fetchDealsZone.js'
     '/js/dateUtil.js'
     '/js/GenericWindow.js'
     '/js/GenericSeparatorView.js'
@@ -33,7 +37,6 @@ Ti.include(
     '/js/accountWindow.js'
     '/js/bookingsWindow.js'
     '/js/citiesWindow.js'
-    #'/js/countriesWindow.js'
     '/js/showDeal.js'
     '/js/oneBookingView.js'
     '/js/optionsView.js'

@@ -1,17 +1,21 @@
 (function() {
   var footerView;
+
   footerView = Titanium.UI.createView({
     backgroundColor: 'transparent',
     borderWidth: 0,
     height: 100
   });
+
   root.citiesTable = Titanium.UI.createTableView({
     data: [],
     backgroundColor: 'transparent',
     separatorColor: 'transparent',
     footerView: footerView
   });
+
   root.citiesWindow.add(root.citiesTable);
+
   root.citiesTable.addEventListener('click', function(e) {
     if (e.row.city !== void 0) {
       Ti.API.info('Entra en click a ciudad');
@@ -19,6 +23,7 @@
       return root.loadDeals(e.row.city);
     }
   });
+
   root.populateCitiesTable = function(cities) {
     var city, cityRow, data, textLabel, textRow, _i, _len;
     root.citiesWindow.remove(root.errorView);
@@ -56,4 +61,5 @@
     root.hideLoading(root.countriesWindow);
     return root.hideLoading(root.citiesWindow);
   };
+
 }).call(this);

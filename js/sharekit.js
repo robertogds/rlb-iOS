@@ -1,5 +1,7 @@
 (function() {
+
   root.sharekit = require("com.0x82.sharekit");
+
   root.sharekit.configure({
     exclude_services: ['Delicious', 'GoogleReader', 'ReadItLater', 'Instapaper', 'Tumblr'],
     my_app_name: 'ReallyLateBooking',
@@ -14,4 +16,5 @@
     facebook_session_proxy_url: '',
     bar_style: 'UIBarStyleDefault'
   });
+
 }).call(this);

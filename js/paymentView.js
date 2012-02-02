@@ -1,9 +1,11 @@
 (function() {
   var adviseCardLabel, infoImage, savePaymentButton;
+
   root.paymentView = Titanium.UI.createView({
     backgroundColor: '#0d1e28',
     width: Ti.Platform.displayCaps.platformWidth
   });
+
   infoImage = Titanium.UI.createImageView({
     top: 240,
     image: '/images/icon_info.png',
@@ -11,7 +13,9 @@
     height: 20,
     left: 2
   });
+
   root.paymentView.add(infoImage);
+
   adviseCardLabel = Titanium.UI.createLabel({
     borderWidth: 0,
     borderColor: '#0d1e28',
@@ -25,9 +29,13 @@
       fontWeight: 'bold'
     }
   });
+
   root.paymentView.add(adviseCardLabel);
+
   savePaymentButton = new root.GenericButton(310, L('save')).button;
+
   root.paymentView.add(savePaymentButton);
+
   savePaymentButton.addEventListener('click', function(e) {
     var creditCard, validate;
     validate = root.validateBookingData();
@@ -48,8 +56,13 @@
       return root.paymentWindow.close();
     }
   });
+
   root.creditCardData[0] = root.creditCardSection;
+
   root.creditCardTable.data = root.creditCardData;
+
   root.paymentView.add(root.creditCardTable);
+
   root.paymentWindow.add(root.paymentView);
+
 }).call(this);

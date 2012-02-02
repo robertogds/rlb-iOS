@@ -31,7 +31,7 @@ root.imagesWindow.tabBarHidden = true
 
 # Application Tabs 336699
 root.tabGroup = Titanium.UI.createTabGroup
-	barColor:'transparent' 
+	barColor:'black' 
 	id:'tabGroup'
 
 root.dealsTab = Titanium.UI.createTab

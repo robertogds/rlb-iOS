@@ -1,5 +1,6 @@
 (function() {
   var data, emailText, passText, row1, row2, section;
+
   root.loginTable = Titanium.UI.createTableView({
     top: 40,
     height: 88,
@@ -10,6 +11,7 @@
     moving: false,
     backgroundColor: '#fff'
   });
+
   emailText = Titanium.UI.createTextField({
     width: '100%',
     color: '#336699',
@@ -21,9 +23,11 @@
     keyboardType: Titanium.UI.KEYBOARD_EMAIL,
     returnKeyType: Titanium.UI.RETURNKEY_NEXT
   });
+
   emailText.addEventListener('return', function(e) {
     return passText.focus();
   });
+
   passText = Titanium.UI.createTextField({
     backgroundColor: '#fff',
     width: '100%',
@@ -33,6 +37,7 @@
     clearOnEdit: true,
     passwordMask: true
   });
+
   passText.addEventListener('return', function(e) {
     var email, password, validate;
     email = emailText.value;
@@ -49,20 +54,31 @@
       }).show();
     }
   });
+
   section = Titanium.UI.createTableViewSection();
+
   data = [];
+
   row1 = Titanium.UI.createTableViewRow({
     width: '100%',
     height: 44
   });
+
   row1.add(emailText);
+
   row2 = Titanium.UI.createTableViewRow({
     width: '100%',
     height: 44
   });
+
   row2.add(passText);
+
   section.add(row1);
+
   section.add(row2);
+
   data[0] = section;
+
   root.loginTable.data = data;
+
 }).call(this);

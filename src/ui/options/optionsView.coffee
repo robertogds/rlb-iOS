@@ -1,5 +1,6 @@
 Ti.include(
-  '/js/supportView.js'
+	'/js/supportView.js'
+	'/js/testWindow.js'
 )
 root.optionsView = Titanium.UI.createView
   background: 'transparent'
@@ -21,6 +22,9 @@ versionLabel = Titanium.UI.createLabel
   top: 340
 
 
+versionLabel.addEventListener 'click', (e) ->
+	root.tabGroup.activeTab.open(root.testWindow,{animated:true})
+	
 socialView = Titanium.UI.createView
   top: 270
   height: 80

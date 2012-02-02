@@ -1,6 +1,8 @@
 (function() {
   var BookingsRow;
+
   BookingsRow = (function() {
+
     function BookingsRow(booking) {
       this.row = Ti.UI.createTableViewRow({
         hasChild: true,
@@ -9,7 +11,11 @@
         booking: booking
       });
     }
+
     return BookingsRow;
+
   })();
+
   root.BookingsRow = BookingsRow;
+
 }).call(this);

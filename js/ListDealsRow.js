@@ -1,7 +1,9 @@
 (function() {
   var ListDealsRow;
+
   ListDealsRow = (function() {
-    function ListDealsRow(deal, n) {
+
+    function ListDealsRow(deal) {
       var antesLabel, extraNightsLabel, hotelBarLabel, hotelLabel, icon, image, imagex, normalPriceLabel, priceLabel, priceTag, roomTypeLabel, soldOutLabel, soldOutView, textColor;
       imagex = {};
       textColor = "white";
@@ -124,18 +126,10 @@
         width: 60,
         top: 68
       });
-      if (deal.priceDay2 > 0) {
-        extraNightsLabel.text = L('stayTwoNights');
-      }
-      if (deal.priceDay3 > 0) {
-        extraNightsLabel.text = L('stayThreeNights');
-      }
-      if (deal.priceDay4 > 0) {
-        extraNightsLabel.text = L('stayFourNights');
-      }
-      if (deal.priceDay5 > 0) {
-        extraNightsLabel.text = L('stayFiveNights');
-      }
+      if (deal.priceDay2 > 0) extraNightsLabel.text = L('stayTwoNights');
+      if (deal.priceDay3 > 0) extraNightsLabel.text = L('stayThreeNights');
+      if (deal.priceDay4 > 0) extraNightsLabel.text = L('stayFourNights');
+      if (deal.priceDay5 > 0) extraNightsLabel.text = L('stayFiveNights');
       this.row.add(extraNightsLabel);
       roomTypeLabel = Titanium.UI.createLabel({
         width: 80,
@@ -201,11 +195,13 @@
         top: 45
       });
       soldOutView.add(soldOutLabel);
-      if (deal.quantity === 0) {
-        this.row.add(soldOutView);
-      }
+      if (deal.quantity === 0) this.row.add(soldOutView);
     }
+
     return ListDealsRow;
+
   })();
+
   root.listDealsRow = ListDealsRow;
+
 }).call(this);

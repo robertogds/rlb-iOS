@@ -1,16 +1,24 @@
 (function() {
   var getNearCity, locationAdded, translateErrorCode;
+
   Ti.Geolocation.preferredProvider = "gps";
+
   Ti.Geolocation.purpose = "Get Current Location";
+
   locationAdded = false;
+
   root.gpsCountry = void 0;
+
   root.gpsCity = void 0;
+
   Number.prototype.toDeg = function() {
     return this * 180 / Math.PI;
   };
+
   Number.prototype.toRad = function() {
     return this * Math.PI / 180;
   };
+
   getNearCity = function(lat, lon) {
     var R, a, c, city, cityLatRad, dLat, dLon, distance, latRad, lowDistance, nearCity, _i, _len, _ref;
     R = 6371;
@@ -40,10 +48,9 @@
       }).show();
     }
   };
+
   translateErrorCode = function(code) {
-    if (code === null) {
-      return null;
-    }
+    if (code === null) return null;
     switch (code) {
       case Ti.Geolocation.ERROR_LOCATION_UNKNOWN:
         return "Location unknown";
@@ -61,6 +68,7 @@
         return "Region monitoring setup delayed";
     }
   };
+
   root.initializeGPS = function() {
     var authorization;
     root.showLoading(root.citiesWindow, 'Getting GPS Location');
@@ -88,6 +96,7 @@
     }
     return root.getGPSData();
   };
+
   root.getGPSData = function() {
     Titanium.Geolocation.accuracy = Titanium.Geolocation.ACCURACY_BEST;
     Titanium.Geolocation.distanceFilter = 10;
@@ -118,4 +127,5 @@
       return locationAdded = true;
     });
   };
+
 }).call(this);

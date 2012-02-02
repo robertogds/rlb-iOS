@@ -1,4 +1,5 @@
 (function() {
+
   root.loadingView = Titanium.UI.createView({
     backgroundColor: '#000',
     borderWidth: 0,
@@ -8,6 +9,7 @@
     height: 150,
     top: '30%'
   });
+
   root.loadLabel = Titanium.UI.createLabel({
     textAlign: 'center',
     height: 50,
@@ -21,18 +23,24 @@
       fontWeight: 'bold'
     }
   });
+
   root.iphoneActInd = Titanium.UI.createActivityIndicator({
     style: Titanium.UI.iPhone.ActivityIndicatorStyle.BIG,
     top: 30
   });
+
   root.androidActInd = Titanium.UI.createActivityIndicator({
     height: 50,
     width: 10,
     message: Ti.Locale.getString('loading')
   });
+
   root.loadingView.add(root.loadLabel);
+
   root.loadingView.add(root.iphoneActInd);
+
   root.iphoneActInd.show();
+
   root.showLoading = function(window, text) {
     if (text !== void 0) {
       root.loadLabel.text = text;
@@ -45,6 +53,7 @@
       return window.add(root.loadingView);
     }
   };
+
   root.hideLoading = function(window) {
     if (Titanium.Platform.name === 'android') {
       return root.androidActInd.hide();
@@ -52,4 +61,5 @@
       return window.remove(root.loadingView);
     }
   };
+
 }).call(this);

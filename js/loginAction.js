@@ -1,5 +1,7 @@
 (function() {
+
   root.xhrLogin = Titanium.Network.createHTTPClient();
+
   root.xhrLogin.onload = function(e) {
     var login;
     try {
@@ -24,10 +26,12 @@
     }
     return root.hideLoading(root.accountWindow);
   };
+
   root.xhrLogin.onerror = function(e) {
     root.showError();
     return Ti.API.error(e);
   };
+
   root.doLogin = function(email, password) {
     Titanium.Analytics.featureEvent('login');
     root.xhrLogin.setTimeout(15000);
@@ -39,13 +43,11 @@
       "password": password
     }));
   };
+
   root.validateLoginData = function(email, password) {
-    if (!(email.length > 3)) {
-      return Ti.Locale.getString('errorEmail');
-    }
-    if (!(password.length > 3)) {
-      return Ti.Locale.getString('errorPassword');
-    }
+    if (!(email.length > 3)) return Ti.Locale.getString('errorEmail');
+    if (!(password.length > 3)) return Ti.Locale.getString('errorPassword');
     return true;
   };
+
 }).call(this);

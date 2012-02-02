@@ -1,9 +1,12 @@
 (function() {
+
   root.xhrRemember = Titanium.Network.createHTTPClient();
+
   root.xhrRemember.onerror = function(e) {
     root.showError();
     return Ti.API.error(e);
   };
+
   root.xhrRemember.onload = function(e) {
     var response;
     response = JSON.parse(this.responseText);
@@ -17,6 +20,7 @@
       return alert('Error: ' + response.detail);
     }
   };
+
   root.doRememberPass = function(email) {
     Titanium.Analytics.featureEvent('rememberPass');
     root.xhrRemember.setTimeout(5000);
@@ -27,4 +31,5 @@
       "email": email
     }));
   };
+
 }).call(this);

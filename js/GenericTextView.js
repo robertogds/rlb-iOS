@@ -1,6 +1,8 @@
 (function() {
   var GenericTextView;
+
   GenericTextView = (function() {
+
     function GenericTextView(top, title, text) {
       this.view = Titanium.UI.createView({
         backgroundImage: '/images/Texture.png',
@@ -34,7 +36,11 @@
       this.view.add(this.titleLabel);
       this.view.add(this.textLabel);
     }
+
     return GenericTextView;
+
   })();
+
   root.GenericTextView = GenericTextView;
+
 }).call(this);

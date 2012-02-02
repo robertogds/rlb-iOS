@@ -1,4 +1,5 @@
 Ti.include(
+  '/js/DealHeaderView.js'
   '/js/why3View.js'
   '/js/ListDealsRow.js'
   '/js/listDealsMapView.js'

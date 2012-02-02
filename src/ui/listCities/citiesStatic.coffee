@@ -13,28 +13,21 @@ gpsButton.addEventListener 'click', (e) ->
 
 root.citiesWindow.rightNavButton = gpsButton
 
-root.citiesTable.addEventListener 'click', (e) ->
-	if e.row.city isnt undefined
-		Ti.API.info 'Entra en click a ciudad'
-		Titanium.Analytics.featureEvent('click.city',{city:e.row.city.name})
-		root.showLoading(root.citiesWindow,L('updatingHotels'))
-		root.loadDeals(e.row.city)
-
-citiesData = []
+root.citiesData = []
 n = 0
 list = {}
 for city in root.staticCities
 	n++
 	list[n] = city
 	if n is 3
-		cityColumn = new root.cityColumn(list[1],list[2],list[3])
-		citiesData.push(cityColumn.row)
+		cityRow = new root.cityRow(list[1],list[2],list[3])
+		root.citiesData.push(cityRow.row)
 		n = 0
 		list[1] = undefined
 		list[2] = undefined
 		list[3] = undefined
 		
-cityColumn = new root.cityColumn(list[1],list[2],list[3])
-citiesData.push(cityColumn.row)
-root.citiesTable.setData(citiesData)
+cityRow = new root.cityRow(list[1],list[2],list[3])
+root.citiesData.push(cityRow.row)
+root.citiesTable.setData(root.citiesData)
 

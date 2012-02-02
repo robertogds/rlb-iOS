@@ -1,7 +1,11 @@
 (function() {
+
   root.xhrCities = Titanium.Network.createHTTPClient();
+
   root.citiesDate = {};
+
   root.listCities = {};
+
   root.xhrCities.onload = function() {
     Ti.API.info('Entra en carga correcto');
     Ti.API.info(this.responseText);
@@ -15,11 +19,13 @@
       }
     }
   };
+
   root.xhrCities.onerror = function() {
     Ti.API.info("Entra en error de ciudades onerror");
     root.hideLoading(root.citiesWindow);
     return root.showError(root.citiesWindow);
   };
+
   root.fetchCities = function(url) {
     var diffTime, now;
     Ti.API.info("Entra en get Cities con " + url);
@@ -49,8 +55,10 @@
       }
     }
   };
+
   root.mockFetchCities = function() {
     Ti.API.info("Entra en cargar ciudades estatíco");
     return root.populateCitiesTable(root.staticCities);
   };
+
 }).call(this);

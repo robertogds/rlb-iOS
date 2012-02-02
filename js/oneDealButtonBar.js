@@ -1,9 +1,11 @@
 (function() {
+
   root.oneDealButtonBarView = Titanium.UI.createView({
     background: 'transparent',
     borderWidth: 0,
     top: 0
   });
+
   root.oneDealButtonBar = Titanium.UI.createTabbedBar({
     labels: [L('booking'), L('info'), L('map'), L('photos')],
     backgroundColor: '#000',
@@ -12,7 +14,9 @@
     style: Titanium.UI.iPhone.SystemButtonStyle.BAR,
     height: 40
   });
+
   root.oneDealButtonBarView.add(root.oneDealButtonBar);
+
   root.oneDealButtonBar.addEventListener('click', function(e) {
     if (e.index === 0) {
       root.oneDealWindow.remove(root.infoDealTable);
@@ -34,4 +38,5 @@
     }
     return 1;
   });
+
 }).call(this);

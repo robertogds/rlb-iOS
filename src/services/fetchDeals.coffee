@@ -5,8 +5,7 @@ root.xhrDeals.onload = () ->
 	root.hideLoading(root.citiesWindow)
 	deals = JSON.parse(this.responseText)
 	if deals.status is undefined 
-		Ti.API.error "Entra en undefined OK"
-		root.populateDealsTable(deals)
+		root.showDeals(deals)
 
 root.xhrDeals.onerror = () ->
 	root.hideLoading(root.citiesWindow)
@@ -21,7 +20,7 @@ root.fetchDeals = (city) ->
 		root.showError(root.citiesWindow)
 	else
 		root.xhrDeals.setTimeout(15000)
-		root.xhrDeals.open('GET', root.url+'/deals/'+city.url)
+		root.xhrDeals.open('GET', root.url+'/v2/deals/'+city.url)
 		root.xhrDeals.setRequestHeader("Accept-Language",Titanium.Locale.currentLanguage)
 		root.xhrDeals.send()
 		

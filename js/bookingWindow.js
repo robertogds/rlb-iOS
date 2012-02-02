@@ -1,4 +1,5 @@
 (function() {
+
   root.confirmBookingWindow.addEventListener('focus', function(e) {
     Ti.API.info("Paso 11 >>>>>>>>");
     if (root.bookingForFirstName === null) {
@@ -35,4 +36,5 @@
     }
     return Ti.API.info("Sale bookingWindow focus >>>>>>>>");
   });
+
 }).call(this);

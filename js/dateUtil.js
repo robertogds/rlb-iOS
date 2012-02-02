@@ -1,4 +1,5 @@
 (function() {
+
   root.getDayOfWeekString = function(thisDate) {
     var thisDay;
     thisDay = thisDate.getDay();
@@ -19,6 +20,7 @@
         return L('sunday');
     }
   };
+
   root.getShortMonthString = function(thisDate) {
     var thisMonth;
     thisMonth = thisDate.getMonth();
@@ -49,6 +51,7 @@
         return L('dec').substr(0, 3);
     }
   };
+
   root.getLocaleDateString = function(thisDate) {
     var thisMonth;
     thisMonth = thisDate.getMonth();
@@ -79,4 +82,5 @@
         return L('dec') + ' ' + thisDate.getDate() + ', ' + thisDate.getFullYear();
     }
   };
+
 }).call(this);

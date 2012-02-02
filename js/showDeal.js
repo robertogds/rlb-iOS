@@ -1,5 +1,7 @@
 (function() {
+
   Ti.include('/js/oneDealMapView.js', '/js/imagesScrollView.js', '/js/infoDealTable.js', '/js/priceView.js', '/js/oneDealView.js');
+
   root.showDealView = function(deal) {
     var aroundRow, aroundTitle, aroundView, detailRow, detailTitle, detailView, foodDrinkRow, foodDrinkTitle, foodDrinkView, hotelRow, hotelTitle, hotelView, infoData, region, roomRow, roomTitle, roomView;
     root.deal = deal;
@@ -54,12 +56,8 @@
         description: deal.hotelText
       };
       return Titanium.Facebook.dialog("feed", data, function(e) {
-        if (e.success) {
-          ;
-        } else {
-          if (e.error) {
-            return alert(e.error);
-          }
+        if (e.success) {} else {
+          if (e.error) return alert(e.error);
         }
       });
     });
@@ -121,4 +119,5 @@
       return root.nightsRow.rightImage = '';
     }
   };
+
 }).call(this);

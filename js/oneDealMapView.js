@@ -1,11 +1,14 @@
 (function() {
   var mapButtonView;
+
   mapButtonView = new root.GenericMapRightButtonView(null).view;
+
   mapButtonView.addEventListener('click', function(e) {
     root.oneDealWindow.remove(root.infoDealTable);
     root.oneDealWindow.remove(root.mapView);
     return root.oneDealWindow.add(root.oneDealView);
   });
+
   root.hotelAnnotation = Titanium.Map.createAnnotation({
     title: "",
     subtitle: '',
@@ -14,6 +17,7 @@
     rightView: mapButtonView,
     myid: 1
   });
+
   root.mapView = Titanium.Map.createView({
     mapType: Titanium.Map.STANDARD_TYPE,
     top: 40,
@@ -27,4 +31,5 @@
     regionFit: true,
     userLocation: true
   });
+
 }).call(this);

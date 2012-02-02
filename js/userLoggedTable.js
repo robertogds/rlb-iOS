@@ -1,5 +1,6 @@
 (function() {
   var userEmailRow, userFirstNameRow, userLastNameRow;
+
   root.userLoggedTable = Titanium.UI.createTableView({
     top: 5,
     height: 132,
@@ -10,6 +11,7 @@
     moving: false,
     backgroundColor: '#fff'
   });
+
   root.firstNameLabel = Titanium.UI.createLabel({
     backgroundColor: '#fff',
     color: '#afafaf',
@@ -19,6 +21,7 @@
       fontFamily: 'Helvetica Neue'
     }
   });
+
   root.lastNameLabel = Titanium.UI.createLabel({
     backgroundColor: '#fff',
     color: '#afafaf',
@@ -28,6 +31,7 @@
       fontFamily: 'Helvetica Neue'
     }
   });
+
   root.emailLabel = Titanium.UI.createLabel({
     backgroundColor: '#fff',
     color: '#afafaf',
@@ -37,26 +41,38 @@
       fontFamily: 'Helvetica Neue'
     }
   });
+
   root.userLoggedSection = Titanium.UI.createTableViewSection();
+
   root.userLoggedData = [];
+
   userFirstNameRow = Titanium.UI.createTableViewRow({
     width: '100%',
     height: 44
   });
+
   userLastNameRow = Titanium.UI.createTableViewRow({
     width: '100%',
     height: 44
   });
+
   userEmailRow = Titanium.UI.createTableViewRow({
     width: '100%',
     height: 44
   });
+
   userFirstNameRow.add(root.firstNameLabel);
+
   userLastNameRow.add(root.lastNameLabel);
+
   userEmailRow.add(root.emailLabel);
+
   root.userLoggedSection.add(userFirstNameRow);
+
   root.userLoggedSection.add(userLastNameRow);
+
   root.userLoggedSection.add(userEmailRow);
+
   root.loadLoggedUser = function() {
     root.firstNameLabel.text = Ti.Locale.getString('firstName') + ': ' + root.user.firstName;
     root.lastNameLabel.text = Ti.Locale.getString('lastName') + ': ' + root.user.lastName;
@@ -67,6 +83,7 @@
     root.loggedView.add(root.editButton);
     return root.loggedView.add(root.logoutButton);
   };
+
   root.loadLoggedFacebookUser = function() {
     var facebookButton;
     Ti.API.info('Entra en loggedFacebook');
@@ -84,4 +101,5 @@
     });
     return root.loggedView.add(facebookButton);
   };
+
 }).call(this);

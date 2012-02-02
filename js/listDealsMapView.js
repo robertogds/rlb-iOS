@@ -1,4 +1,5 @@
 (function() {
+
   root.listDealsMapView = Titanium.Map.createView({
     mapType: Titanium.Map.STANDARD_TYPE,
     top: 0,
@@ -8,8 +9,11 @@
     regionFit: true,
     userLocation: true
   });
+
   root.mbv = [];
+
   root.listDealsMapWindow.add(root.listDealsMapView);
+
   root.createMap = function(deals) {
     var a, deal, region, subtitle, _i, _len;
     root.annotations = [];
@@ -36,4 +40,5 @@
     }
     return root.listDealsMapView.region = region;
   };
+
 }).call(this);

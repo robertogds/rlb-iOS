@@ -1,5 +1,7 @@
 (function() {
+
   root.xhrRegister = Titanium.Network.createHTTPClient();
+
   root.xhrRegister.onload = function(e) {
     var response;
     root.hideLoading(root.newAccountWindow);
@@ -20,11 +22,13 @@
       }).show();
     }
   };
+
   root.xhrRegister.onerror = function(e) {
     root.hideLoading(root.newAccountWindow);
     root.showError();
     return Ti.API.error(e);
   };
+
   root.doRegister = function(email, password, firstName, lastName, id) {
     var newUser, proto, signature, url;
     Titanium.Analytics.featureEvent('register');
@@ -51,19 +55,13 @@
     });
     return root.xhrRegister.send(newUser);
   };
+
   root.validateNewAccountData = function(email, password, firstName, lastName) {
-    if (!(email.length > 3)) {
-      return Ti.Locale.getString('errorEmail');
-    }
-    if (!(password.length > 3)) {
-      return Ti.Locale.getString('errorPassword');
-    }
-    if (!(firstName.length > 0)) {
-      return Ti.Locale.getString('errorFirstName');
-    }
-    if (!(lastName.length > 0)) {
-      return Ti.Locale.getString('errorLastName');
-    }
+    if (!(email.length > 3)) return Ti.Locale.getString('errorEmail');
+    if (!(password.length > 3)) return Ti.Locale.getString('errorPassword');
+    if (!(firstName.length > 0)) return Ti.Locale.getString('errorFirstName');
+    if (!(lastName.length > 0)) return Ti.Locale.getString('errorLastName');
     return true;
   };
+
 }).call(this);

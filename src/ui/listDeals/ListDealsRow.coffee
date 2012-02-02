@@ -1,5 +1,5 @@
 class ListDealsRow
-  constructor: (deal,n) ->
+  constructor: (deal) ->
     imagex = {}
     textColor = "white"
     @row = Ti.UI.createTableViewRow
