@@ -49,7 +49,7 @@ class ListDealsRow
 
     priceTag = Titanium.UI.createLabel
       opacity: 0.9
-      backgroundImage: '/images/price_bas5.png'
+      backgroundImage: '/images/price_basic.jpg'
       left: 245
       borderWidth: 0
       textAlign: 'center' 
@@ -140,7 +140,7 @@ class ListDealsRow
       #roomTypeLabel.backgroundColor = "#e5e79d"
       #hotelLabel.backgroundColor = "#e5e79d"
       #roomTypeLabel.borderColor = "#e5e79d"
-      priceTag.backgroundImage = "/images/price_luxury1.png"
+      priceTag.backgroundImage = "/images/price_luxury.png"
       icon = '/images/yellow_arrow.png'
     if deal.roomType is 'elegante' 
       if deal.roomTypeText is undefined or deal.rootmTypeText is null or deal.roomTypeText.length < 2
@@ -149,7 +149,7 @@ class ListDealsRow
       #roomTypeLabel.backgroundColor = "#c7bcd2"
       #hotelLabel.backgroundColor = "#c7bcd2"
       #roomTypeLabel.borderColor = "#c7bcd2"
-      priceTag.backgroundImage = "/images/price_elegance1.png"
+      priceTag.backgroundImage = "/images/price_elegance.png"
       icon = '/images/purple_arrow.png'
     if deal.roomType is 'confort' 
       if deal.roomTypeText is undefined or deal.roomTypeText is null or deal.roomTypeText.length < 2
@@ -158,7 +158,7 @@ class ListDealsRow
       #roomTypeLabel.backgroundColor = "#a3bfd4"
       #hotelLabel.backgroundColor = "#a3bfd4"
       #roomTypeLabel.borderColor = "#a3bfd4"
-      priceTag.backgroundImage = "/images/price_basic1.png"
+      priceTag.backgroundImage = "/images/price_basic.png"
       icon = '/images/blue_arrow.png'
 	
     @row.add(roomTypeLabel)

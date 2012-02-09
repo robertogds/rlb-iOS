@@ -23,7 +23,6 @@ monthColumn.addRow(Ti.UI.createPickerRow({title:L('nov'),month_item:'11'}))
 monthColumn.addRow(Ti.UI.createPickerRow({title:L('dec'),month_item:'12'}))
 
 yearColumn = Ti.UI.createPickerColumn()
-yearColumn.addRow(Ti.UI.createPickerRow({title:'2011',year_item:'2011'}))
 yearColumn.addRow(Ti.UI.createPickerRow({title:'2012',year_item:'2012'}))
 yearColumn.addRow(Ti.UI.createPickerRow({title:'2013',year_item:'2013'}))
 yearColumn.addRow(Ti.UI.createPickerRow({title:'2014',year_item:'2014'}))
@@ -34,6 +33,7 @@ yearColumn.addRow(Ti.UI.createPickerRow({title:'2018',year_item:'2018'}))
 yearColumn.addRow(Ti.UI.createPickerRow({title:'2019',year_item:'2019'}))
 yearColumn.addRow(Ti.UI.createPickerRow({title:'2020',year_item:'2020'}))
 yearColumn.addRow(Ti.UI.createPickerRow({title:'2021',year_item:'2021'}))
+yearColumn.addRow(Ti.UI.createPickerRow({title:'2021',year_item:'2022'}))
 
 # 2 columns as an array
 #root.expiresPicker.add([monthColumn,yearColumn])

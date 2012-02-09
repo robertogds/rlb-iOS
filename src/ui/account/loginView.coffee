@@ -25,12 +25,20 @@ loginLabel = Titanium.UI.createLabel
   top: 5
 
 
-rememberPassRowView = new root.GenericRowView(150,Ti.Locale.getString('IForgotPassword'))
+#rememberPassRowView = new root.GenericRowView(150,Ti.Locale.getString('IForgotPassword'))
+rememberAndSupportView = new root.Generic2RowsView(150,Ti.Locale.getString('IForgotPassword'),Ti.Locale.getString('userSupport'))
 
-rememberPassRowView.label.addEventListener 'click', (e) ->
-  root.tabGroup.activeTab.open(root.rememberPassWindow,{animated:true})
+rememberAndSupportView.label1.addEventListener 'click', (e) ->
+	root.tabGroup.activeTab.open(root.rememberPassWindow,{animated:true})
 
-root.loginView.add(rememberPassRowView.view)
+rememberAndSupportView.label2.addEventListener 'click', (e) ->
+	root.tabGroup.activeTab.open(root.supportWindow,{animated:true})
+
+
+#rememberPassRowView.label.addEventListener 'click', (e) ->
+#  root.tabGroup.activeTab.open(root.rememberPassWindow,{animated:true})
+
+root.loginView.add(rememberAndSupportView.view)
 
 needLabel = Titanium.UI.createLabel
   text: Ti.Locale.getString('needAccount')
@@ -41,7 +49,7 @@ needLabel = Titanium.UI.createLabel
     fontWeight: 'bold'
   height: 30
 #  width: '95%'
-  top: 270
+  top: 280
 
 registerButton = new root.GenericButton(310,Ti.Locale.getString('register')).button
 

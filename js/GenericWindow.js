@@ -6,7 +6,7 @@
     function GenericWindow(theTitle) {
       this.win = Ti.UI.createWindow({
         title: theTitle,
-        backgroundImage: '/images/Texture.png'
+        backgroundImage: '/images/Texture.jpg'
       });
     }
 

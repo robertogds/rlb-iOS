@@ -40,10 +40,6 @@
     }
   }
 
-  cityRow = new root.cityRow(list[1], list[2], list[3]);
-
-  root.citiesData.push(cityRow.row);
-
   root.citiesTable.setData(root.citiesData);
 
 }).call(this);

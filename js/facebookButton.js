@@ -9,6 +9,7 @@
     return Titanium.Facebook.requestWithGraphPath('me', {}, 'GET', function(e) {
       if (e.success) {
         root.facebookUser = JSON.parse(e.result);
+        root.user = root.facebookUser;
         root.doFacebookRegister(root.facebookUser.email, root.facebookUser.first_name, root.facebookUser.last_name);
         root.hideLoading(root.loginView);
         root.loginView.hide();
@@ -53,7 +54,7 @@
       fontWeight: 'bold',
       fontFamily: 'Helvetica Neue'
     },
-    top: 230
+    top: 250
   });
 
   root.facebookLoginButton.addEventListener('click', function(e) {

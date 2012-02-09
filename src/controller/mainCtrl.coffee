@@ -17,7 +17,6 @@ Ti.include(
 	'/js/sharekit.js'
     '/js/gpsData.js'
     '/js/fetchDeals.js'
-	'/js/fetchDealsZone.js'
     '/js/dateUtil.js'
     '/js/GenericWindow.js'
     '/js/GenericSeparatorView.js'

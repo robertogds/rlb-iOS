@@ -1,6 +1,6 @@
 (function() {
 
-  Ti.include('/js/citiesRow.js', '/js/zoneCell.js', '/js/cityCell.js', '/js/cityRow.js', '/js/citiesStatic.js');
+  Ti.include('/js/zoneCell.js', '/js/cityCell.js', '/js/cityRow.js', '/js/citiesStatic.js');
 
   root.deactivateCells = function(cityName) {
     var otherCity, _i, _len, _ref, _results;

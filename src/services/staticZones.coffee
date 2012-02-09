@@ -1,57 +1,60 @@
 root.zones['madrid'] = [
 	{
-		'name' : 'Aeropuerto'
-		'parent' : 'madrid'
-		'url' : 'madrid'
+		'url' : 'madrid_centro'
+		'image' : '/images/madrid_zone.jpg'
+		'type' : 'zone'		
+	}
+	{
+		'url' : 'madrid_norte'
 		'image' : '/images/madrid_zone.jpg'	
 		'type' : 'zone'
 	}
 	{
-		'name' : 'Norte'
-		'parent' : 'madrid'
-		'url' : 'madrid'
-		'image' : '/images/madrid_zone.jpg'	
-		'type' : 'zone'	
-	}
-	{
-		'name' : 'Centro'
-		'parent' : 'madrid'
-		'url' : 'madrid'
-		'image' : '/images/madrid_zone.jpg'
-		'type' : 'zone'	
-	}
-	{
-		'name' : 'Este'
-		'parent' : 'madrid'
-		'url' : 'madrid'
+		'url' : 'madrid_este'
 		'image' : '/images/madrid_zone.jpg'
 		'type' : 'zone'
+	}
+	{
+		'url' : 'madrid_barajas'
+		'image' : '/images/madrid_zone.jpg'	
+		'type' : 'zone'	
 	}
 ]
 
 root.zones['barcelona'] = [
 	{
-		'name' : 'Aeropuerto'
-		'zoneName' : 'Aeropuerto'
-		'url' : 'barcelona_aeropuerto'
-		'image' : '/images/barcelona_zone.jpg'	
+		'url' : 'barcelona_centro'
+		'image' : '/images/barcelona_zone.jpg'			
 	}
 	{
-		'name' : 'Diagonal'
-		'zoneName' : 'Diagonal'
-		'url' : 'barcelona_diagonal'
-		'image' : '/images/barcelona_zone.jpg'		
-	}
-	{
-		'name' : 'Eixample'
-		'zoneName' : 'Eixample'
 		'url' : 'barcelona_eixample'
 		'image' : '/images/barcelona_zone.jpg'	
 	}
 	{
-		'name' : 'Ciutat Bella'
-		'zoneName' : 'Ciutat Bella'
-		'url' : 'barcelona_ciutatbella'
+		'url' : 'barcelona_playa'
 		'image' : '/images/barcelona_zone.jpg'	
+	}
+	{
+		'url' : 'barcelona_airport'
+		'image' : '/images/barcelona_zone.jpg'	
+	}
+]
+
+root.zones['london'] = [
+	{
+		'url' : 'london_victoria'
+		'image' : '/images/londres_zone.jpg'	
+	}
+	{
+		'url' : 'london_kensington'
+		'image' : '/images/londres_zone.jpg'		
+	}
+	{
+		'url' : 'london_eastend'
+		'image' : '/images/londres_zone.jpg'	
+	}
+	{
+		'url' : 'london_southbank'
+		'image' : '/images/londres_zone.jpg'	
 	}
 ]

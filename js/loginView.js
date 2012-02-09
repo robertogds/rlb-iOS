@@ -1,5 +1,5 @@
 (function() {
-  var loginLabel, needLabel, registerButton, rememberPassRowView;
+  var loginLabel, needLabel, registerButton, rememberAndSupportView;
 
   Ti.include('/js/newAccountView.js', '/js/loginAction.js', '/js/logoutAction.js', '/js/newFacebookAccount.js', '/js/facebookButton.js', '/js/loginTable.js', '/js/rememberPassView.js');
 
@@ -21,15 +21,21 @@
     top: 5
   });
 
-  rememberPassRowView = new root.GenericRowView(150, Ti.Locale.getString('IForgotPassword'));
+  rememberAndSupportView = new root.Generic2RowsView(150, Ti.Locale.getString('IForgotPassword'), Ti.Locale.getString('userSupport'));
 
-  rememberPassRowView.label.addEventListener('click', function(e) {
+  rememberAndSupportView.label1.addEventListener('click', function(e) {
     return root.tabGroup.activeTab.open(root.rememberPassWindow, {
       animated: true
     });
   });
 
-  root.loginView.add(rememberPassRowView.view);
+  rememberAndSupportView.label2.addEventListener('click', function(e) {
+    return root.tabGroup.activeTab.open(root.supportWindow, {
+      animated: true
+    });
+  });
+
+  root.loginView.add(rememberAndSupportView.view);
 
   needLabel = Titanium.UI.createLabel({
     text: Ti.Locale.getString('needAccount'),
@@ -40,7 +46,7 @@
       fontWeight: 'bold'
     },
     height: 30,
-    top: 270
+    top: 280
   });
 
   registerButton = new root.GenericButton(310, Ti.Locale.getString('register')).button;

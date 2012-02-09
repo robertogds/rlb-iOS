@@ -25,9 +25,8 @@ for city in root.staticCities
 		n = 0
 		list[1] = undefined
 		list[2] = undefined
-		list[3] = undefined
-		
-cityRow = new root.cityRow(list[1],list[2],list[3])
-root.citiesData.push(cityRow.row)
+		list[3] = undefined		
+#cityRow = new root.cityRow(list[1],list[2],list[3])
+#root.citiesData.push(cityRow.row)
 root.citiesTable.setData(root.citiesData)
 

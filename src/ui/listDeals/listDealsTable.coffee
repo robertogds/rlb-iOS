@@ -37,14 +37,19 @@ root.dealsTable.addEventListener 'click', (e) ->
 
 root.showDeals = (deals) ->
 	Ti.API.info "Entra en showDeals: " + deals.length
-	root.citiesWindow.remove(root.errorView)
-	root.createMap(deals)
+	root.citiesWindow.remove(root.errorView)	
 	if deals.length is 0 
-		root.endPopulate(true)
-	else if root.city.type is 'zone'
-		root.populateDealsZoneTable(deals)
+		Ti.API.info '****** No hay hoteles activos en esta ciudad ********'
+		root.listDealsWindow.add(root.noDealsView)
+		root.noDealsView.show()
+		root.endPopulate()
+		Ti.API.info 'Termina'
 	else 
-		root.populateDealsTable(deals)
+		root.createMap(deals)
+		if root.city.hasZones is true
+			root.populateDealsZoneTable(deals)
+		else 
+			root.populateDealsTable(deals)
 
 root.populateDealsTable = (deals) ->
 	data = []
@@ -55,29 +60,39 @@ root.populateDealsTable = (deals) ->
 	root.noDealsView.hide()
 	root.listDealsWindow.remove(root.noDealsView)
 	root.dealsTable.setData(data)
-	root.endPopulate(false)
+	root.endPopulate()
 
 
 root.populateDealsZoneTable = (deals) -> 
-	data = []
-	header = new root.dealHeaderView(root.city.name)
-	section = Ti.UI.createTableViewSection
-		headerView: header.view
+	data = []	
 	name = "empty"
+	first = true
+	for deal in deals
+		city = deal.city
+		alert city.url
+		if city.url is root.zoneUrl 
+			if first is true
+				header = new root.dealHeaderView('')
+				section = Ti.UI.createTableViewSection
+					headerView: header.view
+				first = false
+			header.textLabel.text = L(city.url)
+			dealRow = new root.listDealsRow(deal)
+			section.add(dealRow.row)
+			name = city.name
+			firstName = city.name
 	for deal in deals
 		city = deal.city
 		dealRow = new root.listDealsRow(deal)
-		if name is "empty"
-			header.text = city.name
-			name = city.name
-		if city.name isnt name
+		if city.name isnt name and city.url isnt root.zoneUrl
 			data.push(section)
-			header = new root.dealHeaderView(city.name)
+			header = new root.dealHeaderView(L(city.url))
 			section = Ti.UI.createTableViewSection
 				headerView: header.view
 			name = city.name
 			section.add(dealRow.row)
-		else section.add(dealRow.row)
+		else if city.url isnt root.zoneUrl 
+			section.add(dealRow.row)
 	data.push(section)	
 	data.push(root.why3Row)
 	root.noDealsView.hide()
@@ -86,12 +101,7 @@ root.populateDealsZoneTable = (deals) ->
 	root.endPopulate(false)
 	
 	
-root.endPopulate = (empty) ->
-	Ti.API.info "Entra en endPopulate"
-	if empty is true
-		Ti.API.info '****** No hay hoteles activos en esta ciudad ********'
-		root.listDealsWindow.add(root.noDealsView)
-		root.noDealsView.show()
+root.endPopulate = () ->
 	root.hideLoading(root.listDealsWindow)
 	root.hideLoading(root.citiesWindow)
 	if root.reloadDeals is false

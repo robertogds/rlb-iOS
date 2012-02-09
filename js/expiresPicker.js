@@ -81,11 +81,6 @@
   yearColumn = Ti.UI.createPickerColumn();
 
   yearColumn.addRow(Ti.UI.createPickerRow({
-    title: '2011',
-    year_item: '2011'
-  }));
-
-  yearColumn.addRow(Ti.UI.createPickerRow({
     title: '2012',
     year_item: '2012'
   }));
@@ -133,6 +128,11 @@
   yearColumn.addRow(Ti.UI.createPickerRow({
     title: '2021',
     year_item: '2021'
+  }));
+
+  yearColumn.addRow(Ti.UI.createPickerRow({
+    title: '2021',
+    year_item: '2022'
   }));
 
   root.expiresPicker.add(monthColumn);

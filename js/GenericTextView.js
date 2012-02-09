@@ -5,7 +5,7 @@
 
     function GenericTextView(top, title, text) {
       this.view = Titanium.UI.createView({
-        backgroundImage: '/images/Texture.png',
+        backgroundImage: '/images/Texture.jpg',
         borderWidth: 0,
         height: 'auto',
         top: top

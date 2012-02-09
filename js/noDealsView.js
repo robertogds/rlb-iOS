@@ -2,7 +2,7 @@
   var closedView, text, title;
 
   root.noDealsView = Titanium.UI.createView({
-    backgroundImage: '/images/Texture.png'
+    backgroundImage: '/images/Texture.jpg'
   });
 
   title = L('noDealsTitle');

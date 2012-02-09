@@ -10,6 +10,5 @@ class CityRow
 			root.cell[city2.name] = new root.cityCell(@row,city2,107)
 		if city3 isnt undefined
 			root.cell[city3.name] = new root.cityCell(@row,city3,214)
-		
 
 root.cityRow = CityRow

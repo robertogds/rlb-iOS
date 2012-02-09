@@ -1,6 +1,6 @@
 root.noDealsView = Titanium.UI.createView
 	#backgroundColor: 'transparent'
-	backgroundImage: '/images/Texture.png'
+	backgroundImage: '/images/Texture.jpg'
 
   #width:320
 

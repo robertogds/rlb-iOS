@@ -62,7 +62,7 @@
       this.row.add(hotelLabel);
       priceTag = Titanium.UI.createLabel({
         opacity: 0.9,
-        backgroundImage: '/images/price_bas5.png',
+        backgroundImage: '/images/price_basic.jpg',
         left: 245,
         borderWidth: 0,
         textAlign: 'center',
@@ -151,7 +151,7 @@
         } else {
           roomTypeLabel.text = deal.roomTypeText.toUpperCase();
         }
-        priceTag.backgroundImage = "/images/price_luxury1.png";
+        priceTag.backgroundImage = "/images/price_luxury.png";
         icon = '/images/yellow_arrow.png';
       }
       if (deal.roomType === 'elegante') {
@@ -160,7 +160,7 @@
         } else {
           roomTypeLabel.text = deal.roomTypeText.toUpperCase();
         }
-        priceTag.backgroundImage = "/images/price_elegance1.png";
+        priceTag.backgroundImage = "/images/price_elegance.png";
         icon = '/images/purple_arrow.png';
       }
       if (deal.roomType === 'confort') {
@@ -169,7 +169,7 @@
         } else {
           roomTypeLabel.text = deal.roomTypeText.toUpperCase();
         }
-        priceTag.backgroundImage = "/images/price_basic1.png";
+        priceTag.backgroundImage = "/images/price_basic.png";
         icon = '/images/blue_arrow.png';
       }
       this.row.add(roomTypeLabel);

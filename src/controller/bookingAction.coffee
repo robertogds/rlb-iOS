@@ -1,30 +1,31 @@
 root.xhrBooking = Titanium.Network.createHTTPClient()
 
 root.xhrBooking.onload = (e) ->
-  Ti.API.info this.responseText
-  Ti.API.info '_____________________ ENTRA EN COMPRA CON EXITO ********************'
-  root.hideLoading(root.confirmBookingWindow)
-  try
-    response = JSON.parse(this.responseText)
-  catch error
-    Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('errorBooking')}).show()
-  Ti.API.info(response)
-  if response.status is 201
-    Ti.API.error 'Paso 2'
-    root.showOneBookingView(response.content)
-    if (Titanium.Platform.name == 'android') 
-      root.confirmBookingWindow.add(root.oneClassBookingView)
-    else
-      Ti.API.error 'Paso 3'
-      root.oneBookingWindow.backButtonTitle = Ti.Locale.getString('close') 
-      root.oneBookingWindow.open
-        modal:true
-        modalTransitionStyle: Ti.UI.iPhone.MODAL_TRANSITION_STYLE_FLIP_HORIZONTAL,
-        modalStyle: Ti.UI.iPhone.MODAL_PRESENTATION_FORMSHEET
-        navBarHidden:true
-      root.oneBookingWindow.add(root.closeBookingButton)
-  else
-    Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('errorBooking')}).show()
+	Ti.API.info this.responseText
+	Ti.API.info '_____________________ ENTRA EN COMPRA CON EXITO ********************'
+	root.hideLoading(root.confirmBookingWindow)
+	try
+		response = JSON.parse(this.responseText)
+	catch error
+		Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('errorBooking')}).show()
+	Ti.API.info(response)
+	if response.status is 201
+		Ti.API.error 'Paso 2'
+		root.showOneBookingView(response.content)
+		if (Titanium.Platform.name == 'android') 
+			root.confirmBookingWindow.add(root.oneClassBookingView)
+		else
+			Ti.API.error 'Paso 3'
+			root.oneBookingWindow.backButtonTitle = Ti.Locale.getString('close') 
+			root.oneBookingWindow.open
+				modal:true
+				modalTransitionStyle: Ti.UI.iPhone.MODAL_TRANSITION_STYLE_FLIP_HORIZONTAL
+				modalStyle: Ti.UI.iPhone.MODAL_PRESENTATION_FORMSHEET
+				navBarHidden:true
+			root.oneBookingWindow.add(root.closeBookingButton)
+	else
+		Ti.API.error 'error de compra'
+		Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:'Error: ' + response.detail}).show()
 
 root.xhrBooking.onerror = (e) ->
 	Titanium.Analytics.featureEvent('booking.error')
@@ -62,12 +63,15 @@ root.doBooking = () ->
 
 
 root.validateBookingData = () ->
-  return Ti.Locale.getString('errorUser') unless root.user.id > 0
-  return Ti.Locale.getString('errorNoDeal') unless root.deal.id > 0
-  return Ti.Locale.getString('errorCardType') if root.cardTypeLabel.text is 'Tipo de tarjeta'
-  return Ti.Locale.getString('errorCardType') unless root.cardTypeLabel.text.length > 2
-  return Ti.Locale.getString('errorCardNumber') unless root.cardNumberText.value.length > 12
-  return Ti.Locale.getString('errorCardName') unless root.cardNameText.value.length > 2
-  return Ti.Locale.getString('errorExpires') unless root.expiresLabel.text.length > 2
-  return Ti.Locale.getString('errorcvcCode') unless root.cvcCodeText.value.length > 2
-  return true 
+	return Ti.Locale.getString('errorUser') unless root.user.id > 0
+	return Ti.Locale.getString('errorNoDeal') unless root.deal.id > 0
+	return Ti.Locale.getString('errorCardType') if root.cardTypeLabel.text is 'Tipo de tarjeta'
+	return Ti.Locale.getString('errorCardType') if root.cardTypeLabel.text is 'Card Type'
+	return Ti.Locale.getString('errorCardType') if root.cardTypeLabel.text is 'Type de carte'
+	return Ti.Locale.getString('errorCardType') unless root.cardTypeLabel.text.length > 2
+	return Ti.Locale.getString('errorCardNumber') unless root.cardNumberText.value.length > 12
+	return Ti.Locale.getString('errorCardName') unless root.cardNameText.value.length > 2
+	return Ti.Locale.getString('errorExpires') unless root.expiresLabel.text.length > 2
+	return Ti.Locale.getString('errorcvcCode') unless root.cvcCodeText.value.length > 2
+	return Ti.Locale.getString('errorcvcCode') unless root.cvcCodeText.value.length < 5
+	return true 

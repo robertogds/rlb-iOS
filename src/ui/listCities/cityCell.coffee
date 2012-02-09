@@ -1,5 +1,5 @@
 class CityCell
-	constructor: (row,city,left) ->   	
+	constructor: (row,city,left) ->   
 		@cityImage = Titanium.UI.createImageView
 			borderRadius: 0
 			borderWidth: 1
@@ -22,7 +22,7 @@ class CityCell
 			cityName: city.name
 		
 		@cityLabel = Titanium.UI.createLabel
-			text: city.name
+			text: L(city.url)
 			color: 'white'
 			textAlign: 'center' 
 			font:
@@ -62,7 +62,7 @@ class CityCell
 						height: 60
 					left = 0
 					for zone in root.zones[city.url]
-						zoneCell = new root.zoneCell(row,zone,left)
+						zoneCell = new root.zoneCell(row,zone,city,left)
 						left = left + 80
 					root.citiesTable.insertRowAfter(city.row,row)
 				else root.activateCells()

@@ -36,10 +36,19 @@ root.staticCities = [
 		'row' : 1
 	}
 	{
+		'name' : 'Lisboa'
+		'url' : 'lisbon'
+		'image' : '/images/lisboa.jpg' 
+		'hasZones' : false	
+		'latitude' : '38.7257308959961'
+		'longitude' : '-9.1502103805542'
+		'row' : 1	
+	}
+	{
 		'name' : 'Londres'
 		'url' : 'london'
 		'image' : '/images/london.jpg'	
-		'hasZones' : false	
+		'hasZones' : true	
 		'latitude' : '51.496194'
 		'longitude' : '-0.179724'
 		'row' : 1
@@ -51,16 +60,7 @@ root.staticCities = [
 		'hasZones' : true
 		'latitude' : '40.4165037719591'
 		'longitude' : '-3.70576523796732'
-		'row' : 1		
-	}
-	{
-		'name' : 'Milán'
-		'url' : 'milan'
-		'image' : '/images/milan.jpg'
-		'hasZones' : false	
-		'latitude' : '45.48953801 '
-		'longitude' : '9.20102432'
-		'row' : 2	
+		'row' : 2		
 	}
 	{
 		'name' : 'Málaga'
@@ -72,13 +72,31 @@ root.staticCities = [
 		'row' : 2	
 	}
 	{
+		'name' : 'Mallorca'
+		'url' : 'mallorca'
+		'image' : '/images/mallorca.jpg'
+		'hasZones' : false	
+		'latitude' : '39.6054840087891'
+		'longitude' : '2.88571262359619'
+		'row' : 2	
+	}
+	{
+		'name' : 'Milán'
+		'url' : 'milan'
+		'image' : '/images/milan.jpg'
+		'hasZones' : false	
+		'latitude' : '45.48953801 '
+		'longitude' : '9.20102432'
+		'row' : 3	
+	}
+	{
 		'name' : 'París'
 		'url' : 'paris'
 		'image' : '/images/paris.jpg'
 		'hasZones' : false	
 		'latitude' : '48.84991568 '
 		'longitude' : '2.34298682'
-		'row' : 2	
+		'row' : 3	
 	}
 	{
 		'name' : 'Santiago'
@@ -96,7 +114,7 @@ root.staticCities = [
 		'hasZones' : false	
 		'latitude' : '37.4090382917136'
 		'longitude' : '-5.99575904637746'
-		'row' : 3	
+		'row' : 4	
 	}
 	{
 		'name' : 'Valencia'
@@ -105,12 +123,12 @@ root.staticCities = [
 		'hasZones' : false	
 		'latitude' : '39.47305083'
 		'longitude' : '-0.3754655'
-		'row' : 3	
+		'row' : 4	
 	}
 	{
 		'name' : 'Valladolid'
 		'url' : 'valladolid'
-		'image' : '/images/valladolid.png'
+		'image' : '/images/valladolid.jpg'
 		'hasZones' : false	
 		'latitude' : '41.64900974'
 		'longitude' : '-4.72485135'	

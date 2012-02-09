@@ -33,9 +33,10 @@
         return root.oneBookingWindow.add(root.closeBookingButton);
       }
     } else {
+      Ti.API.error('error de compra');
       return Ti.UI.createAlertDialog({
         title: 'ReallyLateBooking',
-        message: L('errorBooking')
+        message: 'Error: ' + response.detail
       }).show();
     }
   };
@@ -84,6 +85,12 @@
     if (root.cardTypeLabel.text === 'Tipo de tarjeta') {
       return Ti.Locale.getString('errorCardType');
     }
+    if (root.cardTypeLabel.text === 'Card Type') {
+      return Ti.Locale.getString('errorCardType');
+    }
+    if (root.cardTypeLabel.text === 'Type de carte') {
+      return Ti.Locale.getString('errorCardType');
+    }
     if (!(root.cardTypeLabel.text.length > 2)) {
       return Ti.Locale.getString('errorCardType');
     }
@@ -97,6 +104,9 @@
       return Ti.Locale.getString('errorExpires');
     }
     if (!(root.cvcCodeText.value.length > 2)) {
+      return Ti.Locale.getString('errorcvcCode');
+    }
+    if (!(root.cvcCodeText.value.length < 5)) {
       return Ti.Locale.getString('errorcvcCode');
     }
     return true;

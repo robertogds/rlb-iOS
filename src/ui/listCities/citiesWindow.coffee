@@ -1,5 +1,5 @@
 Ti.include(
-  '/js/citiesRow.js'
+  #'/js/citiesRow.js'
   '/js/zoneCell.js'
   '/js/cityCell.js'
   '/js/cityRow.js'

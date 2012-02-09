@@ -2,11 +2,10 @@
 
   root.oneDealButtonBarView = Titanium.UI.createView({
     background: 'transparent',
-    borderWidth: 0,
     top: 0
   });
 
-  root.oneDealButtonBar = Titanium.UI.createTabbedBar({
+  root.oneDealButtonBar = Ti.UI.iOS.createTabbedBar({
     labels: [L('booking'), L('info'), L('map'), L('photos')],
     backgroundColor: '#000',
     backgroundFocusedColor: '#fff',

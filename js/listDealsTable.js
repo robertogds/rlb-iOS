@@ -58,13 +58,19 @@
   root.showDeals = function(deals) {
     Ti.API.info("Entra en showDeals: " + deals.length);
     root.citiesWindow.remove(root.errorView);
-    root.createMap(deals);
     if (deals.length === 0) {
-      return root.endPopulate(true);
-    } else if (root.city.type === 'zone') {
-      return root.populateDealsZoneTable(deals);
+      Ti.API.info('****** No hay hoteles activos en esta ciudad ********');
+      root.listDealsWindow.add(root.noDealsView);
+      root.noDealsView.show();
+      root.endPopulate();
+      return Ti.API.info('Termina');
     } else {
-      return root.populateDealsTable(deals);
+      root.createMap(deals);
+      if (root.city.hasZones === true) {
+        return root.populateDealsZoneTable(deals);
+      } else {
+        return root.populateDealsTable(deals);
+      }
     }
   };
 
@@ -80,34 +86,46 @@
     root.noDealsView.hide();
     root.listDealsWindow.remove(root.noDealsView);
     root.dealsTable.setData(data);
-    return root.endPopulate(false);
+    return root.endPopulate();
   };
 
   root.populateDealsZoneTable = function(deals) {
-    var city, data, deal, dealRow, header, name, section, _i, _len;
+    var city, data, deal, dealRow, first, firstName, header, name, section, _i, _j, _len, _len2;
     data = [];
-    header = new root.dealHeaderView(root.city.name);
-    section = Ti.UI.createTableViewSection({
-      headerView: header.view
-    });
     name = "empty";
+    first = true;
     for (_i = 0, _len = deals.length; _i < _len; _i++) {
       deal = deals[_i];
       city = deal.city;
-      dealRow = new root.listDealsRow(deal);
-      if (name === "empty") {
-        header.text = city.name;
+      alert(city.url);
+      if (city.url === root.zoneUrl) {
+        if (first === true) {
+          header = new root.dealHeaderView('');
+          section = Ti.UI.createTableViewSection({
+            headerView: header.view
+          });
+          first = false;
+        }
+        header.textLabel.text = L(city.url);
+        dealRow = new root.listDealsRow(deal);
+        section.add(dealRow.row);
         name = city.name;
+        firstName = city.name;
       }
-      if (city.name !== name) {
+    }
+    for (_j = 0, _len2 = deals.length; _j < _len2; _j++) {
+      deal = deals[_j];
+      city = deal.city;
+      dealRow = new root.listDealsRow(deal);
+      if (city.name !== name && city.url !== root.zoneUrl) {
         data.push(section);
-        header = new root.dealHeaderView(city.name);
+        header = new root.dealHeaderView(L(city.url));
         section = Ti.UI.createTableViewSection({
           headerView: header.view
         });
         name = city.name;
         section.add(dealRow.row);
-      } else {
+      } else if (city.url !== root.zoneUrl) {
         section.add(dealRow.row);
       }
     }
@@ -119,13 +137,7 @@
     return root.endPopulate(false);
   };
 
-  root.endPopulate = function(empty) {
-    Ti.API.info("Entra en endPopulate");
-    if (empty === true) {
-      Ti.API.info('****** No hay hoteles activos en esta ciudad ********');
-      root.listDealsWindow.add(root.noDealsView);
-      root.noDealsView.show();
-    }
+  root.endPopulate = function() {
     root.hideLoading(root.listDealsWindow);
     root.hideLoading(root.citiesWindow);
     if (root.reloadDeals === false) {
