@@ -97,7 +97,6 @@
     for (_i = 0, _len = deals.length; _i < _len; _i++) {
       deal = deals[_i];
       city = deal.city;
-      alert(city.url);
       if (city.url === root.zoneUrl) {
         if (first === true) {
           header = new root.dealHeaderView('');

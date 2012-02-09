@@ -69,7 +69,6 @@ root.populateDealsZoneTable = (deals) ->
 	first = true
 	for deal in deals
 		city = deal.city
-		alert city.url
 		if city.url is root.zoneUrl 
 			if first is true
 				header = new root.dealHeaderView('')
