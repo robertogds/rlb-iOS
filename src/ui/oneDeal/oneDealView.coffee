@@ -13,19 +13,20 @@ root.oneDealImage = Titanium.UI.createImageView
 	width: 320
 	height: 330
 
-root.shareFacebookImage = Titanium.UI.createImageView 
-	top: 0
-	width: 40 
-	height: 37
-	left: 170
-	image: '/images/share_facebook2.png'
-
 root.shareTwitterImage = Titanium.UI.createImageView 
 	top: 0
 	width: 40
 	height: 37
-	left: 220
+	left: 170
 	image: '/images/share_twitter2.png'
+
+root.shareFacebookImage = Titanium.UI.createImageView 
+	top: 0
+	width: 40 
+	height: 37
+	left: 220
+	image: '/images/share_facebook2.png'
+
 
 root.shareEmailImage = Titanium.UI.createImageView 
 	top: 0
@@ -36,7 +37,7 @@ root.shareEmailImage = Titanium.UI.createImageView
 
 root.oneDealView.add(root.oneDealImage)
 root.oneDealView.add(root.shareFacebookImage)
-root.oneDealView.add(root.shareTwitterImage)
+#root.oneDealView.add(root.shareTwitterImage)
 root.oneDealView.add(root.shareEmailImage)
 
 
@@ -70,7 +71,6 @@ root.hotelNameLabel = Titanium.UI.createLabel
 	color: 'white'
 	text: 'Hotel'
 	font:
-		fontWeight: 'normal'
 		fontFamily:'Helvetica Neue'
 		fontWeight: 'bold'
 		fontSize: 20
@@ -83,7 +83,6 @@ root.hotelAddressLabel = Titanium.UI.createLabel
 	text: ''
 	font:
     	fontSize: 12
-		fontWeight: 'normal'
 		fontFamily:'Helvetica Neue'
 		fontWeight: 'bold'
 	height: 20
@@ -91,12 +90,10 @@ root.hotelAddressLabel = Titanium.UI.createLabel
 root.titleLabel = Titanium.UI.createLabel
 	top: 0
 	height: '100%'
-	textAlign: 'left'
 	color: '#fff'
 	textAlign: 'center'
 	font:
 		fontSize: 12
-		fontWeight: 'normal'
 		fontFamily:'Helvetica Neue'
 		fontWeight: 'bold'
 	left: 0

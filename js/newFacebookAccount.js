@@ -4,8 +4,12 @@
 
   root.xhrFacebookRegister.onload = function(e) {
     var response;
+    Ti.API.info('Entra en FacebookRegistre onLoad ok');
+    Ti.API.info(this.responseText);
     response = JSON.parse(this.responseText);
+    Ti.API.info(response);
     if (response.status === 200) {
+      Ti.API.info('Entra en status 200');
       root.user = response.content;
       root.facebookUser.rlbId = root.user.id;
       root.facebookUser.rlbToken = root.user.token;
@@ -19,11 +23,13 @@
         message: L('errorHappened')
       }).show();
     }
+    Ti.API.info('*** Registra el usuario de facebook');
     return Titanium.App.Properties.setString("facebookUser", JSON.stringify(root.facebookUser));
   };
 
   root.doFacebookRegister = function(email, firstName, lastName) {
     var newUser, password, proto, url;
+    Ti.API.info('Entra en doFacebookRegister');
     password = Titanium.Utils.md5HexDigest("facebookUser");
     url = root.url + "/users";
     proto = 'POST';
@@ -37,6 +43,7 @@
       "lastName": lastName,
       "isFacebook": "true"
     });
+    Ti.API.info(newUser);
     return root.xhrFacebookRegister.send(newUser);
   };
 

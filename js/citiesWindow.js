@@ -29,6 +29,7 @@
         cell.cityImage.open = false;
       }
     }
+    Ti.API.info("*** RowToDelete = " + rowToDelete);
     return root.citiesTable.deleteRow(rowToDelete);
   };
 

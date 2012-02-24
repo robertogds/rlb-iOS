@@ -1,6 +1,6 @@
 Ti.include(
 	'/js/supportView.js'
-	'/js/testWindow.js'
+	#'/js/testWindow.js'
 )
 root.optionsView = Titanium.UI.createView
   background: 'transparent'
@@ -10,6 +10,7 @@ root.optionsView = Titanium.UI.createView
 versionLabel = Titanium.UI.createLabel
   borderWidth: 1
   borderColor: '#868d92'
+  backgroundColor: '#16232b'
   borderRadius: 5
   text: 'Version: ' + Titanium.App.version
   color: '#868d92'
@@ -23,50 +24,61 @@ versionLabel = Titanium.UI.createLabel
 
 
 versionLabel.addEventListener 'click', (e) ->
-	root.tabGroup.activeTab.open(root.testWindow,{animated:true})
+	#root.tabGroup.activeTab.open(root.testWindow,{animated:true})
 	
 socialView = Titanium.UI.createView
   top: 270
   height: 80
 
-facebookIcon = Titanium.UI.createImageView
-  image:'/images/facebook_share.png'
-  height: 22
-  width: 60
-  left: 50
-  top: 10
 
 twitterIcon =  Titanium.UI.createImageView
   image:'/images/twitter_share.png'
   height: 22
   width: 60
   top: 10
-  left: 130
+  left: 50
+
+facebookIcon = Titanium.UI.createImageView
+  image:'/images/facebook_share.png'
+  height: 22
+  width: 60
+  left: 70
+  top: 10
+
+
 
 emailIcon =  Titanium.UI.createImageView
   image:'/images/email_share.png'
   height: 21
   width: 57
   top: 10
-  left: 210
+  left: 190
 
 
 twitterIcon.addEventListener 'click', (e) ->
-	Titanium.Analytics.featureEvent('share.tweet.generic')
-	root.sharekit.share
-		title: 'ReallyLateBooking'
-		text: L('shareRLBTwitter')
-		sharer: 'Twitter'
+	#root.sharekit.share
+	#	title: 'ReallyLateBooking'
+	#	text: L('shareRLBTwitter')
+	#	sharer: 'Twitter'
 	
 facebookIcon.addEventListener 'click', (e) ->
-	Titanium.Analytics.featureEvent('share.facebook.generic')
-	root.sharekit.share
-		title: 'ReallyLateBooking'
-		text: L('shareRLBFacebook')
-		sharer: 'Facebook'
+	data = 
+		link: "http://www.reallylatebooking.com"
+		name: 'ReallyLateBooking'
+		caption: "reallylatebooking.com"
+		description: L('shareRLBFacebook')
+	Titanium.Facebook.dialog "feed", data, (e) ->
+		if (e.success) 
+			#alert("Success!  From FB: " + e.result)
+		else 
+			if (e.error) 
+				alert(e.error)
+	#root.sharekit.share
+	#	title: 'ReallyLateBooking'
+	#	text: L('shareRLBFacebook')
+	#	sharer: 'Facebook'
 		
 emailIcon.addEventListener 'click', (e) ->
-	Titanium.Analytics.featureEvent('share.email.generic')
 	emailDialog = Titanium.UI.createEmailDialog()
 	emailDialog.subject = L('shareRLBEmailSubject')
 	emailDialog.messageBody = L('shareRLBEmail')
@@ -74,7 +86,7 @@ emailIcon.addEventListener 'click', (e) ->
 
 
 socialView.add(facebookIcon)
-socialView.add(twitterIcon)
+#socialView.add(twitterIcon)
 socialView.add(emailIcon)
 
 

@@ -7,6 +7,7 @@
 
   doFacebookLogin = function() {
     return Titanium.Facebook.requestWithGraphPath('me', {}, 'GET', function(e) {
+      Ti.API.info('Entra en login facebook');
       if (e.success) {
         root.facebookUser = JSON.parse(e.result);
         root.user = root.facebookUser;

@@ -20,7 +20,7 @@ root.xhrLogin.onerror = (e) ->
   Ti.API.error(e)
 
 root.doLogin = (email,password) ->
-	Titanium.Analytics.featureEvent('login')
+	Ti.API.info '*** Entra en doLogin'
 	root.xhrLogin.setTimeout(15000)
 	root.xhrLogin.open("POST",root.surl+"/users/login")
 	root.xhrLogin.setRequestHeader("Content-Type","application/json; charset=utf-8")

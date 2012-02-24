@@ -4,6 +4,7 @@
 
   root.xhrRegister.onload = function(e) {
     var response;
+    Ti.API.info('LLEGA');
     root.hideLoading(root.newAccountWindow);
     root.editAccountWindow.remove(root.loadingView);
     response = JSON.parse(this.responseText);
@@ -53,7 +54,8 @@
       "lastName": lastName,
       "isFacebook": "false"
     });
-    return root.xhrRegister.send(newUser);
+    root.xhrRegister.send(newUser);
+    return Ti.API.info('LLeta hasta el final');
   };
 
   root.validateNewAccountData = function(email, password, firstName, lastName) {

@@ -108,4 +108,15 @@
     return photosTab.backgroundColor = '#000';
   });
 
+  root.listDealsWindow.addEventListener('focus', function(e) {
+    bookingTab.children[0].color = '#FFF';
+    bookingTab.backgroundColor = '#333';
+    photosTab.backgroundColor = '#000';
+    mapTab.backgroundColor = '#000';
+    infoTab.backgroundColor = '#000';
+    root.oneDealWindow.remove(root.infoDealTable);
+    root.oneDealWindow.remove(root.mapView);
+    return root.oneDealWindow.add(root.oneDealView);
+  });
+
 }).call(this);

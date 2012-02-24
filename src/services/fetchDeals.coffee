@@ -1,7 +1,7 @@
 root.xhrDeals = Titanium.Network.createHTTPClient()
 
 root.xhrDeals.onload = () ->
-	Ti.API.info "en fetchdeals obtenemos: " + this.responseText
+	Ti.API.info "****** en fetchdeals obtenemos: " + this.responseText
 	root.hideLoading(root.citiesWindow)
 	deals = JSON.parse(this.responseText)
 	if deals.status is undefined 
@@ -21,6 +21,7 @@ root.fetchDeals = (city) ->
 	else
 		root.xhrDeals.setTimeout(15000)
 		root.xhrDeals.open('GET', root.url+'/v2/deals/'+city.url)
+		#root.xhrDeals.open('GET', root.url+'/deals/'+city.url)
 		root.xhrDeals.setRequestHeader("Accept-Language",Titanium.Locale.currentLanguage)
 		root.xhrDeals.send()
 		

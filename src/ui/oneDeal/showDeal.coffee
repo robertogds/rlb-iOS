@@ -6,7 +6,7 @@ Ti.include(
   '/js/oneDealView.js'
 )
 root.showDealView = (deal) ->
-	#Ti.API.info deal
+	Ti.API.info '======= DEAL ' + JSON.stringify(deal)
 	root.deal = deal
 	if deal.quantity is 0
 		root.priceView.remove(root.bookingButtonLabel)
@@ -19,19 +19,14 @@ root.showDealView = (deal) ->
 		root.soldOutLabel.hide()
 		root.bookingButtonLabel.show()
 	# Map
-	root.mapView.removeAllAnnotations()
-	root.hotelAnnotation.latitude = deal.latitude
-	root.hotelAnnotation.longitude = deal.longitude
-	root.hotelAnnotation.title = deal.hotelName
-	root.hotelAnnotation.subtitle = deal.address
-	region =
-		latitude: deal.latitude
-		longitude: deal.longitude
-		latitudeDelta: 0.01
-		longitudeDelta: 0.01
-	root.mapView.region = region
-	root.mapView.setLocation region
-	root.mapView.addAnnotation root.hotelAnnotation
+	#root.mapView.removeAllAnnotations()
+	Ti.API.info 'Cargamos mapa con Latitude: ' + deal.latitude + ' Longitude: ' + deal.longitude + ' Name: ' + deal.hotelName + ' Address: ' + deal.address
+	root.createDealMap(deal)
+	#root.hotelAnnotation.latitude = deal.latitude
+	#root.hotelAnnotation.longitude = deal.longitude
+	#root.hotelAnnotation.title = deal.hotelName
+	#root.hotelAnnotation.subtitle = deal.address
+	
 	# one deal window
 	root.oneDealWindow.title = deal.hotelName 
 	root.oneDealImage.image = deal.image10
@@ -41,13 +36,13 @@ root.showDealView = (deal) ->
 	root.oneDealAddressLabel.text = deal.address 
 	root.hotelAddressLabel.text = deal.address
 	root.hotelNameLabel.text = deal.hotelName
-	root.oneDealWindow.setTitleControl(root.titleView)
+	#root.oneDealWindow.setTitleControl(root.titleView)
 	
 	root.shareTwitterImage.addEventListener 'click', (e) ->
-		root.sharekit.share
-			title: 'ReallyLateBooking'
-			text: String.format(L('shareTwitter'),deal.hotelName,deal.city.name)
-			sharer: 'Twitter'
+		#root.sharekit.share
+		#	title: 'ReallyLateBooking'
+		#	text: String.format(L('shareTwitter'),deal.hotelName,deal.city.name)
+		#	sharer: 'Twitter'
 	
 	root.shareFacebookImage.addEventListener 'click', (e) ->
 		#root.sharekit.share
@@ -127,7 +122,7 @@ root.showDealView = (deal) ->
 		root.bookingForFirstName = root.user.firstName
 		root.bookingForLastName = root.user.lastName
 	
-	if root.deal.priceDay2 > 0 
-		root.nightsRow.rightImage = '/images/blue_arrow.png'
-	else 
-		root.nightsRow.rightImage = ''
+	#if root.deal.priceDay2 > 0 
+	#	root.nightsRow.rightImage = '/images/blue_arrow.png'
+	#else 
+	#	root.nightsRow.rightImage = ''

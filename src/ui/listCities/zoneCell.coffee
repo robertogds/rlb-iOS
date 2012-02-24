@@ -9,9 +9,16 @@ class ZoneCell
 			zoneUrl: zone.url
 			city: city
 			left: left 
-			width: 80
-			height: 60
+			width: 79
+			height: 59
 			#top:0
+		borderView = Titanium.UI.createView
+			backgroundColor : 'black'
+			color: 'black'
+			height: 80
+			width: 60
+			visible: true
+			left: left
 		zoneLabel = Titanium.UI.createLabel
 			text: L(zone.url)
 			color: 'black'
@@ -23,7 +30,8 @@ class ZoneCell
 			height:60
 			width:80
 			#top: 55
-			
+		
+		row.add(borderView)	
 		row.add(zoneImage)
 		row.add(zoneLabel)
 		

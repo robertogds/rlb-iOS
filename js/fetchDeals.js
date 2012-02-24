@@ -4,7 +4,7 @@
 
   root.xhrDeals.onload = function() {
     var deals;
-    Ti.API.info("en fetchdeals obtenemos: " + this.responseText);
+    Ti.API.info("****** en fetchdeals obtenemos: " + this.responseText);
     root.hideLoading(root.citiesWindow);
     deals = JSON.parse(this.responseText);
     if (deals.status === void 0) return root.showDeals(deals);

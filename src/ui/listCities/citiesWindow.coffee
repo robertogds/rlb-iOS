@@ -1,9 +1,7 @@
 Ti.include(
-  #'/js/citiesRow.js'
   '/js/zoneCell.js'
   '/js/cityCell.js'
   '/js/cityRow.js'
-  #'/js/citiesTable.js'
   '/js/citiesStatic.js'
 )
 
@@ -19,5 +17,6 @@ root.activateCells = () ->
 		if cell.cityImage.open is true
 			rowToDelete = cell.cityImage.city.row + 1
 			cell.cityImage.open = false
+	Ti.API.info "*** RowToDelete = " + rowToDelete
 	root.citiesTable.deleteRow(rowToDelete)
 		

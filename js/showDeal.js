@@ -3,7 +3,8 @@
   Ti.include('/js/oneDealMapView.js', '/js/imagesScrollView.js', '/js/infoDealTable.js', '/js/priceView.js', '/js/oneDealView.js');
 
   root.showDealView = function(deal) {
-    var aroundRow, aroundTitle, aroundView, detailRow, detailTitle, detailView, foodDrinkRow, foodDrinkTitle, foodDrinkView, hotelRow, hotelTitle, hotelView, infoData, region, roomRow, roomTitle, roomView;
+    var aroundRow, aroundTitle, aroundView, detailRow, detailTitle, detailView, foodDrinkRow, foodDrinkTitle, foodDrinkView, hotelRow, hotelTitle, hotelView, infoData, roomRow, roomTitle, roomView;
+    Ti.API.info('======= DEAL ' + JSON.stringify(deal));
     root.deal = deal;
     if (deal.quantity === 0) {
       root.priceView.remove(root.bookingButtonLabel);
@@ -16,20 +17,8 @@
       root.soldOutLabel.hide();
       root.bookingButtonLabel.show();
     }
-    root.mapView.removeAllAnnotations();
-    root.hotelAnnotation.latitude = deal.latitude;
-    root.hotelAnnotation.longitude = deal.longitude;
-    root.hotelAnnotation.title = deal.hotelName;
-    root.hotelAnnotation.subtitle = deal.address;
-    region = {
-      latitude: deal.latitude,
-      longitude: deal.longitude,
-      latitudeDelta: 0.01,
-      longitudeDelta: 0.01
-    };
-    root.mapView.region = region;
-    root.mapView.setLocation(region);
-    root.mapView.addAnnotation(root.hotelAnnotation);
+    Ti.API.info('Cargamos mapa con Latitude: ' + deal.latitude + ' Longitude: ' + deal.longitude + ' Name: ' + deal.hotelName + ' Address: ' + deal.address);
+    root.createDealMap(deal);
     root.oneDealWindow.title = deal.hotelName;
     root.oneDealImage.image = deal.image10;
     root.oneDealPriceLabel.text = deal.salePriceCents + "€";
@@ -38,14 +27,7 @@
     root.oneDealAddressLabel.text = deal.address;
     root.hotelAddressLabel.text = deal.address;
     root.hotelNameLabel.text = deal.hotelName;
-    root.oneDealWindow.setTitleControl(root.titleView);
-    root.shareTwitterImage.addEventListener('click', function(e) {
-      return root.sharekit.share({
-        title: 'ReallyLateBooking',
-        text: String.format(L('shareTwitter'), deal.hotelName, deal.city.name),
-        sharer: 'Twitter'
-      });
-    });
+    root.shareTwitterImage.addEventListener('click', function(e) {});
     root.shareFacebookImage.addEventListener('click', function(e) {
       var data;
       data = {
@@ -111,12 +93,7 @@
     if (Titanium.App.Properties.hasProperty("user") || Titanium.Facebook.loggedIn) {
       root.bookingForEmail = root.user.email;
       root.bookingForFirstName = root.user.firstName;
-      root.bookingForLastName = root.user.lastName;
-    }
-    if (root.deal.priceDay2 > 0) {
-      return root.nightsRow.rightImage = '/images/blue_arrow.png';
-    } else {
-      return root.nightsRow.rightImage = '';
+      return root.bookingForLastName = root.user.lastName;
     }
   };
 

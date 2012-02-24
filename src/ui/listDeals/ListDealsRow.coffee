@@ -1,10 +1,9 @@
 class ListDealsRow
   constructor: (deal) ->
-    imagex = {}
     textColor = "white"
     @row = Ti.UI.createTableViewRow
-      hasChild: true
-      #rightImage: '/images/blue_arrow.png'
+      #[android] hasChild: true
+      #[android] rightImage: '/images/blue_arrow.png'
       identionLevel: 200
       height: 120
       selectionStyle: 'none'
@@ -25,7 +24,6 @@ class ListDealsRow
 
     hotelBarLabel = Titanium.UI.createLabel
       borderWidth: 0
-      #backgroundColor: '#0d1e28'
       backgroundColor: 'black'
       opacity: 0.7
       color: '#fff'

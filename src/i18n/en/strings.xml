@@ -41,7 +41,7 @@
 	<string name="noRefundable">This reservation is non-refundable</string>	
 	<string name="booking">Booking</string>
 	<string name="bookingBlueButtonText">book it</string>
-	<string name="mustUser">You must be logged in to do that</string>
+	<string name="mustUser">You must be logged in to do that. Go to Profile tab and login or sign up</string>
 	<string name="selectCardType">Select Card Type</string>
 	<string name="done">Done</string>
 	<string name="cardType">Card Type</string>
@@ -147,9 +147,9 @@
 	<string name="geoOff">Your device has geo turned off - turn it on</string>
 	<string name="youGeoDisallow">You have disallowed from running geolocation services</string>
 	<string name="systemGeoDisallow">Your system has disallowed from running geolocation services</string>
-	<string name="shareTwitter">Using the mobile app #reallylatebooking to book the %s at %s http://reallylatebooking.com</string>
-	<string name="shareFacebook">I found an incredible deal for %s to %s using the mobile app ReallyLateBooking</string>
-	<string name="shareEmail">I'm using ReallyLateBooking, a mobile application (iphone and android) to book hotels for the same day with discounts. \n I found the %s in %s for an incredible price. \n Download the app to see the offer http://reallylatebooking.com</string>
+	<string name="shareTwitter">Using the mobile app #reallylatebooking to book the %s  http://reallylatebooking.com</string>
+	<string name="shareFacebook">I found an incredible deal for %s using the mobile app ReallyLateBooking</string>
+	<string name="shareEmail">I'm using ReallyLateBooking, a mobile application (iphone and android) to book hotels for the same day with discounts. \n I found the %s for an incredible price. \n Download the app to see the offer http://reallylatebooking.com</string>
 	<string name="shareEmailSubject">Look this deal at ReallyLateBooking</string>
 	<string name="shareRLBTwitter">Using the mobile app #reallylatebooking to book hotels tonight with big discounts via @rlatebooking</string>
 	<string name="shareRLBFacebook">I'm using ReallyLateBooking, a mobile application (iphone and android) to book hotels for the same day with discounts.\n Download the app and try yourself http://reallylatebooking.com</string>

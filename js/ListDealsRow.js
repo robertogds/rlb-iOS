@@ -4,11 +4,9 @@
   ListDealsRow = (function() {
 
     function ListDealsRow(deal) {
-      var antesLabel, extraNightsLabel, hotelBarLabel, hotelLabel, icon, image, imagex, normalPriceLabel, priceLabel, priceTag, roomTypeLabel, soldOutLabel, soldOutView, textColor;
-      imagex = {};
+      var antesLabel, extraNightsLabel, hotelBarLabel, hotelLabel, icon, image, normalPriceLabel, priceLabel, priceTag, roomTypeLabel, soldOutLabel, soldOutView, textColor;
       textColor = "white";
       this.row = Ti.UI.createTableViewRow({
-        hasChild: true,
         identionLevel: 200,
         height: 120,
         selectionStyle: 'none',

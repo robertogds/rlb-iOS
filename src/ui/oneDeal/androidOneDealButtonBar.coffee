@@ -76,19 +76,31 @@ infoTab.addEventListener 'click', (e) ->
   root.oneDealWindow.add root.infoDealTable
 
 mapTab.addEventListener 'click', (e) ->
-  currTab.backgroundColor = '#000'
-  this.backgroundColor = '#333'
-  this.children[0].color = '#FFF'
-  currTab = this
-  root.oneDealWindow.remove root.oneDealView
-  root.oneDealWindow.remove root.infoDealTable
-  root.oneDealWindow.add root.mapView
+	currTab.backgroundColor = '#000'
+	this.backgroundColor = '#333'
+	this.children[0].color = '#FFF'
+	currTab = this
+	root.oneDealWindow.remove root.oneDealView
+	root.oneDealWindow.remove root.infoDealTable
+	root.oneDealWindow.add root.mapView
+
 
 photosTab.addEventListener 'click', (e) -> 
   photosTab.backgroundColor = '#333'
   makeImageScroll()
   root.tabGroup.activeTab.open(root.imagesWindow,{animated:true})
   photosTab.backgroundColor = '#000'
+
+root.listDealsWindow.addEventListener 'focus', (e) ->
+	bookingTab.children[0].color = '#FFF'
+	bookingTab.backgroundColor = '#333'
+	photosTab.backgroundColor = '#000'
+	mapTab.backgroundColor = '#000'
+	infoTab.backgroundColor = '#000'
+	root.oneDealWindow.remove root.infoDealTable
+	root.oneDealWindow.remove root.mapView
+	root.oneDealWindow.add root.oneDealView
+
 
 
 

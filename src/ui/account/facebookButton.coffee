@@ -3,6 +3,7 @@ Titanium.Facebook.permissions = ['publish_stream', 'read_stream', 'email']
 
 doFacebookLogin = () ->
 	Titanium.Facebook.requestWithGraphPath 'me', {}, 'GET', (e) ->
+		Ti.API.info 'Entra en login facebook'
 		if e.success 
 			root.facebookUser = JSON.parse(e.result)
 			root.user = root.facebookUser

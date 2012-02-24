@@ -1,7 +1,7 @@
 (function() {
   var acercaView, emailIcon, facebookIcon, legalView, socialView, twitterIcon, versionLabel;
 
-  Ti.include('/js/supportView.js', '/js/testWindow.js');
+  Ti.include('/js/supportView.js');
 
   root.optionsView = Titanium.UI.createView({
     background: 'transparent',
@@ -12,6 +12,7 @@
   versionLabel = Titanium.UI.createLabel({
     borderWidth: 1,
     borderColor: '#868d92',
+    backgroundColor: '#16232b',
     borderRadius: 5,
     text: 'Version: ' + Titanium.App.version,
     color: '#868d92',
@@ -24,23 +25,11 @@
     top: 340
   });
 
-  versionLabel.addEventListener('click', function(e) {
-    return root.tabGroup.activeTab.open(root.testWindow, {
-      animated: true
-    });
-  });
+  versionLabel.addEventListener('click', function(e) {});
 
   socialView = Titanium.UI.createView({
     top: 270,
     height: 80
-  });
-
-  facebookIcon = Titanium.UI.createImageView({
-    image: '/images/facebook_share.png',
-    height: 22,
-    width: 60,
-    left: 50,
-    top: 10
   });
 
   twitterIcon = Titanium.UI.createImageView({
@@ -48,7 +37,15 @@
     height: 22,
     width: 60,
     top: 10,
-    left: 130
+    left: 50
+  });
+
+  facebookIcon = Titanium.UI.createImageView({
+    image: '/images/facebook_share.png',
+    height: 22,
+    width: 60,
+    left: 70,
+    top: 10
   });
 
   emailIcon = Titanium.UI.createImageView({
@@ -56,30 +53,28 @@
     height: 21,
     width: 57,
     top: 10,
-    left: 210
+    left: 190
   });
 
-  twitterIcon.addEventListener('click', function(e) {
-    Titanium.Analytics.featureEvent('share.tweet.generic');
-    return root.sharekit.share({
-      title: 'ReallyLateBooking',
-      text: L('shareRLBTwitter'),
-      sharer: 'Twitter'
-    });
-  });
+  twitterIcon.addEventListener('click', function(e) {});
 
   facebookIcon.addEventListener('click', function(e) {
-    Titanium.Analytics.featureEvent('share.facebook.generic');
-    return root.sharekit.share({
-      title: 'ReallyLateBooking',
-      text: L('shareRLBFacebook'),
-      sharer: 'Facebook'
+    var data;
+    data = {
+      link: "http://www.reallylatebooking.com",
+      name: 'ReallyLateBooking',
+      caption: "reallylatebooking.com",
+      description: L('shareRLBFacebook')
+    };
+    return Titanium.Facebook.dialog("feed", data, function(e) {
+      if (e.success) {} else {
+        if (e.error) return alert(e.error);
+      }
     });
   });
 
   emailIcon.addEventListener('click', function(e) {
     var emailDialog;
-    Titanium.Analytics.featureEvent('share.email.generic');
     emailDialog = Titanium.UI.createEmailDialog();
     emailDialog.subject = L('shareRLBEmailSubject');
     emailDialog.messageBody = L('shareRLBEmail');
@@ -87,8 +82,6 @@
   });
 
   socialView.add(facebookIcon);
-
-  socialView.add(twitterIcon);
 
   socialView.add(emailIcon);
 

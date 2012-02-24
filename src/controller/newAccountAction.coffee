@@ -1,19 +1,20 @@
 root.xhrRegister = Titanium.Network.createHTTPClient()
 
 root.xhrRegister.onload = (e) ->
-  root.hideLoading(root.newAccountWindow)
-  root.editAccountWindow.remove(root.loadingView)
-  response = JSON.parse(this.responseText)
-  if response.status is 200
-    root.user = response.content
-    Titanium.App.Properties.setString("user",JSON.stringify(root.user))
-    root.loginView.hide()
-    root.loggedView.show()
-    root.newAccountWindow.close()
-    root.editAccountWindow.close()
-  else
-    Ti.API.error response.detail
-    Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:'Error: ' + response.detail}).show()
+	Ti.API.info 'LLEGA'
+	root.hideLoading(root.newAccountWindow)
+	root.editAccountWindow.remove(root.loadingView)
+	response = JSON.parse(this.responseText)
+	if response.status is 200
+		root.user = response.content
+		Titanium.App.Properties.setString("user",JSON.stringify(root.user))
+		root.loginView.hide()
+		root.loggedView.show()
+		root.newAccountWindow.close()
+		root.editAccountWindow.close()
+	else
+		Ti.API.error response.detail
+		Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:'Error: ' + response.detail}).show()
 
 root.xhrRegister.onerror = (e) ->
 	root.hideLoading(root.newAccountWindow)
@@ -42,6 +43,7 @@ root.doRegister = (email,password,firstName,lastName,id) ->
 		"lastName":lastName
 		"isFacebook":"false"
 	root.xhrRegister.send(newUser)
+	Ti.API.info 'LLeta hasta el final'
 
 root.validateNewAccountData = (email,password,firstName,lastName) ->
   return Ti.Locale.getString('errorEmail') unless email.length > 3

@@ -13,7 +13,8 @@
   });
 
   emailText = Titanium.UI.createTextField({
-    width: '100%',
+    width: '90%',
+    height: '90%',
     color: '#336699',
     backgroundColor: '#fff',
     hintText: Ti.Locale.getString('email'),
@@ -30,7 +31,8 @@
 
   passText = Titanium.UI.createTextField({
     backgroundColor: '#fff',
-    width: '100%',
+    width: '90%',
+    height: '90%',
     color: '#336699',
     hintText: Ti.Locale.getString('password'),
     paddingLeft: 10,

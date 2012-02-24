@@ -1,24 +1,11 @@
 (function() {
-  var mapButton, textLabel;
+  var textLabel;
 
   root.dealsTable = Titanium.UI.createTableView({
     data: [],
     backgroundColor: '#0d1e28',
     separatorColor: '#1b3c50'
   });
-
-  mapButton = Titanium.UI.createButton({
-    title: 'Mapa'
-  });
-
-  mapButton.addEventListener('click', function(e) {
-    root.listDealsMapView.annotations = root.annotations;
-    return root.tabGroup.activeTab.open(root.listDealsMapWindow, {
-      animated: true
-    });
-  });
-
-  root.listDealsWindow.rightNavButton = mapButton;
 
   root.listDealsWindow.add(root.dealsTable);
 
@@ -65,7 +52,7 @@
       root.endPopulate();
       return Ti.API.info('Termina');
     } else {
-      root.createMap(deals);
+      Ti.API.info('*** Entra en hay hoteles');
       if (root.city.hasZones === true) {
         return root.populateDealsZoneTable(deals);
       } else {
@@ -76,6 +63,7 @@
 
   root.populateDealsTable = function(deals) {
     var data, deal, dealRow, _i, _len;
+    root.dealsTable.setData(void 0);
     data = [];
     for (_i = 0, _len = deals.length; _i < _len; _i++) {
       deal = deals[_i];
@@ -90,37 +78,23 @@
   };
 
   root.populateDealsZoneTable = function(deals) {
-    var city, data, deal, dealRow, first, firstName, header, name, section, _i, _j, _len, _len2;
+    var city, data, deal, dealRow, first, header, name, section, _i, _len;
+    root.dealsTable.setData(void 0);
+    Ti.API.info('*** Entra en populate Zonas ' + root.dealsTable);
+    root.zoneUrl = 'null';
     data = [];
     name = "empty";
     first = true;
     for (_i = 0, _len = deals.length; _i < _len; _i++) {
       deal = deals[_i];
       city = deal.city;
-      if (city.url === root.zoneUrl) {
-        if (first === true) {
-          header = new root.dealHeaderView('');
-          section = Ti.UI.createTableViewSection({
-            headerView: header.view
-          });
-          first = false;
-        }
-        header.textLabel.text = L(city.url);
-        dealRow = new root.listDealsRow(deal);
-        section.add(dealRow.row);
-        name = city.name;
-        firstName = city.name;
-      }
-    }
-    for (_j = 0, _len2 = deals.length; _j < _len2; _j++) {
-      deal = deals[_j];
-      city = deal.city;
       dealRow = new root.listDealsRow(deal);
       if (city.name !== name && city.url !== root.zoneUrl) {
         data.push(section);
         header = new root.dealHeaderView(L(city.url));
         section = Ti.UI.createTableViewSection({
-          headerView: header.view
+          headerView: header.view,
+          headerTitle: L(city.url)
         });
         name = city.name;
         section.add(dealRow.row);

@@ -3,14 +3,15 @@ root.dealsTable = Titanium.UI.createTableView
   backgroundColor: '#0d1e28'
   separatorColor: '#1b3c50'
 
-mapButton = Titanium.UI.createButton
-  title: 'Mapa'
-
-mapButton.addEventListener 'click', (e) ->
-  root.listDealsMapView.annotations = root.annotations
-  root.tabGroup.activeTab.open(root.listDealsMapWindow,{animated:true})
-
-root.listDealsWindow.rightNavButton = mapButton
+# [android] Remove all mapButton
+#mapButton = Titanium.UI.createButton
+#  title: 'Mapa'
+#
+#mapButton.addEventListener 'click', (e) ->
+#  root.listDealsMapView.annotations = root.annotations
+#  root.tabGroup.activeTab.open(root.listDealsMapWindow,{animated:true})
+#
+#root.listDealsWindow.rightNavButton = mapButton
 
 root.listDealsWindow.add(root.dealsTable)
 
@@ -45,13 +46,15 @@ root.showDeals = (deals) ->
 		root.endPopulate()
 		Ti.API.info 'Termina'
 	else 
-		root.createMap(deals)
+		Ti.API.info '*** Entra en hay hoteles'
+		#[android]root.createMap(deals)
 		if root.city.hasZones is true
 			root.populateDealsZoneTable(deals)
 		else 
 			root.populateDealsTable(deals)
 
 root.populateDealsTable = (deals) ->
+	root.dealsTable.setData(undefined)
 	data = []
 	for deal in deals
 		dealRow = new root.listDealsRow(deal)
@@ -63,23 +66,27 @@ root.populateDealsTable = (deals) ->
 	root.endPopulate()
 
 
-root.populateDealsZoneTable = (deals) -> 
+root.populateDealsZoneTable = (deals) ->
+	root.dealsTable.setData(undefined)
+	Ti.API.info '*** Entra en populate Zonas ' + root.dealsTable
+	root.zoneUrl = 'null'
 	data = []	
 	name = "empty"
 	first = true
-	for deal in deals
-		city = deal.city
-		if city.url is root.zoneUrl 
-			if first is true
-				header = new root.dealHeaderView('')
-				section = Ti.UI.createTableViewSection
-					headerView: header.view
-				first = false
-			header.textLabel.text = L(city.url)
-			dealRow = new root.listDealsRow(deal)
-			section.add(dealRow.row)
-			name = city.name
-			firstName = city.name
+	#for deal in deals
+	#	city = deal.city
+	#	if city.url is root.zoneUrl 
+	#		if first is true
+	#			header = new root.dealHeaderView('')
+	#			section = Ti.UI.createTableViewSection
+	#				headerView: header.view
+	#				headerTitle: L(city.url)
+	#			first = false
+	#		header.textLabel.text = L(city.url)
+	#		dealRow = new root.listDealsRow(deal)
+	#		section.add(dealRow.row)
+	#		name = city.name
+	#		firstName = city.name
 	for deal in deals
 		city = deal.city
 		dealRow = new root.listDealsRow(deal)
@@ -88,6 +95,7 @@ root.populateDealsZoneTable = (deals) ->
 			header = new root.dealHeaderView(L(city.url))
 			section = Ti.UI.createTableViewSection
 				headerView: header.view
+				headerTitle: L(city.url)
 			name = city.name
 			section.add(dealRow.row)
 		else if city.url isnt root.zoneUrl 
