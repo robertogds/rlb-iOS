@@ -16,6 +16,7 @@ Ti.include(
 	'/js/staticZones.js'
 	#'/js/sharekit.js'
     #'/js/gpsData.js'
+	#'/js/analytics.js'
 	'/js/fetchDeals.js'
     '/js/dateUtil.js'
     '/js/GenericWindow.js'

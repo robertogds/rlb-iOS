@@ -7,6 +7,14 @@
     separatorColor: 'transparent'
   });
 
+  if (Titanium.Platform.name === 'android') {
+    root.citiesTable.setData([
+      Ti.UI.createTableViewRow({
+        title: 'Loading...'
+      })
+    ]);
+  }
+
   root.citiesWindow.add(root.citiesTable);
 
   gpsButton = Titanium.UI.createButton({

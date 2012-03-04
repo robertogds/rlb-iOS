@@ -12,7 +12,6 @@
       Ti.API.info('Entra en esta logado por facebook');
       root.loginView.hide();
       root.loggedView.show();
-      Ti.API.info('LLega a loadLogged');
       return root.loadLoggedFacebookUser();
     } else {
       root.loginView.show();

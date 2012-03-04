@@ -2,10 +2,22 @@
   var textLabel;
 
   root.dealsTable = Titanium.UI.createTableView({
-    data: [],
+    data: [
+      Ti.UI.createTableViewRow({
+        title: 'Loading...'
+      })
+    ],
     backgroundColor: '#0d1e28',
     separatorColor: '#1b3c50'
   });
+
+  if (Titanium.Platform.name === 'android') {
+    root.dealsTable.setData([
+      Ti.UI.createTableViewRow({
+        title: 'Loading...'
+      })
+    ]);
+  }
 
   root.listDealsWindow.add(root.dealsTable);
 
@@ -43,6 +55,9 @@
   });
 
   root.showDeals = function(deals) {
+    root.tabGroup.activeTab.open(root.listDealsWindow, {
+      animated: true
+    });
     Ti.API.info("Entra en showDeals: " + deals.length);
     root.citiesWindow.remove(root.errorView);
     if (deals.length === 0) {
@@ -62,27 +77,24 @@
   };
 
   root.populateDealsTable = function(deals) {
-    var data, deal, dealRow, _i, _len;
-    root.dealsTable.setData(void 0);
-    data = [];
+    var deal, dealRow, _i, _len;
+    root.dealsData = [];
     for (_i = 0, _len = deals.length; _i < _len; _i++) {
       deal = deals[_i];
       dealRow = new root.listDealsRow(deal);
-      data.push(dealRow.row);
+      root.dealsData.push(dealRow.row);
     }
-    data.push(root.why3Row);
+    root.dealsData.push(root.why3Row);
     root.noDealsView.hide();
     root.listDealsWindow.remove(root.noDealsView);
-    root.dealsTable.setData(data);
     return root.endPopulate();
   };
 
   root.populateDealsZoneTable = function(deals) {
-    var city, data, deal, dealRow, first, header, name, section, _i, _len;
-    root.dealsTable.setData(void 0);
+    var city, deal, dealRow, first, header, name, section, _i, _len;
     Ti.API.info('*** Entra en populate Zonas ' + root.dealsTable);
     root.zoneUrl = 'null';
-    data = [];
+    root.dealsData = [];
     name = "empty";
     first = true;
     for (_i = 0, _len = deals.length; _i < _len; _i++) {
@@ -90,7 +102,7 @@
       city = deal.city;
       dealRow = new root.listDealsRow(deal);
       if (city.name !== name && city.url !== root.zoneUrl) {
-        data.push(section);
+        root.dealsData.push(section);
         header = new root.dealHeaderView(L(city.url));
         section = Ti.UI.createTableViewSection({
           headerView: header.view,
@@ -102,23 +114,17 @@
         section.add(dealRow.row);
       }
     }
-    data.push(section);
-    data.push(root.why3Row);
+    root.dealsData.push(section);
+    root.dealsData.push(root.why3Row);
     root.noDealsView.hide();
     root.listDealsWindow.remove(root.noDealsView);
-    root.dealsTable.setData(data);
     return root.endPopulate(false);
   };
 
   root.endPopulate = function() {
+    root.dealsTable.setData(root.dealsData);
     root.hideLoading(root.listDealsWindow);
-    root.hideLoading(root.citiesWindow);
-    if (root.reloadDeals === false) {
-      root.tabGroup.activeTab.open(root.listDealsWindow, {
-        animated: true
-      });
-    }
-    return root.reloadDeals = false;
+    return root.hideLoading(root.citiesWindow);
   };
 
   root.loadDeals = function(city) {

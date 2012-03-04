@@ -4,17 +4,17 @@
 
   root.xhrRegister.onload = function(e) {
     var response;
-    Ti.API.info('LLEGA');
     root.hideLoading(root.newAccountWindow);
     root.editAccountWindow.remove(root.loadingView);
     response = JSON.parse(this.responseText);
     if (response.status === 200) {
       root.user = response.content;
       Titanium.App.Properties.setString("user", JSON.stringify(root.user));
+      root.newAccountWindow.close();
+      root.editAccountWindow.close();
       root.loginView.hide();
       root.loggedView.show();
-      root.newAccountWindow.close();
-      return root.editAccountWindow.close();
+      return root.loadLoggedUser();
     } else {
       Ti.API.error(response.detail);
       return Ti.UI.createAlertDialog({

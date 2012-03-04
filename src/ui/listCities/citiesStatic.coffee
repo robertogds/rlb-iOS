@@ -2,6 +2,9 @@ root.citiesTable = Titanium.UI.createTableView
 	data: []
 	backgroundColor: 'transparent'
 	separatorColor: 'transparent'
+	
+if Titanium.Platform.name is 'android'
+	root.citiesTable.setData([Ti.UI.createTableViewRow({title:'Loading...'})])
 
 root.citiesWindow.add(root.citiesTable)
 

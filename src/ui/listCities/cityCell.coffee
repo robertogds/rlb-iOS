@@ -59,6 +59,7 @@ class CityCell
 		@inactiveView.addEventListener 'click', (e) ->
 			root.activateCells()
 		@cityImage.addEventListener 'click', (e) ->
+			Ti.API.info '*** Entra en click'
 			city = e.source.city
 			cell = root.cell[city.name]
 			#if city.hasZones is true
@@ -76,6 +77,7 @@ class CityCell
 			#	else root.activateCells()
 			#else	
 			root.showLoading(root.citiesWindow,L('updatingHotels'))
+			Ti.API.info '*** LLama a loadDeals'
 			root.loadDeals(e.source.city)
 		
 root.cityCell = CityCell

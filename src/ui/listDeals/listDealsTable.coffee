@@ -1,7 +1,10 @@
 root.dealsTable = Titanium.UI.createTableView
-  data: []
+  data: [Ti.UI.createTableViewRow({title:'Loading...'})]
   backgroundColor: '#0d1e28'
   separatorColor: '#1b3c50'
+
+if Titanium.Platform.name is 'android'
+	root.dealsTable.setData([Ti.UI.createTableViewRow({title:'Loading...'})])
 
 # [android] Remove all mapButton
 #mapButton = Titanium.UI.createButton
@@ -37,6 +40,7 @@ root.dealsTable.addEventListener 'click', (e) ->
     root.tabGroup.activeTab.open(root.oneDealWindow,{animated:true})
 
 root.showDeals = (deals) ->
+	root.tabGroup.activeTab.open(root.listDealsWindow,{animated:true})
 	Ti.API.info "Entra en showDeals: " + deals.length
 	root.citiesWindow.remove(root.errorView)	
 	if deals.length is 0 
@@ -54,23 +58,20 @@ root.showDeals = (deals) ->
 			root.populateDealsTable(deals)
 
 root.populateDealsTable = (deals) ->
-	root.dealsTable.setData(undefined)
-	data = []
+	root.dealsData = []
 	for deal in deals
 		dealRow = new root.listDealsRow(deal)
-		data.push(dealRow.row)
-	data.push(root.why3Row)
+		root.dealsData.push(dealRow.row)
+	root.dealsData.push(root.why3Row)
 	root.noDealsView.hide()
 	root.listDealsWindow.remove(root.noDealsView)
-	root.dealsTable.setData(data)
 	root.endPopulate()
 
 
 root.populateDealsZoneTable = (deals) ->
-	root.dealsTable.setData(undefined)
 	Ti.API.info '*** Entra en populate Zonas ' + root.dealsTable
 	root.zoneUrl = 'null'
-	data = []	
+	root.dealsData = []	
 	name = "empty"
 	first = true
 	#for deal in deals
@@ -91,7 +92,7 @@ root.populateDealsZoneTable = (deals) ->
 		city = deal.city
 		dealRow = new root.listDealsRow(deal)
 		if city.name isnt name and city.url isnt root.zoneUrl
-			data.push(section)
+			root.dealsData.push(section)
 			header = new root.dealHeaderView(L(city.url))
 			section = Ti.UI.createTableViewSection
 				headerView: header.view
@@ -100,20 +101,21 @@ root.populateDealsZoneTable = (deals) ->
 			section.add(dealRow.row)
 		else if city.url isnt root.zoneUrl 
 			section.add(dealRow.row)
-	data.push(section)	
-	data.push(root.why3Row)
+	root.dealsData.push(section)	
+	root.dealsData.push(root.why3Row)
 	root.noDealsView.hide()
-	root.listDealsWindow.remove(root.noDealsView)
-	root.dealsTable.setData(data)			
+	root.listDealsWindow.remove(root.noDealsView)			
 	root.endPopulate(false)
 	
 	
 root.endPopulate = () ->
+	#[android] el reloadDeals no sirve
+#	if root.reloadDeals is false	
+#	root.reloadDeals = false
+	# [android] sino meter el setdata antes
+	root.dealsTable.setData(root.dealsData)
 	root.hideLoading(root.listDealsWindow)
 	root.hideLoading(root.citiesWindow)
-	if root.reloadDeals is false
-		root.tabGroup.activeTab.open(root.listDealsWindow,{animated:true})
-	root.reloadDeals = false
 		
 
 root.loadDeals = (city) ->

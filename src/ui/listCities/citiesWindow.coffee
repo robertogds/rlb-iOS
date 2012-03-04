@@ -18,5 +18,4 @@ root.activateCells = () ->
 			rowToDelete = cell.cityImage.city.row + 1
 			cell.cityImage.open = false
 	Ti.API.info "*** RowToDelete = " + rowToDelete
-	root.citiesTable.deleteRow(rowToDelete)
-		
+	root.citiesTable.deleteRow(rowToDelete)	
