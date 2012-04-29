@@ -1,12 +1,15 @@
 class DealHeaderView
 	constructor: (text) ->
 		@view = Titanium.UI.createView
+			width: Ti.UI.FILL
 			#backgroundColor: '#5093b0'
 			height: 25
 		
 		@textLabel = Titanium.UI.createLabel
+			width: Ti.UI.FILL
 			text: text 
 			textAlign: 'center'
+			backgroundColor: 'transparent'
 			borderWidth: 0
 			height: 20
 			color: '#fff'
@@ -16,6 +19,7 @@ class DealHeaderView
 				fontWeight: 'bold'
 				
 		headerBarLabel = Titanium.UI.createLabel
+			width: Ti.UI.FILL
 			borderWidth: 1
 			borderColor: 'black'
 			backgroundGradient:

@@ -1,5 +1,5 @@
 (function() {
-  var textLabel;
+  var mapButton, textLabel;
 
   root.dealsTable = Titanium.UI.createTableView({
     data: [
@@ -11,12 +11,24 @@
     separatorColor: '#1b3c50'
   });
 
-  if (Titanium.Platform.name === 'android') {
+  if (root.isAndroid) {
     root.dealsTable.setData([
       Ti.UI.createTableViewRow({
         title: 'Loading...'
       })
     ]);
+  } else {
+    mapButton = Titanium.UI.createButton;
+    ({
+      title: 'Mapa'
+    });
+    mapButton.addEventListener('click', function(e) {
+      root.listDealsMapView.annotations = root.annotations;
+      return root.tabGroup.activeTab.open(root.listDealsMapWindow, {
+        animated: true
+      });
+    });
+    root.listDealsWindow.rightNavButton = mapButton;
   }
 
   root.listDealsWindow.add(root.dealsTable);
@@ -55,29 +67,37 @@
   });
 
   root.showDeals = function(deals) {
-    root.tabGroup.activeTab.open(root.listDealsWindow, {
-      animated: true
-    });
     Ti.API.info("Entra en showDeals: " + deals.length);
     root.citiesWindow.remove(root.errorView);
     if (deals.length === 0) {
       Ti.API.info('****** No hay hoteles activos en esta ciudad ********');
-      root.listDealsWindow.add(root.noDealsView);
-      root.noDealsView.show();
-      root.endPopulate();
-      return Ti.API.info('Termina');
+      root.tabGroup.activeTab.open(root.noDealsWindow, {
+        animated: true
+      });
+      root.hideLoading(root.listDealsWindow);
+      root.hideLoading(root.citiesWindow);
+      Ti.API.info('Termina');
     } else {
       Ti.API.info('*** Entra en hay hoteles');
-      if (root.city.hasZones === true) {
-        return root.populateDealsZoneTable(deals);
-      } else {
-        return root.populateDealsTable(deals);
-      }
+      root.dealsTable.setData([
+        Ti.UI.createTableViewRow({
+          title: 'Loading...'
+        })
+      ]);
+      Ti.API.info('*** Paso 1');
+      root.tabGroup.activeTab.open(root.listDealsWindow, {
+        animated: true
+      });
+      Ti.API.info('*** Paso 2');
+      if (root.isAndroid === false) root.createMap(deals);
+      root.populateDealsZoneTable(deals);
     }
+    return Ti.API.info('*** Sale de showDeals');
   };
 
   root.populateDealsTable = function(deals) {
     var deal, dealRow, _i, _len;
+    Ti.API.info('*** Entra en populateDealsTable');
     root.dealsData = [];
     for (_i = 0, _len = deals.length; _i < _len; _i++) {
       deal = deals[_i];
@@ -85,14 +105,12 @@
       root.dealsData.push(dealRow.row);
     }
     root.dealsData.push(root.why3Row);
-    root.noDealsView.hide();
-    root.listDealsWindow.remove(root.noDealsView);
     return root.endPopulate();
   };
 
   root.populateDealsZoneTable = function(deals) {
     var city, deal, dealRow, first, header, name, section, _i, _len;
-    Ti.API.info('*** Entra en populate Zonas ' + root.dealsTable);
+    Ti.API.info('*** Entra en populate Zonas ');
     root.zoneUrl = 'null';
     root.dealsData = [];
     name = "empty";
@@ -100,31 +118,34 @@
     for (_i = 0, _len = deals.length; _i < _len; _i++) {
       deal = deals[_i];
       city = deal.city;
+      Ti.API.info('Entra con name = ' + name + ' city.name = ' + city.name + ' city.url = ' + city.url + ' zone.url = ' + root.zoneUrl);
       dealRow = new root.listDealsRow(deal);
       if (city.name !== name && city.url !== root.zoneUrl) {
-        root.dealsData.push(section);
+        if (first !== true) root.dealsData.push(section);
         header = new root.dealHeaderView(L(city.url));
+        Ti.API.info('City url = ' + city.url);
         section = Ti.UI.createTableViewSection({
-          headerView: header.view,
-          headerTitle: L(city.url)
+          headerView: header.view
         });
         name = city.name;
         section.add(dealRow.row);
+        first = false;
       } else if (city.url !== root.zoneUrl) {
         section.add(dealRow.row);
       }
     }
     root.dealsData.push(section);
     root.dealsData.push(root.why3Row);
-    root.noDealsView.hide();
-    root.listDealsWindow.remove(root.noDealsView);
-    return root.endPopulate(false);
+    root.endPopulate();
+    return Ti.API.info('*** fin populateDealsZoneTable');
   };
 
   root.endPopulate = function() {
-    root.dealsTable.setData(root.dealsData);
+    Ti.API.info('*** Entra enPopulate');
     root.hideLoading(root.listDealsWindow);
-    return root.hideLoading(root.citiesWindow);
+    root.hideLoading(root.citiesWindow);
+    root.dealsTable.setData(root.dealsData);
+    return Ti.API.info('*** FIN enPopulate');
   };
 
   root.loadDeals = function(city) {
@@ -132,6 +153,7 @@
     root.showLoading(root.listDealsWindow, L('updatingHotels'));
     root.city = city;
     root.listDealsWindow.title = city.name;
+    root.noDealsWindow.title = city.name;
     return root.fetchDeals(city);
   };
 

@@ -24,7 +24,7 @@ versionLabel = Titanium.UI.createLabel
 
 
 versionLabel.addEventListener 'click', (e) ->
-	#root.tabGroup.activeTab.open(root.testWindow,{animated:true})
+	root.tabGroup.activeTab.open(root.testWindow,{animated:true})
 	
 socialView = Titanium.UI.createView
   top: 270

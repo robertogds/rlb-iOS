@@ -1,4 +1,4 @@
-if (Titanium.Platform.name == 'android')
+if root.isAndroid
 	Ti.include('/js/androidOneDealButtonBar.js')
 else
 	Ti.include('/js/oneDealButtonBar.js')
@@ -9,6 +9,7 @@ root.oneDealView = Titanium.UI.createView
 	top: 40
 
 root.oneDealImage = Titanium.UI.createImageView
+	defaultImage: '/images/completo10_loading.jpg'
 	top: 0
 	width: 320
 	height: 330
@@ -41,13 +42,14 @@ root.oneDealView.add(root.shareFacebookImage)
 root.oneDealView.add(root.shareEmailImage)
 
 
-if (Titanium.Platform.name isnt 'android')
+if root.isAndroid is false
 	root.oneDealImage.addEventListener 'click', (e) ->
 		root.imagesWindow.add(root.imagesScrollView)
 		root.tabGroup.activeTab.open(root.imagesWindow,{animated:true})
 
 root.oneDealAddressLabel = Titanium.UI.createLabel
 	top: 0
+	width: Ti.UI.FILL
 	height: '100%'
 	textAlign: 'left'
 	color: '#fff'
@@ -60,12 +62,13 @@ root.oneDealAddressLabel = Titanium.UI.createLabel
 #addressView.add(root.oneDealAddressLabel)
 
 root.titleView = Titanium.UI.createView
-	width: '100%'
+	width: Ti.UI.FILL
 	backgroundColor:'transparent'
 	top: 0
 	height: 50
 
 root.hotelNameLabel = Titanium.UI.createLabel
+	width: Ti.UI.FILL
 	top:8
 	textAlign: 'center'
 	color: 'white'
@@ -77,6 +80,7 @@ root.hotelNameLabel = Titanium.UI.createLabel
 	height: 20
 	
 root.hotelAddressLabel = Titanium.UI.createLabel
+	width: Ti.UI.FILL
 	top:26
 	textAlign: 'center'
 	color: '#868d92'
@@ -88,6 +92,7 @@ root.hotelAddressLabel = Titanium.UI.createLabel
 	height: 20
 	
 root.titleLabel = Titanium.UI.createLabel
+	width: Ti.UI.FILL
 	top: 0
 	height: '100%'
 	color: '#fff'

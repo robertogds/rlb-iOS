@@ -175,7 +175,7 @@
 	<string name="madrid_centro">Center</string>
 	<string name="madrid_norte">North</string>
 	<string name="madrid_este">East Castellana</string>
-	<string name="barcelona_airport">Airport</string>
+	<string name="barcelona_airport">Airport - Fira exhibition center</string>
 	<string name="barcelona_centro">Pl.Catalunya Ramblas</string>
 	<string name="barcelona_eixample">Pº.Gracia Diagonal Eixample</string>
 	<string name="barcelona_playa">Playa Diagonal Mar</string>
@@ -183,4 +183,17 @@
 	<string name="london_kensington">Kensington Chelsea Notting Hill</string>
 	<string name="london_eastend">East End Marleybone</string>
 	<string name="london_southbank">South Bank</string>
+	<string name="bruselas">Brussels</string>
+	<string name="budapest">Budapest</string>
+	<string name="florencia">Florence</string>
+	<string name="praga">Prague</string>
+	<string name="roma">Rome</string>
+	<string name="venecia">Venice</string>
+	<string name="viena">Vienna</string>
+	<string name="granada">Grenada</string>
+	<string name="salamanca">Salamanca</string>
+	<string name="vigo">Vigo</string>
+	<string name="zaragoza">Saragossa</string>
+	<string name="main_cities">Main Cities</string>
+	<string name="more_cities">More Cities</string>
 </resources>

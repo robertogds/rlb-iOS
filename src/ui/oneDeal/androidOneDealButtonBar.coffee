@@ -1,8 +1,8 @@
 root.oneDealButtonBarView = Titanium.UI.createView
-  borderWidth: 0
-  top: 0
-  height: 40
-  backgroundColor:'#000'
+	borderWidth: 0
+	top: 0
+	height: 40
+	backgroundColor:'#000'
 
 spacer = Math.round(Ti.Platform.displayCaps.platformWidth*0.25)
 width = spacer-4
@@ -21,59 +21,65 @@ root.oneDealButtonBarView.add(mapTab)
 root.oneDealButtonBarView.add(photosTab)
 
 makeImageScroll = () ->
-  imagesScrollView = Titanium.UI.createScrollableView
-    showPagingControl: true
-    pagingControlHeight: 20
-
-  image1 = Titanium.UI.createImageView
-    top: 0
-    image: root.image1.image
-
-  image2 = Titanium.UI.createImageView 
-    top: 0
-    image: root.image2.image
-
-  image3 = Titanium.UI.createImageView 
-    top: 0
-    image: root.image3.image
-
-  image4 = Titanium.UI.createImageView 
-    top: 0
-    image: root.image4.image
-
-  image5 = Titanium.UI.createImageView 
-    top: 0
-    image: root.image5.image
-
-  imagesScrollView.addView(image1)
-  imagesScrollView.addView(image2)
-  imagesScrollView.addView(image3)
-  imagesScrollView.addView(image4)
-  imagesScrollView.addView(image5)
-  imagesScrollView.currentPage=0
-  root.imagesWindow.add(imagesScrollView)
+	imagesScrollView = Titanium.UI.createScrollableView
+		showPagingControl: true
+		pagingControlHeight: 20
+	
+	image1 = Titanium.UI.createImageView
+		defaultImage: '/images/completo_loading.jpg'
+		top: 0
+		image: root.image1.image
+		
+	image2 = Titanium.UI.createImageView 
+		defaultImage: '/images/completo_loading.jpg'
+		top: 0
+		image: root.image2.image
+		
+	image3 = Titanium.UI.createImageView 
+		defaultImage: '/images/completo_loading.jpg'
+		top: 0
+		image: root.image3.image
+		
+	image4 = Titanium.UI.createImageView
+		defaultImage: '/images/completo_loading.jpg'
+		top: 0
+		image: root.image4.image
+	
+	image5 = Titanium.UI.createImageView 
+		defaultImage: '/images/completo_loading.jpg'
+		top: 0
+		image: root.image5.image
+	
+	imagesScrollView.addView(image1)
+	imagesScrollView.addView(image2)
+	imagesScrollView.addView(image3)
+	imagesScrollView.addView(image4)
+	imagesScrollView.addView(image5)
+	imagesScrollView.currentPage=0
+	root.imagesWindow.add(imagesScrollView)
 
 root.imagesWindow.addEventListener 'blur', (e) ->
-  #Ti.API.info('__________________________ HA PERDIDO EL FOCUS ******************')
-  photosTab.backgroundColor = '#000'
+	photosTab.backgroundColor = '#000'
 
 bookingTab.addEventListener 'click', (e) ->
-  currTab.backgroundColor = '#000'
-  this.backgroundColor = '#333'
-  this.children[0].color = '#FFF'
-  currTab = this
-  root.oneDealWindow.remove root.infoDealTable
-  root.oneDealWindow.remove root.mapView
-  root.oneDealWindow.add root.oneDealView
+	currTab.backgroundColor = '#000'
+	this.backgroundColor = '#333'
+	this.children[0].color = '#FFF'
+	currTab = this
+	root.oneDealWindow.remove root.infoDealTable
+	root.oneDealWindow.remove root.mapView
+	root.oneDealWindow.add root.oneDealView
 
 infoTab.addEventListener 'click', (e) ->
-  currTab.backgroundColor = '#000'
-  this.backgroundColor = '#333'
-  this.children[0].color = '#FFF'
-  currTab = this
-  root.oneDealWindow.remove root.oneDealView 
-  root.oneDealWindow.remove root.mapView
-  root.oneDealWindow.add root.infoDealTable
+	currTab.backgroundColor = '#000'
+	this.backgroundColor = '#333'
+	this.children[0].color = '#FFF'
+	currTab = this
+	root.oneDealWindow.remove root.oneDealView 
+	root.oneDealWindow.remove root.mapView
+	root.oneDealWindow.add root.infoDealTable
+	root.infoDealTable.setData(root.infoData)
+
 
 mapTab.addEventListener 'click', (e) ->
 	currTab.backgroundColor = '#000'
@@ -85,11 +91,11 @@ mapTab.addEventListener 'click', (e) ->
 	root.oneDealWindow.add root.mapView
 
 
-photosTab.addEventListener 'click', (e) -> 
-  photosTab.backgroundColor = '#333'
-  makeImageScroll()
-  root.tabGroup.activeTab.open(root.imagesWindow,{animated:true})
-  photosTab.backgroundColor = '#000'
+photosTab.addEventListener 'click', (e) ->
+	photosTab.backgroundColor = '#333'
+	makeImageScroll()
+	root.tabGroup.activeTab.open(root.imagesWindow,{animated:true})
+	photosTab.backgroundColor = '#000'
 
 root.listDealsWindow.addEventListener 'focus', (e) ->
 	bookingTab.children[0].color = '#FFF'
@@ -100,8 +106,3 @@ root.listDealsWindow.addEventListener 'focus', (e) ->
 	root.oneDealWindow.remove root.infoDealTable
 	root.oneDealWindow.remove root.mapView
 	root.oneDealWindow.add root.oneDealView
-
-
-
-
-

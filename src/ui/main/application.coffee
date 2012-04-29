@@ -25,6 +25,7 @@ root.paymentWindow = new root.GenericWindow(L('creditCard')).win
 root.bookingForWindow = new root.GenericWindow(L('bookingFor')).win
 root.nightsWindow = new root.GenericWindow(L('extraNights')).win
 root.why3Window = new root.GenericWindow('ReallyLateBooking').win
+root.noDealsWindow = new root.GenericWindow('').win
 
 root.imagesWindow.backButtonTitle = L('back')
 root.imagesWindow.tabBarHidden = true

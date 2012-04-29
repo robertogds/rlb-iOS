@@ -74,31 +74,34 @@
     root.showLoading(root.citiesWindow, 'Getting GPS Location');
     root.isGPS = true;
     if (Titanium.Geolocation.locationServicesEnabled === false) {
+      Ti.API.info('Entra en geo off');
       Titanium.UI.createAlertDialog({
         title: 'ReallyLateBooking',
         message: L('geoOff')
       }).show();
       return root.hideLoading(root.citiesWindow);
     }
-    authorization = Titanium.Geolocation.locationServicesAuthorization;
-    if (authorization === Titanium.Geolocation.AUTHORIZATION_DENIED) {
-      Ti.UI.createAlertDialog({
-        title: 'ReallyLateBooking',
-        message: L('youGeoDisallow')
-      }).show();
-      return root.hideLoading(root.citiesWindow);
-    } else if (authorization === Titanium.Geolocation.AUTHORIZATION_RESTRICTED) {
-      Ti.UI.createAlertDialog({
-        title: 'ReallyLateBooking',
-        message: L('systemGeoDisallow')
-      }).show();
-      return root.hideLoading(root.citiesWindow);
+    if (root.isAndroid !== true) {
+      authorization = Titanium.Geolocation.locationServicesAuthorization;
+      if (authorization === Titanium.Geolocation.AUTHORIZATION_DENIED) {
+        Ti.UI.createAlertDialog({
+          title: 'ReallyLateBooking',
+          message: L('youGeoDisallow')
+        }).show();
+        return root.hideLoading(root.citiesWindow);
+      } else if (authorization === Titanium.Geolocation.AUTHORIZATION_RESTRICTED) {
+        Ti.UI.createAlertDialog({
+          title: 'ReallyLateBooking',
+          message: L('systemGeoDisallow')
+        }).show();
+        return root.hideLoading(root.citiesWindow);
+      }
     }
     return root.getGPSData();
   };
 
   root.getGPSData = function() {
-    Titanium.Geolocation.accuracy = Titanium.Geolocation.ACCURACY_BEST;
+    Titanium.Geolocation.accuracy = Titanium.Geolocation.ACCURACY_HIGH;
     Titanium.Geolocation.distanceFilter = 10;
     return Titanium.Geolocation.getCurrentPosition(function(e) {
       var accuracy, altitude, altitudeAccuracy, heading, latitude, longitude, speed, timestamp;

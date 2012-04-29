@@ -6,22 +6,27 @@
   });
 
   root.image1 = Titanium.UI.createImageView({
+    defaultImage: '/images/completo_loading.jpg',
     top: 0
   });
 
   root.image2 = Titanium.UI.createImageView({
+    defaultImage: '/images/completo_loading.jpg',
     top: 0
   });
 
   root.image3 = Titanium.UI.createImageView({
+    defaultImage: '/images/completo_loading.jpg',
     top: 0
   });
 
   root.image4 = Titanium.UI.createImageView({
+    defaultImage: '/images/completo_loading.jpg',
     top: 0
   });
 
   root.image5 = Titanium.UI.createImageView({
+    defaultImage: '/images/completo_loading.jpg',
     top: 0
   });
 

@@ -37,22 +37,27 @@
       pagingControlHeight: 20
     });
     image1 = Titanium.UI.createImageView({
+      defaultImage: '/images/completo_loading.jpg',
       top: 0,
       image: root.image1.image
     });
     image2 = Titanium.UI.createImageView({
+      defaultImage: '/images/completo_loading.jpg',
       top: 0,
       image: root.image2.image
     });
     image3 = Titanium.UI.createImageView({
+      defaultImage: '/images/completo_loading.jpg',
       top: 0,
       image: root.image3.image
     });
     image4 = Titanium.UI.createImageView({
+      defaultImage: '/images/completo_loading.jpg',
       top: 0,
       image: root.image4.image
     });
     image5 = Titanium.UI.createImageView({
+      defaultImage: '/images/completo_loading.jpg',
       top: 0,
       image: root.image5.image
     });
@@ -86,7 +91,8 @@
     currTab = this;
     root.oneDealWindow.remove(root.oneDealView);
     root.oneDealWindow.remove(root.mapView);
-    return root.oneDealWindow.add(root.infoDealTable);
+    root.oneDealWindow.add(root.infoDealTable);
+    return root.infoDealTable.setData(root.infoData);
   });
 
   mapTab.addEventListener('click', function(e) {

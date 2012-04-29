@@ -50,6 +50,8 @@
 
   root.why3Window = new root.GenericWindow('ReallyLateBooking').win;
 
+  root.noDealsWindow = new root.GenericWindow('').win;
+
   root.imagesWindow.backButtonTitle = L('back');
 
   root.imagesWindow.tabBarHidden = true;

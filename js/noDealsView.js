@@ -13,8 +13,6 @@
 
   root.noDealsView.add(closedView);
 
-  root.listDealsWindow.add(root.noDealsView);
-
-  root.noDealsView.hide();
+  root.noDealsWindow.add(root.noDealsView);
 
 }).call(this);

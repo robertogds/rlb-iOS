@@ -22,7 +22,6 @@ root.xhrRegister.onerror = (e) ->
 	Ti.API.error(e)
 
 root.doRegister = (email,password,firstName,lastName,id) ->
-	Titanium.Analytics.featureEvent('register')
 	root.xhrRegister.setTimeout(8000)
 	if id > 0
 		url = root.urlSignature("/user/" + id)

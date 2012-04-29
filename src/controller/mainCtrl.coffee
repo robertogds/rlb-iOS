@@ -5,6 +5,9 @@ root.surl = 'https://rlb-back.appspot.com'
 root.country = 'spain'
 root.countriesDate = new Date()
 root.cell = {}
+root.osname = Ti.Platform.osname
+# Booleans identifying the platforms are handy too
+root.isAndroid = (root.osname=='android') ? true : false
 
 root.bgGradient =
      type:'linear'
@@ -13,10 +16,10 @@ root.bgGradient =
 Ti.include(
 	'/js/mocks.js'
 	'/js/staticCities.js'
+	'/js/staticOtherCities.js'
 	'/js/staticZones.js'
 	#'/js/sharekit.js'
-    #'/js/gpsData.js'
-	#'/js/analytics.js'
+    '/js/gpsData.js'
 	'/js/fetchDeals.js'
     '/js/dateUtil.js'
     '/js/GenericWindow.js'
@@ -50,6 +53,6 @@ Ti.include(
 
 # Main Program
 root.loadUser()
-#root.initializeGPS()
+root.initializeGPS()
 
 

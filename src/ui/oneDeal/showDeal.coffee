@@ -93,7 +93,7 @@ root.showDealView = (deal) ->
 	roomRow = new root.GenericTextRow().row
 	foodDrinkRow = new root.GenericTextRow().row
 	aroundRow = new root.GenericTextRow().row
-	
+	Ti.API.info("****** Estamos en info con datos: ")
 	# Views
 	detailView =  new root.GenericTextView(0,detailTitle,deal.detailText).view
 	hotelView = new root.GenericTextView(0,hotelTitle,deal.hotelText).view
@@ -105,18 +105,17 @@ root.showDealView = (deal) ->
 	roomRow.add(roomView)
 	foodDrinkRow.add(foodDrinkView)
 	aroundRow.add(aroundView)
-	
-	infoData = []
-	infoData.push(detailRow)
-	infoData.push(hotelRow)
-	infoData.push(roomRow)
-	infoData.push(foodDrinkRow)
-	infoData.push(aroundRow)
-	root.infoDealTable.setData(infoData)
+		
+	root.infoData = []
+	root.infoData.push(detailRow)
+	root.infoData.push(hotelRow)
+	root.infoData.push(roomRow)
+	root.infoData.push(foodDrinkRow)
+	root.infoData.push(aroundRow)
 	root.oneDealWindow.remove root.infoDealTable
 	root.oneDealWindow.remove root.mapView
 	root.oneDealWindow.add root.oneDealView
-	
+
 	if Titanium.App.Properties.hasProperty("user") or Titanium.Facebook.loggedIn
 		root.bookingForEmail = root.user.email
 		root.bookingForFirstName = root.user.firstName

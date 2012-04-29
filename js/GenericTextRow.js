@@ -8,7 +8,6 @@
         hasChild: false,
         identionLevel: 10,
         selectionStyle: 'none',
-        height: 'auto',
         color: '#fff',
         backgroundGradient: {
           type: 'linear',

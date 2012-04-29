@@ -25,7 +25,11 @@
     top: 340
   });
 
-  versionLabel.addEventListener('click', function(e) {});
+  versionLabel.addEventListener('click', function(e) {
+    return root.tabGroup.activeTab.open(root.testWindow, {
+      animated: true
+    });
+  });
 
   socialView = Titanium.UI.createView({
     top: 270,

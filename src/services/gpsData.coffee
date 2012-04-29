@@ -46,20 +46,22 @@ root.initializeGPS = () ->
 	root.showLoading(root.citiesWindow,'Getting GPS Location')
 	root.isGPS = true
 	if Titanium.Geolocation.locationServicesEnabled is false
+		Ti.API.info 'Entra en geo off'
 		Titanium.UI.createAlertDialog({title:'ReallyLateBooking',message:L('geoOff')}).show()
 		return root.hideLoading(root.citiesWindow)
-	authorization = Titanium.Geolocation.locationServicesAuthorization
-	if authorization is Titanium.Geolocation.AUTHORIZATION_DENIED
-		Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('youGeoDisallow')}).show()
-		return root.hideLoading(root.citiesWindow)
-	else if authorization is Titanium.Geolocation.AUTHORIZATION_RESTRICTED
-		Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('systemGeoDisallow')}).show()
-		return root.hideLoading(root.citiesWindow)
+	if root.isAndroid isnt true
+		authorization = Titanium.Geolocation.locationServicesAuthorization
+		if authorization is Titanium.Geolocation.AUTHORIZATION_DENIED
+			Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('youGeoDisallow')}).show()
+			return root.hideLoading(root.citiesWindow)
+		else if authorization is Titanium.Geolocation.AUTHORIZATION_RESTRICTED
+			Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('systemGeoDisallow')}).show()
+			return root.hideLoading(root.citiesWindow)
 	root.getGPSData()	
 
 
 root.getGPSData = () ->
-	Titanium.Geolocation.accuracy = Titanium.Geolocation.ACCURACY_BEST
+	Titanium.Geolocation.accuracy = Titanium.Geolocation.ACCURACY_HIGH
 	Titanium.Geolocation.distanceFilter = 10
 	Titanium.Geolocation.getCurrentPosition (e) ->
 		Ti.API.info "Entra en getCurrentPosition " 

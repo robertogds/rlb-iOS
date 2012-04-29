@@ -19,17 +19,40 @@ root.citiesWindow.rightNavButton = gpsButton
 root.citiesData = []
 n = 0
 list = {}
-for city in root.staticCities
+mainCitiesSection = Ti.UI.createTableViewSection
+	#headerView: header.view
+	headerTitle: L('main_cities')
+	
+otherCitiesSection = Ti.UI.createTableViewSection
+	#headerView: header.view
+	headerTitle: L('more_cities')
+for city in root.staticCities	
 	n++
 	list[n] = city
 	if n is 3
 		cityRow = new root.cityRow(list[1],list[2],list[3])
-		root.citiesData.push(cityRow.row)
+		mainCitiesSection.add(cityRow.row)
+		#root.citiesData.push(cityRow.row)
 		n = 0
 		list[1] = undefined
 		list[2] = undefined
-		list[3] = undefined		
+		list[3] = undefined	
+n = 0	
+for city in root.staticOtherCities
+	n++
+	list[n] = city
+	if n is 3
+		cityRow = new root.cityRow(list[1],list[2],list[3])
+		otherCitiesSection.add(cityRow.row)
+		#root.citiesData.push(cityRow.row)
+		n = 0
+		list[1] = undefined
+		list[2] = undefined
+		list[3] = undefined	
+
+
 #cityRow = new root.cityRow(list[1],list[2],list[3])
-#root.citiesData.push(cityRow.row)
+root.citiesData.push(mainCitiesSection)
+root.citiesData.push(otherCitiesSection)
 root.citiesTable.setData(root.citiesData)
 

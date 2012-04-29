@@ -1,7 +1,7 @@
 (function() {
   var separator1, separator2;
 
-  if (Titanium.Platform.name === 'android') {
+  if (root.isAndroid) {
     Ti.include('/js/androidOneDealButtonBar.js');
   } else {
     Ti.include('/js/oneDealButtonBar.js');
@@ -14,6 +14,7 @@
   });
 
   root.oneDealImage = Titanium.UI.createImageView({
+    defaultImage: '/images/completo10_loading.jpg',
     top: 0,
     width: 320,
     height: 330
@@ -49,7 +50,7 @@
 
   root.oneDealView.add(root.shareEmailImage);
 
-  if (Titanium.Platform.name !== 'android') {
+  if (root.isAndroid === false) {
     root.oneDealImage.addEventListener('click', function(e) {
       root.imagesWindow.add(root.imagesScrollView);
       return root.tabGroup.activeTab.open(root.imagesWindow, {
@@ -60,6 +61,7 @@
 
   root.oneDealAddressLabel = Titanium.UI.createLabel({
     top: 0,
+    width: Ti.UI.FILL,
     height: '100%',
     textAlign: 'left',
     color: '#fff',
@@ -72,13 +74,14 @@
   });
 
   root.titleView = Titanium.UI.createView({
-    width: '100%',
+    width: Ti.UI.FILL,
     backgroundColor: 'transparent',
     top: 0,
     height: 50
   });
 
   root.hotelNameLabel = Titanium.UI.createLabel({
+    width: Ti.UI.FILL,
     top: 8,
     textAlign: 'center',
     color: 'white',
@@ -92,6 +95,7 @@
   });
 
   root.hotelAddressLabel = Titanium.UI.createLabel({
+    width: Ti.UI.FILL,
     top: 26,
     textAlign: 'center',
     color: '#868d92',
@@ -105,6 +109,7 @@
   });
 
   root.titleLabel = Titanium.UI.createLabel({
+    width: Ti.UI.FILL,
     top: 0,
     height: '100%',
     color: '#fff',

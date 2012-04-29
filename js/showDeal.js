@@ -3,7 +3,7 @@
   Ti.include('/js/oneDealMapView.js', '/js/imagesScrollView.js', '/js/infoDealTable.js', '/js/priceView.js', '/js/oneDealView.js');
 
   root.showDealView = function(deal) {
-    var aroundRow, aroundTitle, aroundView, detailRow, detailTitle, detailView, foodDrinkRow, foodDrinkTitle, foodDrinkView, hotelRow, hotelTitle, hotelView, infoData, roomRow, roomTitle, roomView;
+    var aroundRow, aroundTitle, aroundView, detailRow, detailTitle, detailView, foodDrinkRow, foodDrinkTitle, foodDrinkView, hotelRow, hotelTitle, hotelView, roomRow, roomTitle, roomView;
     Ti.API.info('======= DEAL ' + JSON.stringify(deal));
     root.deal = deal;
     if (deal.quantity === 0) {
@@ -70,6 +70,7 @@
     roomRow = new root.GenericTextRow().row;
     foodDrinkRow = new root.GenericTextRow().row;
     aroundRow = new root.GenericTextRow().row;
+    Ti.API.info("****** Estamos en info con datos: ");
     detailView = new root.GenericTextView(0, detailTitle, deal.detailText).view;
     hotelView = new root.GenericTextView(0, hotelTitle, deal.hotelText).view;
     roomView = new root.GenericTextView(0, roomTitle, deal.roomText).view;
@@ -80,13 +81,12 @@
     roomRow.add(roomView);
     foodDrinkRow.add(foodDrinkView);
     aroundRow.add(aroundView);
-    infoData = [];
-    infoData.push(detailRow);
-    infoData.push(hotelRow);
-    infoData.push(roomRow);
-    infoData.push(foodDrinkRow);
-    infoData.push(aroundRow);
-    root.infoDealTable.setData(infoData);
+    root.infoData = [];
+    root.infoData.push(detailRow);
+    root.infoData.push(hotelRow);
+    root.infoData.push(roomRow);
+    root.infoData.push(foodDrinkRow);
+    root.infoData.push(aroundRow);
     root.oneDealWindow.remove(root.infoDealTable);
     root.oneDealWindow.remove(root.mapView);
     root.oneDealWindow.add(root.oneDealView);

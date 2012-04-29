@@ -22,7 +22,6 @@
   };
 
   root.doRememberPass = function(email) {
-    Titanium.Analytics.featureEvent('rememberPass');
     root.xhrRemember.setTimeout(5000);
     root.xhrRemember.open("POST", root.url + "/users/remember");
     root.xhrRemember.setRequestHeader("Content-Type", "application/json; charset=utf-8");
