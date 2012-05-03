@@ -15,20 +15,20 @@
     if (login.status === 200) {
       root.user = login.content;
       Titanium.App.Properties.setString("user", JSON.stringify(root.user));
-      root.loginView.hide();
-      root.loggedView.show();
-      root.loadLoggedUser();
+      root.loadAccountLabels();
+      root.signInWindow.close();
+      if (root.tabGroup.activeTab.id === 'deals') root.showConfirmBooking();
     } else {
       Ti.UI.createAlertDialog({
         title: 'ReallyLateBooking',
         message: 'Error: ' + login.detail
       }).show();
     }
-    return root.hideLoading(root.accountWindow);
+    return root.hideLoading(root.signInView);
   };
 
   root.xhrLogin.onerror = function(e) {
-    root.showError();
+    root.showError(root.accountWindow);
     return Ti.API.error(e);
   };
 

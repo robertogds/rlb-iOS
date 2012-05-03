@@ -13,12 +13,14 @@
 	<string name="errorcvcCode">Código CVC incorrecto</string>
 	<string name="errorEmail">Email incorrecto</string>
 	<string name="errorPassword">Password incorrecto, debe tener al menos 4 caracteres</string>
+	<string name="passDoNotMatch">Las claves no coinciden</string>
 	<string name="errorFirstName">Nombre incorrecto</string>
 	<string name="errorLastName">Apellidos incorrecto</string>
 	<string name="firstName">Nombre</string>
 	<string name="lastName">Apellidos</string>
 	<string name="email">Email</string>
-	<string name="password">Password</string>
+	<string name="password">Clave</string>
+	<string name="repeatPass">Repetir Clave</string>
 	<string name="send">Enviar</string>
 	<string name="reviewData">Revisa los datos</string>
 	<string name="feedback">Danos tu opinión</string>
@@ -27,9 +29,13 @@
 	<string name="feedbackEmailSubject">Danos tu opinión sobre ReallyLateBooking</string>
 	<string name="logout">Salir</string>
 	<string name="loginLabel">¿Ya eres usuario? Identifícate</string>
+	<string name="orLoginLabel">O entrar con tu cuenta RLB</string>
+	<string name="orRegisterLabel">O regístrate con tu e-mail</string>
 	<string name="IForgotPassword">He olvidado mi contraseña</string>
 	<string name="youForgotPassword">¿Has olvidado tu contraseña?</string>
-	<string name="needAccount">¿Necesitas una cuenta? Regístrate gratis</string>
+	<string name="needAccount">Regístrate gratis</string>
+	<string name="signIn">Login</string>
+	<string name="signedInAs">Cuenta</string>
 	<string name="register">Registrarme</string>
 	<string name="acceptTerms">Al hacer clic en Registrarme, aceptas los términos de uso y política de privacidad de ReallyLateBooking que puedes encontrar en la pestaña Opciones</string>
 	<string name="forgotPasswordIntroEmail">Introduce el email que usaste para regístrate y te enviaremos una nueva.</string>
@@ -74,7 +80,7 @@
 	<string name="options">Opciones</string>
 	<string name="photos">Fotos</string>
 	<string name="newAccount">Nueva Cuenta</string>
-	<string name="editAccount">Editar Cuenta</string>
+	<string name="editAccount">Editar cuenta</string>
 	<string name="about">Acerca de</string>
 	<string name="toHotels">Para los hoteles</string>
 	<string name="terms">Términos de uso</string>
@@ -113,6 +119,7 @@
     <string name="loading">Cargando</string>
     <string name="updatingHotels">Actualizando Hoteles</string>
     <string name="loginFacebook">Entrar con Facebook</string>
+	<string name="registerFacebook">Regístrate con Facebook</string>
     <string name="logoutAlert">Necesitas estar logado para poder hacer reservas. ¿Estás seguro que deseas salir?</string>
     <string name="soldOut">¡Agotado!</string>
     <string name="citiesToday">Aquí es donde te ofrecemos habitaciones esta noche. Pronto estaremos en más ciudades.</string>

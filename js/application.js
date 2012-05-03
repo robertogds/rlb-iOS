@@ -38,6 +38,8 @@
 
   root.termsWindow = new root.GenericWindow(L('terms')).win;
 
+  root.faqWindow = new root.GenericWindow('FAQ').win;
+
   root.privacyWindow = new root.GenericWindow(L('privacy')).win;
 
   root.rememberPassWindow = new root.GenericWindow(L('resetPassword')).win;
@@ -49,6 +51,10 @@
   root.nightsWindow = new root.GenericWindow(L('extraNights')).win;
 
   root.why3Window = new root.GenericWindow('ReallyLateBooking').win;
+
+  root.signInWindow = new root.GenericWindow(L('signIn')).win;
+
+  root.registerWindow = new root.GenericWindow(L('register')).win;
 
   root.noDealsWindow = new root.GenericWindow('').win;
 
@@ -62,24 +68,28 @@
   });
 
   root.dealsTab = Titanium.UI.createTab({
+    id: 'deals',
     icon: 'icons/icon_deal.png',
     title: L('cities'),
     window: root.citiesWindow
   });
 
   root.bookingTab = Titanium.UI.createTab({
+    id: 'booking',
     icon: 'icons/icon_buy.png',
     title: L('bookings'),
     window: root.bookingsWindow
   });
 
   root.accountTab = Titanium.UI.createTab({
+    id: 'account',
     icon: 'icons/icon_user.png',
     title: L('profile'),
     window: root.accountWindow
   });
 
   root.optionsTab = Titanium.UI.createTab({
+    id: 'options',
     icon: 'icons/icon_conf.png',
     title: L('options'),
     window: root.optionsWindow

@@ -1,5 +1,5 @@
 (function() {
-  var confirmButton, hotelLabel, nonRefundableLabel, separator1, separator2;
+  var confirmButton, nonRefundableLabel, separator1, separator2;
 
   Ti.include('/js/cardTypeView.js', '/js/expiresView.js', '/js/creditCardTable.js', '/js/paymentView.js', '/js/nightsView.js', '/js/bookingAction.js', '/js/bookingWindow.js', '/js/bookingForView.js', '/js/confirmTable.js');
 
@@ -9,7 +9,7 @@
     top: 0
   });
 
-  hotelLabel = Titanium.UI.createLabel({
+  root.hotelLabel = Titanium.UI.createLabel({
     top: 4,
     height: 28,
     textAlign: 'center',
@@ -82,7 +82,7 @@
     }
   });
 
-  root.bookingView.add(hotelLabel);
+  root.bookingView.add(root.hotelLabel);
 
   root.bookingView.add(root.totalLabel);
 
@@ -102,21 +102,11 @@
     root.bookingNights = 1;
     root.totalPrice = root.deal.salePriceCents;
     if (Titanium.App.Properties.hasProperty("user") || Titanium.Facebook.loggedIn) {
-      hotelLabel.text = root.deal.hotelName;
-      root.priceLabel.text = root.deal.salePriceCents + ' €';
-      root.checkinDate = new Date(root.deal.checkinDate);
-      root.checkoutDate = new Date(root.checkinDate.getTime() + 86400000);
-      root.checkinLabel.text = root.getLocaleDateString(root.checkinDate);
-      root.checkoutLabel.text = root.getLocaleDateString(root.checkoutDate);
-      Ti.API.info('*** Abre la pantalla de bookingWindow');
-      return root.tabGroup.activeTab.open(root.confirmBookingWindow, {
+      return root.showConfirmBooking();
+    } else {
+      return root.tabGroup.activeTab.open(root.signInWindow, {
         animated: true
       });
-    } else {
-      return Ti.UI.createAlertDialog({
-        title: 'ReallyLateBooking',
-        message: L('mustUser')
-      }).show();
     }
   };
 

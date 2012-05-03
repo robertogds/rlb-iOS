@@ -1,21 +1,28 @@
+root.loadUser()
+
 Ti.include(
-  '/js/userLoggedTable.js'
-  '/js/loginView.js'
-  '/js/loggedView.js'
-  '/js/rememberPassAction.js'
-  '/js/accountView.js'
+	'/js/faqView.js'
+	'/js/facebookButton.js'
+	'/js/editAccountView.js'
+	'/js/newAccountView.js'
+	'/js/loginAction.js'
+	'/js/logoutAction.js'
+	'/js/newFacebookAccount.js'
+	'/js/rememberPassView.js'
+	'/js/signInView.js'
+	'/js/rememberPassAction.js'
+	'/js/accountView.js'
 )
+
 root.accountWindow.addEventListener 'focus', (e) ->
-	if Titanium.App.Properties.hasProperty("user")
-		Ti.API.info 'Entra en esta logado por RLB'
-		root.loginView.hide()
-		root.loggedView.show()
-		root.loadLoggedUser()
-	else if Titanium.Facebook.loggedIn
-		Ti.API.info 'Entra en esta logado por facebook'
-		root.loginView.hide()
-		root.loggedView.show()
-		root.loadLoggedFacebookUser()
+	Ti.API.info 'Entra en focus accountWindow'
+	root.loadAccountLabels()
+
+root.loadAccountLabels = () ->
+	if root.isLogged()
+		root.loginLabelView.label1.text = L('signedInAs') + ' ' + root.user.email
+		root.registerLabelView.label1.text = L('logout')
 	else
-		root.loginView.show()
-		root.loggedView.hide()
+		root.loginLabelView.label1.text = L('loginLabel')
+		root.registerLabelView.label1.text = L('needAccount')
+

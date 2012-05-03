@@ -29,11 +29,14 @@
     color: '#336699',
     hintText: Ti.Locale.getString('email'),
     paddingLeft: 10,
-    clearOnEdit: false
+    clearOnEdit: false,
+    keyboardType: Titanium.UI.KEYBOARD_EMAIL,
+    returnKeyType: Titanium.UI.RETURNKEY_NEXT
   });
 
   rememberEmailText.addEventListener('return', function(e) {
     var email;
+    root.showLoading(root.rememberPassView);
     email = rememberEmailText.value;
     return root.doRememberPass(email);
   });

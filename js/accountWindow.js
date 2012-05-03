@@ -1,22 +1,22 @@
 (function() {
 
-  Ti.include('/js/userLoggedTable.js', '/js/loginView.js', '/js/loggedView.js', '/js/rememberPassAction.js', '/js/accountView.js');
+  root.loadUser();
+
+  Ti.include('/js/faqView.js', '/js/facebookButton.js', '/js/editAccountView.js', '/js/newAccountView.js', '/js/loginAction.js', '/js/logoutAction.js', '/js/newFacebookAccount.js', '/js/rememberPassView.js', '/js/signInView.js', '/js/rememberPassAction.js', '/js/accountView.js');
 
   root.accountWindow.addEventListener('focus', function(e) {
-    if (Titanium.App.Properties.hasProperty("user")) {
-      Ti.API.info('Entra en esta logado por RLB');
-      root.loginView.hide();
-      root.loggedView.show();
-      return root.loadLoggedUser();
-    } else if (Titanium.Facebook.loggedIn) {
-      Ti.API.info('Entra en esta logado por facebook');
-      root.loginView.hide();
-      root.loggedView.show();
-      return root.loadLoggedFacebookUser();
-    } else {
-      root.loginView.show();
-      return root.loggedView.hide();
-    }
+    Ti.API.info('Entra en focus accountWindow');
+    return root.loadAccountLabels();
   });
+
+  root.loadAccountLabels = function() {
+    if (root.isLogged()) {
+      root.loginLabelView.label1.text = L('signedInAs') + ' ' + root.user.email;
+      return root.registerLabelView.label1.text = L('logout');
+    } else {
+      root.loginLabelView.label1.text = L('loginLabel');
+      return root.registerLabelView.label1.text = L('needAccount');
+    }
+  };
 
 }).call(this);

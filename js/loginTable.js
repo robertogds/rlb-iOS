@@ -1,8 +1,8 @@
 (function() {
-  var data, emailText, passText, row1, row2, section;
+  var data, row1, row2, section;
 
   root.loginTable = Titanium.UI.createTableView({
-    top: 40,
+    top: 120,
     height: 88,
     width: '95%',
     borderWidth: 0,
@@ -12,7 +12,7 @@
     backgroundColor: '#fff'
   });
 
-  emailText = Titanium.UI.createTextField({
+  root.emailText = Titanium.UI.createTextField({
     width: '90%',
     height: '90%',
     color: '#336699',
@@ -25,11 +25,11 @@
     returnKeyType: Titanium.UI.RETURNKEY_NEXT
   });
 
-  emailText.addEventListener('return', function(e) {
-    return passText.focus();
+  root.emailText.addEventListener('return', function(e) {
+    return root.passText.focus();
   });
 
-  passText = Titanium.UI.createTextField({
+  root.passText = Titanium.UI.createTextField({
     backgroundColor: '#fff',
     width: '90%',
     height: '90%',
@@ -37,17 +37,18 @@
     hintText: Ti.Locale.getString('password'),
     paddingLeft: 10,
     clearOnEdit: true,
-    passwordMask: true
+    passwordMask: true,
+    returnKeyType: Titanium.UI.RETURNKEY_DONE
   });
 
-  passText.addEventListener('return', function(e) {
+  root.passText.addEventListener('return', function(e) {
     var email, password, validate;
-    email = emailText.value;
-    password = passText.value;
+    email = root.emailText.value;
+    password = root.passText.value;
     validate = root.validateLoginData(email, password);
     if (validate === true) {
       password = Titanium.Utils.md5HexDigest(password);
-      root.showLoading(root.accountWindow);
+      root.showLoading(root.signInView);
       return root.doLogin(email, password);
     } else {
       return Ti.UI.createAlertDialog({
@@ -66,14 +67,14 @@
     height: 44
   });
 
-  row1.add(emailText);
+  row1.add(root.emailText);
 
   row2 = Titanium.UI.createTableViewRow({
     width: '100%',
     height: 44
   });
 
-  row2.add(passText);
+  row2.add(root.passText);
 
   section.add(row1);
 

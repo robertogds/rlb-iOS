@@ -19,13 +19,18 @@ root.errorWindow = new root.GenericWindow('Error').win
 root.aboutWindow = new root.GenericWindow(L('about')).win
 root.forHotelsWindow = new root.GenericWindow(L('toHotels')).win
 root.termsWindow = new root.GenericWindow(L('terms')).win
+root.faqWindow = new root.GenericWindow('FAQ').win
 root.privacyWindow = new root.GenericWindow(L('privacy')).win
 root.rememberPassWindow = new root.GenericWindow(L('resetPassword')).win
 root.paymentWindow = new root.GenericWindow(L('creditCard')).win
 root.bookingForWindow = new root.GenericWindow(L('bookingFor')).win
 root.nightsWindow = new root.GenericWindow(L('extraNights')).win
 root.why3Window = new root.GenericWindow('ReallyLateBooking').win
+root.signInWindow = new root.GenericWindow(L('signIn')).win
+root.registerWindow = new root.GenericWindow(L('register')).win
+
 root.noDealsWindow = new root.GenericWindow('').win
+
 
 root.imagesWindow.backButtonTitle = L('back')
 root.imagesWindow.tabBarHidden = true
@@ -36,25 +41,29 @@ root.tabGroup = Titanium.UI.createTabGroup
 	id:'tabGroup'
 
 root.dealsTab = Titanium.UI.createTab
+	id:'deals'
 	icon:'icons/icon_deal.png'
 	title:L('cities')
 	window: root.citiesWindow
   
 root.bookingTab = Titanium.UI.createTab
-  icon:'icons/icon_buy.png'
-  title:L('bookings')
-  window: root.bookingsWindow
+	id: 'booking'
+	icon:'icons/icon_buy.png'
+	title:L('bookings')
+	window: root.bookingsWindow
 
     
 root.accountTab = Titanium.UI.createTab
-  icon:'icons/icon_user.png'
-  title:L('profile')
-  window: root.accountWindow
+	id: 'account'
+	icon:'icons/icon_user.png'
+	title:L('profile')
+	window: root.accountWindow
 
 root.optionsTab = Titanium.UI.createTab
-  icon:'icons/icon_conf.png'
-  title:L('options')
-  window: root.optionsWindow
+	id: 'options'
+	icon:'icons/icon_conf.png'
+	title:L('options')
+	window: root.optionsWindow
 
 root.tabGroup.addTab(root.dealsTab)
 root.tabGroup.addTab(root.bookingTab)

@@ -48,12 +48,14 @@
       data = [];
       row1 = Titanium.UI.createTableViewRow({
         hasChild: true,
+        rightImage: '/images/right_arrow3.png',
         width: '100%',
         height: 44
       });
       row1.add(this.label1);
       row2 = Titanium.UI.createTableViewRow({
         hasChild: true,
+        rightImage: '/images/right_arrow3.png',
         width: '100%',
         height: 44
       });

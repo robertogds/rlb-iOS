@@ -1,5 +1,7 @@
 root.url = 'http://rlb-back.appspot.com'
 root.surl = 'https://rlb-back.appspot.com'
+root.faqUrl = root.url+'/info/faq'
+root.termsUrl = root.url+'/info/use_terms'
 #root.url = 'http://192.168.1.33:9000'
 #root.surl = 'http://192.168.1.33:9000'
 root.country = 'spain'
@@ -37,6 +39,7 @@ Ti.include(
     '/js/loadingView.js'
     '/js/application.js'
     '/js/listDealsWindow.js'
+	'/js/loadUser.js'
     '/js/accountWindow.js'
     '/js/bookingsWindow.js'
     '/js/citiesWindow.js'
@@ -48,11 +51,9 @@ Ti.include(
     '/js/forHotelsView.js'
     '/js/termsView.js'
     '/js/privacyView.js'
-	'/js/loadUser.js'
 )
 
 # Main Program
-root.loadUser()
 root.initializeGPS()
 
 

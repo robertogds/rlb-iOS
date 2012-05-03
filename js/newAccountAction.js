@@ -5,16 +5,13 @@
   root.xhrRegister.onload = function(e) {
     var response;
     root.hideLoading(root.newAccountWindow);
-    root.editAccountWindow.remove(root.loadingView);
     response = JSON.parse(this.responseText);
     if (response.status === 200) {
       root.user = response.content;
       Titanium.App.Properties.setString("user", JSON.stringify(root.user));
+      root.loadAccountLabels();
       root.newAccountWindow.close();
-      root.editAccountWindow.close();
-      root.loginView.hide();
-      root.loggedView.show();
-      return root.loadLoggedUser();
+      return root.editAccountWindow.close();
     } else {
       Ti.API.error(response.detail);
       return Ti.UI.createAlertDialog({
@@ -57,8 +54,10 @@
     return Ti.API.info('LLeta hasta el final');
   };
 
-  root.validateNewAccountData = function(email, password, firstName, lastName) {
+  root.validateNewAccountData = function(email, password, firstName, lastName, repeatPass) {
+    if (password !== repeatPass) return Ti.Locale.getString('passDoNotMatch');
     if (!(email.length > 3)) return Ti.Locale.getString('errorEmail');
+    if (!/\@/.test(email)) return Ti.Locale.getString('errorEmail');
     if (!(password.length > 3)) return Ti.Locale.getString('errorPassword');
     if (!(firstName.length > 0)) return Ti.Locale.getString('errorFirstName');
     if (!(lastName.length > 0)) return Ti.Locale.getString('errorLastName');

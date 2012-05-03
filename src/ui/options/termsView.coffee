@@ -32,6 +32,6 @@ root.showTerms = () ->
   else
     root.tabGroup.activeTab.open(root.termsWindow,{animated:true})
     root.showLoading(root.termsWindow)
-    root.xhrTerms.open('GET', root.url+'/info/use_terms')
+    root.xhrTerms.open('GET', root.termsUrl)
     root.xhrTerms.setRequestHeader("Accept-Language",Titanium.Locale.currentLanguage)
     root.xhrTerms.send()

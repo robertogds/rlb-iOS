@@ -13,11 +13,24 @@ root.xhrFacebookRegister.onload = (e) ->
 		root.facebookUser.rlbSecret = root.user.secret
 		root.facebookUser.rlbPassword = root.user.password
 		Ti.API.info response.content
+		root.hideLoading(root.newAccountWindow)
+		root.hideLoading(root.signInWindow)
+		root.newAccountWindow.close()
+		root.signInWindow.close()
+		if root.tabGroup.activeTab.id is 'deals'
+			root.showConfirmBooking()
+		
+		
 	else
 		Ti.API.error response.content
 		Ti.UI.createAlertDialog({title:'ReallyLateBooking',message: L('errorHappened')}).show()
 	Ti.API.info '*** Registra el usuario de facebook'
 	Titanium.App.Properties.setString("facebookUser",JSON.stringify(root.facebookUser))
+	
+root.xhrFacebookRegister.onerror = (e) ->
+	Ti.API.info 'Ha entrado en facebook register ERROR'
+	root.showError(root.accountWindow)
+	Ti.API.error(e)
 
 
 root.doFacebookRegister = (email,firstName,lastName) ->

@@ -28,7 +28,7 @@
       }).show();
       return root.showError(root.citiesWindow);
     } else {
-      root.xhrDeals.setTimeout(15000);
+      root.xhrDeals.setTimeout(25000);
       root.xhrDeals.open('GET', root.url + '/v2/deals/' + city.url);
       root.xhrDeals.setRequestHeader("Accept-Language", Titanium.Locale.currentLanguage);
       return root.xhrDeals.send();

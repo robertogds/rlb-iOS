@@ -1,8 +1,6 @@
 (function() {
   var loginLabel, needLabel, registerButton, rememberAndSupportView;
 
-  Ti.include('/js/newAccountView.js', '/js/loginAction.js', '/js/logoutAction.js', '/js/newFacebookAccount.js', '/js/facebookButton.js', '/js/loginTable.js', '/js/rememberPassView.js');
-
   root.loginView = Titanium.UI.createView({
     background: "transparent",
     top: 0
@@ -60,15 +58,5 @@
       animated: true
     });
   });
-
-  root.loginView.add(registerButton);
-
-  root.loginView.add(root.facebookLoginButton);
-
-  root.loginView.add(root.loginTable);
-
-  root.loginView.add(needLabel);
-
-  root.loginView.add(loginLabel);
 
 }).call(this);

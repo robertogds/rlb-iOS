@@ -1,12 +1,24 @@
+root.showConfirmBooking = ()->
+	root.tabGroup.activeTab.open(root.confirmBookingWindow,{animated:true})
+	root.hotelLabel.text = root.deal.hotelName
+	root.priceLabel.text = root.deal.salePriceCents + ' €' 
+	root.checkinDate = new Date(root.deal.checkinDate)
+	root.checkoutDate = new Date(root.checkinDate.getTime() + 86400000)
+	root.checkinLabel.text = root.getLocaleDateString(root.checkinDate)
+	root.checkoutLabel.text = root.getLocaleDateString(root.checkoutDate)
+	Ti.API.info '*** Abre la pantalla de bookingWindow'	
+
 root.confirmBookingWindow.addEventListener 'focus', (e) ->
-	Ti.API.info("Paso 11 >>>>>>>>")
-	if root.bookingForFirstName is null
+	Ti.API.info 'Entra en confirmBooking'
+	if root.bookingForFirstName is null or root.bookingForFirstName is undefined
+		Ti.API.info 'bookingForFirstName is null'
 		root.bookingForEmail = root.user.email
 		root.bookingForFirstName = root.user.firstName
 		root.bookingForLastName = root.user.lastName
 		root.bookingForEmailLabel.text = root.user.email
 		root.bookingForNameLabel.text = root.user.firstName + ' ' + root.user.lastName
 	else
+		Ti.API.info 'bookingforfirstname isnt null: ' + root.bookingForFirstName
 		root.bookingForNameLabel.text = root.bookingForFirstName + ' ' + root.bookingForLastName
 		root.bookingForEmailLabel.text = root.bookingForEmail
 	if Titanium.App.Properties.hasProperty("creditCard")

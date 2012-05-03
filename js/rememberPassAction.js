@@ -3,19 +3,21 @@
   root.xhrRemember = Titanium.Network.createHTTPClient();
 
   root.xhrRemember.onerror = function(e) {
+    root.hideLoading(root.rememberPassView);
     root.showError();
     return Ti.API.error(e);
   };
 
   root.xhrRemember.onload = function(e) {
     var response;
+    root.hideLoading(root.rememberPassView);
     response = JSON.parse(this.responseText);
     if (response.status === 200) {
-      Ti.UI.createAlertDialog({
+      root.rememberPassWindow.close();
+      return Ti.UI.createAlertDialog({
         title: 'ReallyLateBooking',
-        message: 'Error: ' + response.detail
+        message: response.detail
       }).show();
-      return root.rememberPassWindow.close();
     } else {
       return alert('Error: ' + response.detail);
     }

@@ -1,5 +1,5 @@
 root.loginTable = Titanium.UI.createTableView
-	top: 40
+	top: 120
 	height: 88
 	width: '95%'
 	borderWidth:0
@@ -8,7 +8,7 @@ root.loginTable = Titanium.UI.createTableView
 	moving: false
 	backgroundColor: '#fff'
 
-emailText = Titanium.UI.createTextField
+root.emailText = Titanium.UI.createTextField
 	width: '90%'
 	height: '90%'
 	color:'#336699'
@@ -20,10 +20,10 @@ emailText = Titanium.UI.createTextField
 	keyboardType: Titanium.UI.KEYBOARD_EMAIL
 	returnKeyType: Titanium.UI.RETURNKEY_NEXT 
 
-emailText.addEventListener 'return', (e) ->
-	passText.focus()
+root.emailText.addEventListener 'return', (e) ->
+	root.passText.focus()
 
-passText = Titanium.UI.createTextField
+root.passText = Titanium.UI.createTextField
 	backgroundColor: '#fff'
 	width: '90%'
 	height: '90%'
@@ -32,28 +32,31 @@ passText = Titanium.UI.createTextField
 	paddingLeft: 10
 	clearOnEdit: true
 	passwordMask:true
+	returnKeyType: Titanium.UI.RETURNKEY_DONE
 
-passText.addEventListener 'return', (e) ->
-	email = emailText.value
-	password = passText.value
+root.passText.addEventListener 'return', (e) ->
+	#root.passText.blur()
+	email = root.emailText.value
+	password = root.passText.value
 	validate = root.validateLoginData(email,password)
 	if validate is true
 		password = Titanium.Utils.md5HexDigest(password)
-		root.showLoading(root.accountWindow)
+		root.showLoading(root.signInView)
 		root.doLogin(email,password)
 	else
 		Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('reviewData') + validate}).show()
+	
 
 section = Titanium.UI.createTableViewSection()
 data = []
 row1 = Titanium.UI.createTableViewRow
 	width: '100%'
 	height: 44
-row1.add(emailText)
+row1.add(root.emailText)
 row2 = Titanium.UI.createTableViewRow
 	width: '100%'
 	height: 44
-row2.add(passText)
+row2.add(root.passText)
 section.add(row1)
 section.add(row2)
 data[0] = section

@@ -16,6 +16,11 @@
       root.facebookUser.rlbSecret = root.user.secret;
       root.facebookUser.rlbPassword = root.user.password;
       Ti.API.info(response.content);
+      root.hideLoading(root.newAccountWindow);
+      root.hideLoading(root.signInWindow);
+      root.newAccountWindow.close();
+      root.signInWindow.close();
+      if (root.tabGroup.activeTab.id === 'deals') root.showConfirmBooking();
     } else {
       Ti.API.error(response.content);
       Ti.UI.createAlertDialog({
@@ -25,6 +30,12 @@
     }
     Ti.API.info('*** Registra el usuario de facebook');
     return Titanium.App.Properties.setString("facebookUser", JSON.stringify(root.facebookUser));
+  };
+
+  root.xhrFacebookRegister.onerror = function(e) {
+    Ti.API.info('Ha entrado en facebook register ERROR');
+    root.showError(root.accountWindow);
+    return Ti.API.error(e);
   };
 
   root.doFacebookRegister = function(email, firstName, lastName) {

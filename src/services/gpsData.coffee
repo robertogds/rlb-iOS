@@ -67,7 +67,7 @@ root.getGPSData = () ->
 		Ti.API.info "Entra en getCurrentPosition " 
 		if  (!e.success || e.error)
 			Ti.API.info("Code translation: "+translateErrorCode(e.code))
-			Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:JSON.stringify(e.error)}).show()
+			Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('geoOff')}).show()
 			root.hideLoading(root.citiesWindow)
 			return
 		longitude = e.coords.longitude

@@ -1,16 +1,18 @@
 root.xhrRemember = Titanium.Network.createHTTPClient()
 
 root.xhrRemember.onerror = (e) ->
+	root.hideLoading(root.rememberPassView)
 	root.showError()
 	Ti.API.error(e)
 
 root.xhrRemember.onload = (e) ->
-  response = JSON.parse(this.responseText)
-  if response.status is 200
-    Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:'Error: ' + response.detail}).show()
-    root.rememberPassWindow.close()
-  else
-    alert('Error: ' + response.detail)
+	root.hideLoading(root.rememberPassView)
+	response = JSON.parse(this.responseText)
+	if response.status is 200
+		root.rememberPassWindow.close()
+		Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:response.detail}).show()
+	else
+		alert('Error: ' + response.detail)
 
 root.doRememberPass = (email) ->
 	root.xhrRemember.setTimeout(5000)

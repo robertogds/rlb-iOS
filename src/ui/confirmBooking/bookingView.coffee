@@ -14,7 +14,7 @@ root.bookingView = Titanium.UI.createView
 	borderWidth: 0
 	top: 0
 
-hotelLabel = Titanium.UI.createLabel
+root.hotelLabel = Titanium.UI.createLabel
 	top:4
 	height: 28
 	textAlign: 'center'
@@ -70,7 +70,7 @@ nonRefundableLabel = Titanium.UI.createLabel
 		fontSize: 12
 		fontWeight: 'bold'
 
-root.bookingView.add(hotelLabel)
+root.bookingView.add(root.hotelLabel)
 root.bookingView.add(root.totalLabel)
 root.bookingView.add(root.priceLabel)
 root.bookingView.add(nonRefundableLabel)
@@ -83,14 +83,6 @@ root.showBookingView = () ->
 	root.bookingNights = 1
 	root.totalPrice = root.deal.salePriceCents
 	if Titanium.App.Properties.hasProperty("user") or Titanium.Facebook.loggedIn
-		hotelLabel.text = root.deal.hotelName
-		root.priceLabel.text = root.deal.salePriceCents + ' €' 
-		root.checkinDate = new Date(root.deal.checkinDate)
-		root.checkoutDate = new Date(root.checkinDate.getTime() + 86400000)
-		root.checkinLabel.text = root.getLocaleDateString(root.checkinDate)
-		root.checkoutLabel.text = root.getLocaleDateString(root.checkoutDate)
-		Ti.API.info '*** Abre la pantalla de bookingWindow'
-		root.tabGroup.activeTab.open(root.confirmBookingWindow,{animated:true})
+		root.showConfirmBooking()
 	else
-		Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('mustUser')}).show()
-		#[android]root.tabGroup.setActiveTab(2)
+		root.tabGroup.activeTab.open(root.signInWindow,{animated:true})

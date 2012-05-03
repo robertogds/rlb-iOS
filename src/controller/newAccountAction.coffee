@@ -2,16 +2,13 @@ root.xhrRegister = Titanium.Network.createHTTPClient()
 
 root.xhrRegister.onload = (e) ->
 	root.hideLoading(root.newAccountWindow)
-	root.editAccountWindow.remove(root.loadingView)
 	response = JSON.parse(this.responseText)
 	if response.status is 200
 		root.user = response.content
 		Titanium.App.Properties.setString("user",JSON.stringify(root.user))
+		root.loadAccountLabels()
 		root.newAccountWindow.close()
-		root.editAccountWindow.close()
-		root.loginView.hide()
-		root.loggedView.show()
-		root.loadLoggedUser()
+		root.editAccountWindow.close()		
 	else
 		Ti.API.error response.detail
 		Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:'Error: ' + response.detail}).show()
@@ -44,9 +41,11 @@ root.doRegister = (email,password,firstName,lastName,id) ->
 	root.xhrRegister.send(newUser)
 	Ti.API.info 'LLeta hasta el final'
 
-root.validateNewAccountData = (email,password,firstName,lastName) ->
-  return Ti.Locale.getString('errorEmail') unless email.length > 3
-  return Ti.Locale.getString('errorPassword') unless password.length > 3
-  return Ti.Locale.getString('errorFirstName') unless firstName.length > 0
-  return Ti.Locale.getString('errorLastName') unless lastName.length > 0
-  return true
+root.validateNewAccountData = (email,password,firstName,lastName,repeatPass) ->
+	return Ti.Locale.getString('passDoNotMatch') unless password is repeatPass
+	return Ti.Locale.getString('errorEmail') unless email.length > 3
+	return Ti.Locale.getString('errorEmail') unless /\@/.test(email)
+	return Ti.Locale.getString('errorPassword') unless password.length > 3
+	return Ti.Locale.getString('errorFirstName') unless firstName.length > 0
+	return Ti.Locale.getString('errorLastName') unless lastName.length > 0
+	return true

@@ -47,7 +47,7 @@
         animated: true
       });
       root.showLoading(root.termsWindow);
-      root.xhrTerms.open('GET', root.url + '/info/use_terms');
+      root.xhrTerms.open('GET', root.termsUrl);
       root.xhrTerms.setRequestHeader("Accept-Language", Titanium.Locale.currentLanguage);
       return root.xhrTerms.send();
     }

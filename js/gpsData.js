@@ -110,7 +110,7 @@
         Ti.API.info("Code translation: " + translateErrorCode(e.code));
         Ti.UI.createAlertDialog({
           title: 'ReallyLateBooking',
-          message: JSON.stringify(e.error)
+          message: L('geoOff')
         }).show();
         root.hideLoading(root.citiesWindow);
         return;

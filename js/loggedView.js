@@ -1,8 +1,6 @@
 (function() {
   var customerView;
 
-  Ti.include('/js/editAccountView.js');
-
   root.loggedView = Titanium.UI.createView({
     backgroundColor: "transparent",
     borderWidth: 0,
