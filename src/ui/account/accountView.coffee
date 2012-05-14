@@ -11,17 +11,12 @@ if root.isLogged()
 
 	
 root.loginLabelView.label1.addEventListener 'click', (e) ->
-	Ti.API.info 'Click en loginlabel1'
 	if root.isLogged()
-		Ti.API.info '******* loginlabel1 Pasa cargar usuario'
 		root.tabGroup.activeTab.open(root.editAccountWindow,{animated:true})
-		Ti.API.info '******* loginlabel1 is logged'
 		root.loadEditLoggedUser()
-		'******* loginlabel1 17'
-		root.editAccountWindow.setTitle(L('editAccount') + ' ' + root.user.email)
-		'******* loginlabel1 19'
+		root.editAccountWindow.setTitle(L('editAccount'))
 	else
-		root.tabGroup.activeTab.open(root.signInWindow,{animated:true})
+		root.showSignInView('account')
 	
 
 root.registerLabelView.label1.addEventListener 'click', (e) ->
@@ -29,11 +24,7 @@ root.registerLabelView.label1.addEventListener 'click', (e) ->
 		Ti.API.info '***** Llama a hacer logout'
 		root.doLogout()
 	else
-		root.newAccountData[0] = root.newAccountSection
-		root.newAccountTable.data = root.newAccountData
-		root.newAccountView.add(root.newAccountTable)
-		root.newAccountWindow.add(root.newAccountView)
-		root.tabGroup.activeTab.open(root.newAccountWindow,{animated:true})
+		root.showNewAccount()
 	
 
 faqSupportView = new root.Generic2RowsView(150,'FAQ',L('userSupport'))

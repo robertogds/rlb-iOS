@@ -1,7 +1,7 @@
 (function() {
   var acercaView, emailIcon, facebookIcon, legalView, socialView, twitterIcon, versionLabel;
 
-  Ti.include('/js/supportView.js');
+  Ti.include('/js/supportView.js', '/js/testWindow.js');
 
   root.optionsView = Titanium.UI.createView({
     background: 'transparent',
@@ -26,6 +26,7 @@
   });
 
   versionLabel.addEventListener('click', function(e) {
+    Ti.API.info('Hace clic en version');
     return root.tabGroup.activeTab.open(root.testWindow, {
       animated: true
     });
@@ -48,7 +49,7 @@
     image: '/images/facebook_share.png',
     height: 22,
     width: 60,
-    left: 70,
+    left: 120,
     top: 10
   });
 
@@ -60,7 +61,13 @@
     left: 190
   });
 
-  twitterIcon.addEventListener('click', function(e) {});
+  twitterIcon.addEventListener('click', function(e) {
+    return root.sharekit.share({
+      title: 'ReallyLateBooking',
+      text: L('shareRLBTwitter'),
+      sharer: 'Twitter'
+    });
+  });
 
   facebookIcon.addEventListener('click', function(e) {
     var data;
@@ -70,10 +77,15 @@
       caption: "reallylatebooking.com",
       description: L('shareRLBFacebook')
     };
-    return Titanium.Facebook.dialog("feed", data, function(e) {
+    Titanium.Facebook.dialog("feed", data, function(e) {
       if (e.success) {} else {
         if (e.error) return alert(e.error);
       }
+    });
+    return root.sharekit.share({
+      title: 'ReallyLateBooking',
+      text: L('shareRLBFacebook'),
+      sharer: 'Facebook'
     });
   });
 
@@ -86,6 +98,8 @@
   });
 
   socialView.add(facebookIcon);
+
+  socialView.add(twitterIcon);
 
   socialView.add(emailIcon);
 

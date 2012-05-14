@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="cities">Cities</string>
+	<string name="address">Address</string>
+	<string name="room">Room</string>
+	<string name="regime">Regime</string>
     <string name="countries">Countries</string>
     <string name="errorHappened">An error has occurred</string>
     <string name="errorBooking">An error has occurred\nWe received an incorrect response so we don't know if your booking has been completed. Please contact with help@reallylatebooking.com</string>
@@ -51,10 +54,11 @@
 	<string name="selectCardType">Select Card Type</string>
 	<string name="done">Done</string>
 	<string name="cardType">Card Type</string>
-	<string name="number">Number</string>
-	<string name="cardName">Card Name</string>
+	<string name="number">Card number</string>
+	<string name="cardName">Card name</string>
 	<string name="expires">Expires on</string>
-	<string name="cvcCode">cvc Code</string>
+	<string name="expiresYear">YY</string>
+	<string name="cvcCode">CVC</string>
 	<string name="jan">January</string>
 	<string name="feb">February</string>
 	<string name="mar">March</string>
@@ -110,6 +114,7 @@
 	<string name="privacyText">We take privacy seriously. \n\n So your data will not be shared with anyone</string>
 	<string name="supportTitle">Can we help you?</string>
 	<string name="supportText">We are available 24x7 to ensure your plans go well. \n\n If you have any problems please do not hesitate to contact us</string>
+	<string name="hoursPhone">M-F from 12h to 20h</string>
 	<string name="needHelp">I need help</string>
     <string name="lastUpdated">Last Updated</string>
     <string name="pullRefresh">Pull down to refresh</string>
@@ -203,4 +208,11 @@
 	<string name="zaragoza">Saragossa</string>
 	<string name="main_cities">Main Cities</string>
 	<string name="more_cities">More Cities</string>
+	<string name="bookingData">Booking Data</string>
+	<string name="clientData">Client Data</string>
+	<string name="remember">Remember</string>
+	<string name="bookPaid">RLB will charge your credit card. You should not make any payment at the hotel</string>
+	<string name="breakfastYes">Breakfast Included</string>
+	<string name="breakfastNo">Breakfast NOT Included</string>
+	<string name="double">Double</string>
 </resources>

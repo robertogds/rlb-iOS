@@ -1,5 +1,4 @@
 Ti.include(
-	'/js/cardTypeView.js'
 	'/js/expiresView.js'
 	'/js/creditCardTable.js'
 	'/js/paymentView.js'
@@ -50,14 +49,23 @@ root.bookingView.add(root.confirmTable)
 root.bookingView.add(separator1)
 root.bookingView.add(separator2)
 
-confirmButton = new root.GenericButton(280,L('confirm')).button 
+confirmButton = new root.GenericButton(280,L('confirm')).button
+
+root.confirmAlert = Ti.UI.createAlertDialog({title:L('confirm'),message:L('bookPaid'),cancel:1,buttonNames: ['Confirm', 'Cancel']})
+root.confirmAlert.addEventListener 'click', (e) ->
+	Ti.API.info e
+	if e.index is 1 
+		Ti.API.info 'El usuario ha cancelado'
+	else
+		root.doBooking()
 
 confirmButton.addEventListener 'click', (e) ->
 	validate = root.validateBookingData()
 	if validate isnt true
 		Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('reviewData') + ': ' + validate}).show()
 	else
-		root.doBooking()
+		root.confirmAlert.show()
+		#root.doBooking()
 
 nonRefundableLabel = Titanium.UI.createLabel
 	borderWidth: 0
@@ -76,8 +84,8 @@ root.bookingView.add(root.priceLabel)
 root.bookingView.add(nonRefundableLabel)
 root.bookingView.add(confirmButton)
 root.confirmBookingWindow.add(root.bookingView)
-root.oneClassBookingView =  new root.GenericTextView(0,L('booking'),L('booking')).view
-root.oneBookingWindow.add(root.oneClassBookingView)
+#root.oneClassBookingView =  new root.GenericTextView(0,L('booking'),L('booking')).view
+#root.oneBookingWindow.add(root.oneClassBookingView)
 
 root.showBookingView = () ->
 	root.bookingNights = 1
@@ -85,4 +93,4 @@ root.showBookingView = () ->
 	if Titanium.App.Properties.hasProperty("user") or Titanium.Facebook.loggedIn
 		root.showConfirmBooking()
 	else
-		root.tabGroup.activeTab.open(root.signInWindow,{animated:true})
+		root.showSignInView('booking')

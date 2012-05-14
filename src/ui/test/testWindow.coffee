@@ -1,4 +1,5 @@
-root.testWindow = new root.GenericWindow('Table Test').win
+root.testWindow = new root.GenericWindow('RLB Team').win
+Ti.include('/js/testView.js')
 data = [
 	{title: 'Adam', header: 'A'}
 	{title: 'Alex'}
@@ -17,8 +18,8 @@ data = [
 	{title: 'Eric'}
 	]
 	
-tableViewOptions = {data: data}
+#tableViewOptions = {data: data}
 
-tableview = Titanium.UI.createTableView(tableViewOptions)
-root.testWindow.add(tableview)
-tableview.scrollToIndex(10)
+#tableview = Titanium.UI.createTableView(tableViewOptions)
+#root.testWindow.add(tableview)
+#tableview.scrollToIndex(10)

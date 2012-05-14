@@ -41,7 +41,8 @@
           fontSize: 12,
           fontWeight: 'bold'
         },
-        left: 10
+        left: 10,
+        height: 30
       });
       bookingRow.row.add(bookingLabel);
       data.push(bookingRow.row);
@@ -50,8 +51,8 @@
       root.noBookingsView.show();
     } else {
       root.bookingsTable.setData(data);
-      root.bookingsTable.footerView = root.footerView;
     }
+    root.bookingsTable.footerView = root.footerView;
     return root.hideLoading(root.bookingsWindow);
   };
 
@@ -73,6 +74,7 @@
 
   root.showBookings = function() {
     var signature, url;
+    Ti.API.info('Entra en showBookings');
     root.noBookingsView.hide();
     root.showLoading(root.bookingsWindow);
     url = root.urlSignature('/user/' + root.user.id + '/bookings');

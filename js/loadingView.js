@@ -26,7 +26,7 @@
 
   root.iphoneActInd = Titanium.UI.createActivityIndicator({
     style: Titanium.UI.iPhone.ActivityIndicatorStyle.BIG,
-    top: 30
+    top: 70
   });
 
   root.androidActInd = Titanium.UI.createActivityIndicator({

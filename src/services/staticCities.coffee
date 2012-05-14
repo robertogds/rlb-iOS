@@ -23,8 +23,8 @@ root.staticCities = [
 		'url' : 'bruselas'
 		'image' : '/images/bruselas.jpg' 
 		'hasZones' : false	
-		'latitude' : '38.7257308959961'
-		'longitude' : '-9.1502103805542'
+		'latitude' : '50.8483810424805'
+		'longitude' : '4.34967994689941'
 		'row' : 0	
 	}
 	{
@@ -32,8 +32,8 @@ root.staticCities = [
 		'url' : 'budapest'
 		'image' : '/images/budapest.jpg' 
 		'hasZones' : false	
-		'latitude' : '38.7257308959961'
-		'longitude' : '-9.1502103805542'
+		'latitude' : '47.5062217712402'
+		'longitude' : '19.0648193359375'
 		'row' : 1	
 	}
 	{
@@ -41,8 +41,8 @@ root.staticCities = [
 		'url' : 'florencia'
 		'image' : '/images/florencia.jpg' 
 		'hasZones' : false	
-		'latitude' : '38.7257308959961'
-		'longitude' : '-9.1502103805542'
+		'latitude' : '43.7823715209961'
+		'longitude' : '11.2549896240234'
 		'row' : 1	
 	}
 
@@ -87,9 +87,9 @@ root.staticCities = [
 		'name' : 'París'
 		'url' : 'paris'
 		'image' : '/images/paris.jpg'
-		'hasZones' : false	
-		'latitude' : '48.84991568 '
-		'longitude' : '2.34298682'
+		'hasZones' : true	
+		'latitude' : '48.8569297790527'
+		'longitude' : '2.34120011329651'
 		'row' : 3	
 	}
 	{
@@ -97,8 +97,8 @@ root.staticCities = [
 		'url' : 'praga'
 		'image' : '/images/praga.jpg'
 		'hasZones' : false	
-		'latitude' : '48.84991568 '
-		'longitude' : '2.34298682'
+		'latitude' : '50.0790786743164'
+		'longitude' : '14.433219909668'
 		'row' : 3	
 	}
 	{
@@ -106,8 +106,8 @@ root.staticCities = [
 		'url' : 'roma'
 		'image' : '/images/roma.jpg'
 		'hasZones' : false	
-		'latitude' : '48.84991568 '
-		'longitude' : '2.34298682'
+		'latitude' : '41.9031105041504'
+		'longitude' : '12.4957599639893'
 		'row' : 3	
 	}
 	{
@@ -124,8 +124,8 @@ root.staticCities = [
 		'url' : 'venecia'
 		'image' : '/images/venecia.jpg'
 		'hasZones' : false	
-		'latitude' : '39.47305083'
-		'longitude' : '-0.3754655'
+		'latitude' : '45.4382514953613'
+		'longitude' : '12.3184900283813'
 		'row' : 4	
 	}
 	{
@@ -133,8 +133,8 @@ root.staticCities = [
 		'url' : 'viena'
 		'image' : '/images/viena.jpg'
 		'hasZones' : false	
-		'latitude' : '39.47305083'
-		'longitude' : '-0.3754655'
+		'latitude' : '48.2025413513184'
+		'longitude' : '16.3687992095947'
 		'row' : 4	
 	}
 

@@ -2,34 +2,23 @@
   var mapButton, textLabel;
 
   root.dealsTable = Titanium.UI.createTableView({
-    data: [
-      Ti.UI.createTableViewRow({
-        title: 'Loading...'
-      })
-    ],
+    data: [],
     backgroundColor: '#0d1e28',
     separatorColor: '#1b3c50'
   });
 
-  if (root.isAndroid) {
-    root.dealsTable.setData([
-      Ti.UI.createTableViewRow({
-        title: 'Loading...'
-      })
-    ]);
-  } else {
-    mapButton = Titanium.UI.createButton;
-    ({
-      title: 'Mapa'
+  mapButton = Titanium.UI.createButton({
+    title: 'Mapa'
+  });
+
+  mapButton.addEventListener('click', function(e) {
+    root.listDealsMapView.annotations = root.annotations;
+    return root.tabGroup.activeTab.open(root.listDealsMapWindow, {
+      animated: true
     });
-    mapButton.addEventListener('click', function(e) {
-      root.listDealsMapView.annotations = root.annotations;
-      return root.tabGroup.activeTab.open(root.listDealsMapWindow, {
-        animated: true
-      });
-    });
-    root.listDealsWindow.rightNavButton = mapButton;
-  }
+  });
+
+  root.listDealsWindow.rightNavButton = mapButton;
 
   root.listDealsWindow.add(root.dealsTable);
 
@@ -48,7 +37,8 @@
       fontSize: 14,
       fontWeight: 'bold'
     },
-    left: 10
+    left: 10,
+    height: 30
   });
 
   root.why3Row.add(textLabel);
@@ -76,76 +66,90 @@
       });
       root.hideLoading(root.listDealsWindow);
       root.hideLoading(root.citiesWindow);
-      Ti.API.info('Termina');
     } else {
-      Ti.API.info('*** Entra en hay hoteles');
-      root.dealsTable.setData([
-        Ti.UI.createTableViewRow({
-          title: 'Loading...'
-        })
-      ]);
-      Ti.API.info('*** Paso 1');
-      root.tabGroup.activeTab.open(root.listDealsWindow, {
-        animated: true
-      });
-      Ti.API.info('*** Paso 2');
-      if (root.isAndroid === false) root.createMap(deals);
-      root.populateDealsZoneTable(deals);
+      root.createMap(deals);
+      if (root.cityHasZones(deals)) {
+        root.populateDealsZoneTable(deals);
+      } else {
+        root.populateDealsTable(deals);
+      }
     }
     return Ti.API.info('*** Sale de showDeals');
   };
 
+  root.cityHasZones = function(deals) {
+    var deal, lastName, zonas, _i, _len;
+    lastName = "null";
+    zonas = 0;
+    for (_i = 0, _len = deals.length; _i < _len; _i++) {
+      deal = deals[_i];
+      if (deal.city.name !== lastName) zonas++;
+      lastName = deal.city.name;
+    }
+    if (zonas > 1) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
   root.populateDealsTable = function(deals) {
-    var deal, dealRow, _i, _len;
+    var data, deal, dealRow, _i, _len;
     Ti.API.info('*** Entra en populateDealsTable');
-    root.dealsData = [];
+    data = [];
     for (_i = 0, _len = deals.length; _i < _len; _i++) {
       deal = deals[_i];
       dealRow = new root.listDealsRow(deal);
-      root.dealsData.push(dealRow.row);
+      data.push(dealRow.row);
     }
-    root.dealsData.push(root.why3Row);
+    data.push(root.why3Row);
+    root.dealsTable.setData(data);
+    Ti.API.info('*** LLama a EndPopulate');
     return root.endPopulate();
   };
 
   root.populateDealsZoneTable = function(deals) {
-    var city, deal, dealRow, first, header, name, section, _i, _len;
+    var city, data, deal, dealRow, first, header, lastName, section, _i, _len;
     Ti.API.info('*** Entra en populate Zonas ');
-    root.zoneUrl = 'null';
-    root.dealsData = [];
-    name = "empty";
+    data = [];
+    lastName = "empty";
     first = true;
+    section = Titanium.UI.createTableViewSection();
     for (_i = 0, _len = deals.length; _i < _len; _i++) {
       deal = deals[_i];
       city = deal.city;
-      Ti.API.info('Entra con name = ' + name + ' city.name = ' + city.name + ' city.url = ' + city.url + ' zone.url = ' + root.zoneUrl);
       dealRow = new root.listDealsRow(deal);
-      if (city.name !== name && city.url !== root.zoneUrl) {
-        if (first !== true) root.dealsData.push(section);
-        header = new root.dealHeaderView(L(city.url));
-        Ti.API.info('City url = ' + city.url);
-        section = Ti.UI.createTableViewSection({
+      if (city.name !== lastName) {
+        Ti.API.info('Entra en CABECERA');
+        if (first !== true) data.push(section);
+        header = new root.dealHeaderView(city.name);
+        first = false;
+        section = Titanium.UI.createTableViewSection({
           headerView: header.view
         });
-        name = city.name;
-        section.add(dealRow.row);
-        first = false;
-      } else if (city.url !== root.zoneUrl) {
-        section.add(dealRow.row);
       }
+      section.add(dealRow.row);
+      lastName = city.name;
     }
-    root.dealsData.push(section);
-    root.dealsData.push(root.why3Row);
+    data.push(section);
+    data.push(root.why3Row);
+    root.dealsTable.setData(data);
     root.endPopulate();
     return Ti.API.info('*** fin populateDealsZoneTable');
   };
 
   root.endPopulate = function() {
-    Ti.API.info('*** Entra enPopulate');
+    Ti.API.info('Entra en endPopulate');
     root.hideLoading(root.listDealsWindow);
     root.hideLoading(root.citiesWindow);
-    root.dealsTable.setData(root.dealsData);
-    return Ti.API.info('*** FIN enPopulate');
+    if (root.reloadDeals === false) {
+      Ti.API.info('*** Entra en abrir ventana');
+      root.tabGroup.activeTab.open(root.listDealsWindow, {
+        animated: true
+      });
+    }
+    root.reloadDeals = false;
+    return Ti.API.info('Fin endPopulate');
   };
 
   root.loadDeals = function(city) {

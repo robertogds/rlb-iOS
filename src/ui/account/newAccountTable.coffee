@@ -21,6 +21,9 @@ firstNameText = Titanium.UI.createTextField
 firstNameText.addEventListener 'return', (e) ->
 	lastNameText.focus()
 
+firstNameText.addEventListener 'focus', (e) ->
+	root.newAccountTable.top = 10
+
 lastNameText = Titanium.UI.createTextField
 	backgroundColor: '#fff'
 	width: '90%'
@@ -33,6 +36,9 @@ lastNameText = Titanium.UI.createTextField
 
 lastNameText.addEventListener 'return', (e) ->
 	emailText.focus()
+
+lastNameText.addEventListener 'focus', (e) ->
+	root.newAccountTable.top = 10
 
 emailText = Titanium.UI.createTextField
 	backgroundColor: '#fff'
@@ -48,6 +54,9 @@ emailText = Titanium.UI.createTextField
 emailText.addEventListener 'return', (e) ->
 	passwordText.focus()
 
+emailText.addEventListener 'focus', (e) ->
+	root.newAccountTable.top = 10
+
 
 passwordText = Titanium.UI.createTextField
 	backgroundColor: '#fff'
@@ -58,8 +67,13 @@ passwordText = Titanium.UI.createTextField
 	paddingLeft: 10
 	clearOnEdit: true
 	passwordMask:true
+	returnKeyType: Titanium.UI.RETURNKEY_DONE
+
+passwordText.addEventListener 'focus', (e) ->
+	root.newAccountTable.top = 10
 
 passwordText.addEventListener 'return', (e) ->
+	root.newAccountTable.top = 85
 	email = emailText.value
 	password = passwordText.value
 	firstName = firstNameText.value
@@ -70,9 +84,8 @@ passwordText.addEventListener 'return', (e) ->
 		root.doRegister(email,password,firstName,lastName)
 	else
 		Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('reviewData') + ': ' + validate}).show()
-  
-root.newAccountSection = Titanium.UI.createTableViewSection()
-root.newAccountData = []
+
+newAccountData = []
 firstNameRow = Titanium.UI.createTableViewRow
 	width: '100%'
 	height: 44
@@ -91,14 +104,18 @@ lastNameRow.add(lastNameText)
 emailRow.add(emailText)
 passwordRow.add(passwordText)
 
-root.newAccountSection.add(firstNameRow)
-root.newAccountSection.add(lastNameRow)
-root.newAccountSection.add(emailRow)
-root.newAccountSection.add(passwordRow)
+newAccountData.push(firstNameRow)
+newAccountData.push(lastNameRow)
+newAccountData.push(emailRow)
+newAccountData.push(passwordRow)
+
+root.newAccountTable.setData(newAccountData)
+
 
 root.newAccountButton = new root.GenericButton(280,Ti.Locale.getString('register')).button
 
 root.newAccountButton.addEventListener 'click', (e) ->
+	root.newAccountTable.top = 85
 	email = emailText.value
 	password = passwordText.value
 	firstName = firstNameText.value

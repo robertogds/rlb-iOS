@@ -128,6 +128,7 @@
   root.editAccountWindow.add(root.editAccountView);
 
   root.loadEditLoggedUser = function() {
+    root.hideLoading(root.editAccountWindow);
     root.firstNameText.hintText = L('firstName') + ': ' + root.user.firstName;
     root.lastNameText.hintText = L('lastName') + ': ' + root.user.lastName;
     root.passwordText.hintText = L('password') + ': *******';

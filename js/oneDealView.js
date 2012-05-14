@@ -1,11 +1,7 @@
 (function() {
   var separator1, separator2;
 
-  if (root.isAndroid) {
-    Ti.include('/js/androidOneDealButtonBar.js');
-  } else {
-    Ti.include('/js/oneDealButtonBar.js');
-  }
+  Ti.include('/js/oneDealButtonBar.js');
 
   root.oneDealView = Titanium.UI.createView({
     backgroundColor: '#0d1e28',
@@ -48,16 +44,16 @@
 
   root.oneDealView.add(root.shareFacebookImage);
 
+  root.oneDealView.add(root.shareTwitterImage);
+
   root.oneDealView.add(root.shareEmailImage);
 
-  if (root.isAndroid === false) {
-    root.oneDealImage.addEventListener('click', function(e) {
-      root.imagesWindow.add(root.imagesScrollView);
-      return root.tabGroup.activeTab.open(root.imagesWindow, {
-        animated: true
-      });
+  root.oneDealImage.addEventListener('click', function(e) {
+    root.imagesWindow.add(root.imagesScrollView);
+    return root.tabGroup.activeTab.open(root.imagesWindow, {
+      animated: true
     });
-  }
+  });
 
   root.oneDealAddressLabel = Titanium.UI.createLabel({
     top: 0,

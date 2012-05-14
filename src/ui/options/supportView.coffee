@@ -8,8 +8,8 @@ text = L('supportText')
 
 supportTextView =  new root.GenericTextView(0,title,text).view
 
-contactView = new root.Generic2RowsView(200,'soporte@reallylatebooking.com','Llamar ')
-contactView.table.height = 44
+contactView = new root.Generic2RowsView(200,'soporte@reallylatebooking.com','+34 911 86 30 81')
+#contactView.table.height = 44
 
 contactView.label1.addEventListener 'click', (e) ->
   emailDialog = Titanium.UI.createEmailDialog()
@@ -18,12 +18,10 @@ contactView.label1.addEventListener 'click', (e) ->
   emailDialog.open()
 
 contactView.label2.addEventListener 'click', (e) ->
-  #phone = '+442081234567'
-  #Ti.Platform.openURL('tel:'+phone)
+  phone = '+34911863081'
+  Ti.Platform.openURL('tel:'+phone)
 
 supportView.add(supportTextView) 
 supportView.add(contactView.view)
 
 root.supportWindow.add(supportView)
-
-

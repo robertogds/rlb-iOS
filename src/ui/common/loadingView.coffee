@@ -21,13 +21,13 @@ root.loadLabel = Titanium.UI.createLabel
 
 
 root.iphoneActInd = Titanium.UI.createActivityIndicator
-  style:Titanium.UI.iPhone.ActivityIndicatorStyle.BIG
-  top:30
+	style:Titanium.UI.iPhone.ActivityIndicatorStyle.BIG
+	top:70
 
 root.androidActInd = Titanium.UI.createActivityIndicator
-  height:50
-  width:10
-  message: Ti.Locale.getString('loading')
+	height:50
+	width:10
+	message: Ti.Locale.getString('loading')
 
 
 root.loadingView.add(root.loadLabel)

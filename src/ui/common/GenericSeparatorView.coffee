@@ -7,4 +7,3 @@ class GenericSeparatorView
       #width: 320
 
 root.GenericSeparatorView = GenericSeparatorView
-  

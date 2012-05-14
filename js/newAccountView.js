@@ -39,4 +39,16 @@
 
   root.newAccountView.add(root.newAccountButton);
 
+  root.newAccountView.add(root.newAccountTable);
+
+  root.newAccountWindow.add(root.newAccountView);
+
+  root.showNewAccount = function() {
+    Ti.API.info('Entra en shownew account');
+    root.tabGroup.activeTab.open(root.newAccountWindow, {
+      animated: true
+    });
+    return Ti.API.info('Sale de shownew account');
+  };
+
 }).call(this);

@@ -1,5 +1,5 @@
 (function() {
-  var city, cityRow, gpsButton, list, mainCitiesSection, n, otherCitiesSection, _i, _j, _len, _len2, _ref, _ref2;
+  var city, cityRow, gpsButton, list, mainCitiesHeader, mainCitiesSection, n, otherCitiesHeader, otherCitiesSection, _i, _j, _len, _len2, _ref, _ref2;
 
   root.citiesTable = Titanium.UI.createTableView({
     data: [],
@@ -33,12 +33,16 @@
 
   list = {};
 
+  mainCitiesHeader = new root.dealHeaderView(L('main_cities'));
+
   mainCitiesSection = Ti.UI.createTableViewSection({
-    headerTitle: L('main_cities')
+    headerView: mainCitiesHeader.view
   });
 
+  otherCitiesHeader = new root.dealHeaderView(L('more_cities'));
+
   otherCitiesSection = Ti.UI.createTableViewSection({
-    headerTitle: L('more_cities')
+    headerView: otherCitiesHeader.view
   });
 
   _ref = root.staticCities;
@@ -58,6 +62,8 @@
 
   n = 0;
 
+  root.citiesData.push(mainCitiesSection);
+
   _ref2 = root.staticOtherCities;
   for (_j = 0, _len2 = _ref2.length; _j < _len2; _j++) {
     city = _ref2[_j];
@@ -73,7 +79,9 @@
     }
   }
 
-  root.citiesData.push(mainCitiesSection);
+  cityRow = new root.cityRow(list[1], list[2], list[3]);
+
+  otherCitiesSection.add(cityRow.row);
 
   root.citiesData.push(otherCitiesSection);
 

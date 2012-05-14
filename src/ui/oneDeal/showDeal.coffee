@@ -39,10 +39,10 @@ root.showDealView = (deal) ->
 	#root.oneDealWindow.setTitleControl(root.titleView)
 	
 	root.shareTwitterImage.addEventListener 'click', (e) ->
-		#root.sharekit.share
-		#	title: 'ReallyLateBooking'
-		#	text: String.format(L('shareTwitter'),deal.hotelName,deal.city.name)
-		#	sharer: 'Twitter'
+		root.sharekit.share
+			title: 'ReallyLateBooking'
+			text: String.format(L('shareTwitter'),deal.hotelName,deal.city.name)
+			sharer: 'Twitter'
 	
 	root.shareFacebookImage.addEventListener 'click', (e) ->
 		#root.sharekit.share
@@ -106,12 +106,13 @@ root.showDealView = (deal) ->
 	foodDrinkRow.add(foodDrinkView)
 	aroundRow.add(aroundView)
 		
-	root.infoData = []
-	root.infoData.push(detailRow)
-	root.infoData.push(hotelRow)
-	root.infoData.push(roomRow)
-	root.infoData.push(foodDrinkRow)
-	root.infoData.push(aroundRow)
+	infoData = []
+	infoData.push(detailRow)
+	infoData.push(hotelRow)
+	infoData.push(roomRow)
+	infoData.push(foodDrinkRow)
+	infoData.push(aroundRow)
+	root.infoDealTable.setData(infoData)
 	root.oneDealWindow.remove root.infoDealTable
 	root.oneDealWindow.remove root.mapView
 	root.oneDealWindow.add root.oneDealView
@@ -121,7 +122,7 @@ root.showDealView = (deal) ->
 		root.bookingForFirstName = root.user.firstName
 		root.bookingForLastName = root.user.lastName
 	
-	#if root.deal.priceDay2 > 0 
-	#	root.nightsRow.rightImage = '/images/blue_arrow.png'
-	#else 
-	#	root.nightsRow.rightImage = ''
+	if root.deal.priceDay2 > 0 
+		root.nightsRow.rightImage = '/images/blue_arrow.png'
+	else 
+		root.nightsRow.rightImage = ''

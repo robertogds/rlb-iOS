@@ -1,6 +1,5 @@
 root.why3View = Titanium.UI.createView
-  backgroundColor: '#0d1e28'
-  #width:320
+	backgroundColor: '#0d1e28'
 
 title = L('why3TitleShort')
 text = L('why3Text')

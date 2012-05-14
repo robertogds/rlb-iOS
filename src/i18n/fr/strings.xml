@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="cities">Villes</string>
+	<string name="address">Adresse</string>
+	<string name="room">Chambre</string>
+	<string name="room">Regime</string>
     <string name="countries">Pays</string>
     <string name="errorHappened">Une erreur est survenue</string>
     <string name="errorBooking">Une erreur est survenue\n Nous avons reçu una réponse incorrecte. Nous ne savons donc pas si votre réservation est correcte. Veuillez contacter help@reallylatebooking.com pur confirmer que votre réservation est en ordre.</string>
@@ -55,6 +58,7 @@
 	<string name="cardName">Nom de la carte</string> 
 	<string name="expires">Expire le</string> 
 	<string name="cvcCode">code de sécurité</string> 
+	<string name="expiresYear">AA</string>
 	<string name="jan">Janvier</string> 
 	<string name="feb">Février</string> 
 	<string name="mar">Mars</string> 
@@ -109,7 +113,8 @@
 	<string name="privacyPolicy">Politique de confidentialité</string> 
 	<string name="privacyText">Le traitement des données personnelles est très important pour nous \n\n et nous les traitons avec la plus grande confidentialité.</string> 
 	<string name="supportTitle">Pouvons-nous vous aider?</string> 
-	<string name="supportText">Nous sommes disponible 24h/24 et 7j/7 pour garantir que votre séjour se passe bien. \n\n En cas de problème ou de doute, n'hésitez pas à nous contacter!</string> 
+	<string name="supportText">Nous sommes disponible 24h/24 et 7j/7 pour garantir que votre séjour se passe bien. \n\n En cas de problème ou de doute, n'hésitez pas à nous contacter!</string>
+	<string name="hoursPhone">M-F from 12h to 20h</string> 
 	<string name="needHelp">J'ai besoin d'aide</string> 
 	<string name="lastUpdated">Dernière mise à jour</string> 
 	<string name="pullRefresh">Cliquez pour rafraîchir</string>    
@@ -203,4 +208,11 @@
 	<string name="zaragoza">Saragosse</string>
 	<string name="main_cities">Principales villes</string>
 	<string name="more_cities">Plus de villes</string>
+	<string name="bookingData">Données de réservation</string>
+	<string name="clientData">Données du client</string>
+	<string name="remember">Rappeler</string>
+	<string name="bookPaid">RLB facturera votre carte de crédit. Vous ne devriez pas effectuer un paiement à l'hôtel</string>
+	<string name="breakfastYes">Petit déjeuner inclus</string>
+	<string name="breakfastNo">Petit déjeuner NON inclus</string>
+	<string name="double">Double</string>
 </resources>

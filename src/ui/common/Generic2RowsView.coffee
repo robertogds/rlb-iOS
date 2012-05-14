@@ -37,13 +37,13 @@ class Generic2RowsView
 		data = []
 		row1 = Titanium.UI.createTableViewRow
 			hasChild:true
-			rightImage: '/images/right_arrow3.png'
+			#rightImage: '/images/right_arrow3.png'
 			width: '100%'
 			height: 44
 		row1.add(@label1)
 		row2 = Titanium.UI.createTableViewRow
 			hasChild:true
-			rightImage: '/images/right_arrow3.png'
+			#rightImage: '/images/right_arrow3.png'
 			width: '100%'
 			height: 44
 		row2.add(@label2)

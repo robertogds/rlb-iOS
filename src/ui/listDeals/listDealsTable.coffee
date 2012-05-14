@@ -1,17 +1,16 @@
 root.dealsTable = Titanium.UI.createTableView
-  data: [Ti.UI.createTableViewRow({title:'Loading...'})]
-  backgroundColor: '#0d1e28'
-  separatorColor: '#1b3c50'
+	data: []
+	backgroundColor: '#0d1e28'
+	separatorColor: '#1b3c50'
 
-if root.isAndroid
-	root.dealsTable.setData([Ti.UI.createTableViewRow({title:'Loading...'})])
-else
-	mapButton = Titanium.UI.createButton
+mapButton = Titanium.UI.createButton
 	title: 'Mapa'
-	mapButton.addEventListener 'click', (e) ->
-		root.listDealsMapView.annotations = root.annotations
-		root.tabGroup.activeTab.open(root.listDealsMapWindow,{animated:true})
-	root.listDealsWindow.rightNavButton = mapButton
+
+mapButton.addEventListener 'click', (e) ->
+	root.listDealsMapView.annotations = root.annotations
+	root.tabGroup.activeTab.open(root.listDealsMapWindow,{animated:true})
+
+root.listDealsWindow.rightNavButton = mapButton
 
 root.listDealsWindow.add(root.dealsTable)
 
@@ -27,14 +26,15 @@ textLabel = Titanium.UI.createLabel
 		fontSize: 14
 		fontWeight: 'bold'
 	left: 10
+	height: 30
 root.why3Row.add(textLabel)
 
 root.dealsTable.addEventListener 'click', (e) ->
-  if e.row.deal is undefined 
-    root.tabGroup.activeTab.open(root.why3Window,{animated:true})
-  else
-    root.showDealView(e.row.deal)
-    root.tabGroup.activeTab.open(root.oneDealWindow,{animated:true})
+	if e.row.deal is undefined
+		root.tabGroup.activeTab.open(root.why3Window,{animated:true})
+	else
+		root.showDealView(e.row.deal)
+		root.tabGroup.activeTab.open(root.oneDealWindow,{animated:true})
 
 root.showDeals = (deals) ->	
 	Ti.API.info "Entra en showDeals: " + deals.length	
@@ -44,36 +44,43 @@ root.showDeals = (deals) ->
 		root.tabGroup.activeTab.open(root.noDealsWindow,{animated:true})
 		root.hideLoading(root.listDealsWindow)
 		root.hideLoading(root.citiesWindow)
-		Ti.API.info 'Termina'
 	else 
-		Ti.API.info '*** Entra en hay hoteles'
-		root.dealsTable.setData([Ti.UI.createTableViewRow({title:'Loading...'})])
-		Ti.API.info '*** Paso 1'
-		root.tabGroup.activeTab.open(root.listDealsWindow,{animated:true})
-		Ti.API.info '*** Paso 2'
-		if root.isAndroid is false
-			root.createMap(deals)
-		#if root.city.hasZones is true
-		root.populateDealsZoneTable(deals)
-		#else 
-		#	root.populateDealsTable(deals)
+		root.createMap(deals)
+		if root.cityHasZones(deals)
+			root.populateDealsZoneTable(deals)
+		else 
+			root.populateDealsTable(deals)
 	Ti.API.info '*** Sale de showDeals'
+
+
+root.cityHasZones = (deals) ->
+	lastName = "null"
+	zonas = 0
+	for deal in deals
+		if deal.city.name isnt lastName
+			zonas++
+		lastName = deal.city.name
+	if zonas > 1 
+		return true
+	else return false
+		
 
 root.populateDealsTable = (deals) ->
 	Ti.API.info '*** Entra en populateDealsTable'
-	root.dealsData = []
-	for deal in deals
+	data = []
+	for deal in deals	
 		dealRow = new root.listDealsRow(deal)
-		root.dealsData.push(dealRow.row)
-	root.dealsData.push(root.why3Row)
+		data.push(dealRow.row)
+	data.push(root.why3Row)
+	root.dealsTable.setData(data)
+	Ti.API.info '*** LLama a EndPopulate'
 	root.endPopulate()
-
 
 root.populateDealsZoneTable = (deals) ->
 	Ti.API.info '*** Entra en populate Zonas '
-	root.zoneUrl = 'null'
-	root.dealsData = []	
-	name = "empty"
+	#root.zoneUrl = 'null'
+	data = []	
+	lastName = "empty"
 	first = true
 	#for deal in deals
 	#	city = deal.city
@@ -89,42 +96,35 @@ root.populateDealsZoneTable = (deals) ->
 	#		section.add(dealRow.row)
 	#		name = city.name
 	#		firstName = city.name
+	section = Titanium.UI.createTableViewSection()
 	for deal in deals
 		city = deal.city
-		Ti.API.info 'Entra con name = ' + name + ' city.name = ' + city.name + ' city.url = ' + city.url + ' zone.url = ' + root.zoneUrl
 		dealRow = new root.listDealsRow(deal)
-		if city.name isnt name and city.url isnt root.zoneUrl
-			if first isnt true
-				root.dealsData.push(section)
-			header = new root.dealHeaderView(L(city.url))
-			Ti.API.info 'City url = ' + city.url
-			section = Ti.UI.createTableViewSection
-				headerView: header.view
-				#headerTitle: L(city.url)
-			name = city.name
-			section.add(dealRow.row)
+		if city.name isnt lastName 
+			Ti.API.info 'Entra en CABECERA'
+			if first isnt true 
+				data.push(section)
+			header = new root.dealHeaderView(city.name)
 			first = false
-		else if city.url isnt root.zoneUrl 
-			section.add(dealRow.row)
-	root.dealsData.push(section)
-	root.dealsData.push(root.why3Row)		
+			section = Titanium.UI.createTableViewSection
+				headerView: header.view		
+		section.add(dealRow.row)
+		lastName = city.name
+	data.push(section)		
+	data.push(root.why3Row)
+	root.dealsTable.setData(data)		
 	root.endPopulate()
 	Ti.API.info '*** fin populateDealsZoneTable'
-	
-	
+
 root.endPopulate = () ->
-	Ti.API.info '*** Entra enPopulate'	
-	#[android] el reloadDeals no sirve
-#	if root.reloadDeals is false	
-#	root.reloadDeals = false
-	# [android] sino meter el setdata antes
-	#root.dealsTable.setData(root.dealsData)
+	Ti.API.info 'Entra en endPopulate'
 	root.hideLoading(root.listDealsWindow)
-	root.hideLoading(root.citiesWindow)	
-	root.dealsTable.setData(root.dealsData)
-	Ti.API.info '*** FIN enPopulate'
-	
-		
+	root.hideLoading(root.citiesWindow)
+	if root.reloadDeals is false
+		Ti.API.info '*** Entra en abrir ventana'
+		root.tabGroup.activeTab.open(root.listDealsWindow,{animated:true})
+	root.reloadDeals = false
+	Ti.API.info 'Fin endPopulate'	
 
 root.loadDeals = (city) ->
 	Ti.API.info 'Entra en loadDeals'
@@ -133,10 +133,3 @@ root.loadDeals = (city) ->
 	root.listDealsWindow.title = city.name
 	root.noDealsWindow.title = city.name
 	root.fetchDeals(city)
-
-
-
-  
-
-
-

@@ -13,9 +13,7 @@
 
   supportTextView = new root.GenericTextView(0, title, text).view;
 
-  contactView = new root.Generic2RowsView(200, 'soporte@reallylatebooking.com', 'Llamar ');
-
-  contactView.table.height = 44;
+  contactView = new root.Generic2RowsView(200, 'soporte@reallylatebooking.com', '+34 911 86 30 81');
 
   contactView.label1.addEventListener('click', function(e) {
     var emailDialog;
@@ -25,7 +23,11 @@
     return emailDialog.open();
   });
 
-  contactView.label2.addEventListener('click', function(e) {});
+  contactView.label2.addEventListener('click', function(e) {
+    var phone;
+    phone = '+34911863081';
+    return Ti.Platform.openURL('tel:' + phone);
+  });
 
   supportView.add(supportTextView);
 

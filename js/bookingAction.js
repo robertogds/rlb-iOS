@@ -17,21 +17,7 @@
     }
     Ti.API.info(response);
     if (response.status === 201) {
-      Ti.API.error('Paso 2');
-      root.showOneBookingView(response.content);
-      if (Titanium.Platform.name === 'android') {
-        return root.confirmBookingWindow.add(root.oneClassBookingView);
-      } else {
-        Ti.API.error('Paso 3');
-        root.oneBookingWindow.backButtonTitle = Ti.Locale.getString('close');
-        root.oneBookingWindow.open({
-          modal: true,
-          modalTransitionStyle: Ti.UI.iPhone.MODAL_TRANSITION_STYLE_FLIP_HORIZONTAL,
-          modalStyle: Ti.UI.iPhone.MODAL_PRESENTATION_FORMSHEET,
-          navBarHidden: true
-        });
-        return root.oneBookingWindow.add(root.closeBookingButton);
-      }
+      return root.showOneBookingView(response.content);
     } else {
       Ti.API.error('error de compra');
       return Ti.UI.createAlertDialog({
@@ -62,10 +48,10 @@
       "userId": root.user.id,
       "dealId": root.deal.id,
       "nights": root.bookingNights,
-      "creditCardType": root.cardTypeLabel.text,
+      "creditCardType": root.cardType,
       "creditCard": root.cardNumberText.value,
       "creditCardName": root.cardNameText.value,
-      "creditCardExpiry": root.expiresLabel.text,
+      "creditCardExpiry": root.expireMonthText.value + '/' + root.expireYearText.value,
       "creditCardCVC": root.cvcCodeText.value,
       "bookingForEmail": root.bookingForEmail,
       "bookingForFirstName": root.bookingForFirstName,
@@ -77,20 +63,23 @@
     return Ti.API.info('Paso post-compra');
   };
 
+  root.returnCardType = function(number) {
+    if (/^4[0-9]{12}(?:[0-9]{3})?$/.test(number)) {
+      return 'Visa';
+    } else if (/^5[1-5][0-9]{14}$/.test(number)) {
+      return 'Mastercard';
+    } else if (/^5[1-5][0-9]{14}$/.test(number)) {
+      return 'American Express';
+    } else {
+      return "WRONG";
+    }
+  };
+
   root.validateBookingData = function() {
     if (!(root.user.id > 0)) return Ti.Locale.getString('errorUser');
     if (!(root.deal.id > 0)) return Ti.Locale.getString('errorNoDeal');
-    if (root.cardTypeLabel.text === 'Tipo de tarjeta') {
-      return Ti.Locale.getString('errorCardType');
-    }
-    if (root.cardTypeLabel.text === 'Card Type') {
-      return Ti.Locale.getString('errorCardType');
-    }
-    if (root.cardTypeLabel.text === 'Type de carte') {
-      return Ti.Locale.getString('errorCardType');
-    }
-    if (!(root.cardTypeLabel.text.length > 2)) {
-      return Ti.Locale.getString('errorCardType');
+    if (root.returnCardType(root.cardNumberText.value) === 'WRONG') {
+      return Ti.Locale.getString('errorCardNumber');
     }
     if (!(root.cardNumberText.value.length > 12)) {
       return Ti.Locale.getString('errorCardNumber');
@@ -98,7 +87,13 @@
     if (!(root.cardNameText.value.length > 2)) {
       return Ti.Locale.getString('errorCardName');
     }
-    if (!(root.expiresLabel.text.length > 2)) {
+    if (root.expireMonthText.value.length !== 2) {
+      return Ti.Locale.getString('errorExpires');
+    }
+    if (!(root.expireYearText.value > 11)) {
+      return Ti.Locale.getString('errorExpires');
+    }
+    if (root.expireYearText.value.length !== 2) {
       return Ti.Locale.getString('errorExpires');
     }
     if (!(root.cvcCodeText.value.length > 2)) {

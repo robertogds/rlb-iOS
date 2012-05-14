@@ -1,7 +1,7 @@
 (function() {
   var confirmButton, nonRefundableLabel, separator1, separator2;
 
-  Ti.include('/js/cardTypeView.js', '/js/expiresView.js', '/js/creditCardTable.js', '/js/paymentView.js', '/js/nightsView.js', '/js/bookingAction.js', '/js/bookingWindow.js', '/js/bookingForView.js', '/js/confirmTable.js');
+  Ti.include('/js/expiresView.js', '/js/creditCardTable.js', '/js/paymentView.js', '/js/nightsView.js', '/js/bookingAction.js', '/js/bookingWindow.js', '/js/bookingForView.js', '/js/confirmTable.js');
 
   root.bookingView = Titanium.UI.createView({
     backgroundColor: 'black',
@@ -56,6 +56,22 @@
 
   confirmButton = new root.GenericButton(280, L('confirm')).button;
 
+  root.confirmAlert = Ti.UI.createAlertDialog({
+    title: L('confirm'),
+    message: L('bookPaid'),
+    cancel: 1,
+    buttonNames: ['Confirm', 'Cancel']
+  });
+
+  root.confirmAlert.addEventListener('click', function(e) {
+    Ti.API.info(e);
+    if (e.index === 1) {
+      return Ti.API.info('El usuario ha cancelado');
+    } else {
+      return root.doBooking();
+    }
+  });
+
   confirmButton.addEventListener('click', function(e) {
     var validate;
     validate = root.validateBookingData();
@@ -65,7 +81,7 @@
         message: L('reviewData') + ': ' + validate
       }).show();
     } else {
-      return root.doBooking();
+      return root.confirmAlert.show();
     }
   });
 
@@ -94,19 +110,13 @@
 
   root.confirmBookingWindow.add(root.bookingView);
 
-  root.oneClassBookingView = new root.GenericTextView(0, L('booking'), L('booking')).view;
-
-  root.oneBookingWindow.add(root.oneClassBookingView);
-
   root.showBookingView = function() {
     root.bookingNights = 1;
     root.totalPrice = root.deal.salePriceCents;
     if (Titanium.App.Properties.hasProperty("user") || Titanium.Facebook.loggedIn) {
       return root.showConfirmBooking();
     } else {
-      return root.tabGroup.activeTab.open(root.signInWindow, {
-        animated: true
-      });
+      return root.showSignInView('booking');
     }
   };
 

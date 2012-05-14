@@ -5,7 +5,7 @@ class GenericTextView
 			backgroundImage: '/images/Texture.jpg'
 			borderWidth: 0
 			width: Ti.UI.FILL
-			height: Ti.UI.FILL
+			height: Ti.UI.SIZE
 			top: top
 		
 		@titleLabel = Titanium.UI.createLabel
@@ -22,7 +22,7 @@ class GenericTextView
 			text: text + '\n\n'
 			borderWidth: 0
 			top: 60
-			#height: Ti.UI.FILL
+			height: Ti.UI.SIZE
 			color: '#fff'
 			left: 10
 			right: 10

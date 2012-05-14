@@ -20,13 +20,13 @@
   };
 
   getNearCity = function(lat, lon) {
-    var R, a, c, city, cityLatRad, dLat, dLon, distance, latRad, lowDistance, nearCity, _i, _len, _ref;
+    var R, a, allCities, c, city, cityLatRad, dLat, dLon, distance, latRad, lowDistance, nearCity, _i, _len;
     R = 6371;
     lowDistance = 1000;
     nearCity = void 0;
-    _ref = root.staticCities;
-    for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-      city = _ref[_i];
+    allCities = root.staticCities.concat(root.staticOtherCities);
+    for (_i = 0, _len = allCities.length; _i < _len; _i++) {
+      city = allCities[_i];
       cityLatRad = city.latitude * Math.PI / 180;
       latRad = lat * Math.PI / 180;
       dLat = (city.latitude - lat) * Math.PI / 180;
@@ -40,6 +40,7 @@
       }
     }
     if (lowDistance < 100 && nearCity !== void 0) {
+      Ti.API.info('+++ GPS Encontrada NEARCITY = ' + nearCity.name);
       return root.loadDeals(nearCity);
     } else {
       return Ti.UI.createAlertDialog({
@@ -81,21 +82,19 @@
       }).show();
       return root.hideLoading(root.citiesWindow);
     }
-    if (root.isAndroid !== true) {
-      authorization = Titanium.Geolocation.locationServicesAuthorization;
-      if (authorization === Titanium.Geolocation.AUTHORIZATION_DENIED) {
-        Ti.UI.createAlertDialog({
-          title: 'ReallyLateBooking',
-          message: L('youGeoDisallow')
-        }).show();
-        return root.hideLoading(root.citiesWindow);
-      } else if (authorization === Titanium.Geolocation.AUTHORIZATION_RESTRICTED) {
-        Ti.UI.createAlertDialog({
-          title: 'ReallyLateBooking',
-          message: L('systemGeoDisallow')
-        }).show();
-        return root.hideLoading(root.citiesWindow);
-      }
+    authorization = Titanium.Geolocation.locationServicesAuthorization;
+    if (authorization === Titanium.Geolocation.AUTHORIZATION_DENIED) {
+      Ti.UI.createAlertDialog({
+        title: 'ReallyLateBooking',
+        message: L('youGeoDisallow')
+      }).show();
+      return root.hideLoading(root.citiesWindow);
+    } else if (authorization === Titanium.Geolocation.AUTHORIZATION_RESTRICTED) {
+      Ti.UI.createAlertDialog({
+        title: 'ReallyLateBooking',
+        message: L('systemGeoDisallow')
+      }).show();
+      return root.hideLoading(root.citiesWindow);
     }
     return root.getGPSData();
   };

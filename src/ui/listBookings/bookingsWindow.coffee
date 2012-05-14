@@ -3,9 +3,16 @@ Ti.include(
   '/js/noBookingsView.js'
 )
 
+
 root.bookingsWindow.addEventListener 'focus', (e) ->
-  if Titanium.App.Properties.hasProperty("user") or Titanium.Facebook.loggedIn
-    root.showBookings()
-  else
-    root.noBookingsView.show()
-  1
+	if Titanium.App.Properties.hasProperty("user") or Titanium.Facebook.loggedIn
+		root.showBookings()
+	else
+		root.noBookingsView.show()
+	1
+
+
+
+#root.bookingTab.addEventListener 'click', (e) ->
+
+

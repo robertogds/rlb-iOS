@@ -10,6 +10,4 @@ root.infoDealTable = Titanium.UI.createTableView
 root.infoDealView = Titanium.UI.createView
 	backgroundColor: 'orange'
 	top: 0
-	height: 40
-	width: 320
-	text: 'soy la caña'
+	#height: 40

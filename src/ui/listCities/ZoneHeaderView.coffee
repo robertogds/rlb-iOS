@@ -1,4 +1,4 @@
-class DealHeaderView
+class ZoneHeaderView
 	constructor: (texto) ->
 		@view = Titanium.UI.createView
 			width: Ti.UI.FILL
@@ -32,4 +32,4 @@ class DealHeaderView
 		@view.add(headerBarLabel)
 		@view.add(textLabel)
 		
-root.dealHeaderView = DealHeaderView
+root.zoneHeaderView = ZoneHeaderView

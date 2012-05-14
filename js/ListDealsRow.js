@@ -7,6 +7,7 @@
       var antesLabel, extraNightsLabel, hotelBarLabel, hotelLabel, icon, image, normalPriceLabel, priceImage, priceLabel, roomTypeLabel, soldOutLabel, soldOutView, textColor;
       textColor = "white";
       this.row = Ti.UI.createTableViewRow({
+        hasChild: true,
         identionLevel: 200,
         height: 120,
         selectionStyle: 'none',
@@ -24,7 +25,7 @@
         },
         fontSize: 6,
         deal: deal,
-        color: 'red'
+        color: '#fff'
       });
       image = Titanium.UI.createImageView({
         defaultImage: '/images/detalle_loading.jpg',

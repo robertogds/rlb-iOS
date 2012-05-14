@@ -28,7 +28,7 @@ Titanium.Facebook.addEventListener 'logout', (e) ->
 	root.registerLabelView.label1.text = L('needAccount')
 
 root.facebookLoginButton = Titanium.UI.createButton
-	backgroundImage:'/images/butt_facebook.png'
+	backgroundImage:'/images/butt_facebook.jpg'
 	color: '#fff'
 	title: '    '+L('loginFacebook')
 	width:217
@@ -41,7 +41,7 @@ root.facebookLoginButton.addEventListener 'click', (e) ->
 	Titanium.Facebook.authorize()
 
 root.facebookRegisterButton = Titanium.UI.createButton
-	backgroundImage:'/images/butt_facebook.png'
+	backgroundImage:'/images/butt_facebook.jpg'
 	color: '#fff'
 	title: '    '+L('registerFacebook')
 	width:217

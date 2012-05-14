@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="cities">Ciudades</string>
+	<string name="address">Dirección</string>
+	<string name="room">Habitación</string>
+	<string name="regime">Régimen</string>
     <string name="countries">Países</string>
     <string name="errorHappened">Se ha producido un error</string>
     <string name="errorBooking">Se ha producido un error\nHemos recibido una respuesta incorrecta de la central de reservas por lo que no podemos asegurar que la reserva se haya realizado con éxito. Por favor ponte en contacto con soporte@reallylatebooking.com para confirmar que la reserva es correcta.</string>
@@ -33,7 +36,7 @@
 	<string name="orRegisterLabel">O regístrate con tu e-mail</string>
 	<string name="IForgotPassword">He olvidado mi contraseña</string>
 	<string name="youForgotPassword">¿Has olvidado tu contraseña?</string>
-	<string name="needAccount">Regístrate gratis</string>
+	<string name="needAccount">Crea una nueva cuenta</string>
 	<string name="signIn">Login</string>
 	<string name="signedInAs">Cuenta</string>
 	<string name="register">Registrarme</string>
@@ -51,9 +54,10 @@
 	<string name="selectCardType">Selecciona el tipo de tarjeta</string>
 	<string name="done">Hecho</string>
 	<string name="cardType">Tipo de tarjeta</string>
-	<string name="number">Número</string>
-	<string name="cardName">Titular</string>
+	<string name="number">Número de tarjeta</string>
+	<string name="cardName">Nombre del titular</string>
 	<string name="expires">Caduca en</string>
+	<string name="expiresYear">AA</string>
 	<string name="cvcCode">cvc Code</string>
 	<string name="jan">Enero</string>
 	<string name="feb">Febrero</string>
@@ -111,6 +115,7 @@
 	<string name="privacyText">Nos tomamos muy en serio la privacidad.\n\nPor eso tus datos no serán compartidos con nadie</string>
 	<string name="supportTitle">¿Podemos Ayudarte?</string>
 	<string name="supportText">Estamos disponibles 24x7 para asegurarnos que tus planes salgan bien.\n\nSi tienes cualquier problema no dudes en ponerte en contacto con nosotros</string>
+	<string name="hoursPhone">L a V de 10h a 20h</string>
 	<string name="needHelp">Necesito Ayuda</string>
 	<string name="lastUpdated">Actualizado el</string>
     <string name="pullRefresh">Volver a cargar</string>
@@ -204,4 +209,11 @@
 	<string name="zaragoza">Zaragoza</string>
 	<string name="main_cities">Ciudades Principales</string>
 	<string name="more_cities">Más ciudades</string>
+	<string name="bookingData">Datos de la reserva</string>
+	<string name="clientData">Datos del cliente</string>
+	<string name="remember">Recuerda</string>
+	<string name="bookPaid">RLB realizará el cargo en tu tarjeta de crédito. No debes hacer ningún pago en el hotel</string>
+	<string name="breakfastYes">Desayuno incluido</string>
+	<string name="breakfastNo">Sólo alojamiento</string>
+	<string name="double">Doble</string>
 </resources>

@@ -28,7 +28,6 @@ root.nightsWindow = new root.GenericWindow(L('extraNights')).win
 root.why3Window = new root.GenericWindow('ReallyLateBooking').win
 root.signInWindow = new root.GenericWindow(L('signIn')).win
 root.registerWindow = new root.GenericWindow(L('register')).win
-
 root.noDealsWindow = new root.GenericWindow('').win
 
 

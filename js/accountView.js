@@ -19,21 +19,14 @@
   }
 
   root.loginLabelView.label1.addEventListener('click', function(e) {
-    Ti.API.info('Click en loginlabel1');
     if (root.isLogged()) {
-      Ti.API.info('******* loginlabel1 Pasa cargar usuario');
       root.tabGroup.activeTab.open(root.editAccountWindow, {
         animated: true
       });
-      Ti.API.info('******* loginlabel1 is logged');
       root.loadEditLoggedUser();
-      '******* loginlabel1 17';
-      root.editAccountWindow.setTitle(L('editAccount') + ' ' + root.user.email);
-      return '******* loginlabel1 19';
+      return root.editAccountWindow.setTitle(L('editAccount'));
     } else {
-      return root.tabGroup.activeTab.open(root.signInWindow, {
-        animated: true
-      });
+      return root.showSignInView('account');
     }
   });
 
@@ -42,13 +35,7 @@
       Ti.API.info('***** Llama a hacer logout');
       return root.doLogout();
     } else {
-      root.newAccountData[0] = root.newAccountSection;
-      root.newAccountTable.data = root.newAccountData;
-      root.newAccountView.add(root.newAccountTable);
-      root.newAccountWindow.add(root.newAccountView);
-      return root.tabGroup.activeTab.open(root.newAccountWindow, {
-        animated: true
-      });
+      return root.showNewAccount();
     }
   });
 

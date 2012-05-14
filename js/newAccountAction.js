@@ -7,11 +7,13 @@
     root.hideLoading(root.newAccountWindow);
     response = JSON.parse(this.responseText);
     if (response.status === 200) {
+      root.hideLoading(root.editAccountWindow);
       root.user = response.content;
       Titanium.App.Properties.setString("user", JSON.stringify(root.user));
       root.loadAccountLabels();
       root.newAccountWindow.close();
-      return root.editAccountWindow.close();
+      root.editAccountWindow.close();
+      if (root.tabGroup.activeTab.id === 'deals') return root.showConfirmBooking();
     } else {
       Ti.API.error(response.detail);
       return Ti.UI.createAlertDialog({
@@ -22,7 +24,9 @@
   };
 
   root.xhrRegister.onerror = function(e) {
+    Ti.API.info('Entra en error register');
     root.hideLoading(root.newAccountWindow);
+    root.hideLoading(root.editAccountWindow);
     root.showError();
     return Ti.API.error(e);
   };

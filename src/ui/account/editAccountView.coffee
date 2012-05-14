@@ -121,6 +121,7 @@ root.editAccountView.add(sendButton)
 root.editAccountWindow.add(root.editAccountView)
 
 root.loadEditLoggedUser = () ->
+	root.hideLoading(root.editAccountWindow)
 	root.firstNameText.hintText = L('firstName') + ': '+root.user.firstName
 	root.lastNameText.hintText =  L('lastName') + ': '+root.user.lastName
 #	root.emailText.hintText = Ti.Locale.getString('email') + ': '+root.user.email

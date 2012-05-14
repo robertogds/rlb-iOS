@@ -1,6 +1,6 @@
 Ti.include(
 	'/js/supportView.js'
-	#'/js/testWindow.js'
+	'/js/testWindow.js'
 )
 root.optionsView = Titanium.UI.createView
   background: 'transparent'
@@ -24,6 +24,7 @@ versionLabel = Titanium.UI.createLabel
 
 
 versionLabel.addEventListener 'click', (e) ->
+	Ti.API.info 'Hace clic en version'
 	root.tabGroup.activeTab.open(root.testWindow,{animated:true})
 	
 socialView = Titanium.UI.createView
@@ -42,10 +43,8 @@ facebookIcon = Titanium.UI.createImageView
   image:'/images/facebook_share.png'
   height: 22
   width: 60
-  left: 70
+  left: 120
   top: 10
-
-
 
 emailIcon =  Titanium.UI.createImageView
   image:'/images/email_share.png'
@@ -56,10 +55,10 @@ emailIcon =  Titanium.UI.createImageView
 
 
 twitterIcon.addEventListener 'click', (e) ->
-	#root.sharekit.share
-	#	title: 'ReallyLateBooking'
-	#	text: L('shareRLBTwitter')
-	#	sharer: 'Twitter'
+	root.sharekit.share
+		title: 'ReallyLateBooking'
+		text: L('shareRLBTwitter')
+		sharer: 'Twitter'
 	
 facebookIcon.addEventListener 'click', (e) ->
 	data = 
@@ -73,10 +72,10 @@ facebookIcon.addEventListener 'click', (e) ->
 		else 
 			if (e.error) 
 				alert(e.error)
-	#root.sharekit.share
-	#	title: 'ReallyLateBooking'
-	#	text: L('shareRLBFacebook')
-	#	sharer: 'Facebook'
+	root.sharekit.share
+		title: 'ReallyLateBooking'
+		text: L('shareRLBFacebook')
+		sharer: 'Facebook'
 		
 emailIcon.addEventListener 'click', (e) ->
 	emailDialog = Titanium.UI.createEmailDialog()
@@ -84,12 +83,9 @@ emailIcon.addEventListener 'click', (e) ->
 	emailDialog.messageBody = L('shareRLBEmail')
 	emailDialog.open()
 
-
 socialView.add(facebookIcon)
-#socialView.add(twitterIcon)
+socialView.add(twitterIcon)
 socialView.add(emailIcon)
-
-
 
 acercaView = new root.Generic2RowsView(20,L('aboutRLB'),L('toHotels'))
 legalView = new root.Generic2RowsView(150,L('terms'),L('privacyPolicy'))

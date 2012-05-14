@@ -1,16 +1,16 @@
 (function() {
 
   root.showConfirmBooking = function() {
-    root.tabGroup.activeTab.open(root.confirmBookingWindow, {
-      animated: true
-    });
     root.hotelLabel.text = root.deal.hotelName;
     root.priceLabel.text = root.deal.salePriceCents + ' €';
     root.checkinDate = new Date(root.deal.checkinDate);
     root.checkoutDate = new Date(root.checkinDate.getTime() + 86400000);
     root.checkinLabel.text = root.getLocaleDateString(root.checkinDate);
     root.checkoutLabel.text = root.getLocaleDateString(root.checkoutDate);
-    return Ti.API.info('*** Abre la pantalla de bookingWindow');
+    Ti.API.info('*** Abre la pantalla de bookingWindow');
+    return root.tabGroup.activeTab.open(root.confirmBookingWindow, {
+      animated: true
+    });
   };
 
   root.confirmBookingWindow.addEventListener('focus', function(e) {
@@ -32,7 +32,8 @@
       root.cardTypeLabel.text = root.creditCard.type;
       root.cardNumberText.value = root.creditCard.number;
       root.cardNameText.value = root.creditCard.name;
-      root.expiresLabel.text = root.creditCard.expire;
+      root.expireMonthText.value = root.creditCard.expireMonth;
+      root.expireYearText.value = root.creditCard.expireYear;
       root.cvcCodeText.value = root.creditCard.cvc;
     }
     root.priceLabel.text = root.totalPrice + ' €';

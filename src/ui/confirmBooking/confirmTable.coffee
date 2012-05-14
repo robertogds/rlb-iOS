@@ -34,6 +34,7 @@ root.nightsRow.height = 60
 root.nightsRow.id = "nights"
 
 checkinTitleLabel = Titanium.UI.createLabel
+	width: Ti.UI.FILL
 	text: L('checkin') + ':' 
 	color: '#fff'
 	font:
@@ -44,6 +45,7 @@ checkinTitleLabel = Titanium.UI.createLabel
 	top: 10
 
 checkoutTitleLabel = Titanium.UI.createLabel
+	width: Ti.UI.FILL
 	text: L('checkout') + ':'
 	color: '#fff'
 	font:
@@ -54,6 +56,7 @@ checkoutTitleLabel = Titanium.UI.createLabel
 	top: 32
 
 root.checkinLabel = Titanium.UI.createLabel
+	width: Ti.UI.FILL
 	color: '#868d92'
 	font:
 		fontSize: 14
@@ -62,6 +65,7 @@ root.checkinLabel = Titanium.UI.createLabel
 	height: 20
 
 root.checkoutLabel = Titanium.UI.createLabel
+	width: Ti.UI.FILL
 	color: '#868d92'
 	font:
 		fontSize: 14
@@ -81,6 +85,7 @@ bookingForTitleLabel = Titanium.UI.createLabel
 
 root.bookingForNameLabel = Titanium.UI.createLabel
 	color: '#868d92'
+	width: Ti.UI.FILL
 	font:
 		fontSize: 14
 	left: 110
@@ -89,6 +94,7 @@ root.bookingForNameLabel = Titanium.UI.createLabel
 
 root.bookingForEmailLabel = Titanium.UI.createLabel
 	color: '#868d92'
+	width: Ti.UI.FILL
 	font:
 		fontSize: 14
 	left: 10
@@ -96,6 +102,7 @@ root.bookingForEmailLabel = Titanium.UI.createLabel
 	height: 20
 
 root.paymentLabel = Titanium.UI.createLabel
+	width: Ti.UI.FILL
 	text: L('noPaymentInfo')
 	color: '#fff'
 	font:

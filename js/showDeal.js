@@ -3,7 +3,7 @@
   Ti.include('/js/oneDealMapView.js', '/js/imagesScrollView.js', '/js/infoDealTable.js', '/js/priceView.js', '/js/oneDealView.js');
 
   root.showDealView = function(deal) {
-    var aroundRow, aroundTitle, aroundView, detailRow, detailTitle, detailView, foodDrinkRow, foodDrinkTitle, foodDrinkView, hotelRow, hotelTitle, hotelView, roomRow, roomTitle, roomView;
+    var aroundRow, aroundTitle, aroundView, detailRow, detailTitle, detailView, foodDrinkRow, foodDrinkTitle, foodDrinkView, hotelRow, hotelTitle, hotelView, infoData, roomRow, roomTitle, roomView;
     Ti.API.info('======= DEAL ' + JSON.stringify(deal));
     root.deal = deal;
     if (deal.quantity === 0) {
@@ -27,7 +27,13 @@
     root.oneDealAddressLabel.text = deal.address;
     root.hotelAddressLabel.text = deal.address;
     root.hotelNameLabel.text = deal.hotelName;
-    root.shareTwitterImage.addEventListener('click', function(e) {});
+    root.shareTwitterImage.addEventListener('click', function(e) {
+      return root.sharekit.share({
+        title: 'ReallyLateBooking',
+        text: String.format(L('shareTwitter'), deal.hotelName, deal.city.name),
+        sharer: 'Twitter'
+      });
+    });
     root.shareFacebookImage.addEventListener('click', function(e) {
       var data;
       data = {
@@ -81,19 +87,25 @@
     roomRow.add(roomView);
     foodDrinkRow.add(foodDrinkView);
     aroundRow.add(aroundView);
-    root.infoData = [];
-    root.infoData.push(detailRow);
-    root.infoData.push(hotelRow);
-    root.infoData.push(roomRow);
-    root.infoData.push(foodDrinkRow);
-    root.infoData.push(aroundRow);
+    infoData = [];
+    infoData.push(detailRow);
+    infoData.push(hotelRow);
+    infoData.push(roomRow);
+    infoData.push(foodDrinkRow);
+    infoData.push(aroundRow);
+    root.infoDealTable.setData(infoData);
     root.oneDealWindow.remove(root.infoDealTable);
     root.oneDealWindow.remove(root.mapView);
     root.oneDealWindow.add(root.oneDealView);
     if (Titanium.App.Properties.hasProperty("user") || Titanium.Facebook.loggedIn) {
       root.bookingForEmail = root.user.email;
       root.bookingForFirstName = root.user.firstName;
-      return root.bookingForLastName = root.user.lastName;
+      root.bookingForLastName = root.user.lastName;
+    }
+    if (root.deal.priceDay2 > 0) {
+      return root.nightsRow.rightImage = '/images/blue_arrow.png';
+    } else {
+      return root.nightsRow.rightImage = '';
     }
   };
 

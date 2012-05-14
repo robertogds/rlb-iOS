@@ -31,4 +31,11 @@ root.newAccountView.add(root.facebookRegisterButton)
 root.newAccountView.add(newAccountLabel)
 root.newAccountView.add(acceptLegalLabel)
 root.newAccountView.add(root.newAccountButton)
+root.newAccountView.add(root.newAccountTable)
+root.newAccountWindow.add(root.newAccountView)
+
+root.showNewAccount = () ->
+	Ti.API.info 'Entra en shownew account'
+	root.tabGroup.activeTab.open(root.newAccountWindow,{animated:true})
+	Ti.API.info 'Sale de shownew account'
 

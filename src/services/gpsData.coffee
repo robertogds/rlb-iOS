@@ -14,7 +14,8 @@ getNearCity = (lat,lon) ->
 	R = 6371
 	lowDistance = 1000
 	nearCity = undefined
-	for city in root.staticCities
+	allCities = root.staticCities.concat root.staticOtherCities
+	for city in allCities
 		cityLatRad = city.latitude * Math.PI / 180
 		latRad =  lat * Math.PI / 180
 		dLat = (city.latitude - lat) * Math.PI / 180
@@ -26,6 +27,7 @@ getNearCity = (lat,lon) ->
 			nearCity = city
 			lowDistance = distance
 	if lowDistance < 100 and nearCity isnt undefined
+		Ti.API.info '+++ GPS Encontrada NEARCITY = ' + nearCity.name
 		root.loadDeals(nearCity)
 	else 
 		Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('noDealsGPS')}).show()
@@ -49,14 +51,14 @@ root.initializeGPS = () ->
 		Ti.API.info 'Entra en geo off'
 		Titanium.UI.createAlertDialog({title:'ReallyLateBooking',message:L('geoOff')}).show()
 		return root.hideLoading(root.citiesWindow)
-	if root.isAndroid isnt true
-		authorization = Titanium.Geolocation.locationServicesAuthorization
-		if authorization is Titanium.Geolocation.AUTHORIZATION_DENIED
-			Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('youGeoDisallow')}).show()
-			return root.hideLoading(root.citiesWindow)
-		else if authorization is Titanium.Geolocation.AUTHORIZATION_RESTRICTED
-			Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('systemGeoDisallow')}).show()
-			return root.hideLoading(root.citiesWindow)
+	
+	authorization = Titanium.Geolocation.locationServicesAuthorization
+	if authorization is Titanium.Geolocation.AUTHORIZATION_DENIED
+		Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('youGeoDisallow')}).show()
+		return root.hideLoading(root.citiesWindow)
+	else if authorization is Titanium.Geolocation.AUTHORIZATION_RESTRICTED
+		Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('systemGeoDisallow')}).show()
+		return root.hideLoading(root.citiesWindow)
 	root.getGPSData()	
 
 

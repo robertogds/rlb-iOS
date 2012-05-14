@@ -2,7 +2,7 @@
   var data, row1, row2, section;
 
   root.loginTable = Titanium.UI.createTableView({
-    top: 120,
+    top: 100,
     height: 88,
     width: '95%',
     borderWidth: 0,
