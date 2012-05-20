@@ -23,6 +23,7 @@ getNearCity = (lat,lon) ->
 		a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(latRad) * Math.cos(cityLatRad) * Math.sin(dLon/2) * Math.sin(dLon/2)
 		c = 2 * Math.atan2(Math.sqrt(a),Math.sqrt(1-a))
 		distance = R * c
+		Ti.API.info 'City: ' + city.name + ' distance: ' + distance
 		if distance < lowDistance 
 			nearCity = city
 			lowDistance = distance
@@ -31,6 +32,7 @@ getNearCity = (lat,lon) ->
 		root.loadDeals(nearCity)
 	else 
 		Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('noDealsGPS')}).show()
+		root.hideLoading(root.citiesWindow)
 
 translateErrorCode = (code) ->
 	if (code == null)

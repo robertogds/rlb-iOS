@@ -158,5 +158,6 @@ root.paymentView.add(root.cvcCodeText)
 root.paymentView.add(slashLabel)
 root.paymentView.add(cvcIcon)
 root.paymentView.add(savePaymentButton)
+#root.paymentView.add(root.zoozButton)
 
 root.paymentWindow.add(root.paymentView)

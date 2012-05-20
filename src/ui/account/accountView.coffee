@@ -1,3 +1,18 @@
+Ti.API.info 'Entra aqui'
+root.loadUser()
+
+Ti.include(
+	'/js/faqView.js'
+	'/js/facebookButton.js'
+	'/js/editAccountView.js'
+	'/js/newAccountView.js'
+	'/js/loginAction.js'
+	'/js/logoutAction.js'
+	'/js/newFacebookAccount.js'
+	'/js/rememberPassView.js'
+	'/js/signInView.js'
+	'/js/rememberPassAction.js'
+)
 root.accountView = Titanium.UI.createView
 	backgroundColor: 'transparent'
 
@@ -27,20 +42,10 @@ root.registerLabelView.label1.addEventListener 'click', (e) ->
 		root.showNewAccount()
 	
 
-faqSupportView = new root.Generic2RowsView(150,'FAQ',L('userSupport'))
-
-faqSupportView.label1.addEventListener 'click', (e) ->
-	root.showFAQ()
-
-faqSupportView.label2.addEventListener 'click', (e) ->
-	root.tabGroup.activeTab.open(root.supportWindow,{animated:true})
-
-
 root.accountView.add(root.loginLabelView.view)
 root.accountView.add(root.registerLabelView.view)
-root.accountView.add(faqSupportView.view)
 
 
 #root.accountView.add(root.loginView)
 #root.accountView.add(root.loggedView)
-root.accountWindow.add(root.accountView)
+#root.accountWindow.add(root.accountView)

@@ -2,6 +2,7 @@ root.xhrRegister = Titanium.Network.createHTTPClient()
 
 root.xhrRegister.onload = (e) ->
 	root.hideLoading(root.newAccountWindow)
+	Ti.API.info 'USER: ' + this.responseText
 	response = JSON.parse(this.responseText)
 	if response.status is 200
 		root.hideLoading(root.editAccountWindow)

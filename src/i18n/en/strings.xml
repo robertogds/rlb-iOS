@@ -49,6 +49,7 @@
 	<string name="adviceCard">We will not charge your credit card, as you will pay the hotel directly for your stay.\nYou can save your card for future purchases.</string>
 	<string name="noRefundable">This reservation is non-refundable</string>	
 	<string name="booking">Booking</string>
+	<string name="bookingNumber">Booking Number</string>
 	<string name="bookingBlueButtonText">book it</string>
 	<string name="mustUser">You must be logged in to do that. Go to Profile tab and login or sign up</string>
 	<string name="selectCardType">Select Card Type</string>
@@ -122,6 +123,7 @@
     <string name="reloading">Reloading</string>
     <string name="loading">Loading</string>
     <string name="updatingHotels">Updating Hotels</string>
+
     <string name="loginFacebook">Sign in with Facebook</string>
 	<string name="registerFacebook">Register with Facebook</string>
     <string name="logoutAlert">You need to be signed in to book hotels. Sure you want to sign out?</string>
@@ -159,9 +161,12 @@
 	<string name="geoOff">Your device has geo turned off - turn it on</string>
 	<string name="youGeoDisallow">You have disallowed from running geolocation services</string>
 	<string name="systemGeoDisallow">Your system has disallowed from running geolocation services</string>
-	<string name="shareTwitter">Using the mobile app #reallylatebooking to book the %s  http://reallylatebooking.com</string>
-	<string name="shareFacebook">I found an incredible deal for %s using the mobile app ReallyLateBooking</string>
-	<string name="shareEmail">I'm using ReallyLateBooking, a mobile application (iphone and android) to book hotels for the same day with discounts. \n I found the %s for an incredible price. \n Download the app to see the offer http://reallylatebooking.com</string>
+	<string name="shareFacebook">Share in Facebook</string>
+	<string name="shareTwitter">Share in Twitter</string>
+	<string name="shareEmail">Share by E-mail</string>
+	<string name="shareTwitterText">Using the mobile app #reallylatebooking to book the %s  http://reallylatebooking.com</string>
+	<string name="shareFacebookText">I found an incredible deal for %s using the mobile app ReallyLateBooking</string>
+	<string name="shareEmailText">I'm using ReallyLateBooking, a mobile application (iphone and android) to book hotels for the same day with discounts. \n I found the %s for an incredible price. \n Download the app to see the offer http://reallylatebooking.com</string>
 	<string name="shareEmailSubject">Look this deal at ReallyLateBooking</string>
 	<string name="shareRLBTwitter">Using the mobile app #reallylatebooking to book hotels tonight with big discounts via @rlatebooking</string>
 	<string name="shareRLBFacebook">I'm using ReallyLateBooking, a mobile application (iphone and android) to book hotels for the same day with discounts.\n Download the app and try yourself http://reallylatebooking.com</string>
@@ -214,5 +219,7 @@
 	<string name="bookPaid">RLB will charge your credit card. You should not make any payment at the hotel</string>
 	<string name="breakfastYes">Breakfast Included</string>
 	<string name="breakfastNo">Breakfast NOT Included</string>
-	<string name="double">Double</string>
+	<string name="doubleRoom">Double</string>
+	<string name="credits">Credits</string>
+	<string name="invite">Invite</string>
 </resources>

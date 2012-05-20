@@ -4,7 +4,7 @@ class GenericTextLabel
 			text: text
 			width: Ti.UI.FILL
 			textAlign: 'left'
-			height: 30
+			height: Ti.UI.SIZE
 			left: left
 			top: top
 			color: '#fff'

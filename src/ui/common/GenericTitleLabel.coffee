@@ -1,11 +1,11 @@
 class GenericTitleLabel
-	constructor: (top,text) ->
+	constructor: (top,left,text) ->
 		@label = Titanium.UI.createLabel
 			text: text
 			width: Ti.UI.FILL
 			textAlign: 'left'
 			height: 30
-			left: 10
+			left: left
 			top: top
 			color: '#0098CB'
 			font:

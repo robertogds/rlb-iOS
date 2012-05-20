@@ -49,6 +49,7 @@
 	<string name="adviceCard">No haremos ningún cargo en tu tarjeta de crédito. La estancia la pagarás en el hotel.\nPuedes guardar los datos de tu tarjeta para futuras compras.</string>
     <string name="noRefundable">Recuerda que la reserva no es anulable.</string>	
 	<string name="booking">Reserva</string>
+	<string name="bookingNumber">Localizador</string>
 	<string name="bookingBlueButtonText">reservar</string>
 	<string name="mustUser">Debes estar registrado para poder hacer una reserva. Ve a la pestaña Perfil y entra en tu cuenta o regístrate</string>
 	<string name="selectCardType">Selecciona el tipo de tarjeta</string>
@@ -160,9 +161,12 @@
 	<string name="geoOff">Tu dispositivo tiene el GPS apagado, enciéndelo para poder geolocalizarte</string>
 	<string name="youGeoDisallow">Has restringido los permisos para poder geolocalizar desde esta aplicación</string>
 	<string name="systemGeoDisallow">El sistema ha restringido los permisos para ejecutar servicios de geolocalización</string>
-	<string name="shareTwitter">Usando #ReallyLateBooking para reservar en el %s http://reallylatebooking.com via @rlatebooking</string>
-	<string name="shareFacebook">He encontrado una gran oferta del %s via ReallyLateBooking</string>
-	<string name="shareEmail">Estoy usando ReallyLateBooking, una applicación móvil (iphone y android) para reservar hotel en el mismo día con importantes descuentos.\n He encontrado el %s por un precio increíble.\n Descárgate la app para ver la oferta en http://reallylatebooking.com</string>
+	<string name="shareFacebook">Compartir en Facebook</string>
+	<string name="shareTwitter">Compartir en Twitter</string>
+	<string name="shareEmail">Compartir por E-mail</string>
+	<string name="shareTwitterText">Usando #ReallyLateBooking para reservar en el %s http://reallylatebooking.com via @rlatebooking</string>
+	<string name="shareFacebookText">He encontrado una gran oferta del %s via ReallyLateBooking</string>
+	<string name="shareEmailText">Estoy usando ReallyLateBooking, una applicación móvil (iphone y android) para reservar hotel en el mismo día con importantes descuentos.\n He encontrado el %s por un precio increíble.\n Descárgate la app para ver la oferta en http://reallylatebooking.com</string>
 	<string name="shareEmailSubject">Mira esta oferta en ReallyLateBooking</string>
 	<string name="shareRLBTwitter">Estoy usando #ReallyLateBooking para reservar hotel en el mismo día con importantes descuentos. http://reallylatebooking.com via @rlatebooking</string>
 	<string name="shareRLBFacebook">Estoy usando ReallyLateBooking, una applicación móvil (iphone y android) para reservar hotel en el mismo día con importantes descuentos.\n Descárgate la app en http://reallylatebooking.com</string>
@@ -215,5 +219,7 @@
 	<string name="bookPaid">RLB realizará el cargo en tu tarjeta de crédito. No debes hacer ningún pago en el hotel</string>
 	<string name="breakfastYes">Desayuno incluido</string>
 	<string name="breakfastNo">Sólo alojamiento</string>
-	<string name="double">Doble</string>
+	<string name="doubleRoom">Doble</string>
+	<string name="credits">Créditos</string>
+	<string name="invite">Invitar</string>
 </resources>

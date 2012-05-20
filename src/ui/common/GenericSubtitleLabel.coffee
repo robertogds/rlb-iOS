@@ -1,11 +1,11 @@
 class GenericSubtitleLabel
-	constructor: (top,text) ->
+	constructor: (top,left,text) ->
 		@label = Titanium.UI.createLabel
 			text: text
 			width: Ti.UI.FILL
-			left: 10
+			left: left
 			textAlign: 'left'
-			height: 30
+			height: Ti.UI.SIZE
 			top: top
 			color: '#858C92'
 			font:

@@ -3,7 +3,7 @@
     <string name="cities">Villes</string>
 	<string name="address">Adresse</string>
 	<string name="room">Chambre</string>
-	<string name="room">Regime</string>
+	<string name="regime">Regime</string>
     <string name="countries">Pays</string>
     <string name="errorHappened">Une erreur est survenue</string>
     <string name="errorBooking">Une erreur est survenue\n Nous avons reçu una réponse incorrecte. Nous ne savons donc pas si votre réservation est correcte. Veuillez contacter help@reallylatebooking.com pur confirmer que votre réservation est en ordre.</string>
@@ -49,6 +49,7 @@
 	<string name="adviceCard">Nous ne facturerons pas votre carte de crédit car vous paierez directement à l'hôtel pour votre séjour.</string>
 	<string name="noRefundable">Cette réservation est non remboursable</string> 
 	<string name="booking">Réservation</string> 
+	<string name="bookingNumber">Réservation</string>
 	<string name="bookingBlueButtonText">Réserver</string> 
 	<string name="mustUser">Pour cela, vous devez vous enregistrer</string> 
 	<string name="selectCardType">Sélectionnez un type de carte</string> 
@@ -159,9 +160,12 @@
 	<string name="geoOff">Votre appareil est éteint géolocalisation - allumez-le</string>
 	<string name="youGeoDisallow">Vous avez refusées de fonctionner les services de géolocalisation</string>
 	<string name="systemGeoDisallow">Votre system a refusé de fonctionner les services de géolocalisation</string>
-	<string name="shareTwitter">Je suis utilisant #reallylatebooking pour réserver %s http://reallylatebooking.com via @rlatebooking</string>
-	<string name="shareFacebook">J'ai trouvé un prix incroyable pour %s en utilisant l'application mobile ReallyLateBooking</string>
-	<string name="shareEmail">J'utilise ReallyLateBooking, une application mobile (iPhone et Android)  pour réserver des hôtels pour le même jour avec des rabais. \n J'ai trouvé le %s pour un prix incroyable. \n Download l'application pour voir l'offre http://reallylatebooking.com</string>
+	<string name="shareFacebook">Partager sur Facebook</string>
+	<string name="shareTwitter">Partager sur Twitter</string>
+	<string name="shareEmail">Partager par E-mail</string>
+	<string name="shareTwitterText">Je suis utilisant #reallylatebooking pour réserver %s http://reallylatebooking.com via @rlatebooking</string>
+	<string name="shareFacebookText">J'ai trouvé un prix incroyable pour %s en utilisant l'application mobile ReallyLateBooking</string>
+	<string name="shareEmailText">J'utilise ReallyLateBooking, une application mobile (iPhone et Android)  pour réserver des hôtels pour le même jour avec des rabais. \n J'ai trouvé le %s pour un prix incroyable. \n Download l'application pour voir l'offre http://reallylatebooking.com</string>
 	<string name="shareEmailSubject">Regardez cette offre ReallyLateBooking</string>
 	<string name="shareRLBTwitter">Je suis utilisant #reallylatebooking pour réserver des hôtels pour le même jour avec des rabais via @rlatebooking</string>
 	<string name="shareRLBFacebook">J'utilise ReallyLateBooking, une application mobile (iPhone et Android)  pour réserver des hôtels pour le même jour avec des rabais.\n Download l'application pour voir l'offre http://reallylatebooking.com</string>
@@ -214,5 +218,7 @@
 	<string name="bookPaid">RLB facturera votre carte de crédit. Vous ne devriez pas effectuer un paiement à l'hôtel</string>
 	<string name="breakfastYes">Petit déjeuner inclus</string>
 	<string name="breakfastNo">Petit déjeuner NON inclus</string>
-	<string name="double">Double</string>
+	<string name="doubleRoom">Double</string>
+	<string name="credits">Crédits</string>
+	<string name="invite">Inviter</string>
 </resources>

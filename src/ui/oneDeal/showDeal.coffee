@@ -41,7 +41,7 @@ root.showDealView = (deal) ->
 	root.shareTwitterImage.addEventListener 'click', (e) ->
 		root.sharekit.share
 			title: 'ReallyLateBooking'
-			text: String.format(L('shareTwitter'),deal.hotelName,deal.city.name)
+			text: String.format(L('shareTwitterText'),deal.hotelName,deal.city.name)
 			sharer: 'Twitter'
 	
 	root.shareFacebookImage.addEventListener 'click', (e) ->
@@ -51,7 +51,7 @@ root.showDealView = (deal) ->
 			#sharer: 'Facebook'
 		data = 
 			link: "http://www.reallylatebooking.com"
-			name: String.format(L('shareFacebook'),deal.hotelName,deal.city.name)
+			name: String.format(L('shareFacebookText'),deal.hotelName,deal.city.name)
 			caption: "reallylatebooking.com"
 			picture: deal.image10
 			description: deal.hotelText
