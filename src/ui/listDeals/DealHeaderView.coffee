@@ -33,4 +33,4 @@ class DealHeaderView
 		@view.add(headerBarLabel)
 		@view.add(textLabel)
 		
-root.dealHeaderView = DealHeaderView
+root.DealHeaderView = DealHeaderView
