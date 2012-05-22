@@ -19,11 +19,12 @@ class DealHeaderView
 					
 		headerBarLabel = Titanium.UI.createLabel
 			width: Ti.UI.FILL
-			borderWidth: 1
-			borderColor: 'black'
-			backgroundGradient:
-				type:'linear'
-				colors:[{color:'#000000',position:0.1},{color:'#2b5060',position:0.2},{color:'#5093b0',position:1}]
+			borderWidth: 0
+			#borderColor: 'black'
+			backgroundGradient: root.bgGradient
+			#backgroundGradient:
+			#	type:'linear'
+			#	colors:[{color:'#000000',position:0.1},{color:'#2b5060',position:0.2},{color:'#5093b0',position:1}]
 			opacity: 0.7
 			color: '#fff'
 			height: 25

@@ -16,7 +16,6 @@ root.allCitiesWindow.add(root.allCitiesTable)
 root.allCitiesTable.addEventListener 'click', (e) ->
 	#alert 'Entrariamos a ' + e.row.city.name
 	root.loadDeals(e.row.city)
-	root.tabGroup.activeTab.open(root.oneBookingWindow,{animated:true})
 
 
 #	@cityImage.addEventListener 'click', (e) ->
@@ -26,25 +25,40 @@ root.allCitiesTable.addEventListener 'click', (e) ->
 #		root.showLoading(root.citiesWindow,L('updatingHotels'))
 #		Ti.API.info '*** LLama a loadDeals'
 #		root.loadDeals(e.source.city)
-
+	
 
 root.populateCitiesTable = (cities) ->
 	Ti.API.info 'Entra en all cities'
-	data = []
+	data = []	
+	lastName = "empty"
+	first = true
+	section = Titanium.UI.createTableViewSection()
 	for city in cities
-		Ti.API.info city.name + ' ' + city.isRoot
-		if city.isRoot is true
+		Ti.API.info 'Entra en city ' + city.name + ' Country ' + city.country
+		if city.isRoot
 			cityRow = new root.OtherCityRow(city)
-			data.push(cityRow.row)
+			if city.country isnt lastName 
+				Ti.API.info 'Paso 42'
+				if first isnt true
+					Ti.API.info 'Paso 44' 
+					data.push(section)
+				header = new root.dealHeaderView(city.country)
+				Ti.API.info 'Paso 45'
+				first = false
+				section = Titanium.UI.createTableViewSection(headerView: header.view)		
+			section.add(cityRow.row)
+			lastName = city.country
+	data.push(section)		
 	if data.length is 0
 		root.allCitiesWindow.close()
 	else
-		root.allCitiesTable.setData(data)
-	root.allCitiesTable.footerView = root.footerView
+		root.allCitiesTable.setData(data)		
+		root.allCitiesTable.footerView = root.footerView
 	root.hideLoading(root.allCitiesWindow)
+	Ti.API.info '*** fin populateDealsZoneTable'
 
 	
 root.showAllCities = () ->
-	root.fetchCities()
+	root.fetchCities('ALLCITIES')
 	root.tabGroup.activeTab.open(root.allCitiesWindow,{animated:true})
-	root.showLoading(root.allCitiesWindow)
+	

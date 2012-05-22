@@ -78,24 +78,9 @@ root.populateDealsTable = (deals) ->
 
 root.populateDealsZoneTable = (deals) ->
 	Ti.API.info '*** Entra en populate Zonas '
-	#root.zoneUrl = 'null'
 	data = []	
 	lastName = "empty"
 	first = true
-	#for deal in deals
-	#	city = deal.city
-	#	if city.url is root.zoneUrl 
-	#		if first is true
-	#			header = new root.dealHeaderView('')
-	#			section = Ti.UI.createTableViewSection
-	#				headerView: header.view
-	#				headerTitle: L(city.url)
-	#			first = false
-	#		header.textLabel.text = L(city.url)
-	#		dealRow = new root.listDealsRow(deal)
-	#		section.add(dealRow.row)
-	#		name = city.name
-	#		firstName = city.name
 	section = Titanium.UI.createTableViewSection()
 	for deal in deals
 		city = deal.city

@@ -7,6 +7,7 @@ root.termsUrl = root.url+'/info/use_terms'
 root.country = 'spain'
 root.countriesDate = new Date()
 root.cell = {}
+root.fetchCitiesCaller = 'GPS'
 root.osname = Ti.Platform.osname
 # Booleans identifying the platforms are handy too
 root.isAndroid = (root.osname=='android') ? true : false
@@ -14,6 +15,10 @@ root.isAndroid = (root.osname=='android') ? true : false
 root.bgGradient =
      type:'linear'
      colors:[{color:'#07151d',position:0.1},{color:'#0d1e28',position:1.0}]
+
+root.bgGradientTitle =
+     type:'linear'
+     colors:[{color:'##1b3c50',position:0.1},{color:'#3c5f75',position:1.0}]
 
 Ti.include(
 	'/js/mocks.js'
