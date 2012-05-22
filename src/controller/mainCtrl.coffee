@@ -7,6 +7,7 @@ root.termsUrl = root.url+'/info/use_terms'
 root.country = 'spain'
 root.countriesDate = new Date()
 root.cell = {}
+root.listCities = []
 root.fetchCitiesCaller = 'GPS'
 root.osname = Ti.Platform.osname
 # Booleans identifying the platforms are handy too
@@ -18,9 +19,10 @@ root.bgGradient =
 
 root.bgGradientTitle =
      type:'linear'
-     colors:[{color:'##1b3c50',position:0.1},{color:'#3c5f75',position:1.0}]
+     colors:[{color:'#1b3c50',position:0.1},{color:'#3c5f75',position:1.0}]
 
 Ti.include(
+	'/js/fetchGPSCities.js'
 	'/js/mocks.js'
 	'/js/staticCities.js'
 	'/js/staticOtherCities.js'
@@ -72,6 +74,6 @@ Ti.include(
 # Main Program
 if root.isLogged()
 	root.loadRefererId()
-root.initializeGPS()
+
 
 
