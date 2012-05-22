@@ -24,6 +24,7 @@ Ti.include(
 	'/js/zooz.js'
 	'/js/gpsData.js'
 	'/js/fetchDeals.js'
+	'/js/fetchCities.js'
 	'/js/dateUtil.js'
 	'/js/GenericWindow.js'
 	'/js/GenericSeparatorView.js'
@@ -36,6 +37,7 @@ Ti.include(
 	'/js/GenericMapAnnotation.js'
 	'/js/GenericTextView.js'
 	'/js/GenericTitleLabel.js'
+	'/js/GenericBlueTitleLabel.js'
 	'/js/GenericTextLabel.js'
 	'/js/GenericSubtitleLabel.js'
 	'/js/GenericMapRightButtonView.js'
@@ -44,6 +46,7 @@ Ti.include(
 	'/js/loadingView.js'
 	'/js/application.js'
 	'/js/listDealsWindow.js'
+	'/js/fetchServerUser.js'
 	'/js/loadUser.js'
 	'/js/accountView.js'
 	'/js/bookingsWindow.js'
@@ -57,10 +60,13 @@ Ti.include(
 	'/js/forHotelsView.js'
 	'/js/termsView.js'
 	'/js/privacyView.js'
-	'/js/creditsView.js'
+	'/js/creditsWindow.js'
+	'/js/inviteWindow.js'
 )
 
 # Main Program
+if root.isLogged()
+	root.loadRefererId()
 root.initializeGPS()
 
 

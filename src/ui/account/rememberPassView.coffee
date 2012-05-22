@@ -24,10 +24,11 @@ rememberEmailText = Titanium.UI.createTextField
   paddingLeft: 10
   clearOnEdit: false
   keyboardType: Titanium.UI.KEYBOARD_EMAIL
-  returnKeyType: Titanium.UI.RETURNKEY_NEXT
+  returnKeyType: Titanium.UI.RETURNKEY_DONE
 
 rememberEmailText.addEventListener 'return', (e) ->
-	root.showLoading(root.rememberPassView)
+	Ti.API.info 'Pincha en recordar clave'
+	root.showLoading(root.rememberPassWindow)
 	email = rememberEmailText.value
 	root.doRememberPass(email)
 

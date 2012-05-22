@@ -18,7 +18,7 @@ class CreditsRow
 		expireSubtitle = new root.GenericSubtitleLabel(35,200,'Caduca'+': ').label
 		@row.add(createdSubtitle)
 		@row.add(expireSubtitle)
-		titleLabel = new root.GenericTitleLabel(5,80,credit.key+' - Cupón inicial RLB').label		
+		titleLabel = new root.GenericBlueTitleLabel(5,80,credit.key+' - '+ credit.title).label		
 		@row.add(titleLabel)
 		
 		createdLabel = new root.GenericTextLabel(35,130,credit.created).label

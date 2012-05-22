@@ -1,15 +1,11 @@
-Ti.include(
-	'/js/newCouponView.js'
-	'/js/balanceView.js'
-)
-creditsView = Titanium.UI.createView
+root.creditsView = Titanium.UI.createView
 	height: '100%'
 	width: '100%'
 	background: 'transparent'
 
 root.explainCreditsView = Titanium.UI.createView
 	height:300
-	borderWidth:1
+	borderWidth:0
 	boderColor: 'grey'
 	top: 160
 	
@@ -32,7 +28,6 @@ inviteRow.label.addEventListener 'click', (e) ->
 
 root.explainCreditsView.add(optionsMenu.view)
 
-creditsView.add(root.newCouponView)
-creditsView.add(root.balanceView)
-creditsView.add(root.explainCreditsView)
-root.creditsWindow.add(creditsView)
+root.creditsView.add(root.newCouponView)
+root.creditsView.add(root.balanceView)
+root.creditsView.add(root.explainCreditsView)

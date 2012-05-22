@@ -33,14 +33,15 @@ for city in root.staticCities
 	list[n] = city
 	if n is 3
 		cityRow = new root.cityRow(list[1],list[2],list[3])
-		mainCitiesSection.add(cityRow.row)
-		#root.citiesData.push(cityRow.row)
+		#mainCitiesSection.add(cityRow.row)
+		root.citiesData.push(cityRow.row)
 		n = 0
 		list[1] = undefined
 		list[2] = undefined
 		list[3] = undefined	
 n = 0	
-root.citiesData.push(mainCitiesSection)
+#root.citiesData.push(mainCitiesSection)
+root.citiesTable.setData(root.citiesData)
 for city in root.staticOtherCities
 	n++
 	list[n] = city
@@ -53,8 +54,9 @@ for city in root.staticOtherCities
 		list[2] = undefined
 		list[3] = undefined	
 
-cityRow = new root.cityRow(list[1],list[2],list[3])
-otherCitiesSection.add(cityRow.row)
+root.cell['more'].inactiveView.visible = true
+#cityRow = new root.cityRow(list[1],list[2],list[3])
+#otherCitiesSection.add(cityRow.row)
 root.citiesData.push(otherCitiesSection)
 root.citiesTable.setData(root.citiesData)
 

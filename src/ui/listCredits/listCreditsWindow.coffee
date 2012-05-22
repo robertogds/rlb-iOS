@@ -1,6 +1,7 @@
 Ti.include(
-  '/js/creditsTable.js'
-  '/js/noCreditsView.js'
+	'/js/creditsTable.js'
+	'/js/noCreditsView.js'
+	'/js/fetchCredits.js'
 )
 
 

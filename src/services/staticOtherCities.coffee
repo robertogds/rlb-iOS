@@ -98,4 +98,13 @@ root.staticOtherCities = [
 		'longitude' : '-0.881319999694824'	
 		'row' : 3
 	}
+	{
+		'name' : 'more'
+		'url' : 'more'
+		#'image' : '/images/Texture.jpg'
+		'hasZones' : false	
+		'latitude' : '0'
+		'longitude' : '0'	
+		'row' : 3
+	}
 ]

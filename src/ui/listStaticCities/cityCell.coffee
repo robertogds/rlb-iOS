@@ -9,15 +9,26 @@ class CityCell
 			open: false
 			top:0
 		@inactiveView = Titanium.UI.createView
-			backgroundColor : 'black'
-			opacity: 0.6
+			backgroundColor : '#0d1e28'
+			opacity: 1
 			height: 107
 			width: 107
 			visible: false
 			top: 0
 			left: left
-			cityName: city.name
+			cityName: 'More Cities'
 		
+		moreCitiesLabel = Titanium.UI.createLabel
+			text: 'Ver Más Ciudades'
+			width: 107
+			textAlign: 'center'
+			height: 107
+			top: 0
+			color: 'white'
+			font:
+				fontSize: 16
+				fontWeight: 'bold'
+		@inactiveView.add(moreCitiesLabel)
 		borderView = Titanium.UI.createView
 			backgroundColor : 'black'
 			color: 'black'
@@ -53,29 +64,14 @@ class CityCell
 		row.add(@cityImage)
 		row.add(@cityBarLabel)
 		row.add(@cityLabel)
-		row.add(@inactiveView)
-		
+		row.add(@inactiveView)		
 
 		@inactiveView.addEventListener 'click', (e) ->
-			root.activateCells()
+			root.showAllCities()
 		@cityImage.addEventListener 'click', (e) ->
 			Ti.API.info '*** Entra en click'
 			city = e.source.city
-			cell = root.cell[city.name]
-			#if city.hasZones is true
-			#	if e.source.open is false
-			#		root.deactivateCells(city.name)
-			#		e.source.open = true 
-			#		row = Ti.UI.createTableViewRow
-			#			height: 60
-			#		left = 0
-			#		for zone in root.zones[city.url]
-			#			zoneCell = new root.zoneCell(row,zone,city,left)
-			#			left = left + 80
-			#		root.citiesTable.insertRowAfter(city.row,row)
-			#		Ti.API.info '*** row index = ' + row.getIndex
-			#	else root.activateCells()
-			#else	
+			cell = root.cell[city.name]	
 			root.showLoading(root.citiesWindow,L('updatingHotels'))
 			Ti.API.info '*** LLama a loadDeals'
 			root.loadDeals(e.source.city)

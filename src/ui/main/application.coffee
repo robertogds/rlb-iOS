@@ -33,6 +33,7 @@ root.noDealsWindow = new root.GenericWindow('').win
 root.cobrarWindow = new root.GenericWindow('Cobrar').win
 root.creditsWindow = new root.GenericWindow(L('credits')).win
 root.inviteWindow = new root.GenericWindow(L('invite')).win
+root.allCitiesWindow = new root.GenericWindow(L('cities')).win
 
 
 root.imagesWindow.backButtonTitle = L('back')
@@ -83,6 +84,8 @@ root.tabGroup.open()
 
 
 root.showError = (window) ->
+	if window is undefined
+		window = Titanium.UI.currentWindow
 	root.errorWindow = window
 	window.add(root.errorView)
 

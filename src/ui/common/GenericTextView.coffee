@@ -10,7 +10,7 @@ class GenericTextView
 		
 		@titleLabel = Titanium.UI.createLabel
 			text: title
-			height: 30
+			height: Ti.UI.SIZE
 			top: 20
 			color: '#fff'
 			left: 10

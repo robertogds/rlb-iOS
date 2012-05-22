@@ -1,4 +1,4 @@
-class GenericTitleLabel
+class GenericBlueTitleLabel
 	constructor: (top,left,text) ->
 		@label = Titanium.UI.createLabel
 			text: text
@@ -7,9 +7,9 @@ class GenericTitleLabel
 			height: Ti.UI.SIZE
 			left: left
 			top: top
-			color: '#ffff'
+			color: '#0098CB'
 			font:
-				fontSize: 20
+				fontSize: 16
 				fontWeight: 'bold'
 		
-root.GenericTitleLabel = GenericTitleLabel
+root.GenericBlueTitleLabel = GenericBlueTitleLabel

@@ -1,11 +1,12 @@
 root.newCouponView = Titanium.UI.createView
 	height:80
-	borderWidth:1
+	borderWidth:0
 	boderColor: 'grey'
 	top: 0
 
-codeText = Titanium.UI.createTextField
+root.codeText = Titanium.UI.createTextField
 	backgroundColor: '#fff'
+	#autocapitalization: Ti.UI.TEXT_AUTOCAPITALIZATION_ALL
 	top: 37
 	left: 120
 	width: 120
@@ -17,10 +18,15 @@ codeText = Titanium.UI.createTextField
 	paddingLeft: 10
 	returnKeyType: Titanium.UI.RETURNKEY_DONE
 
-introCodeTitle = new root.GenericTitleLabel(0,10,'Do you have a new coupon code?' ).label
+root.codeText.addEventListener 'return', (e) ->
+	Ti.API.info 'Entra en return validar con code = ' + root.codeText.value
+	root.showLoading(root.creditsWindow)
+	root.validateCoupon(root.codeText.value)
+
+introCodeTitle = new root.GenericBlueTitleLabel(5,10,'Do you have a new coupon code?' ).label
 introCode = new root.GenericTextLabel(40,10,'Enter code'+ ': ').label
 
 
 root.newCouponView.add(introCodeTitle)
 root.newCouponView.add(introCode)
-root.newCouponView.add(codeText)
+root.newCouponView.add(root.codeText)

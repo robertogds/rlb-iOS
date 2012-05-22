@@ -1,12 +1,12 @@
 root.xhrRemember = Titanium.Network.createHTTPClient()
 
 root.xhrRemember.onerror = (e) ->
-	root.hideLoading(root.rememberPassView)
+	root.hideLoading(root.rememberPassWindow)
 	root.showError()
 	Ti.API.error(e)
 
 root.xhrRemember.onload = (e) ->
-	root.hideLoading(root.rememberPassView)
+	root.hideLoading(root.rememberPassWindow)
 	response = JSON.parse(this.responseText)
 	if response.status is 200
 		root.rememberPassWindow.close()

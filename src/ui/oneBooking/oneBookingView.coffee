@@ -24,9 +24,9 @@ root.oneBookingTitleLabel = Titanium.UI.createLabel
 		fontSize: 20
 		fontWeight: 'bold'
 
-bookingDataTitle = new root.GenericTitleLabel(50,10,L('bookingData') + ': ').label
-clientTitle  = new root.GenericTitleLabel(220,10,L('clientData')+': ').label
-rememberTitle = new root.GenericTitleLabel(310,10,L('remember')+': ').label
+bookingDataTitle = new root.GenericBlueTitleLabel(50,10,L('bookingData') + ': ').label
+clientTitle  = new root.GenericBlueTitleLabel(220,10,L('clientData')+': ').label
+rememberTitle = new root.GenericBlueTitleLabel(310,10,L('remember')+': ').label
 
 root.oneBookingView.add(headerLabel)
 root.oneBookingView.add(root.oneBookingTitleLabel)

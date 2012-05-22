@@ -7,6 +7,7 @@ root.xhrLogin.onload = (e) ->
 		Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('errorHappened') + '\n' + error}).show()
 	if login.status is 200
 		root.user = login.content
+		#root.user.refererId = undefined
 		Titanium.App.Properties.setString("user",JSON.stringify(root.user))
 		root.loadAccountLabels()
 		root.signInWindow.close() 

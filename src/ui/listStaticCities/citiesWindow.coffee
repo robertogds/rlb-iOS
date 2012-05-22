@@ -1,8 +1,8 @@
 Ti.include(
-#  '/js/zoneCell.js'
-  '/js/cityCell.js'
-  '/js/cityRow.js'
-  '/js/citiesStatic.js'
+	'/js/allCitiesView.js'
+	'/js/cityCell.js'
+	'/js/cityRow.js'
+	'/js/citiesStatic.js'
 )
 
 #root.deactivateCells = (cityName) ->

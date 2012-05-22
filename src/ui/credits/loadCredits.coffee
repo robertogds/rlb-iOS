@@ -1,23 +1,7 @@
-Ti.include('/js/CreditsRow.js')
+root.xhrLoadCredits = Titanium.Network.createHTTPClient()
+root.xhrLoadCredits.setTimeout(15000)
 
-root.footerView = Titanium.UI.createView
-	backgroundColor:'transparent' 
-	borderWidth: 0
-	height:100
-	width:Ti.UI.FILL
-
-root.creditsTable = Titanium.UI.createTableView
-	data: []
-	backgroundColor: 'transparent'
-	separatorColor: '#1b3c50'
-
-root.listCreditsWindow.add(root.creditsTable)
-
-# This will handle the JSON
-root.xhrCredits = Titanium.Network.createHTTPClient()
-root.xhrCredits.setTimeout(15000)
-
-root.xhrCredits.onload = () ->
+root.xhrLoadCredits.onload = () ->
 	Ti.API.info 'Entra en load credits OK'
 	root.listCreditsWindow.remove(root.errorView)
 	Ti.API.info this.responseText
@@ -27,29 +11,27 @@ root.xhrCredits.onload = () ->
 		creditRow = new root.CreditsRow(credit)
 		data.push(creditRow.row)
 	if data.length is 0
-		Ti.API.info '*** ENTRA EN NO HAY CREDITOS'
-		root.listCreditsWindow.add(root.noCreditsView)
 		root.noCreditsView.show()
 	else
-		root.noCreditsView.hide()
 		root.creditsTable.setData(data)
 	root.creditsTable.footerView = root.footerView
 	root.hideLoading(root.listCreditsWindow)
 
-root.xhrCredits.onerror = () ->
+root.xhrLoadCredits.onerror = () ->
 	Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('errorHappened')}).show()
 	root.hideLoading(root.listCreditsWindow)
 	root.showError(root.listCreditsWindow)
 
-root.xhrCredits.timedout = () ->
+root.xhrLoadCredits.timedout = () ->
 	Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('errorHappened')}).show()
 
 root.showCredits = () ->
 	Ti.API.info 'Entra en showCredits'
+	root.noCreditsView.hide()
 	root.showLoading(root.listCreditsWindow)
 	url = root.urlSignature('/user/'+root.user.id+'/coupons')
 	signature = root.doSignature(url)
 	url = url + '/' + signature
-	root.xhrCredits.open('GET',root.url+url)
-	root.xhrCredits.setRequestHeader("Accept-Language",Titanium.Locale.currentLanguage)
-	root.xhrCredits.send()
+	root.xhrLoadCredits.open('GET',root.url+url)
+	root.xhrLoadCredits.setRequestHeader("Accept-Language",Titanium.Locale.currentLanguage)
+	root.xhrLoadCredits.send()
