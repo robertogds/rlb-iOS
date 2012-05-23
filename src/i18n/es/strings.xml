@@ -233,7 +233,7 @@
 	<string name="invite_sounds_good">Invita a tus amigos y les daremos 20€ de regalo para su primera reserva\n\nAdemás tu también recibirás 20€ de regalo cuando realizen su reserva.\n\nSuena bien, verdad</string>
 	<string name="invite_and_win">Invita a tus amigos y gana</string>
 	<string name="register_and_invite">Regístrate e invita a tus amigos</string>
-	<string name="your_balance">Your balance:</string>
+	<string name="your_balance">Tu balance:</string>
 	<string name="credits_invite_hurryup">✓ Créditos diponibles para tu próxima reserva.\n\n✓ Invita a tus amigos y consigue más créditos.\n\n✓ Date Prisa!, los créditos se caducan.</string>
 	<string name="see_credits_history">Ver historial créditos</string>
 	<string name="invite_more_friends">Invita a más amigos</string>
@@ -243,7 +243,7 @@
 	<string name="10_euros_free">10€ Para que te animes</string>
 	<string name="register_free">Regístrate gratis</string>	
 	<string name="coupon_created">Creado</string>
-	<string name="coupon_expire">expireSubtitle</string>
+	<string name="coupon_expire">Expira</string>
 	<string name="invite_friends_to_get_credits">Invita a tus amigos para conseguir créditos y úsalos en tu próxima compra</string>
 	<string name="you_have_no_credits">Todavía no tienes créditos</string>
 	<string name="invite_your_friends">Invita a tus amigos</string>	
