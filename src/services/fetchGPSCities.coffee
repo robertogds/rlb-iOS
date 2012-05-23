@@ -1,6 +1,7 @@
 root.xhrGPSCities = Titanium.Network.createHTTPClient(timeout:15000)
 
 root.xhrGPSCities.onload = () ->
+	root.listCities = []
 	Ti.API.info 'Entra en carga correcto'
 	Ti.API.info(this.responseText)
 	root.citiesLastUpdate = new Date()

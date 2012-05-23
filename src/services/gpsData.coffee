@@ -38,7 +38,7 @@ getNearCity = (lat,lon) ->
 		root.loadDeals(nearCity)
 	else 
 		Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('noDealsGPS')}).show()
-		root.hideLoading(root.citiesWindow)
+		#root.hideLoading(root.citiesWindow)
 
 translateErrorCode = (code) ->
 	if (code == null)
@@ -53,7 +53,6 @@ translateErrorCode = (code) ->
 		when Ti.Geolocation.ERROR_REGION_MONITORING_DELAYED then return "Region monitoring setup delayed"
 
 root.initializeGPS = () ->
-	root.showLoading(root.citiesWindow,'Getting GPS Location')
 	root.isGPS = true
 	if Titanium.Geolocation.locationServicesEnabled is false
 		Ti.API.info 'Entra en geo off'

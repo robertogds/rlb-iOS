@@ -1,6 +1,6 @@
 service = Ti.App.iOS.registerBackgroundService(url:'/js/bg.js')
-root.url = 'http://rlb-back.appspot.com'
-root.surl = 'https://rlb-back.appspot.com'
+root.url = 'http://56.rlb-back.appspot.com'
+root.surl = 'https://56.rlb-back.appspot.com'
 root.faqUrl = root.url+'/info/faq'
 root.termsUrl = root.url+'/info/use_terms'
 #root.url = 'http://192.168.1.33:9000'
@@ -15,7 +15,6 @@ root.fetchCitiesCaller = 'GPS'
 root.osname = Ti.Platform.osname
 # Booleans identifying the platforms are handy too
 root.isAndroid = (root.osname=='android') ? true : false
-
 root.bgGradient =
      type:'linear'
      colors:[{color:'#07151d',position:0.1},{color:'#0d1e28',position:1.0}]
@@ -77,6 +76,7 @@ Ti.include(
 )
 
 # Main Program
+root.showLoading(root.citiesWindow,'Getting GPS Location')
 if root.isLogged()
 	root.loadRefererId()
 
