@@ -2,7 +2,7 @@ class CityHeaderView
 	constructor: (texto) ->
 		@view = Titanium.UI.createView
 			width: Ti.UI.FILL
-			height: 25
+			height: 15
 		
 		textLabel = Titanium.UI.createLabel
 			width: Ti.UI.FILL
@@ -10,17 +10,17 @@ class CityHeaderView
 			textAlign: 'left'
 			borderWidth: 0
 			height: 20
-			color: '#fff'
+			color: '#060426'
 			left: 10
 			font:
-				fontSize: 14
+				fontSize: 12
 				fontWeight: 'bold'
 					
 		headerBarLabel = Titanium.UI.createLabel
 			width: Ti.UI.FILL
 			backgroundGradient:
 				type:'linear'
-				colors:[{color:'#7a92a0',position:0.1},{color:'#a5c4d6',position:1}]
+				colors:[{color:'#fefdc2',position:0.1},{color:'#fdfddf',position:1}]
 			opacity: 0.7
 			color: '#fff'
 			height: 25
