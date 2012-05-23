@@ -1,30 +1,26 @@
-class DealHeaderView
+class CityHeaderView
 	constructor: (texto) ->
 		@view = Titanium.UI.createView
 			width: Ti.UI.FILL
-			#backgroundColor: '#5093b0'
 			height: 25
 		
 		textLabel = Titanium.UI.createLabel
 			width: Ti.UI.FILL
 			text: texto 
-			textAlign: 'center'
+			textAlign: 'left'
 			borderWidth: 0
 			height: 20
 			color: '#fff'
-			#left: 10
+			left: 10
 			font:
 				fontSize: 14
 				fontWeight: 'bold'
 					
 		headerBarLabel = Titanium.UI.createLabel
 			width: Ti.UI.FILL
-			borderWidth: 0
-			#borderColor: 'black'
-			backgroundGradient: root.bgGradient
-			#backgroundGradient:
-			#	type:'linear'
-			#	colors:[{color:'#000000',position:0.1},{color:'#2b5060',position:0.2},{color:'#5093b0',position:1}]
+			backgroundGradient:
+				type:'linear'
+				colors:[{color:'#7a92a0',position:0.1},{color:'#a5c4d6',position:1}]
 			opacity: 0.7
 			color: '#fff'
 			height: 25
@@ -33,4 +29,4 @@ class DealHeaderView
 		@view.add(headerBarLabel)
 		@view.add(textLabel)
 		
-root.DealHeaderView = DealHeaderView
+root.CityHeaderView = CityHeaderView

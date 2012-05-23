@@ -4,7 +4,7 @@ class OtherCityRow
 			hasChild: true
 			height: Ti.UI.SIZE
 			#rightImage: '/images/yellow_arrow.png'
-			backgroundGradient: root.bgGradientTitle
+			backgroundGradient: root.bgGradient
 			city: city
 		cityLabel = Titanium.UI.createLabel
 			text: city.name

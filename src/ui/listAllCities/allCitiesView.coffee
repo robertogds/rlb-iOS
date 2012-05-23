@@ -1,4 +1,7 @@
-Ti.include('/js/OtherCityRow.js')
+Ti.include(
+	'/js/CityHeaderView.js'
+	'/js/OtherCityRow.js'
+)
 
 root.footerView = Titanium.UI.createView
 	backgroundColor:'transparent' 
@@ -14,18 +17,7 @@ root.allCitiesTable = Titanium.UI.createTableView
 root.allCitiesWindow.add(root.allCitiesTable)
 
 root.allCitiesTable.addEventListener 'click', (e) ->
-	#alert 'Entrariamos a ' + e.row.city.name
-	root.loadDeals(e.row.city)
-
-
-#	@cityImage.addEventListener 'click', (e) ->
-#		Ti.API.info '*** Entra en click'
-#		city = e.source.city
-#		cell = root.cell[city.name]	
-#		root.showLoading(root.citiesWindow,L('updatingHotels'))
-#		Ti.API.info '*** LLama a loadDeals'
-#		root.loadDeals(e.source.city)
-	
+	root.loadDeals(e.row.city)	
 
 root.populateCitiesTable = (cities) ->
 	Ti.API.info 'Entra en all cities'
@@ -42,7 +34,7 @@ root.populateCitiesTable = (cities) ->
 				if first isnt true
 					Ti.API.info 'Paso 44' 
 					data.push(section)
-				header = new root.dealHeaderView(city.country)
+				header = new root.CityHeaderView(city.country)
 				Ti.API.info 'Paso 45'
 				first = false
 				section = Titanium.UI.createTableViewSection(headerView: header.view)		

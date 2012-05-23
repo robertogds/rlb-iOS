@@ -14,7 +14,13 @@ getNearCity = (lat,lon) ->
 	R = 6371
 	lowDistance = 1000
 	nearCity = undefined
-	allCities = root.staticCities.concat root.staticOtherCities
+	allcities = []
+	staticCities = root.staticCities.concat root.staticOtherCities
+	Ti.API.info '************** LONG de listCities = ' + root.listCities.length
+	if root.listCities.length > staticCities.length
+		allCities = root.listCities
+	else
+		allCities = staticCities
 	for city in allCities
 		cityLatRad = city.latitude * Math.PI / 180
 		latRad =  lat * Math.PI / 180

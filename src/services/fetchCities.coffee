@@ -1,6 +1,4 @@
 root.xhrCities = Titanium.Network.createHTTPClient()
-root.citiesLastUpdate = undefined
-root.listCities = undefined
 
 root.xhrCities.onload = () ->
 	Ti.API.info 'Entra en carga correcto'
@@ -8,11 +6,8 @@ root.xhrCities.onload = () ->
 	root.citiesLastUpdate = new Date()
 	root.listCities = JSON.parse(this.responseText)
 	if root.listCities.length > 0
-		if root.fetchCitiesCaller is 'GPS'
-			alert 'viene de GPS'
-		else
-			root.hideLoading(root.allCitiesWindow)
-			root.populateCitiesTable(root.listCities)
+		root.hideLoading(root.allCitiesWindow)
+		root.populateCitiesTable(root.listCities)
 
 root.xhrCities.onerror = (e) ->
 	Ti.API.info "Entra en error de ciudades onerror " + e.error
@@ -22,8 +17,7 @@ root.xhrCities.onerror = (e) ->
 	#root.showError(root.citiesWindow)
 
 
-root.fetchCities = (caller)->
-	root.fetchCitiesCaller = caller
+root.fetchCities = ()->
 	Ti.API.info "Entra en get Cities"
 	if Titanium.Network.online is false
 		Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('mustInternet')}).show()
@@ -31,7 +25,7 @@ root.fetchCities = (caller)->
 	else
 		now = new Date()
 		if root.listCities is undefined
-			diffTime =  43200000
+			diffTime =  43300000
 		else
 			diffTime = now.getTime() - root.citiesLastUpdate.getTime()
 			Ti.API.info 'last cities updated: ' + root.citiesLastUpdate.toLocaleDateString() + 'difftime: ' + diffTime
@@ -44,10 +38,7 @@ root.fetchCities = (caller)->
 			root.xhrCities.send()
 		else
 			Ti.API.info "No se necesita cargar ciudades"
-			if root.fetchCitiesCaller is 'GPS'
-				alert 'Viene de GPS'
-			else
-				root.populateCitiesTable(root.listCities)
+			root.populateCitiesTable(root.listCities)
 
 root.mockFetchCities = () ->
 	Ti.API.info "Entra en cargar ciudades estatíco"
