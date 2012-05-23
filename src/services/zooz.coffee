@@ -14,7 +14,7 @@ root.zoozButton.addEventListener 'click',  (e) ->
 			amount: root.cantidadText.value
 			currencyCode: "EUR"
 			appKey: "4b71ac79-9338-4cc0-91ad-220572fd54b3"
-			isSandbox: false
+			isSandbox: true
 			email: ''
 			
 		success: (data) ->

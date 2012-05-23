@@ -59,12 +59,12 @@ root.returnCardType = (number) ->
 root.validateBookingData = () ->
 	return Ti.Locale.getString('errorUser') unless root.user.id > 0
 	return Ti.Locale.getString('errorNoDeal') unless root.deal.id > 0
-	return Ti.Locale.getString('errorCardNumber') if root.returnCardType(root.cardNumberText.value) is 'WRONG'
-	return Ti.Locale.getString('errorCardNumber') unless root.cardNumberText.value.length > 12
-	return Ti.Locale.getString('errorCardName') unless root.cardNameText.value.length > 2
-	return Ti.Locale.getString('errorExpires') unless root.expireMonthText.value.length is 2	
-	return Ti.Locale.getString('errorExpires') unless root.expireYearText.value > 11
-	return Ti.Locale.getString('errorExpires') unless root.expireYearText.value.length is 2
-	return Ti.Locale.getString('errorcvcCode') unless root.cvcCodeText.value.length > 2
-	return Ti.Locale.getString('errorcvcCode') unless root.cvcCodeText.value.length < 5
+	#return Ti.Locale.getString('errorCardNumber') if root.returnCardType(root.cardNumberText.value) is 'WRONG'
+	#return Ti.Locale.getString('errorCardNumber') unless root.cardNumberText.value.length > 12
+	#return Ti.Locale.getString('errorCardName') unless root.cardNameText.value.length > 2
+	#return Ti.Locale.getString('errorExpires') unless root.expireMonthText.value.length is 2	
+	#return Ti.Locale.getString('errorExpires') unless root.expireYearText.value > 11
+	#return Ti.Locale.getString('errorExpires') unless root.expireYearText.value.length is 2
+	#return Ti.Locale.getString('errorcvcCode') unless root.cvcCodeText.value.length > 2
+	#return Ti.Locale.getString('errorcvcCode') unless root.cvcCodeText.value.length < 5
 	return true 

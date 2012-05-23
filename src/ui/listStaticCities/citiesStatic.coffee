@@ -3,8 +3,7 @@ root.citiesTable = Titanium.UI.createTableView
 	backgroundColor: 'transparent'
 	separatorColor: 'transparent'
 	
-if Titanium.Platform.name is 'android'
-	root.citiesTable.setData([Ti.UI.createTableViewRow({title:'Loading...'})])
+root.showLoading(root.citiesWindow,'Getting GPS Location')
 
 root.citiesWindow.add(root.citiesTable)
 

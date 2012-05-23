@@ -1,5 +1,4 @@
-root.xhrGPSCities = Titanium.Network.createHTTPClient()
-root.citiesLastUpdate = 900000
+root.xhrGPSCities = Titanium.Network.createHTTPClient(timeout:15000)
 
 root.xhrGPSCities.onload = () ->
 	Ti.API.info 'Entra en carga correcto'
@@ -20,7 +19,6 @@ if Titanium.Network.online is false
 	Ti.API.info "Error ciudades GPS no hay Internet"
 	root.initializeGPS() 
 else
-	root.xhrGPSCities.setTimeout(15000)
 	root.xhrGPSCities.open('GET', root.url+'/v2/cities')
 	root.xhrGPSCities.setRequestHeader("Accept-Language",Titanium.Locale.currentLanguage)
 	root.xhrGPSCities.send()

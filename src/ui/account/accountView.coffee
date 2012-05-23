@@ -37,7 +37,7 @@ root.loginLabelView.label1.addEventListener 'click', (e) ->
 root.registerLabelView.label1.addEventListener 'click', (e) ->
 	if root.isLogged()
 		Ti.API.info '***** Llama a hacer logout'
-		root.doLogout()
+		root.confirmLogout.show()
 	else
 		root.showNewAccount()
 	

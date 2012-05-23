@@ -66,7 +66,7 @@ root.creditsTab = Titanium.UI.createTab
 	id: 'credits'
 	icon:'icons/ico_credits.png'
 	title:L('credits')
-	badge: ''
+	badge: undefined
 	window: root.creditsWindow
 
 root.optionsTab = Titanium.UI.createTab

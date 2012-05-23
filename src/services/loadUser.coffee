@@ -3,6 +3,7 @@ root.loadUser = () ->
 	if Titanium.App.Properties.hasProperty("user")
 		Ti.API.info 'Tiene user'
 		root.user = JSON.parse(Titanium.App.Properties.getString("user"))
+		root.fetchCreditsAsync()
 	else if Titanium.Facebook.loggedIn
 		Ti.API.info 'Esta logado con facebook'
 		if Titanium.App.Properties.hasProperty("facebookUser")
@@ -16,6 +17,7 @@ root.loadUser = () ->
 			root.user.password = root.facebookUser.rlbPassword
 			root.user.firstName = root.facebookUser.first_name
 			root.user.lastName =  root.facebookUser.last_name
+			root.fetchCreditsAsync()
 		else
 			Ti.API.info 'Esta logado con facebook pero no tenemos datos, hacemos logout'
 			Titanium.Facebook.logout()

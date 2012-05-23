@@ -1,8 +1,8 @@
 root.confirmTable = Titanium.UI.createTableView
 	backgroundColor: '#0d1e28'
 	separatorColor: '#1b3c50'
-	top: 80
-	height: 180
+	top: 140
+	height: 120
 	scrollable: false
 	moving: false
 
@@ -17,17 +17,17 @@ root.confirmTable.addEventListener 'click', (e) ->
 		root.openExtraNights()
 	else if e.row.id is "user"
 		root.tabGroup.activeTab.open(root.bookingForWindow,{animated:true})
-	else if e.row.id is "payment"
-		root.tabGroup.activeTab.open(root.paymentWindow,{animated:true})
+	#else if e.row.id is "payment"
+	#	root.tabGroup.activeTab.open(root.paymentWindow,{animated:true})
 
 userRow = new root.GenericTextRow().row
 userRow.rightImage = '/images/blue_arrow.png'
 userRow.height = 60
 userRow.id = "user"
-paymentRow = new root.GenericTextRow().row
-paymentRow.rightImage =  '/images/blue_arrow.png'
-paymentRow.height = 60
-paymentRow.id = "payment"
+#paymentRow = new root.GenericTextRow().row
+#paymentRow.rightImage =  '/images/blue_arrow.png'
+#paymentRow.height = 60
+#paymentRow.id = "payment"
 root.nightsRow = new root.GenericTextRow().row
 root.nightsRow.rightImage =  '/images/blue_arrow.png'
 root.nightsRow.height = 60
@@ -118,10 +118,10 @@ root.nightsRow.add(root.checkoutLabel)
 userRow.add(bookingForTitleLabel)
 userRow.add(root.bookingForNameLabel)
 userRow.add(root.bookingForEmailLabel)
-paymentRow.add(root.paymentLabel)
+#paymentRow.add(root.paymentLabel)
 
 data = []
 data.push(root.nightsRow)
 data.push(userRow)
-data.push(paymentRow)
+#data.push(paymentRow)
 root.confirmTable.setData(data)

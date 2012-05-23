@@ -6,13 +6,18 @@ root.xhrLogin.onload = (e) ->
 	catch error
 		Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('errorHappened') + '\n' + error}).show()
 	if login.status is 200
+		Ti.API.info 'Paso 1'
 		root.user = login.content
+		Ti.API.info 'Paso 3'
 		#root.user.refererId = undefined
 		Titanium.App.Properties.setString("user",JSON.stringify(root.user))
+		Ti.API.info 'Paso 4'
 		root.loadAccountLabels()
 		root.signInWindow.close() 
 		if root.tabGroup.activeTab.id is 'deals'
-			root.showConfirmBooking()
+			root.fetchCredits()
+		else
+			root.fetchCreditsAsync()
 	else
 		Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:'Error: ' + login.detail}).show()
 	root.hideLoading(root.signInView)

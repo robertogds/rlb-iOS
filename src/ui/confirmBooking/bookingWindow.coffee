@@ -1,6 +1,13 @@
 root.showConfirmBooking = ()->
 	root.hotelLabel.text = root.deal.hotelName
+	root.hotelAddress.text = root.deal.address
 	root.priceLabel.text = root.deal.salePriceCents + ' €' 
+	root.priceFinal = root.deal.salePriceCents - root.totalCredit
+	if root.priceFinal < 0 
+		root.priceFinal = 0
+	root.priceFinalLabel.text = root.priceFinal + ' €'
+	root.priceCreditsLabel.text = root.totalCredit + ' €'
+	
 	root.checkinDate = new Date(root.deal.checkinDate)
 	root.checkoutDate = new Date(root.checkinDate.getTime() + 86400000)
 	root.checkinLabel.text = root.getLocaleDateString(root.checkinDate)
@@ -8,7 +15,7 @@ root.showConfirmBooking = ()->
 	Ti.API.info '*** Abre la pantalla de bookingWindow'	
 	root.tabGroup.activeTab.open(root.confirmBookingWindow,{animated:true})
 
-root.confirmBookingWindow.addEventListener 'focus', (e) ->
+root.confirmBookingWindow.addEventListener 'focus', (e) ->	
 	Ti.API.info 'Entra en confirmBooking'
 	if root.bookingForFirstName is null or root.bookingForFirstName is undefined
 		Ti.API.info 'bookingForFirstName is null'
@@ -31,14 +38,19 @@ root.confirmBookingWindow.addEventListener 'focus', (e) ->
 		root.cvcCodeText.value = root.creditCard.cvc
 	root.priceLabel.text = root.totalPrice + ' €'
 	if root.bookingNights > 1
-		root.totalLabel.text = L('total') + ' ' + root.bookingNights + ' ' + L('nights') + ':' 
+		root.totalLabel.text = L('total') + ' ' + root.bookingNights + ' ' + L('nights')
 	else
-		root.totalLabel.text = L('total') + ' 1 ' + L('night') + ':'
+		root.totalLabel.text = L('total') + ' 1 ' + L('night')
 	root.checkoutLabel.text = root.getLocaleDateString(root.checkoutDate)
 	Ti.API.info "************** " + root.cardNumberText.value
 	if root.cardNumberText.value is null or root.cardNumberText.value < 10 
 		Ti.API.info "************** ENTRA EN NO HAY TIPO DE TARJETA"
 		root.paymentLabel.text = L('noPaymentInfo')
 	else root.paymentLabel.text = L('creditCard') + ':  ' + root.cardTypeLabel.text + '   ' + root.cardNumberText.value
+	root.priceFinal = root.totalPrice - root.totalCredit
+	if root.priceFinal < 0 
+		rot.priceFinal = 0
+	root.priceFinalLabel.text = root.priceFinal + ' €'
+	root.priceCreditsLabel.text = root.totalCredit + ' €'
 	Ti.API.info("Sale bookingWindow focus >>>>>>>>")
 

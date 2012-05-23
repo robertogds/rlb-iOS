@@ -14,9 +14,9 @@ else
 root.creditsWindow.addEventListener 'focus', (e) ->
 	Ti.API.info 'Entra en focus'
 	if root.isLogged()
-		root.creditsWindow.remove(root.noLoginCreditsView)
-		root.fetchCredits()
 		root.showLoading(root.creditsWindow)
+		root.creditsWindow.remove(root.noLoginCreditsView)
+		root.fetchCredits()	
 		root.creditsWindow.add(root.creditsView)
 	else
 		root.creditsWindow.remove(root.creditsView)
