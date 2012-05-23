@@ -38,7 +38,7 @@ getNearCity = (lat,lon) ->
 		root.loadDeals(nearCity)
 	else 
 		Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('noDealsGPS')}).show()
-		#root.hideLoading(root.citiesWindow)
+		root.hideLoading(root.citiesWindow)
 
 translateErrorCode = (code) ->
 	if (code == null)

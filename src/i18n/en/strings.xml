@@ -234,7 +234,7 @@
 	<string name="invite_and_win">Invite your friends and win</string>
 	<string name="register_and_invite">Sign up and get started</string>
 	<string name="your_balance">Your balance</string>
-	<string name="credits_invite_hurryup">✓ Your credits balance is \n\n✓ Use your credits for a hotel tonight or on a future booking.\n\n✓ Credits expire, so use them before you lose them</string>
+	<string name="credits_invite_hurryup">✓ Credits available for your next booking \n\n✓ Use your credits for a hotel tonight or on a future booking.\n\n✓ Credits expire, so use them before you lose them</string>
 	<string name="see_credits_history">View credits activity</string>
 	<string name="invite_more_friends">Invite more friends</string>
 	<string name="have_coupon_code">Have a coupon code?</string>

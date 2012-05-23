@@ -1,4 +1,4 @@
-service = Ti.App.iOS.registerBackgroundService(url:'/js/bg.js')
+#service = Ti.App.iOS.registerBackgroundService(url:'/js/bg.js')
 root.url = 'http://56.rlb-back.appspot.com'
 root.surl = 'https://56.rlb-back.appspot.com'
 root.faqUrl = root.url+'/info/faq'
@@ -27,7 +27,7 @@ Ti.include(
 	'/js/fetchGPSCities.js'
 	'/js/fetchCreditsAsync.js'
 	'/js/mocks.js'
-	'/js/resume.js'
+	#'/js/resume.js'
 	'/js/staticCities.js'
 	'/js/staticOtherCities.js'
 	'/js/staticZones.js'
