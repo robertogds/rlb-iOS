@@ -89,7 +89,7 @@ root.populateDealsZoneTable = (deals) ->
 			Ti.API.info 'Entra en CABECERA'
 			if first isnt true 
 				data.push(section)
-			header = new root.CityHeaderView(city.name)
+			header = new root.DealHeaderView(city.name)
 			first = false
 			section = Titanium.UI.createTableViewSection
 				headerView: header.view		
