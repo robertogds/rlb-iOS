@@ -241,5 +241,10 @@
 	<string name="enter_code">Escribe el código:</string>
 	<string name="use_first_free_coupon">Sólo por ser tú, usa el código RLB cuadno te hayas registrado y te regalamos 10 € para que hagas tu primera reserva.\n\nAdemás podrás conseguir más créditos invitando a tus amigos desde tu cuenta.</string>
 	<string name="10_euros_free">10 € Para que te animes</string>
-	<string name="register_free">Regístrate gratis</string>		
+	<string name="register_free">Regístrate gratis</string>	
+	<string name="coupon_created">Creado</string>
+	<string name="coupon_expire">expireSubtitle</string>
+	<string name="invite_friends_to_get_credits">Invita a tus amigos para conseguir créditos y úsalos en tu próxima compra</string>
+	<string name="you_have_no_credits">Todavía no tienes créditos</string>
+	<string name="invite_your_friends">Invita a tus amigos</string>	
 </resources>

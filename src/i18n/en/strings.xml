@@ -222,14 +222,14 @@
 	<string name="doubleRoom">Double</string>
 	<string name="credits">Credits</string>
 	<string name="invite">Invite</string>
-	<string name="shareandwin">¡Comparte y gana!</string>
-	<string name="use_code">Usa tu código personal: </string>
-	<string name="reward_friend">✓ Le daremos 20€ a tus amigos que se registren y canjeen tu código\n\n✓ Además te daremos 20€ cuando haga su primera reserva.</string>
-	<string name="invite_fb">Invita via Facebook</string>
-	<string name="invite_twitter">Invita via Twitter</string>
-	<string name="invite_email">Invita via Email</string>
-	<string name="friend_gift">%s te regala 20€ en RLB</string>
-	<string name="im_using_rlb">Hola, estoy usando RLB y quiero creo que te puede interesar, descarga la app y usa mi código...</string>
+	<string name="shareandwin">Spread the wealth</string>
+	<string name="use_code">Give friends your invite code: </string>
+	<string name="reward_friend">✓ They get 20€ on sign-up\n\n✓ You get 20€ when they book their first room.</string>
+	<string name="invite_fb">Invite via Facebook</string>
+	<string name="invite_twitter">Invite via Twitter</string>
+	<string name="invite_email">Invite via Email</string>
+	<string name="friend_gift">%s gave you 20€ to try RLB</string>
+	<string name="im_using_rlb">Hi, I've been using ReallyLateBooking for amazing same-day hotel deals, and I think you should, too!</string>
 	<string name="invite_sounds_good">Invita a tus amigos y les daremos 20€ de regalo para su primera reserva\n\nAdemás tu también recibirás 20€ de regalo cuando realizen su reserva.\n\nSuena bien, verdad</string>
 	<string name="invite_and_win">Invita a tus amigos y gana</string>
 	<string name="register_and_invite">Regístrate e invita a tus amigos</string>
@@ -242,4 +242,9 @@
 	<string name="use_first_free_coupon">Sólo por ser tú, usa el código RLB cuadno te hayas registrado y te regalamos 10 € para que hagas tu primera reserva.\n\nAdemás podrás conseguir más créditos invitando a tus amigos desde tu cuenta.</string>
 	<string name="10_euros_free">10 € Para que te animes</string>
 	<string name="register_free">Regístrate gratis</string>
+	<string name="coupon_created">Creado</string>
+	<string name="coupon_expire">expireSubtitle</string>
+	<string name="invite_friends_to_get_credits">Invita a tus amigos para conseguir créditos y úsalos en tu próxima compra</string>
+	<string name="you_have_no_credits">Todavía no tienes créditos</string>
+	<string name="invite_your_friends">Invita a tus amigos</string>
 </resources>
