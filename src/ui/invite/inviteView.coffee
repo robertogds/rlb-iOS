@@ -3,16 +3,16 @@ root.inviteView = Titanium.UI.createView
 	width: '100%'
 	background: 'transparent'
 
-inviteTitle = new root.GenericTitleLabel(10,10,'Comparte y gana!' ).label
-codeText = new root.GenericTextLabel(50,10,'Usa tu código personal: ').label
+inviteTitle = new root.GenericTitleLabel(10,10, L('shareandwin') ).label
+codeText = new root.GenericTextLabel(50,10, L('use_code')).label
 
 root.codeLabel = new root.GenericBlueTitleLabel(70,10,'').label
-explainText = new root.GenericTextLabel(110,10,'✓ Le daremos 20€ a tus amigos que se registren y canjeen tu código\n\n✓ Además te daremos 20€ cuando haga su primera reserva.').label
+explainText = new root.GenericTextLabel(110,10, L('reward_friend')).label
 
 optionsMenu = new root.GenericMenuTable(220,3)
-facebookRow = new root.GenericRow('Invite via Facebook')
-twitterRow = new root.GenericRow('Invite via Twitter')
-emailRow = new root.GenericRow('Invite via Email')
+facebookRow = new root.GenericRow( L('invite_fb'))
+twitterRow = new root.GenericRow( L('invite_twitter'))
+emailRow = new root.GenericRow( L('invite_email'))
 
 optionsMenu.section.add(facebookRow.row)
 optionsMenu.section.add(twitterRow.row)
@@ -32,8 +32,8 @@ twitterRow.label.addEventListener 'click', (e) ->
 
 emailRow.label.addEventListener 'click', (e) ->
 	emailDialog = Titanium.UI.createEmailDialog()
-	emailDialog.subject = 'Roberto te regala 20€ en RLB'
-	emailDialog.messageBody = 'Hola, estoy usando RLB y quiero creo que te puede interesar, descarga la app y usa mi código...'
+	emailDialog.subject = String.format(L('friend_gift'), root.user.firstName)
+	emailDialog.messageBody =  L('im_using_rlb')
 	emailDialog.open()
 
 root.inviteView.add(inviteTitle)

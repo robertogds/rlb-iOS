@@ -23,8 +23,8 @@ root.codeText.addEventListener 'return', (e) ->
 	root.showLoading(root.creditsWindow)
 	root.validateCoupon(root.codeText.value)
 
-introCodeTitle = new root.GenericBlueTitleLabel(5,10,'Do you have a new coupon code?' ).label
-introCode = new root.GenericTextLabel(40,10,'Enter code'+ ': ').label
+introCodeTitle = new root.GenericBlueTitleLabel(5,10,L('have_coupon_code') ).label
+introCode = new root.GenericTextLabel(40,10,L('enter_code')).label
 
 
 root.newCouponView.add(introCodeTitle)

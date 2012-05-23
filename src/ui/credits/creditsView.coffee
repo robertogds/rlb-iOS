@@ -10,12 +10,12 @@ root.explainCreditsView = Titanium.UI.createView
 	top: 160
 	
 
-explainText = new root.GenericTextLabel(10,10,'✓ Créditos diponibles para tu próxima reserva.\n\n✓ Invita a tus amigos y consigue más créditos.\n\n✓ Date Prisa!, los créditos se caducan.').label
+explainText = new root.GenericTextLabel(10,10, L('credits_invite_hurryup')).label
 root.explainCreditsView.add(explainText)
 
 optionsMenu = new root.GenericMenuTable(110,2)
-historyRow = new root.GenericRow('Ver historial créditos')
-inviteRow = new root.GenericRow('Invita a más amigos')
+historyRow = new root.GenericRow(L('see_credits_history'))
+inviteRow = new root.GenericRow(L('invite_more_friends'))
 
 optionsMenu.section.add(historyRow.row)
 optionsMenu.section.add(inviteRow.row)

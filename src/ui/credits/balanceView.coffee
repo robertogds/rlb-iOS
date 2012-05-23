@@ -10,14 +10,14 @@ root.balanceView = Titanium.UI.createView
 balanceTitle2 = Titanium.UI.createLabel
 	top:25
 	height: Ti.UI.SIZE
-	text: 'Your balance:'
+	text: L('your_balance')
 	color: '#868d92'
 	font:
 		fontSize: 22
 		fontWeight: 'bold'
 	left: 10
 
-balanceTitle = new root.GenericBlueTitleLabel(25,10,'Your balance:' ).label
+balanceTitle = new root.GenericBlueTitleLabel(25,10,L('your_balance') ).label
 
 root.balanceLabel = Titanium.UI.createLabel
 	text: 'ERR'

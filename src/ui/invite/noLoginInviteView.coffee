@@ -1,14 +1,14 @@
 root.noLoginInviteView = Titanium.UI.createView
 	backgroundImage: '/images/Texture.jpg'
 
-logoutText = 'Invita a tus amigos y les daremos 20€ de regalo para su primera reserva\n\nAdemás tu también recibirás 20€ de regalo cuando realizen su reserva.\n\nSuena bien, verdad?'
-titleText = 'Invita a tus amigos y gana'
+logoutText = L('invite_sounds_good')
+titleText = L('invite_and_win')
 
 noInviteTextView =  new root.GenericTextView(5,titleText,logoutText).view
 
 
 enterMenu = new root.GenericMenuTable(300,1)
-enterRow = new root.GenericRow('Regístrate e invita a tus amigos')
+enterRow = new root.GenericRow(L('register_and_invite'))
 
 enterMenu.section.add(enterRow.row)
 
