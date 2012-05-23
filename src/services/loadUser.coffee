@@ -19,10 +19,12 @@ root.loadUser = () ->
 		else
 			Ti.API.info 'Esta logado con facebook pero no tenemos datos, hacemos logout'
 			Titanium.Facebook.logout()
+			root.creditsTab.badge = '+10'
 	else
 		Ti.API.info 'No tiene ni user ni esta logado con facebook, borramos todo'
 		Titanium.App.Properties.removeProperty("user")
 		Titanium.App.Properties.removeProperty("facebookUser")
+		root.creditsTab.badge = '+10'
 		
 root.loadRefererId = () ->
 	Ti.API.info '*** Entra en refererId'
