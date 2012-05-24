@@ -228,8 +228,10 @@
 	<string name="invite_fb">Invita via Facebook</string>
 	<string name="invite_twitter">Invita via Twitter</string>
 	<string name="invite_email">Invita via Email</string>
-	<string name="friend_gift">%s te regala 20€ en RLB</string>
-	<string name="im_using_rlb">Hola, estoy usando RLB y quiero creo que te puede interesar, descarga la app y usa mi código...</string>
+	<string name="invite_facebook_body">Prueba ReallyLateBooking, la mejor app para reservar hoteles en el mismo día.\nUsa el código %s y te llevas 20€ para gastar en tu próxima reserva.</string>
+	<string name="invite_twitter_body">Te regalo 20€ para reservar tu hotel en ReallyLateBooking, usa el código %s http://www.reallylatebooking.com</string>
+	<string name="invite_email_body">Hola,\nTe invito a probar ReallyLateBooking, una app para reservar hoteles en el último minuto desde tu móvil con grandes descuentos, usa el código %s y te llevas 20€ de regalo en tu primera reserva: http://reallylatebooking.com</string>	
+	<string name="invite_email_subject">Te regalo 20€ en RLB</string>
 	<string name="invite_sounds_good">Invita a tus amigos y les daremos 20€ de regalo para su primera reserva\n\nAdemás tu también recibirás 20€ de regalo cuando realizen su reserva.\n\nSuena bien, verdad</string>
 	<string name="invite_and_win">Invita a tus amigos y gana</string>
 	<string name="register_and_invite">Regístrate e invita a tus amigos</string>
@@ -246,5 +248,7 @@
 	<string name="coupon_expire">Expira</string>
 	<string name="invite_friends_to_get_credits">Invita a tus amigos para conseguir créditos y úsalos en tu próxima compra</string>
 	<string name="you_have_no_credits">Todavía no tienes créditos</string>
-	<string name="invite_your_friends">Invita a tus amigos</string>	
+	<string name="invite_your_friends">Invita a tus amigos</string>
+	<string name="view_all_cities">Ver todas las ciudades</string>
+	<string name="sure_logout">No podrás reservar ni usar tus créditos sin estar conectado.\n¿Estás seguro que quieres desconectar?</string>	
 </resources>

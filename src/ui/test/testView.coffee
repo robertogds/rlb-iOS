@@ -6,5 +6,4 @@ rlbTeamImage = Titanium.UI.createImageView
 
 root.testView.add(rlbTeamImage)
 root.testWindow.add(root.testView)
-#root.testView.add(root.zoozButton)
 

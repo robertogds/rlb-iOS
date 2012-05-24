@@ -34,7 +34,7 @@ root.fetchCredits = () ->
 		root.creditsLastUpdate = new Date()
 	diffTime = now.getTime() - root.creditsLastUpdate.getTime() 
 	Ti.API.info 'FetchCredits -- La diferencia es ' + diffTime
-	if root.credits is undefined or diffTime > 5000 
+	if root.credits is undefined or diffTime > 10000 
 		Ti.API.info 'Es necesario actualizar'
 		url = root.urlSignature('/user/'+root.user.id+'/coupons')
 		signature = root.doSignature(url)

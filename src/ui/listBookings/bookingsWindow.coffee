@@ -1,6 +1,7 @@
 Ti.include(
-  '/js/bookingsTable.js'
-  '/js/noBookingsView.js'
+	'/js/bookingsTable.js'
+	'/js/noBookingsView.js'
+	'/js/bookingsPullRefresh.js'
 )
 
 

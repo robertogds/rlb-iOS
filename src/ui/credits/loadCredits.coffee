@@ -1,5 +1,4 @@
-root.xhrLoadCredits = Titanium.Network.createHTTPClient()
-root.xhrLoadCredits.setTimeout(15000)
+root.xhrLoadCredits = Titanium.Network.createHTTPClient(timeout: 15000)
 
 root.xhrLoadCredits.onload = () ->
 	Ti.API.info 'Entra en load credits OK'

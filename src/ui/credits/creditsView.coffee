@@ -24,7 +24,7 @@ historyRow.label.addEventListener 'click', (e) ->
 	root.tabGroup.activeTab.open(root.listCreditsWindow,{animated:true})
 
 inviteRow.label.addEventListener 'click', (e) ->
-	root.tabGroup.activeTab.open(root.supportWindow,{animated:true})
+	root.tabGroup.setActiveTab(2)
 
 root.explainCreditsView.add(optionsMenu.view)
 

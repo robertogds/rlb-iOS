@@ -19,12 +19,12 @@ class CityCell
 			cityName: L('more_cities')
 		
 		moreCitiesLabel = Titanium.UI.createLabel
-			text: L('more_cities')
-			width: 107
+			text: L('view_all_cities')
+			width: '90%'
 			textAlign: 'center'
 			height: 107
 			top: 0
-			color: 'white'
+			color: '#d3d3d3'
 			font:
 				fontSize: 16
 				fontWeight: 'bold'

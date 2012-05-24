@@ -1,4 +1,4 @@
-root.confirmLogout = Ti.UI.createAlertDialog({title:L('confirm'),message:'Estas seguro de hacer logout\nNo podrás reservar sin estar logado en tu cuenta',cancel:1,buttonNames: ['Confirm', 'Cancel']})
+root.confirmLogout = Ti.UI.createAlertDialog({title:L('confirm'),message:L('sure_logout'),cancel:1,buttonNames: ['Confirm', 'Cancel']})
 root.confirmLogout.addEventListener 'click', (e) ->
 	Ti.API.info e
 	if e.index is 1 

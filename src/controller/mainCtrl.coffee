@@ -9,6 +9,7 @@ root.country = 'spain'
 root.countriesDate = new Date()
 root.creditsLastUpdate = new Date(90000)
 root.citiesLastUpdate = new Date(900000)
+root.bookingsLastUpdate = new Date(900000)
 root.cell = {}
 root.listCities = []
 root.fetchCitiesCaller = 'GPS'
@@ -53,6 +54,7 @@ Ti.include(
 	'/js/GenericSubtitleLabel.js'
 	'/js/GenericMapRightButtonView.js'
 	'/js/GenericAndroidTab.js'
+	'/js/PullRefreshHeader.js'
 	'/js/errorView.js'
 	'/js/loadingView.js'
 	'/js/application.js'

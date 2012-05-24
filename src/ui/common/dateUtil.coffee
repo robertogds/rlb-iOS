@@ -1,3 +1,8 @@
+root.formatDate = () ->
+  datestr = String.formatDate(new Date())
+  timestr = String.formatTime(new Date())
+  return datestr + ' ' + timestr
+
 root.getDayOfWeekString = (thisDate)->
   thisDay = thisDate.getDay()
   switch thisDay

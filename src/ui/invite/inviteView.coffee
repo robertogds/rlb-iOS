@@ -10,31 +10,13 @@ root.codeLabel = new root.GenericBlueTitleLabel(70,10,'').label
 explainText = new root.GenericTextLabel(110,10, L('reward_friend')).label
 
 optionsMenu = new root.GenericMenuTable(220,3)
-facebookRow = new root.GenericRow( L('invite_fb'))
-twitterRow = new root.GenericRow( L('invite_twitter'))
-emailRow = new root.GenericRow( L('invite_email'))
+root.inviteFacebookRow = new root.GenericRow( L('invite_fb'))
+root.inviteTwitterRow = new root.GenericRow( L('invite_twitter'))
+root.inviteEmailRow = new root.GenericRow( L('invite_email'))
 
-optionsMenu.section.add(facebookRow.row)
-optionsMenu.section.add(twitterRow.row)
-optionsMenu.section.add(emailRow.row)
-
-facebookRow.label.addEventListener 'click', (e) ->
-	root.sharekit.share
-		title: 'ReallyLateBooking'
-		text: L('shareRLBFacebook')
-		sharer: 'Facebook'
-
-twitterRow.label.addEventListener 'click', (e) ->
-	root.sharekit.share
-		title: 'ReallyLateBooking'
-		text: L('shareRLBTwitter')
-		sharer: 'Twitter'
-
-emailRow.label.addEventListener 'click', (e) ->
-	emailDialog = Titanium.UI.createEmailDialog()
-	emailDialog.subject = String.format(L('friend_gift'), root.user.firstName)
-	emailDialog.messageBody =  L('im_using_rlb')
-	emailDialog.open()
+optionsMenu.section.add(root.inviteFacebookRow.row)
+optionsMenu.section.add(root.inviteTwitterRow.row)
+optionsMenu.section.add(root.inviteEmailRow.row)
 
 root.inviteView.add(inviteTitle)
 root.inviteView.add(codeText)

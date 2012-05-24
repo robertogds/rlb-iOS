@@ -1,10 +1,11 @@
 Ti.include('/js/BookingsRow.js')
+Ti.include('/js/fetchBookings.js')
 
 root.footerView = Titanium.UI.createView
 	backgroundColor:'transparent' 
 	borderWidth: 0
 	height:100
-	width:320
+	width:'100%'
 
 root.bookingsTable = Titanium.UI.createTableView
 	data: []
@@ -18,12 +19,7 @@ root.bookingsTable.addEventListener 'click', (e) ->
 	root.showOneBookingView(e.row.booking)
 	root.tabGroup.activeTab.open(root.oneBookingWindow,{animated:true})
 
-# This will handle the JSON
-root.xhrBookings = Titanium.Network.createHTTPClient()
-
-root.xhrBookings.onload = () ->
-	root.bookingsWindow.remove(root.errorView)
-	bookings = JSON.parse(this.responseText)
+root.populateBookingsTable = (bookings) ->
 	data = []
 	for booking in bookings
 		bookingRow = new root.BookingsRow(booking)
@@ -34,7 +30,7 @@ root.xhrBookings.onload = () ->
 				fontSize: 12
 				fontWeight: 'bold'
 			left: 10
-			height: 30
+			height: 40
 		bookingRow.row.add(bookingLabel)
 		data.push(bookingRow.row)
 	if data.length is 0
@@ -43,22 +39,3 @@ root.xhrBookings.onload = () ->
 		root.bookingsTable.setData(data)
 	root.bookingsTable.footerView = root.footerView
 	root.hideLoading(root.bookingsWindow)
-
-root.xhrBookings.onerror = () ->
-	Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('errorHappened')}).show()
-	root.hideLoading(root.bookingsWindow)
-	root.showError(root.bookingsWindow)
-
-root.xhrBookings.timedout = () ->
-	Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('errorHappened')}).show()
-
-root.showBookings = () ->
-	Ti.API.info 'Entra en showBookings'
-	root.noBookingsView.hide()
-	root.showLoading(root.bookingsWindow)
-	url = root.urlSignature('/user/'+root.user.id+'/bookings')
-	signature = root.doSignature(url)
-	url = url + '/' + signature
-	root.xhrBookings.open('GET',root.url+url)
-	root.xhrBookings.setRequestHeader("Accept-Language",Titanium.Locale.currentLanguage)
-	root.xhrBookings.send()

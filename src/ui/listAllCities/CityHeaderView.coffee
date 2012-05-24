@@ -20,7 +20,7 @@ class CityHeaderView
 			width: Ti.UI.FILL
 			backgroundGradient:
 				type:'linear'
-				colors:[{color:'#fefdc2',position:0.1},{color:'#fdfddf',position:1}]
+				colors:[{color:'#c2dbfe',position:0.1},{color:'#e2ecfa',position:1}]
 			opacity: 0.7
 			color: '#fff'
 			height: 25
