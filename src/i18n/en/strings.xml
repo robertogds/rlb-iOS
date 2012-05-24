@@ -250,5 +250,5 @@
 	<string name="invite_your_friends">Invite your friends</string>
 	<string name="view_all_cities">View all cities</string>
 	<string name="sure_logout">You need to be logged in to book hotels and use your credits. Do you really want to log out?</string>
-	
+	<string name="creditsActivity">Credits Activity</string>
 </resources>
