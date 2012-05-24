@@ -8,7 +8,7 @@ root.codeText = Titanium.UI.createTextField
 	backgroundColor: '#fff'
 	#autocapitalization: Ti.UI.TEXT_AUTOCAPITALIZATION_ALL
 	top: 37
-	left: 120
+	left: 140
 	width: 120
 	height: 20
 	borderRadius: 8

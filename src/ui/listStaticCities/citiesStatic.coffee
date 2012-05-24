@@ -6,11 +6,18 @@ root.citiesTable = Titanium.UI.createTableView
 
 root.citiesWindow.add(root.citiesTable)
 
+icon = Ti.UI.createView
+	backgroundImage:'/icons/gps.png'
+	#width:24
+	#height:24
+
 gpsButton = Titanium.UI.createButton
 	title: 'GPS'
 
 gpsButton.addEventListener 'click', (e) ->
+	root.showLoading(root.citiesWindow,'Getting GPS Location')
 	root.initializeGPS()
+	
 
 root.citiesWindow.rightNavButton = gpsButton
 

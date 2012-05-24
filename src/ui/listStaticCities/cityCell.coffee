@@ -16,10 +16,10 @@ class CityCell
 			visible: false
 			top: 0
 			left: left
-			cityName: 'More Cities'
+			cityName: L('more_cities')
 		
 		moreCitiesLabel = Titanium.UI.createLabel
-			text: 'Ver Más Ciudades'
+			text: L('more_cities')
 			width: 107
 			textAlign: 'center'
 			height: 107

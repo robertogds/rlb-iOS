@@ -7,7 +7,6 @@ root.xhrFetchUser.onload = (e) ->
 	if response.status is 200
 		Ti.API.info '*********** ENTRA EN FETCH USER CON REFERERID = ' + response.refererId
 		root.user = response.content
-		alert root.user.refererId
 		Titanium.App.Properties.setString("user",JSON.stringify(root.user))
 
 root.xhrFetchUser.onerror = (e) ->

@@ -101,7 +101,7 @@ root.staticOtherCities = [
 	{
 		'name' : 'more'
 		'url' : 'more'
-		#'image' : '/images/Texture.jpg'
+		#'image' : '/icons/plus.png'
 		'hasZones' : false	
 		'latitude' : '0'
 		'longitude' : '0'	
