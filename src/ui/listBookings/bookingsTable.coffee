@@ -23,21 +23,21 @@ root.bookingsTable.addEventListener 'click', (e) ->
 
 root.populateBookingsTable = (bookings) ->
 	data = []
-	for booking in bookings
-		bookingRow = new root.BookingsRow(booking)
-		bookingLabel = Titanium.UI.createLabel
-			text: booking.checkinDate + '   '  + booking.hotelName +  '    ' + booking.salePriceCents + '€' 
-			color: '#fff'
-			font:
-				fontSize: 12
-				fontWeight: 'bold'
-			left: 10
-			height: 40
-		bookingRow.row.add(bookingLabel)
-		data.push(bookingRow.row)
-	if data.length is 0
+	if bookings.length is undefined or bookings.length < 1
 		root.noBookingsView.show()
 	else
+		for booking in bookings
+			bookingRow = new root.BookingsRow(booking)
+			bookingLabel = Titanium.UI.createLabel
+				text: booking.checkinDate + '   '  + booking.hotelName +  '    ' + booking.salePriceCents + '€' 
+				color: '#fff'
+				font:
+					fontSize: 12
+					fontWeight: 'bold'
+				left: 10
+				height: 50
+			bookingRow.row.add(bookingLabel)
+			data.push(bookingRow.row)
 		root.bookingsTable.setData(data)
 	root.bookingsTable.footerView = root.footerView
 	root.hideLoading(root.bookingsWindow)

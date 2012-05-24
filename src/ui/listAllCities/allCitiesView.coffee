@@ -17,6 +17,7 @@ root.allCitiesTable = Titanium.UI.createTableView
 root.allCitiesWindow.add(root.allCitiesTable)
 
 root.allCitiesTable.addEventListener 'click', (e) ->
+	root.showLoading(root.allCitiesWindow,L('updatingHotels'))
 	root.loadDeals(e.row.city)	
 
 root.populateCitiesTable = (cities) ->

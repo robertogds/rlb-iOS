@@ -6,7 +6,7 @@ reloading = false
 
 beginReloading = () ->
 	root.reloadBookings = true
-	root.showBookings()
+	root.fetchBookingsConnect()
 	setTimeout(endReloading,3000)
 
 endReloading = () ->

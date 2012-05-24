@@ -25,8 +25,8 @@ root.oneBookingTitleLabel = Titanium.UI.createLabel
 		fontWeight: 'bold'
 
 bookingDataTitle = new root.GenericBlueTitleLabel(50,10,L('bookingData') + ': ').label
-clientTitle  = new root.GenericBlueTitleLabel(220,10,L('clientData')+': ').label
-rememberTitle = new root.GenericBlueTitleLabel(310,10,L('remember')+': ').label
+clientTitle  = new root.GenericBlueTitleLabel(245,10,L('clientData')+': ').label
+rememberTitle = new root.GenericBlueTitleLabel(335,10,L('remember')+': ').label
 
 root.oneBookingView.add(headerLabel)
 root.oneBookingView.add(root.oneBookingTitleLabel)
@@ -41,12 +41,13 @@ nightsSubtitle = new root.GenericSubtitleLabel(140,10,L('nights') + ': ').label
 regimenSubtitle = new root.GenericSubtitleLabel(160,10,L('regime') + ': ').label
 regularPriceSubtitle = new root.GenericSubtitleLabel(180,10,L('regularPrice')+': ').label
 salePriceSubtitle = new root.GenericSubtitleLabel(200,10,L('salePrice')+': ').label
-firstNameSubtitle = new root.GenericSubtitleLabel(250,10,L('firstName')+': ').label
-lastNameSubtitle = new root.GenericSubtitleLabel(270,10,L('lastName')+': ').label
-emailSubtitle = new root.GenericSubtitleLabel(290,10,L('email')+': ').label
+creditsSubtitle = new root.GenericSubtitleLabel(220,10,L('credits')+': ').label
+firstNameSubtitle = new root.GenericSubtitleLabel(270,10,L('firstName')+': ').label
+lastNameSubtitle = new root.GenericSubtitleLabel(290,10,L('lastName')+': ').label
+emailSubtitle = new root.GenericSubtitleLabel(310,10,L('email')+': ').label
 
 
-remember1 = new root.GenericTextLabel(340,10,L('bookPaid')).label
+remember1 = new root.GenericTextLabel(360,10,L('bookPaid')).label
 
 root.oneBookingView.add(hotelSubtitle)
 root.oneBookingView.add(addressSubtitle)
@@ -55,6 +56,7 @@ root.oneBookingView.add(nightsSubtitle)
 root.oneBookingView.add(regimenSubtitle)
 root.oneBookingView.add(regularPriceSubtitle)
 root.oneBookingView.add(salePriceSubtitle)
+root.oneBookingView.add(creditsSubtitle)
 root.oneBookingView.add(firstNameSubtitle)
 root.oneBookingView.add(lastNameSubtitle)
 root.oneBookingView.add(emailSubtitle)
@@ -82,11 +84,14 @@ root.showOneBookingView = (@booking) ->
 	roomType = new root.GenericTextLabel(120,100,L('double')).label
 	nights = new root.GenericTextLabel(140,100,booking.nights).label
 	regimen = new root.GenericTextLabel(160,100,regimenText).label
-	regularPrice = new root.GenericTextLabel(180,100,booking.priceCents+ '€ ').label
-	salePrice = new root.GenericTextLabel(200,100,booking.salePriceCents+ '€ ').label
-	firstName = new root.GenericTextLabel(250,100,booking.bookingForFirstName).label
-	lastName = new root.GenericTextLabel(270,100,booking.bookingForLastName).label
-	email = new root.GenericTextLabel(290,100,booking.bookingForEmail).label
+	regularPrice = new root.GenericTextLabel(180,100,booking.priceCents + '€ ').label
+	salePrice = new root.GenericTextLabel(200,100,booking.salePriceCents + '€ ').label
+	if booking.credits is undefined
+		booking.credits = 0
+	credits = new root.GenericTextLabel(220,100,booking.credits + '€ ').label
+	firstName = new root.GenericTextLabel(270,100,booking.bookingForFirstName).label
+	lastName = new root.GenericTextLabel(290,100,booking.bookingForLastName).label
+	email = new root.GenericTextLabel(310,100,booking.bookingForEmail).label
 	title = L('booking') + ' : ' + booking.code
 	root.oneBookingTitleLabel.text = title
 	text = L('hotel')+': ' + booking.hotelName + '\n'+L('checkin')+': ' + booking.checkinDate + '\n'
@@ -100,6 +105,7 @@ root.showOneBookingView = (@booking) ->
 	root.oneBookingDataView.add(regimen)
 	root.oneBookingDataView.add(regularPrice)
 	root.oneBookingDataView.add(salePrice)
+	root.oneBookingDataView.add(credits)
 	root.oneBookingDataView.add(firstName)
 	root.oneBookingDataView.add(lastName)
 	root.oneBookingDataView.add(email)

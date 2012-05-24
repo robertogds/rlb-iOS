@@ -6,7 +6,7 @@ reloading = false
 
 beginReloading = () ->
 	root.reloadcredits = true
-	root.showCredits()
+	root.showCreditsConnect()
 	setTimeout(endReloading,3000)
 
 endReloading = () ->

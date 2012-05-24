@@ -4,6 +4,7 @@ Ti.include(
 	'/js/balanceView.js'
 	'/js/creditsView.js'
 	'/js/noLoginCreditsView.js'
+	'/js/fetchCredits.js'
 )
 
 if root.isLogged()

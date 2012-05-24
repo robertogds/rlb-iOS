@@ -1,3 +1,8 @@
+root.blockView = Titanium.UI.createView
+	backgroundColor: 'transparent'
+	height: '100%'
+	witdh: '100%'
+	
 root.loadingView = Titanium.UI.createView
   backgroundColor: '#000'
   borderWidth: 0
@@ -32,6 +37,7 @@ root.androidActInd = Titanium.UI.createActivityIndicator
 
 root.loadingView.add(root.loadLabel)
 root.loadingView.add(root.iphoneActInd)
+root.blockView.add(root.loadingView)
 root.iphoneActInd.show()
 
 root.showLoading = (window,text) ->
@@ -42,13 +48,13 @@ root.showLoading = (window,text) ->
   if (Titanium.Platform.name == 'android') 
     root.androidActInd.show()
   else
-    window.add(root.loadingView)
+    window.add(root.blockView)
 
 
 root.hideLoading = (window) ->
   if (Titanium.Platform.name == 'android') 
     root.androidActInd.hide()  
   else
-    window.remove(root.loadingView)
+    window.remove(root.blockView)
     
 

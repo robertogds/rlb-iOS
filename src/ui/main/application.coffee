@@ -83,10 +83,3 @@ root.tabGroup.addTab(root.optionsTab)
 
 root.tabGroup.open()
 
-
-root.showError = (window) ->
-	if window is undefined
-		window = Titanium.UI.currentWindow
-	root.errorWindow = window
-	window.add(root.errorView)
-

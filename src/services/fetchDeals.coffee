@@ -3,12 +3,14 @@ root.xhrDeals = Titanium.Network.createHTTPClient()
 root.xhrDeals.onload = () ->
 	Ti.API.info "****** en fetchdeals obtenemos: " + this.responseText
 	root.hideLoading(root.citiesWindow)
+	root.hideLoading(root.allCitiesWindow)
 	deals = JSON.parse(this.responseText)
 	if deals.status is undefined 
 		root.showDeals(deals)
 
 root.xhrDeals.onerror = () ->
 	root.hideLoading(root.citiesWindow)
+	root.hideLoading(root.allCitiesWindow)
 	Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('errorHappened')}).show()
 	root.hideLoading(root.listDealsWindow)
 	root.showError(root.citiesWindow)
