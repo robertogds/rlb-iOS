@@ -1,6 +1,5 @@
 root.noBookingsView = Titanium.UI.createView
 	backgroundImage: '/images/Texture.jpg'
-	#width:320
 
 title = L('bookingTonight')
 text = L('yetNoBook')

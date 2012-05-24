@@ -1,5 +1,7 @@
-Ti.include('/js/BookingsRow.js')
-Ti.include('/js/fetchBookings.js')
+Ti.include(
+	'/js/BookingsRow.js'
+	'/js/fetchBookings.js'
+)
 
 root.footerView = Titanium.UI.createView
 	backgroundColor:'transparent' 

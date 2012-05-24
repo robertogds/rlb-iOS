@@ -30,12 +30,9 @@ root.populateCitiesTable = (cities) ->
 		if city.isRoot
 			cityRow = new root.OtherCityRow(city)
 			if city.country isnt lastName 
-				Ti.API.info 'Paso 42'
 				if first isnt true
-					Ti.API.info 'Paso 44' 
 					data.push(section)
 				header = new root.CityHeaderView(city.country)
-				Ti.API.info 'Paso 45'
 				first = false
 				section = Titanium.UI.createTableViewSection(headerView: header.view)		
 			section.add(cityRow.row)

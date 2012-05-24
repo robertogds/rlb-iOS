@@ -1,4 +1,7 @@
-Ti.include('/js/CreditsRow.js')
+Ti.include(
+	'/js/CreditsRow.js'
+	'/js/fetchCreditsTable.js'
+)
 
 root.footerView = Titanium.UI.createView
 	backgroundColor:'transparent' 
@@ -13,15 +16,7 @@ root.creditsTable = Titanium.UI.createTableView
 
 root.listCreditsWindow.add(root.creditsTable)
 
-# This will handle the JSON
-root.xhrCredits = Titanium.Network.createHTTPClient()
-root.xhrCredits.setTimeout(15000)
-
-root.xhrCredits.onload = () ->
-	Ti.API.info 'Entra en load credits OK'
-	root.listCreditsWindow.remove(root.errorView)
-	Ti.API.info this.responseText
-	credits = JSON.parse(this.responseText)
+root.populateCreditsTable = (credits) ->
 	data = []
 	for credit in credits
 		creditRow = new root.CreditsRow(credit)
@@ -35,21 +30,3 @@ root.xhrCredits.onload = () ->
 		root.creditsTable.setData(data)
 	root.creditsTable.footerView = root.footerView
 	root.hideLoading(root.listCreditsWindow)
-
-root.xhrCredits.onerror = () ->
-	Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('errorHappened')}).show()
-	root.hideLoading(root.listCreditsWindow)
-	root.showError(root.listCreditsWindow)
-
-root.xhrCredits.timedout = () ->
-	Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('errorHappened')}).show()
-
-root.showCredits = () ->
-	Ti.API.info 'Entra en showCredits'
-	root.showLoading(root.listCreditsWindow)
-	url = root.urlSignature('/user/'+root.user.id+'/coupons')
-	signature = root.doSignature(url)
-	url = url + '/' + signature
-	root.xhrCredits.open('GET',root.url+url)
-	root.xhrCredits.setRequestHeader("Accept-Language",Titanium.Locale.currentLanguage)
-	root.xhrCredits.send()

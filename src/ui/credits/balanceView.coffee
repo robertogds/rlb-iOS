@@ -20,7 +20,7 @@ balanceTitle2 = Titanium.UI.createLabel
 balanceTitle = new root.GenericBlueTitleLabel(25,10,L('your_balance') ).label
 
 root.balanceLabel = Titanium.UI.createLabel
-	text: 'ERR'
+	text: ''
 	width: Ti.UI.FILL
 	textAlign: 'right'
 	right: 30
