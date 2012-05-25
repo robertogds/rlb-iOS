@@ -11,7 +11,6 @@ root.xhrValidateCoupon.onload = (e) ->
 		Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('errorBooking')}).show()
 	Ti.API.info(response)
 	if response.status is 201
-		alert 'El cupon se validó OK'
 		root.fetchCreditsConnect()
 	else
 		Ti.API.error 'error de compra'

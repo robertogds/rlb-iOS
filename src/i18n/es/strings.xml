@@ -168,7 +168,7 @@
 	<string name="shareFacebookText">He encontrado una gran oferta del %s via ReallyLateBooking</string>
 	<string name="shareEmailText">Estoy usando ReallyLateBooking, una applicación móvil (iphone y android) para reservar hotel en el mismo día con importantes descuentos.\n He encontrado el %s por un precio increíble.\n Descárgate la app para ver la oferta en http://reallylatebooking.com</string>
 	<string name="shareEmailSubject">Mira esta oferta en ReallyLateBooking</string>
-	<string name="shareRLBTwitter">Estoy usando #ReallyLateBooking para reservar hotel en el mismo día con importantes descuentos. http://reallylatebooking.com via @rlatebooking</string>
+	<string name="shareRLBTwitter">Usando #ReallyLateBooking para reservar hotel en el mismo día con importantes descuentos. http://reallylatebooking.com via @rlatebooking</string>
 	<string name="shareRLBFacebook">Estoy usando ReallyLateBooking, una applicación móvil (iphone y android) para reservar hotel en el mismo día con importantes descuentos.\n Descárgate la app en http://reallylatebooking.com</string>
 	<string name="shareRLBEmail">Estoy usando ReallyLateBooking, una applicación móvil (iphone y android) para reservar hotel en el mismo día con importantes descuentos.\n Descárgate la app en http://reallylatebooking.comm</string>
 	<string name="shareRLBEmailSubject">Te recomiendo probar ReallyLateBooking</string>
