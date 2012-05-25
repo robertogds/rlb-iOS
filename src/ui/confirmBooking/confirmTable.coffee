@@ -7,6 +7,7 @@ root.confirmTable = Titanium.UI.createTableView
 	moving: false
 
 root.openExtraNights = () ->
+	Ti.API.info "********* Llama a extra night con " + root.deal.priceDay2
 	if root.deal.priceDay2 > 0
 		root.loadNightsView()
 		root.tabGroup.activeTab.open(root.nightsWindow,{animated:true})

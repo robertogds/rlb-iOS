@@ -212,4 +212,3 @@ root.loadNightsView = ()->
     night5View.priceLabel.text = root.deal.priceDay5 + '€'
     night5View.view.visible = true
   else night5View.visible = false
-  

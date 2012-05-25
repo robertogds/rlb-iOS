@@ -15,7 +15,7 @@ root.lastIndex = 0
 root.oneDealButtonBarView.add root.oneDealButtonBar
 
 root.oneDealButtonBar.addEventListener 'click', (e) ->
-	Ti.API.info e.index
+	Ti.API.info '***** BUTTONBAR INDEX =' + e.index
 	if e.index is 0
 		root.lastIndex = 0
 		root.oneDealWindow.remove root.infoDealTable

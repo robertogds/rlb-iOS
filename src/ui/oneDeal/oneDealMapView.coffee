@@ -4,8 +4,8 @@ root.mapView = Titanium.Map.createView
 	width: '100%'
 	height: '98%'
 	region:
-		latitudeDelta:0.01
-		longitudeDelta:0.01
+		latitudeDelta:0.02
+		longitudeDelta:0.02
 	animate: true
 	regionFit: true
 	userLocation: true

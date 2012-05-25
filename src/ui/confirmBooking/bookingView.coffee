@@ -169,6 +169,7 @@ root.doZoozPayment = ()->
 			appKey: "4b71ac79-9338-4cc0-91ad-220572fd54b3"
 			isSandbox: true
 			email: ''
+			requireAddress: false
 			
 		success: (data) ->
 			Ti.API.info 'Result success!'

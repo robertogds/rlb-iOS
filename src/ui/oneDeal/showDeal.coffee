@@ -6,6 +6,7 @@ Ti.include(
   '/js/oneDealView.js'
 )
 root.showDealView = (deal) ->
+	root.oneDealButtonBar.index = 0
 	Ti.API.info '======= DEAL ' + JSON.stringify(deal)
 	root.deal = deal
 	if deal.quantity is 0
@@ -19,13 +20,8 @@ root.showDealView = (deal) ->
 		root.soldOutLabel.hide()
 		root.bookingButtonLabel.show()
 	# Map
-	#root.mapView.removeAllAnnotations()
 	Ti.API.info 'Cargamos mapa con Latitude: ' + deal.latitude + ' Longitude: ' + deal.longitude + ' Name: ' + deal.hotelName + ' Address: ' + deal.address
 	root.createDealMap(deal)
-	#root.hotelAnnotation.latitude = deal.latitude
-	#root.hotelAnnotation.longitude = deal.longitude
-	#root.hotelAnnotation.title = deal.hotelName
-	#root.hotelAnnotation.subtitle = deal.address
 	
 	# one deal window
 	root.oneDealWindow.title = deal.hotelName 
@@ -55,7 +51,6 @@ root.showDealView = (deal) ->
 		emailDialog.subject = L('shareEmailSubject')
 		emailDialog.messageBody = String.format(L('shareEmailText'),deal.hotelName,deal.city.name)
 		emailDialog.open()
-	
 		
 	# Load Images of the deal
 	root.image1.image = deal.image1
@@ -109,7 +104,7 @@ root.showDealView = (deal) ->
 		root.bookingForEmail = root.user.email
 		root.bookingForFirstName = root.user.firstName
 		root.bookingForLastName = root.user.lastName
-	
+	Ti.API.info '********* Entra con root.deal.priceDay2 = ' + root.deal.priceDay2
 	if root.deal.priceDay2 > 0 
 		root.nightsRow.rightImage = '/images/blue_arrow.png'
 	else 
