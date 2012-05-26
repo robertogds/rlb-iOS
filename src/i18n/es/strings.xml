@@ -252,4 +252,6 @@
 	<string name="view_all_cities">Ver todas las ciudades</string>
 	<string name="sure_logout">No podrás reservar ni usar tus créditos sin estar conectado.\n¿Estás seguro que quieres desconectar?</string>	
 	<string name="creditsActivity">Historial de creditos</string>
+	<string name="expired">Caducado</string>
+	<string name="paid">Pagado</string>
 </resources>

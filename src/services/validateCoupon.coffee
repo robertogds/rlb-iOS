@@ -1,5 +1,4 @@
-root.xhrValidateCoupon = Titanium.Network.createHTTPClient()
-root.xhrValidateCoupon.setTimeout(15000)
+root.xhrValidateCoupon = Titanium.Network.createHTTPClient(timeout: 15000)
 
 root.xhrValidateCoupon.onload = (e) ->
 	Ti.API.info this.responseText

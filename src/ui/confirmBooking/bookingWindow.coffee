@@ -3,7 +3,7 @@ root.showConfirmBooking = ()->
 	root.hotelAddress.text = root.deal.address
 	root.priceLabel.text = root.deal.salePriceCents + ' €' 
 	root.priceFinal = root.deal.salePriceCents - root.totalCredit
-	if root.priceFinal < 0 
+	if root.priceFinal < 1 
 		root.priceFinal = 0
 	root.priceFinalLabel.text = root.priceFinal + ' €'
 	root.priceCreditsLabel.text = root.totalCredit + ' €'
@@ -13,7 +13,7 @@ root.showConfirmBooking = ()->
 	root.checkinLabel.text = root.getLocaleDateString(root.checkinDate)
 	root.checkoutLabel.text = root.getLocaleDateString(root.checkoutDate)
 	Ti.API.info '*** Abre la pantalla de bookingWindow'	
-	root.tabGroup.activeTab.open(root.confirmBookingWindow,{animated:true})
+	root.tabGroup.tabs[root.dealsTab.pos].open(root.confirmBookingWindow,{animated:true})
 
 root.confirmBookingWindow.addEventListener 'focus', (e) ->	
 	Ti.API.info 'Entra en confirmBooking'
@@ -48,8 +48,8 @@ root.confirmBookingWindow.addEventListener 'focus', (e) ->
 		root.paymentLabel.text = L('noPaymentInfo')
 	else root.paymentLabel.text = L('creditCard') + ':  ' + root.cardTypeLabel.text + '   ' + root.cardNumberText.value
 	root.priceFinal = root.totalPrice - root.totalCredit
-	if root.priceFinal < 0 
-		rot.priceFinal = 0
+	if root.priceFinal < 1 
+		root.priceFinal = 0
 	root.priceFinalLabel.text = root.priceFinal + ' €'
 	root.priceCreditsLabel.text = root.totalCredit + ' €'
 	Ti.API.info("Sale bookingWindow focus >>>>>>>>")

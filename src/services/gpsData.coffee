@@ -53,6 +53,8 @@ translateErrorCode = (code) ->
 		when Ti.Geolocation.ERROR_REGION_MONITORING_DELAYED then return "Region monitoring setup delayed"
 
 root.initializeGPS = () ->
+	root.tabGroup.open()
+	root.startupWindow.close()
 	root.isGPS = true
 	if Titanium.Geolocation.locationServicesEnabled is false
 		Ti.API.info 'Entra en geo off'

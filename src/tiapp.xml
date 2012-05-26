@@ -16,7 +16,7 @@
     <description>ReallyLateBooking</description>
     <copyright>2012 by IIPIR</copyright>
     <analytics>false</analytics>
-    <property name="ti.facebook.appid">210123832352906</property>
+    <property name="ti.facebook.appid">195465620529574</property>
     <property name="ti.android.fastdev" type="bool">true</property>
     <property name="ti.android.google.map.api.key">0hrxSYSsPg4hYombdRcT0FvRQmufVYcXnuBG2Rw</property>
     <icon>rlb_app_logo_57.png</icon>

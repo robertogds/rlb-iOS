@@ -8,7 +8,7 @@ mapButton = Titanium.UI.createButton
 
 mapButton.addEventListener 'click', (e) ->
 	root.listDealsMapView.annotations = root.annotations
-	root.tabGroup.activeTab.open(root.listDealsMapWindow,{animated:true})
+	root.tabGroup.tabs[root.dealsTab.pos].open(root.listDealsMapWindow,{animated:true})
 
 root.listDealsWindow.rightNavButton = mapButton
 
@@ -18,7 +18,7 @@ root.reloadDeals = false
 
 root.why3Row = new root.GenericTextRow().row
 root.why3Row.hasChild = true
-root.why3Row.rightImage = '/images/blue_arrow.png'
+#root.why3Row.rightImage = '/images/blue_arrow.png'
 textLabel = Titanium.UI.createLabel
 	text: L('why3Title')
 	color: '#fff'
@@ -31,17 +31,17 @@ root.why3Row.add(textLabel)
 
 root.dealsTable.addEventListener 'click', (e) ->
 	if e.row.deal is undefined
-		root.tabGroup.activeTab.open(root.why3Window,{animated:true})
+		root.tabGroup.tabs[root.dealsTab.pos].open(root.why3Window,{animated:true})
 	else
 		root.showDealView(e.row.deal)
-		root.tabGroup.activeTab.open(root.oneDealWindow,{animated:true})
+		root.tabGroup.tabs[root.dealsTab.pos].open(root.oneDealWindow,{animated:true})
 
 root.showDeals = (deals) ->	
 	Ti.API.info "Entra en showDeals: " + deals.length	
 	root.citiesWindow.remove(root.errorView)	
 	if deals.length is 0 
 		Ti.API.info '****** No hay hoteles activos en esta ciudad ********'
-		root.tabGroup.activeTab.open(root.noDealsWindow,{animated:true})
+		root.tabGroup.tabs[root.dealsTab.pos].open(root.noDealsWindow,{animated:true})
 		root.hideLoading(root.listDealsWindow)
 		root.hideLoading(root.citiesWindow)
 	else 
@@ -96,7 +96,7 @@ root.populateDealsZoneTable = (deals) ->
 		section.add(dealRow.row)
 		lastName = city.name
 	data.push(section)		
-	data.push(root.why3Row)
+	#data.push(root.why3Row)
 	root.dealsTable.setData(data)		
 	root.endPopulate()
 	Ti.API.info '*** fin populateDealsZoneTable'

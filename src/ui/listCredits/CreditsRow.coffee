@@ -20,9 +20,11 @@ class CreditsRow
 		@row.add(expireSubtitle)
 		titleLabel = new root.GenericBlueTitleLabel(5,80,credit.key+' - '+ credit.title).label		
 		@row.add(titleLabel)
-		
 		createdLabel = new root.GenericTextLabel(35,130,credit.created).label
 		expireLabel = new root.GenericTextLabel(35,250,credit.expire).label
+		if credit.credits < 1
+			expireLabel.label.text = L('expired')
+			expireLabel.label.color = '#7f0000'
 		@row.add(createdLabel)
 		@row.add(expireLabel)
 

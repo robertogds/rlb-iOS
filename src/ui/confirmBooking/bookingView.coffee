@@ -144,7 +144,7 @@ confirmButton.addEventListener 'click', (e) ->
 		Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('reviewData') + ': ' + validate}).show()
 	else
 		#root.confirmAlert.show()
-		if root.priceFinal is 0
+		if root.priceFinal < 1
 			root.doBooking()
 		else
 			root.doZoozPayment()

@@ -1,5 +1,13 @@
 Titanium.UI.setBackgroundColor('black')
 
+root.bgGradient =
+     type:'linear'
+     colors:[{color:'#07151d',position:0.1},{color:'#0d1e28',position:1.0}]
+
+root.bgGradientTitle =
+     type:'linear'
+     colors:[{color:'#1b3c50',position:0.1},{color:'#3c5f75',position:1.0}]
+
 # Application Windows
 root.citiesWindow = new root.GenericWindow(L('cities')).win
 root.countriesWindow = new root.GenericWindow(L('countries')).win
@@ -45,24 +53,28 @@ root.tabGroup = Titanium.UI.createTabGroup
 	id:'tabGroup'
 
 root.dealsTab = Titanium.UI.createTab
+	pos: 0
 	id:'deals'
 	icon:'icons/ico_deals.png'
 	title:L('cities')
 	window: root.citiesWindow
   
 root.bookingTab = Titanium.UI.createTab
+	pos: 1
 	id: 'booking'
 	icon:'icons/ico_bookings.png'
 	title:L('bookings')
 	window: root.bookingsWindow
 
 root.inviteTab = Titanium.UI.createTab
+	pos: 2
 	id: 'invite'
 	icon:'icons/ico_invite.png'
 	title:L('invite')
 	window: root.inviteWindow
 
 root.creditsTab = Titanium.UI.createTab
+	pos: 3
 	id: 'credits'
 	icon:'icons/ico_credits.png'
 	title:L('credits')
@@ -70,6 +82,7 @@ root.creditsTab = Titanium.UI.createTab
 	window: root.creditsWindow
 
 root.optionsTab = Titanium.UI.createTab
+	pos: 4
 	id: 'options'
 	icon:'icons/ico_options.png'
 	title:L('options')
@@ -80,6 +93,4 @@ root.tabGroup.addTab(root.bookingTab)
 root.tabGroup.addTab(root.inviteTab)
 root.tabGroup.addTab(root.creditsTab)
 root.tabGroup.addTab(root.optionsTab)
-
-root.tabGroup.open()
 

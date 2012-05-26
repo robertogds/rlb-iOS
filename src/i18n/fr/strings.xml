@@ -251,4 +251,6 @@
 	<string name="view_all_cities">Voir toutes les villes </string>
 	<string name="sure_logout">Vous devez être connecté pour réserver des hôtels et d'utiliser vos crédits. Voulez-vous vraiment vous déconnecter?</string>
 	<string name="creditsActivity">Historique de crédits</string>
+	<string name="expired">Caduque</string>
+	<string name="paid">Payè</string>
 </resources>
