@@ -39,6 +39,7 @@ Ti.include(
 	'/js/GenericRow.js'
 	'/js/GenericMenuTable.js'
 	'/js/GenericButton.js'
+	'/js/GenericPayButton.js'
 	'/js/GenericMapAnnotation.js'
 	'/js/GenericTextView.js'
 	'/js/GenericTitleLabel.js'

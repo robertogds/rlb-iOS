@@ -1,7 +1,7 @@
 root.loginTable = Titanium.UI.createTableView
 	top: 100
 	height: 88
-	width: '95%'
+	width: '90%'
 	borderWidth:0
 	borderRadius: 10
 	scrollable: false

@@ -21,7 +21,7 @@ optionsMenu.section.add(historyRow.row)
 optionsMenu.section.add(inviteRow.row)
 
 historyRow.label.addEventListener 'click', (e) ->
-	root.tabGroup.activeTab.open(root.listCreditsWindow,{animated:true})
+	root.tabGroup.tabs[root.creditsTab.pos].open(root.listCreditsWindow,{animated:true})
 
 inviteRow.label.addEventListener 'click', (e) ->
 	root.tabGroup.setActiveTab(2)

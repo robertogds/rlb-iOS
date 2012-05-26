@@ -1,4 +1,5 @@
 Titanium.UI.setBackgroundColor('black')
+root.footerView = Titanium.UI.createView(backgroundColor:'transparent',height:100)
 
 root.bgGradient =
      type:'linear'
@@ -17,11 +18,14 @@ root.bookingsWindow = new root.GenericWindow(L('yourBookings')).win
 root.listCreditsWindow = new root.GenericWindow(L('creditsActivity')).win
 root.accountWindow = new root.GenericWindow(L('profile')).win
 root.oneDealWindow = new root.GenericWindow('').win
+root.oneDealWindow.tabBarHidden = true
 root.oneBookingWindow = new root.GenericWindow(L('booking')).win
 root.optionsWindow = new root.GenericWindow(L('options')).win
 root.imagesWindow = new root.GenericWindow(L('photos')).win
 root.newAccountWindow = new root.GenericWindow(L('newAccount')).win
+root.newAccountWindow.tabBarHidden = true
 root.editAccountWindow = new root.GenericWindow(L('editAccount')).win
+root.editAccountWindow.tabBarHidden = true
 root.confirmBookingWindow = new root.GenericWindow(L('orderSummary')).win
 root.supportWindow = new root.GenericWindow(L('userSupport')).win
 root.errorWindow = new root.GenericWindow('Error').win
@@ -36,6 +40,7 @@ root.bookingForWindow = new root.GenericWindow(L('bookingFor')).win
 root.nightsWindow = new root.GenericWindow(L('extraNights')).win
 root.why3Window = new root.GenericWindow('ReallyLateBooking').win
 root.signInWindow = new root.GenericWindow(L('signIn')).win
+root.signInWindow.tabBarHidden = true
 root.registerWindow = new root.GenericWindow(L('register')).win
 root.noDealsWindow = new root.GenericWindow('').win
 root.cobrarWindow = new root.GenericWindow('Cobrar').win
@@ -59,7 +64,7 @@ root.dealsTab = Titanium.UI.createTab
 	title:L('cities')
 	window: root.citiesWindow
   
-root.bookingTab = Titanium.UI.createTab
+root.bookingsTab = Titanium.UI.createTab
 	pos: 1
 	id: 'booking'
 	icon:'icons/ico_bookings.png'
@@ -89,7 +94,7 @@ root.optionsTab = Titanium.UI.createTab
 	window: root.optionsWindow
 
 root.tabGroup.addTab(root.dealsTab)
-root.tabGroup.addTab(root.bookingTab)
+root.tabGroup.addTab(root.bookingsTab)
 root.tabGroup.addTab(root.inviteTab)
 root.tabGroup.addTab(root.creditsTab)
 root.tabGroup.addTab(root.optionsTab)

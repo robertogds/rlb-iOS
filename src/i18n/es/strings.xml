@@ -44,13 +44,14 @@
 	<string name="forgotPasswordIntroEmail">Introduce el email que usaste para regístrate y te enviaremos una nueva.</string>
 	<string name="conectionError">La aplicación no puede cargar los datos necesarios.\n\nProbablemente se trate de un problema de conexión a Internet o una caída temporal de nuestros servidores debido a un fallo o tareas de mantenimiento\n\n\nPor favor vuelve a intentarlo en unos minutos.</string>	
 	<string name="confirm">Confirmar</string>
+	<string name="cancel">Cancelar</string>
 	<string name="orderSummary">Reserva</string>
 	<string name="tryAgain">Intentar de nuevo</string>
 	<string name="adviceCard">No haremos ningún cargo en tu tarjeta de crédito. La estancia la pagarás en el hotel.\nPuedes guardar los datos de tu tarjeta para futuras compras.</string>
     <string name="noRefundable">Recuerda que la reserva no es anulable.</string>	
 	<string name="booking">Reserva</string>
 	<string name="bookingNumber">Localizador</string>
-	<string name="bookingBlueButtonText">reservar</string>
+	<string name="bookingBlueButtonText">Reservar Habitación</string>
 	<string name="mustUser">Debes estar registrado para poder hacer una reserva. Ve a la pestaña Perfil y entra en tu cuenta o regístrate</string>
 	<string name="selectCardType">Selecciona el tipo de tarjeta</string>
 	<string name="done">Hecho</string>
@@ -253,5 +254,8 @@
 	<string name="sure_logout">No podrás reservar ni usar tus créditos sin estar conectado.\n¿Estás seguro que quieres desconectar?</string>	
 	<string name="creditsActivity">Historial de creditos</string>
 	<string name="expired">Caducado</string>
+	<string name="used">Usado</string>
 	<string name="paid">Pagado</string>
+	<string name="transaction_failed">Error en la Transacción</string>
+	<string name="transaction_aborted">Transacción Cancelada</string>
 </resources>

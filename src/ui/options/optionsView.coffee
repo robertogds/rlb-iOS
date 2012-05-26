@@ -30,7 +30,7 @@ versionLabel = Titanium.UI.createLabel
 
 versionLabel.addEventListener 'click', (e) ->
 	Ti.API.info 'Hace clic en version'
-	root.tabGroup.activeTab.open(root.testWindow,{animated:true})
+	root.tabGroup.tabs[root.optionsTab.pos].open(root.testWindow,{animated:true})
 
 
 optionsMenu1 = new root.GenericMenuTable(150,3)
@@ -46,10 +46,10 @@ faqRow.label.addEventListener 'click', (e) ->
 	root.showFAQ()
 
 supportRow.label.addEventListener 'click', (e) ->
-	root.tabGroup.activeTab.open(root.supportWindow,{animated:true})
+	root.tabGroup.tabs[root.optionsTab.pos].open(root.supportWindow,{animated:true})
 
 toHotelsRow.label.addEventListener 'click', (e) ->
-	root.tabGroup.activeTab.open(root.forHotelsWindow,{animated:true})
+	root.tabGroup.tabs[root.optionsTab.pos].open(root.forHotelsWindow,{animated:true})
 
 optionsMenu2 = new root.GenericMenuTable(310,3)
 facebookRow = new root.GenericRow(L('shareFacebook'))
@@ -90,7 +90,7 @@ optionsMenu3.section.add(privacyRow.row)
 aboutRow.label.addEventListener 'click', (e) ->
 	aboutView =  new root.GenericTextView(0,L('aboutTitle'),L('aboutText')).view
 	root.aboutScrollView.add(aboutView)
-	root.tabGroup.activeTab.open(root.aboutWindow,{animated:true})
+	root.tabGroup.tabs[root.optionsTab.pos].open(root.aboutWindow,{animated:true})
 
 termsRow.label.addEventListener 'click', (e) ->
 	root.showTerms()

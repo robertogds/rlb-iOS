@@ -23,14 +23,14 @@ root.xhrFAQ.onload = () ->
 root.xhrFAQ.onerror = () ->
 	Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('errorHappened')}).show()
 	root.hideLoading(root.faqWindow)
-	root.showError()
+	#root.showError()
 
 root.showFAQ = () ->
 	if Titanium.Network.online is false
 		Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('mustInternet')}).show()
-		root.showError()
+		#root.showError()
 	else
-		root.tabGroup.activeTab.open(root.faqWindow,{animated:true})
+		root.tabGroup.tabs[root.optionsTab.pos].open(root.faqWindow,{animated:true})
 		root.showLoading(root.faqWindow)
 		root.xhrFAQ.open('GET', root.faqUrl)
 		root.xhrFAQ.setRequestHeader("Accept-Language",Titanium.Locale.currentLanguage)

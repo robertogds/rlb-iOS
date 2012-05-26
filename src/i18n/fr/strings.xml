@@ -44,13 +44,14 @@
 	<string name="forgotPasswordIntroEmail">Entrez l'adresse email complète avec laquelle vous vous êtes enregistré.</string>
 	<string name="conectionError">Nous n'avons pas pu charger votre demande \n Soit la connexion \nNe peut pas être configurée correctement, soit vous avez un problème de connexion internet\n\n\nVeuillez réessayer plus tard.</string>	
 	<string name="confirm">Confirmer</string>
+	<string name="cancel">Annuler</string>
 	<string name="orderSummary">Récapitulatif de la commande</string>
 	<string name="tryAgain">Réessayez</string>
 	<string name="adviceCard">Nous ne facturerons pas votre carte de crédit car vous paierez directement à l'hôtel pour votre séjour.</string>
 	<string name="noRefundable">Cette réservation est non remboursable</string> 
 	<string name="booking">Réservation</string> 
 	<string name="bookingNumber">Réservation</string>
-	<string name="bookingBlueButtonText">Réserver</string> 
+	<string name="bookingBlueButtonText">Réservez cette Chambre</string> 
 	<string name="mustUser">Pour cela, vous devez vous enregistrer</string> 
 	<string name="selectCardType">Sélectionnez un type de carte</string> 
 	<string name="done">Ok</string> 
@@ -252,5 +253,8 @@
 	<string name="sure_logout">Vous devez être connecté pour réserver des hôtels et d'utiliser vos crédits. Voulez-vous vraiment vous déconnecter?</string>
 	<string name="creditsActivity">Historique de crédits</string>
 	<string name="expired">Caduque</string>
+	<string name="used">Utilisé</string>
 	<string name="paid">Payè</string>
+	<string name="transaction_failed">Opération Erronée</string>
+	<string name="transaction_aborted">Transaction Annulée</string>
 </resources>

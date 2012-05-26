@@ -3,12 +3,6 @@ Ti.include(
 	'/js/fetchCreditsTable.js'
 )
 
-root.footerView = Titanium.UI.createView
-	backgroundColor:'transparent' 
-	borderWidth: 0
-	height:100
-	width:Ti.UI.FILL
-
 root.creditsTable = Titanium.UI.createTableView
 	data: []
 	backgroundColor: 'transparent'

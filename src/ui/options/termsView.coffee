@@ -30,7 +30,7 @@ root.showTerms = () ->
     Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('mustInternet')}).show()
     root.showError()
   else
-    root.tabGroup.activeTab.open(root.termsWindow,{animated:true})
+    root.tabGroup.tabs[root.optionsTab.pos].open(root.termsWindow,{animated:true})
     root.showLoading(root.termsWindow)
     root.xhrTerms.open('GET', root.termsUrl)
     root.xhrTerms.setRequestHeader("Accept-Language",Titanium.Locale.currentLanguage)

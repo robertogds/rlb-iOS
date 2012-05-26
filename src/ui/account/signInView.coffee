@@ -31,7 +31,7 @@ signInButton.addEventListener 'click', (e) ->
 	else
 		Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('reviewData') + validate}).show()
 
-root.rememberPassView = new root.Generic2RowsView(270,L('IForgotPassword'),L('needAccount'))
+root.rememberPassView = new root.Generic2RowsView(290,L('IForgotPassword'),L('needAccount'))
 root.rememberPassView.table.height = 44
 
 root.rememberPassView.label1.addEventListener 'click', (e) ->

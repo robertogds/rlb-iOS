@@ -27,7 +27,7 @@ root.createMap = (deals) ->
 		root.mbv[a]  = new root.GenericMapRightButtonView(deal).view
 		root.mbv[a].addEventListener 'click', (e) ->
 			root.showDealView(e.source.deal)
-			root.tabGroup.activeTab.open(root.oneDealWindow,{animated:true})
+			root.tabGroup.tabs[root.dealsTab.pos].open(root.oneDealWindow,{animated:true})
 		root.annotations[a] = new root.GenericMapAnnotation(deal.id,deal.latitude,deal.longitude,deal.hotelName,subtitle,root.mbv[a]).annotation
 		root.listDealsMapView.addAnnotation(root.annotations[a])
 		a++

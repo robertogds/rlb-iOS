@@ -4,6 +4,29 @@ root.priceView = Titanium.UI.createView
   top: 265
   height: 65
 
+root.shareTwitterImage = Titanium.UI.createImageView 
+	top: 0
+	width: 40
+	height: 37
+	left: 170
+	image: '/images/share_twitter2.png'
+
+root.shareFacebookImage = Titanium.UI.createImageView 
+	top: 0
+	width: 40 
+	height: 37
+	left: 220
+	image: '/images/share_facebook2.png'
+
+
+root.shareEmailImage = Titanium.UI.createImageView 
+	top: 0
+	width: 40
+	height: 37
+	left: 270
+	image: '/images/share_mail.png'
+
+
 barPriceView = Titanium.UI.createView
 	backgroundColor: 'black'
 	opacity: '0.8'
@@ -52,23 +75,7 @@ antesLabel = Titanium.UI.createLabel
   height: 25
   top: 10
 
-root.bookingButtonLabel = Titanium.UI.createLabel
-	backgroundImage: '/images/booking_background.png'
-	borderWidth:1
-	borderColor: '#0098cb'
-	color: '#000'
-	width: 120
-	height: 35
-	borderRadius: 5
-	backgroundColor: '#0098cb'
-	text: L('bookingBlueButtonText') + '     '
-	textAlign: 'center'
-	font:
-		fontSize: 18
-		fontWeight: 'bold'
-		fontFamily:'Helvetica Neue'
-	#top: '30%'
-	left: 180
+root.bookingButtonLabel = new root.GenericPayButton(335,L('bookingBlueButtonText')).label
 
 root.bookingButtonLabel.addEventListener 'click', (e) ->
 	root.showBookingView() 
@@ -87,11 +94,14 @@ root.soldOutLabel = Titanium.UI.createLabel
 	#top: '40%'
 	left: '60%'
 
+root.priceView.add(root.shareFacebookImage)
+root.priceView.add(root.shareTwitterImage)
+root.priceView.add(root.shareEmailImage)
 root.priceView.add(root.oneDealPriceLabel)
 root.priceView.add(root.oneDealNormalPriceLabel)
 root.priceView.add(sepVertView)
 root.priceView.add(antesLabel)
 
-root.priceView.add(root.bookingButtonLabel)
+#root.priceView.add(root.bookingButtonLabel)
 root.priceView.add(root.soldOutLabel)
 root.soldOutLabel.hide()

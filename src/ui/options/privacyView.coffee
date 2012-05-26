@@ -31,7 +31,7 @@ root.showPrivacy = () ->
     Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('mustInternet')}).show()
     root.showError()
   else
-    root.tabGroup.activeTab.open(root.privacyWindow,{animated:true})
+    root.tabGroup.tabs[root.optionsTab.pos].open(root.privacyWindow,{animated:true})
     root.showLoading(root.privacyWindow)
     root.xhrPrivacy.open('GET', root.url+'/info/privacy')
     root.xhrPrivacy.setRequestHeader("Accept-Language",Titanium.Locale.currentLanguage)

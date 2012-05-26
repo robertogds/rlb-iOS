@@ -128,7 +128,8 @@ root.bookingView.add(root.confirmTable)
 root.bookingView.add(separator1)
 root.bookingView.add(separator2)
 
-confirmButton = new root.GenericButton(280,L('confirm')).button
+confirmButton = new root.GenericPayButton(335,L('confirm')).label
+#confirmButton = new root.GenericButton(280,L('confirm')).button
 
 root.confirmAlert = Ti.UI.createAlertDialog({title:L('confirm'),message:L('bookPaid'),cancel:1,buttonNames: ['Confirm', 'Cancel']})
 root.confirmAlert.addEventListener 'click', (e) ->
@@ -151,8 +152,8 @@ confirmButton.addEventListener 'click', (e) ->
 
 nonRefundableLabel = Titanium.UI.createLabel
 	borderWidth: 0
-	height: 60
-	top: 310
+	height: Ti.UI.SIZE
+	top: 290
 	text: L('noRefundable')
 	color: '#fff'
 	textAlign: "center"
@@ -177,11 +178,11 @@ root.doZoozPayment = ()->
 		
 		error: (data) ->
 			Ti.API.info 'Callback error called.'
-			Ti.UI.createAlertDialog({title: "Transaction Failed",message: "Error Code: " + data.errorCode + " ; Error Message: " + data.errorMessage}).show()
+			Ti.UI.createAlertDialog({title: L('transaction_failed'),message: "Error Code: " + data.errorCode + " ; Error Message: " + data.errorMessage}).show()
 			
 		cancel: (data) ->
 			Ti.API.info 'Callback cancel called.'
-			Ti.UI.createAlertDialog({title: "Transaction Aborted"}).show()
+			Ti.UI.createAlertDialog({title: L('transaction_aborted')}).show()
 
 root.bookingView.add(root.hotelLabel)
 root.bookingView.add(root.totalLabel)

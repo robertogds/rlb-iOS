@@ -1,7 +1,7 @@
 Ti.include('/js/oneDealButtonBar.js')
 
 root.oneDealView = Titanium.UI.createView
-	backgroundColor:'#0d1e28'
+	backgroundColor:'black'
 	width: Ti.Platform.displayCaps.platformWidth
 	top: 40
 
@@ -11,37 +11,12 @@ root.oneDealImage = Titanium.UI.createImageView
 	width: 320
 	height: 330
 
-root.shareTwitterImage = Titanium.UI.createImageView 
-	top: 0
-	width: 40
-	height: 37
-	left: 170
-	image: '/images/share_twitter2.png'
-
-root.shareFacebookImage = Titanium.UI.createImageView 
-	top: 0
-	width: 40 
-	height: 37
-	left: 220
-	image: '/images/share_facebook2.png'
-
-
-root.shareEmailImage = Titanium.UI.createImageView 
-	top: 0
-	width: 40
-	height: 37
-	left: 270
-	image: '/images/share_mail.png'
 
 root.oneDealView.add(root.oneDealImage)
-root.oneDealView.add(root.shareFacebookImage)
-root.oneDealView.add(root.shareTwitterImage)
-root.oneDealView.add(root.shareEmailImage)
-
 
 root.oneDealImage.addEventListener 'click', (e) ->
 	root.imagesWindow.add(root.imagesScrollView)
-	root.tabGroup.activeTab.open(root.imagesWindow,{animated:true})
+	root.tabGroup.tabs[root.dealsTab.pos].open(root.imagesWindow,{animated:true})
 
 root.oneDealAddressLabel = Titanium.UI.createLabel
 	top: 0
@@ -102,7 +77,9 @@ root.titleLabel = Titanium.UI.createLabel
 
 root.titleView.add(root.hotelNameLabel)
 root.titleView.add(root.hotelAddressLabel)
+
 root.oneDealView.add(root.priceView)
+root.oneDealView.add(root.bookingButtonLabel)
 root.oneDealWindow.add(root.oneDealButtonBarView)
 root.oneDealWindow.add(root.oneDealView)
 

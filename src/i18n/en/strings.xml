@@ -44,13 +44,14 @@
 	<string name="forgotPasswordIntroEmail">Type the full email address you use to sign.</string>
 	<string name="conectionError">The application was not able to load\n\nConnection may not be configured correctly or you may not have internet connection\n\n\nPlease, try again later.</string>	
 	<string name="confirm">Confirm</string>
+	<string name="cancel">Cancel</string>
 	<string name="orderSummary">Order Summary</string>
 	<string name="tryAgain">Try again</string>
 	<string name="adviceCard">We will not charge your credit card, as you will pay the hotel directly for your stay.\nYou can save your card for future purchases.</string>
 	<string name="noRefundable">This reservation is non-refundable</string>	
 	<string name="booking">Booking</string>
 	<string name="bookingNumber">Booking Number</string>
-	<string name="bookingBlueButtonText">book it</string>
+	<string name="bookingBlueButtonText">Book a Room</string>
 	<string name="mustUser">You must be logged in to do that. Go to Profile tab and login or sign up</string>
 	<string name="selectCardType">Select Card Type</string>
 	<string name="done">Done</string>
@@ -252,5 +253,8 @@
 	<string name="sure_logout">You need to be logged in to book hotels and use your credits. Do you really want to log out?</string>
 	<string name="creditsActivity">Credits Activity</string>
 	<string name="expired">Expired</string>
+	<string name="used">Redeemed</string>
 	<string name="paid">Paid</string>
+	<string name="transaction_failed">Transaction Failed</string>
+	<string name="transaction_aborted">Transaction Aborted</string>
 </resources>

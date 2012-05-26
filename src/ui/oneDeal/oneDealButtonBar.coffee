@@ -34,6 +34,6 @@ root.oneDealButtonBar.addEventListener 'click', (e) ->
 	else if e.index is 3
 		root.oneDealButtonBar.setIndex(root.lastIndex)
 		root.imagesWindow.add(root.imagesScrollView)
-		root.tabGroup.activeTab.open(root.imagesWindow,{animated:true})
+		root.tabGroup.tabs[root.dealsTab.pos].open(root.imagesWindow,{animated:true})
 		Ti.API.info 'CLIK EN FOTOS'
 	1

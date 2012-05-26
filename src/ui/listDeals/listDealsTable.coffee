@@ -102,12 +102,13 @@ root.populateDealsZoneTable = (deals) ->
 	Ti.API.info '*** fin populateDealsZoneTable'
 
 root.endPopulate = () ->
+	root.dealsTable.footerView = root.footerView
 	Ti.API.info 'Entra en endPopulate'
 	root.hideLoading(root.listDealsWindow)
 	root.hideLoading(root.citiesWindow)
 	if root.reloadDeals is false
 		Ti.API.info '*** Entra en abrir ventana'
-		root.tabGroup.activeTab.open(root.listDealsWindow,{animated:true})
+		root.tabGroup.tabs[root.dealsTab.pos].open(root.listDealsWindow,{animated:true})
 	root.reloadDeals = false
 	Ti.API.info 'Fin endPopulate'	
 

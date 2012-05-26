@@ -3,12 +3,6 @@ Ti.include(
 	'/js/OtherCityRow.js'
 )
 
-root.footerView = Titanium.UI.createView
-	backgroundColor:'transparent' 
-	borderWidth: 0
-	height:100
-	width:'100%'
-
 root.allCitiesTable = Titanium.UI.createTableView
 	data: []
 	backgroundColor: 'transparent'
@@ -50,5 +44,5 @@ root.populateCitiesTable = (cities) ->
 	
 root.showAllCities = () ->
 	root.fetchCities('ALLCITIES')
-	root.tabGroup.activeTab.open(root.allCitiesWindow,{animated:true})
+	root.tabGroup.tabs[root.dealsTab.pos].open(root.allCitiesWindow,{animated:true})
 	

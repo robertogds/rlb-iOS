@@ -10,16 +10,16 @@ root.openExtraNights = () ->
 	Ti.API.info "********* Llama a extra night con " + root.deal.priceDay2
 	if root.deal.priceDay2 > 0
 		root.loadNightsView()
-		root.tabGroup.activeTab.open(root.nightsWindow,{animated:true})
+		root.tabGroup.tabs[root.dealsTab.pos].open(root.nightsWindow,{animated:true})
 	else Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:"No hay noches extra disponibles para hoy"}).show()
 	
 root.confirmTable.addEventListener 'click', (e) ->
 	if e.row.id is "nights"
 		root.openExtraNights()
 	else if e.row.id is "user"
-		root.tabGroup.activeTab.open(root.bookingForWindow,{animated:true})
+		root.tabGroup.tabs[root.dealsTab.pos].open(root.bookingForWindow,{animated:true})
 	#else if e.row.id is "payment"
-	#	root.tabGroup.activeTab.open(root.paymentWindow,{animated:true})
+	#	root.tabGroup.tabs[root.dealsTab.pos].open(root.paymentWindow,{animated:true})
 
 userRow = new root.GenericTextRow().row
 userRow.rightImage = '/images/blue_arrow.png'

@@ -1,4 +1,4 @@
-root.confirmLogout = Ti.UI.createAlertDialog({title:L('confirm'),message:L('sure_logout'),cancel:1,buttonNames: ['Confirm', 'Cancel']})
+root.confirmLogout = Ti.UI.createAlertDialog({title:L('confirm'),message:L('sure_logout'),cancel:1,buttonNames: [L('confirm'), L('cancel')]})
 root.confirmLogout.addEventListener 'click', (e) ->
 	Ti.API.info e
 	if e.index is 1 

@@ -3,12 +3,6 @@ Ti.include(
 	'/js/fetchBookings.js'
 )
 
-root.footerView = Titanium.UI.createView
-	backgroundColor:'transparent' 
-	borderWidth: 0
-	height:100
-	width:'100%'
-
 root.bookingsTable = Titanium.UI.createTableView
 	data: []
 	backgroundColor: 'transparent'
@@ -19,7 +13,7 @@ root.bookingsWindow.add(root.bookingsTable)
 
 root.bookingsTable.addEventListener 'click', (e) ->
 	root.showOneBookingView(e.row.booking)
-	root.tabGroup.activeTab.open(root.oneBookingWindow,{animated:true})
+	root.tabGroup.tabs[root.bookingsTab.pos].open(root.oneBookingWindow,{animated:true})
 
 root.populateBookingsTable = (bookings) ->
 	data = []

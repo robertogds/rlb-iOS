@@ -23,8 +23,10 @@ class CreditsRow
 		createdLabel = new root.GenericTextLabel(35,130,credit.created).label
 		expireLabel = new root.GenericTextLabel(35,250,credit.expire).label
 		if credit.credits < 1
-			expireLabel.label.text = L('expired')
-			expireLabel.label.color = '#7f0000'
+			expireLabel.text = L('expired')
+			if credit.used is true
+				expireLabel.text = L('used')
+			expireLabel.color = '#7f0000'
 		@row.add(createdLabel)
 		@row.add(expireLabel)
 

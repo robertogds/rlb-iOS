@@ -10,12 +10,12 @@ root.showDealView = (deal) ->
 	Ti.API.info '======= DEAL ' + JSON.stringify(deal)
 	root.deal = deal
 	if deal.quantity is 0
-		root.priceView.remove(root.bookingButtonLabel)
+		root.oneDealView.remove(root.bookingButtonLabel)
 		root.priceView.add(root.soldOutLabel)
 		root.soldOutLabel.show()
 		root.bookingButtonLabel.hide()
 	else
-		root.priceView.add(root.bookingButtonLabel)
+		root.oneDealView.add(root.bookingButtonLabel)
 		root.priceView.remove(root.soldOutLabel)
 		root.soldOutLabel.hide()
 		root.bookingButtonLabel.show()
@@ -43,7 +43,7 @@ root.showDealView = (deal) ->
 	root.shareFacebookImage.addEventListener 'click', (e) ->
 		root.sharekit.share
 			title: 'ReallyLateBooking'
-			text: String.format(L('shareFacebook'),deal.hotelName,deal.city.name)
+			text: String.format(L('shareFacebookText'),deal.hotelName,deal.city.name)
 			sharer: 'Facebook'
 		
 	root.shareEmailImage.addEventListener 'click', (e) ->

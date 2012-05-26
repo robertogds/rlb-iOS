@@ -14,6 +14,6 @@ root.bookingsWindow.addEventListener 'focus', (e) ->
 
 
 
-#root.bookingTab.addEventListener 'click', (e) ->
+#root.bookingsTab.addEventListener 'click', (e) ->
 
 
