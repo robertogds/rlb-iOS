@@ -5,8 +5,8 @@ class GenericPayButton
 			borderWidth:1
 			borderColor: '#0098cb'
 			color: '#000'
-			width: '80%'
-			height: 35
+			width: 300
+			height: 40
 			borderRadius: 5
 			backgroundColor: '#0098cb'
 			text: text

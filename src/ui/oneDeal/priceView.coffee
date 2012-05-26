@@ -78,6 +78,7 @@ antesLabel = Titanium.UI.createLabel
 root.bookingButtonLabel = new root.GenericPayButton(335,L('bookingBlueButtonText')).label
 
 root.bookingButtonLabel.addEventListener 'click', (e) ->
+	root.showLoading(root.oneDealWindow)
 	root.showBookingView() 
 
 root.soldOutLabel = Titanium.UI.createLabel

@@ -16,11 +16,13 @@ root.xhrLoadCredits.onload = () ->
 	if root.tabGroup.activeTab.id is 'deals'
 		root.showConfirmBooking()
 	root.hideLoading(root.creditsWindow)
+	root.hideLoading(root.oneDealWindow)
 
 root.xhrLoadCredits.onerror = () ->
 	Ti.API.info 'Entra en load Credits ERROR'
 	Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('errorHappened')}).show()
 	root.hideLoading(root.creditsWindow)
+	root.hideLoading(root.oneDealWindow)
 
 root.fetchCreditsConnect = () ->
 	Ti.API.info 'Es necesario actualizar'
@@ -38,10 +40,11 @@ root.fetchCredits = (reload) ->
 		root.creditsLastUpdate = new Date()
 	diffTime = now.getTime() - root.creditsLastUpdate.getTime() 
 	Ti.API.info 'FetchCredits -- La diferencia es ' + diffTime
-	if root.credits is undefined or diffTime > 10000 
+	if root.credits is undefined or diffTime > 60000 
 		root.fetchCreditsConnect()
 	else
 		Ti.API.info 'ListCredits: No es necesario actualizar'
 		if root.tabGroup.activeTab.id is 'deals'
 			root.showConfirmBooking()
 		root.hideLoading(root.creditsWindow)
+		root.hideLoading(root.oneDealWindow)

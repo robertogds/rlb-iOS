@@ -257,4 +257,5 @@
 	<string name="paid">Payè</string>
 	<string name="transaction_failed">Opération Erronée</string>
 	<string name="transaction_aborted">Transaction Annulée</string>
+	<string name="gps_localtion">Getting GPS location</string>
 </resources>

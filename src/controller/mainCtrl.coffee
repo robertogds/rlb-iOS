@@ -72,7 +72,7 @@ Ti.include(
 )
 
 # Main Program
-root.showLoading(root.citiesWindow,'Getting GPS Location')
+root.showLoading(root.citiesWindow,L('gps_location'))
 if root.isLogged()
 	root.loadRefererId()
 

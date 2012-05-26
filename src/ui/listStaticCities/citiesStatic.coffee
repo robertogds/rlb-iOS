@@ -15,7 +15,8 @@ gpsButton = Titanium.UI.createButton
 	title: 'GPS'
 
 gpsButton.addEventListener 'click', (e) ->
-	root.showLoading(root.citiesWindow,'Getting GPS Location')
+	alert L('gps_location')
+	root.showLoading(root.citiesWindow,L('gps_location'))
 	root.initializeGPS()
 	
 

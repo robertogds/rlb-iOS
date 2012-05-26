@@ -257,4 +257,5 @@
 	<string name="paid">Paid</string>
 	<string name="transaction_failed">Transaction Failed</string>
 	<string name="transaction_aborted">Transaction Aborted</string>
+	<string name="gps_location">Getting GPS location</string>
 </resources>
