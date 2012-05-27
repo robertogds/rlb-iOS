@@ -41,7 +41,7 @@ root.showDeals = (deals) ->
 	root.citiesWindow.remove(root.errorView)	
 	if deals.length is 0 
 		Ti.API.info '****** No hay hoteles activos en esta ciudad ********'
-		root.tabGroup.tabs[root.dealsTab.pos].open(root.noDealsWindow,{animated:true})
+		root.showNoDeals()
 		root.hideLoading(root.listDealsWindow)
 		root.hideLoading(root.citiesWindow)
 	else 

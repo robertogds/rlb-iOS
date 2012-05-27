@@ -122,13 +122,13 @@ root.priceFinalLabel = Titanium.UI.createLabel
 	left: 230
 
 separator1 = new root.GenericSeparatorView(140).view
-separator2 = new root.GenericSeparatorView(259).view
+separator2 = new root.GenericSeparatorView(319).view
 
 root.bookingView.add(root.confirmTable)
 root.bookingView.add(separator1)
 root.bookingView.add(separator2)
 
-confirmButton = new root.GenericPayButton(335,L('confirm')).label
+confirmButton = new root.GenericPayButton(375,L('confirm')).label
 #confirmButton = new root.GenericButton(280,L('confirm')).button
 
 root.confirmAlert = Ti.UI.createAlertDialog({title:L('confirm'),message:L('bookPaid'),cancel:1,buttonNames: ['Confirm', 'Cancel']})
@@ -153,7 +153,7 @@ confirmButton.addEventListener 'click', (e) ->
 nonRefundableLabel = Titanium.UI.createLabel
 	borderWidth: 0
 	height: Ti.UI.SIZE
-	top: 290
+	top: 340
 	text: L('noRefundable')
 	color: '#fff'
 	textAlign: "center"

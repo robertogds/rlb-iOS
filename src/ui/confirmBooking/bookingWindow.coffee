@@ -13,6 +13,10 @@ root.showConfirmBooking = ()->
 	root.checkinLabel.text = root.getLocaleDateString(root.checkinDate)
 	root.checkoutLabel.text = root.getLocaleDateString(root.checkoutDate)
 	Ti.API.info '*** Abre la pantalla de bookingWindow'	
+	if root.deal.breakfastIncluded is true
+		root.regimenLabel.text = L('breakfastYes')
+	else
+		root.regimenLabel.text = L('breakfastNo')
 	root.tabGroup.tabs[root.dealsTab.pos].open(root.confirmBookingWindow,{animated:true})
 
 root.confirmBookingWindow.addEventListener 'focus', (e) ->	

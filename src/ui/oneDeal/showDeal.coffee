@@ -32,6 +32,10 @@ root.showDealView = (deal) ->
 	root.oneDealAddressLabel.text = deal.address 
 	root.hotelAddressLabel.text = deal.address
 	root.hotelNameLabel.text = deal.hotelName
+	if root.deal.breakfastIncluded is true
+		root.regimenPriceLabel.text = L('breakfastYes')
+	else
+		root.regimenPriceLabel.text = L('breakfastNo')
 	#root.oneDealWindow.setTitleControl(root.titleView)
 	
 	root.shareTwitterImage.addEventListener 'click', (e) ->

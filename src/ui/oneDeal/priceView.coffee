@@ -46,6 +46,8 @@ root.oneDealPriceLabel = Titanium.UI.createLabel
   #top: '10'
   left: 15
 
+root.regimenPriceLabel = new root.GenericSubtitleLabel(45,180,'Desayuno Incluído').label
+
 root.oneDealNormalPriceLabel = Titanium.UI.createLabel
   width: 77
   height: 22
@@ -102,6 +104,7 @@ root.priceView.add(root.oneDealPriceLabel)
 root.priceView.add(root.oneDealNormalPriceLabel)
 root.priceView.add(sepVertView)
 root.priceView.add(antesLabel)
+root.priceView.add(root.regimenPriceLabel)
 
 #root.priceView.add(root.bookingButtonLabel)
 root.priceView.add(root.soldOutLabel)

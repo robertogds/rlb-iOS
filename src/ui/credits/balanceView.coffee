@@ -10,7 +10,7 @@ root.balanceView = Titanium.UI.createView
 balanceTitle2 = Titanium.UI.createLabel
 	top:25
 	height: Ti.UI.SIZE
-	text: L('your_balance')
+	text: L('your_balance') + ': '
 	color: '#868d92'
 	font:
 		fontSize: 22

@@ -2,7 +2,7 @@ root.confirmTable = Titanium.UI.createTableView
 	backgroundColor: '#0d1e28'
 	separatorColor: '#1b3c50'
 	top: 140
-	height: 120
+	height: 180
 	scrollable: false
 	moving: false
 
@@ -25,54 +25,24 @@ userRow = new root.GenericTextRow().row
 userRow.rightImage = '/images/blue_arrow.png'
 userRow.height = 60
 userRow.id = "user"
-#paymentRow = new root.GenericTextRow().row
-#paymentRow.rightImage =  '/images/blue_arrow.png'
-#paymentRow.height = 60
-#paymentRow.id = "payment"
+
 root.nightsRow = new root.GenericTextRow().row
 root.nightsRow.rightImage =  '/images/blue_arrow.png'
-root.nightsRow.height = 60
+root.nightsRow.height = 120
 root.nightsRow.id = "nights"
 
-checkinTitleLabel = Titanium.UI.createLabel
-	width: Ti.UI.FILL
-	text: L('checkin') + ':' 
-	color: '#fff'
-	font:
-		fontSize: 14
-		fontWeight: 'bold'
-	left: 10
-	height: 20
-	top: 10
 
-checkoutTitleLabel = Titanium.UI.createLabel
-	width: Ti.UI.FILL
-	text: L('checkout') + ':'
-	color: '#fff'
-	font:
-		fontSize: 14
-		fontWeight: 'bold'
-	left: 10
-	height: 20
-	top: 32
+checkinTitleLabel = new root.GenericSubtitleLabel(20,10,L('checkin') + ':').label
+checkoutTitleLabel = new root.GenericSubtitleLabel(42,10,L('checkout') + ':').label
+roomTypeTitleLabel = new root.GenericSubtitleLabel(64,10,L('room')+': ').label
+regimenTitleLabel = new root.GenericSubtitleLabel(86,10,L('regime') + ': ').label
 
-root.checkinLabel = Titanium.UI.createLabel
-	width: Ti.UI.FILL
-	color: '#868d92'
-	font:
-		fontSize: 14
-	left: 90
-	top: 10
-	height: 20
 
-root.checkoutLabel = Titanium.UI.createLabel
-	width: Ti.UI.FILL
-	color: '#868d92'
-	font:
-		fontSize: 14
-	left: 90
-	top: 32
-	height: 20
+root.checkinLabel = new root.GenericTextLabel(20,90,'').label
+root.checkoutLabel = new root.GenericTextLabel(42,90,'').label
+root.roomTypeLabel = new root.GenericTextLabel(64,90,L('doubleRoom')).label
+root.regimenLabel = new root.GenericTextLabel(86,90,'').label
+
 
 bookingForTitleLabel = Titanium.UI.createLabel
 	text: L('bookingFor')+':'
@@ -114,8 +84,12 @@ root.paymentLabel = Titanium.UI.createLabel
 
 root.nightsRow.add(checkinTitleLabel)
 root.nightsRow.add(checkoutTitleLabel)
+root.nightsRow.add(roomTypeTitleLabel)
+root.nightsRow.add(regimenTitleLabel)
 root.nightsRow.add(root.checkinLabel)
 root.nightsRow.add(root.checkoutLabel)
+root.nightsRow.add(root.roomTypeLabel)
+root.nightsRow.add(root.regimenLabel)
 userRow.add(bookingForTitleLabel)
 userRow.add(root.bookingForNameLabel)
 userRow.add(root.bookingForEmailLabel)
