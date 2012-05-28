@@ -9,7 +9,7 @@ class GenericSubtitleLabel
 			top: top
 			color: '#858C92'
 			font:
-				fontSize: 14
+				fontSize: 12
 				#fontWeight: 'bold'
 		
 root.GenericSubtitleLabel = GenericSubtitleLabel

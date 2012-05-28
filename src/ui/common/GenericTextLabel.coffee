@@ -9,7 +9,7 @@ class GenericTextLabel
 			top: top
 			color: '#fff'
 			font:
-				fontSize: 14
+				fontSize: 12
 				fontWeight: 'bold'
 		
 root.GenericTextLabel = GenericTextLabel

@@ -8,5 +8,5 @@ root.cantidadText = Titanium.UI.createTextField
 	paddingLeft: 10
 	returnKeyType: Titanium.UI.RETURNKEY_NEXT
 
-root.testWindow.add(root.zoozButton)
-root.testWindow.add(root.cantidadText)
+#root.testWindow.add(root.zoozButton)
+#root.testWindow.add(root.cantidadText)

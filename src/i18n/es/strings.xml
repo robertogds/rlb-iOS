@@ -78,8 +78,10 @@
 	<string name="mustInternet">Para usar esta aplicación debes tener conexión a internet</string>
 	<string name="tonight">Esta noche</string>
 	<string name="before">antes</string>
-	<string name="noDealsTitle">Preparando las mejores ofertas</string>
-	<string name="noDealsText">Cada día negociamos las mejores ofertas con los hoteles, a las 12 del mediodía estarán disponibles en nuestro listado de ofertas.\n\nVuelve más tarde para comprobar las ofertas de esta noche</string>
+	<string name="waitingDealsTitle">Preparando las mejores ofertas</string>
+	<string name="waitingDealsText">Cada día negociamos las mejores ofertas con los hoteles, a las 12 del mediodía estarán disponibles en nuestro listado de ofertas.\n\nVuelve más tarde para comprobar las ofertas de esta noche</string>
+	<string name="noDealsTitle">La ciudad está cerrada :(</string>
+	<string name="noDealsText">Todavía no tenemos ofertas en esta ciudad, es posible que esté completa.\nEstamos buscando habitaciones para tí, vuelve más tarde para comprobarlo.</string>
 	<string name="map">Mapa</string>
 	<string name="yourBookings">Tus Reservas</string>
 	<string name="profile">Perfil</string>

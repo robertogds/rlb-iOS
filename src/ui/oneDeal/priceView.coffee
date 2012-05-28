@@ -5,26 +5,26 @@ root.priceView = Titanium.UI.createView
   height: 65
 
 root.shareTwitterImage = Titanium.UI.createImageView 
-	top: 0
-	width: 40
-	height: 37
+	top: 10
+	width: 35
+	height: 35
 	left: 170
-	image: '/images/share_twitter2.png'
+	image: '/icons/twitter_icon.png'
 
 root.shareFacebookImage = Titanium.UI.createImageView 
-	top: 0
-	width: 40 
-	height: 37
+	top: 10
+	width: 35
+	height: 35
 	left: 220
-	image: '/images/share_facebook2.png'
+	image: '/icons/facebook_icon.png'
 
 
 root.shareEmailImage = Titanium.UI.createImageView 
-	top: 0
-	width: 40
-	height: 37
+	top: 10
+	width: 35
+	height: 35
 	left: 270
-	image: '/images/share_mail.png'
+	image: '/icons/mail_icon.png'
 
 
 barPriceView = Titanium.UI.createView
@@ -46,7 +46,8 @@ root.oneDealPriceLabel = Titanium.UI.createLabel
   #top: '10'
   left: 15
 
-root.regimenPriceLabel = new root.GenericSubtitleLabel(45,180,'Desayuno Incluído').label
+root.regimenPriceLabel = new root.GenericSubtitleLabel(50,180,'Desayuno Incluído').label
+root.regimenPriceLabel.font.fontsize = 10
 
 root.oneDealNormalPriceLabel = Titanium.UI.createLabel
   width: 77

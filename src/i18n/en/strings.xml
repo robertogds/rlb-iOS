@@ -78,8 +78,10 @@
 	<string name="mustInternet">You must have an internet connection to use this app</string>
 	<string name="tonight">Tonight</string>
 	<string name="before">was</string>
-	<string name="noDealsTitle">Preparing the best deals</string>
-	<string name="noDealsText">Every day we negotiate the best deals with each hotel, at 12 pm they will be available on our list of deals.\n\nCome back later to check the deals for tonight</string>
+	<string name="noDealsTitle">Ups, this city is closed now :(</string>
+	<string name="noDealsText">We don't have deals in this city yet. Maybe is busy.\nCheck back as we search for more rooms!</string>
+	<string name="waitingDealsTitle">Preparing the best deals</string>
+	<string name="waitingDealsText">Every day we negotiate the best deals with each hotel, at 12 pm they will be available on our list of deals.\n\nCome back later to check the deals for tonight</string>
 	<string name="map">Map</string>
 	<string name="yourBookings">Your bookings</string>
 	<string name="profile">Profile</string>

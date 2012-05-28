@@ -7,6 +7,10 @@ root.xhrDeals.onload = () ->
 	deals = JSON.parse(this.responseText)
 	if deals.status is undefined 
 		root.showDeals(deals)
+	else
+		if deals.status is 0
+			Ti.API.info '**** Entra en waitingCity'
+			root.showNoDeals(deals.message)
 
 root.xhrDeals.onerror = () ->
 	root.hideLoading(root.citiesWindow)

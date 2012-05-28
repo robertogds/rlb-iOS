@@ -16,11 +16,13 @@ root.createDealMap = (deal) ->
 	mapButtonView = new root.GenericMapRightButtonView(null).view
 	mapButtonView.addEventListener 'click', (e) ->
 		Ti.API.info 'Entra en mapButtonView click'
+		root.oneDealButtonBar.index = 0
 		root.oneDealWindow.remove root.infoDealTable
 		root.oneDealWindow.remove root.mapView
 		root.oneDealWindow.add root.oneDealView
 		
-	subtitle = L('tonight') + ': ' + deal.salePriceCents + '€'
+	#subtitle = L('tonight') + ': ' + deal.salePriceCents + '€'
+	subtitle = deal.address
 	hotelAnnotation = new root.GenericMapAnnotation(deal.id,deal.latitude,deal.longitude,deal.hotelName,subtitle,mapButtonView).annotation
 	root.mapView.addAnnotation hotelAnnotation
 	region =

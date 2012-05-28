@@ -10,7 +10,7 @@
     </deployment-targets>
     <id>com.iipir.rlb</id>
     <name>ReallyLateBooking</name>
-    <version>1.4.4</version>
+    <version>1.6.0</version>
     <publisher>IIPIR SL</publisher>
     <url>http://iipir.com</url>
     <description>ReallyLateBooking</description>

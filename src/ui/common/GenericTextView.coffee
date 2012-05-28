@@ -15,19 +15,20 @@ class GenericTextView
 			color: '#fff'
 			left: 10
 			font:
-				fontSize: 20
+				fontSize: 24
 				fontWeight: 'bold'
 	
 		@textLabel = Titanium.UI.createLabel
 			text: text + '\n\n'
 			borderWidth: 0
-			top: 60
+			top: 80
 			height: Ti.UI.SIZE
 			color: '#fff'
 			left: 10
 			right: 10
 			font:
 				fontSize: 14
+				fontWeight: 'bold'
 		
 		@view.add(@titleLabel)
 		@view.add(@textLabel)

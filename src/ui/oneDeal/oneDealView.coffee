@@ -11,7 +11,6 @@ root.oneDealImage = Titanium.UI.createImageView
 	width: 320
 	height: 330
 
-
 root.oneDealView.add(root.oneDealImage)
 
 root.oneDealImage.addEventListener 'click', (e) ->

@@ -33,6 +33,16 @@ class ListDealsRow
 			width: 320
 			top: 0
 		@row.add(hotelBarLabel)
+		
+		root.breakfastIcon = Titanium.UI.createImageView
+			image: '/icons/breakfast.png'
+			top: 3
+			left: 215
+			width: 15
+			height: 12
+			
+		if deal.breakfastIncluded is true
+			@row.add(root.breakfastIcon)
 				
 		hotelLabel = Titanium.UI.createLabel
 			text: deal.hotelName
