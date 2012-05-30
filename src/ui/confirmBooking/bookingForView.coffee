@@ -3,7 +3,7 @@ root.bookingForView = Titanium.UI.createView
   width: Ti.Platform.displayCaps.platformWidth
 
 root.bookingForTable = Titanium.UI.createTableView
-  top: 150
+  top: 5
   height: 132
   width: '95%'
   borderWidth:0
@@ -76,7 +76,7 @@ root.bookingForSection.add(lastNameRow)
 root.bookingForSection.add(emailRow)
 
 bookingForLabel = Titanium.UI.createLabel
-  top: 5
+  top: 150
   height:140
   text: L('bookingForExplain')
   left: 8
@@ -86,7 +86,7 @@ bookingForLabel = Titanium.UI.createLabel
     #fontWeight: 'bold'
 root.bookingForView.add(bookingForLabel)
 
-bookingForButton = new root.GenericButton(300,Ti.Locale.getString('change')).button
+bookingForButton = new root.GenericButton(330,Ti.Locale.getString('change')).button
 
 bookingForButton.addEventListener 'click', (e) ->
   validate = root.validateBookingForData(emailText.value,firstNameText.value,lastNameText.value)

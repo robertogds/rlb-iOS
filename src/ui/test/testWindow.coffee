@@ -8,7 +8,7 @@ rlbTeamImage = Titanium.UI.createImageView
 root.testView.add(rlbTeamImage)
 root.testWindow.add(root.testView)
 
-#Ti.include('/js/cobrarView.js')
+Ti.include('/js/cobrarView.js')
 	
 	
 
