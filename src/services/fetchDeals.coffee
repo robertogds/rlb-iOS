@@ -1,4 +1,4 @@
-root.xhrDeals = Titanium.Network.createHTTPClient()
+root.xhrDeals = Titanium.Network.createHTTPClient(timeout:25000)
 
 root.xhrDeals.onload = () ->
 	Ti.API.info "****** en fetchdeals obtenemos: " + this.responseText
@@ -25,9 +25,7 @@ root.fetchDeals = (city) ->
 		Ti.UI.createAlertDialog({title:'ReallyLateBooking',message:L('mustInternet')}).show()
 		root.showError(root.citiesWindow)
 	else
-		root.xhrDeals.setTimeout(25000)
 		root.xhrDeals.open('GET', root.url+'/v2/deals/'+city.url)
-		#root.xhrDeals.open('GET', root.url+'/deals/'+city.url)
 		root.xhrDeals.setRequestHeader("Accept-Language",Titanium.Locale.currentLanguage)
 		root.xhrDeals.send()
 		
