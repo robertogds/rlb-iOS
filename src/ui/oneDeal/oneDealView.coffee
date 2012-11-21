@@ -79,6 +79,7 @@ root.titleView.add(root.hotelAddressLabel)
 
 root.oneDealView.add(root.priceView)
 root.oneDealView.add(root.bookingButtonLabel)
+root.oneDealView.add(root.soldOutLabel)
 root.oneDealWindow.add(root.oneDealButtonBarView)
 root.oneDealWindow.add(root.oneDealView)
 
@@ -86,5 +87,5 @@ separator1 = new root.GenericSeparatorView(230).view
 #root.oneDealView.add(separator1)
 
 separator2 = new root.GenericSeparatorView(265).view
-root.oneDealView.add(separator2)
+#root.oneDealView.add(separator2)
 

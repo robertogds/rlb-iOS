@@ -5,6 +5,10 @@ root.bgGradient =
      type:'linear'
      colors:[{color:'#07151d',position:0.1},{color:'#0d1e28',position:1.0}]
 
+root.bgGradientInv =
+     type:'linear'
+     colors:[{color:'#0d1e28',position:1.0},{color:'#07151d',position:0.1}]
+
 root.bgGradientTitle =
      type:'linear'
      colors:[{color:'#1b3c50',position:0.1},{color:'#3c5f75',position:1.0}]

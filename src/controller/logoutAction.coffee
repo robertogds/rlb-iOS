@@ -16,5 +16,5 @@ root.doLogout = () ->
 	Titanium.App.Properties.removeProperty("facebookUser")
 	root.loadUser()
 	Ti.API.info 'llama a loadAccountLabels'
-	root.creditsTab.badge = '+10'
+	root.creditsTab.badge = '+5'
 	root.loadAccountLabels()

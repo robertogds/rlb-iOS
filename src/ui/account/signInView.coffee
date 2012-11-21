@@ -46,10 +46,11 @@ root.rememberPassView.label2.addEventListener 'click', (e) ->
 
 root.showSignInView = (source) ->
 	if source is 'booking'
-		root.rememberPassView.table.height = 88
+		root.rememberPassView.table.height = 88		
 	else
 		root.rememberPassView.table.height = 44
 	root.tabGroup.activeTab.open(root.signInWindow,{animated:true})
+	root.hideLoading(root.oneDealWindow)
 
 root.signInView.add(root.facebookLoginButton)
 root.signInView.add(loginLabel)

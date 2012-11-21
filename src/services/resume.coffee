@@ -1,7 +1,7 @@
 root.startupWindow = Ti.UI.createWindow
 	height: "100%"
 	width: "100%"
-	backgroundColor:'#000'
+	backgroundColor:'#0c1c25'
 	navBarHidden: true
 	zIndex:1
 

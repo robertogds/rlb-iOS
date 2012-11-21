@@ -226,15 +226,15 @@
 	<string name="invite">Invite</string>
 	<string name="shareandwin">Share and win!</string>
 	<string name="use_code">Use your personal code: </string>
-	<string name="reward_friend">✓ Your friends get 20€ when they sign-up and redeem your code\n\n✓ You get 20€ when they book their first room.</string>
+	<string name="reward_friend">✓ Your friends get 10€ when they sign-up and redeem your code\n\n✓ You get 10€ when they book their first room.</string>
 	<string name="invite_fb">Invite via Facebook</string>
 	<string name="invite_twitter">Invite via Twitter</string>
 	<string name="invite_email">Invite via Email</string>
-	<string name="invite_facebook_body">Check out ReallyLateBooking. Use promo code %s when you sign up for a 20€ discount on your first booking</string>
-	<string name="invite_twitter_body">Get ReallyLateBooking the app for last minute hotel deals. Use promo code %s for a 20€ discount on your first booking: http://www.reallylatebooking.com</string>
-	<string name="invite_email_body">Hi,\nI'm using ReallyLateBooking to book hotels for the same day with big discounts.\n Download the app for iPhone and android and enter invite code %s to get 20€ off your first booking: http://reallylatebooking.com</string>	
-	<string name="invite_email_subject">Get 20€ to try RLB</string>
-	<string name="invite_sounds_good">Invite your friends and we'll give them 20€ for their first booking \n\n You get 20€ when they make their first booking\n\nGloat that you knew about RLB first</string>	
+	<string name="invite_facebook_body">Check out ReallyLateBooking. Use promo code %s when you sign up for a 10€ discount on your first booking</string>
+	<string name="invite_twitter_body">Get ReallyLateBooking the app for last minute hotel deals. Use promo code %s for a 10€ discount on your first booking: http://www.reallylatebooking.com</string>
+	<string name="invite_email_body">Hi,\nI'm using ReallyLateBooking to book hotels for the same day with big discounts.\n Download the app for iPhone and android and enter invite code %s to get 10€ off your first booking: http://reallylatebooking.com</string>	
+	<string name="invite_email_subject">Get 10€ to try RLB</string>
+	<string name="invite_sounds_good">Invite your friends and we'll give them 10€ for their first booking \n\n You get 10€ when they make their first booking\n\nGloat that you knew about RLB first</string>	
 	<string name="invite_and_win">Invite your friends and win</string>
 	<string name="register_and_invite">Sign up and get started</string>
 	<string name="your_balance">Your balance</string>
@@ -243,12 +243,12 @@
 	<string name="invite_more_friends">Invite more friends</string>
 	<string name="have_coupon_code">Have a coupon code?</string>
 	<string name="enter_code">Enter promo code:</string>
-	<string name="use_first_free_coupon">Only for you, use your RLB code after signup and you'll get 10€ for your first booking\n\n You can get more free credits inviting you friends.</string>	
-	<string name="10_euros_free">Here you have 10€ for free</string>
+	<string name="use_first_free_coupon">Only for you, use your RLB code after signup and you'll get 5€ for your first booking\n\n You can get more free credits inviting you friends.</string>	
+	<string name="ten_euros_free">Here you have 5€ for free</string>
 	<string name="register_free">Sign up and get started</string>
 	<string name="coupon_created">Created</string>
 	<string name="coupon_expire">Expire</string>
-	<string name="invite_friends_to_get_credits">Why don´t you invite a friend and get 20€ on their first booking?</string>
+	<string name="invite_friends_to_get_credits">Why don´t you invite a friend and get 10€ on their first booking?</string>
 	<string name="you_have_no_credits">You don´t have any credits</string>
 	<string name="invite_your_friends">Invite your friends</string>
 	<string name="view_all_cities">View all cities</string>
@@ -260,4 +260,5 @@
 	<string name="transaction_failed">Transaction Failed</string>
 	<string name="transaction_aborted">Transaction Aborted</string>
 	<string name="gps_location">Getting GPS location</string>
+	<string name="code">Code</string>
 </resources>

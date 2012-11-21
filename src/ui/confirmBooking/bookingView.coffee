@@ -128,7 +128,7 @@ root.bookingView.add(root.confirmTable)
 root.bookingView.add(separator1)
 root.bookingView.add(separator2)
 
-confirmButton = new root.GenericPayButton(375,L('confirm')).label
+confirmButton = new root.GenericPayButton('89%',L('confirm')).label
 #confirmButton = new root.GenericButton(280,L('confirm')).button
 
 root.confirmAlert = Ti.UI.createAlertDialog({title:L('confirm'),message:L('bookPaid'),cancel:1,buttonNames: ['Confirm', 'Cancel']})
@@ -169,7 +169,7 @@ root.doZoozPayment = ()->
 			currencyCode: "EUR"
 			appKey: "4b71ac79-9338-4cc0-91ad-220572fd54b3"
 			isSandbox: false
-			email: ''
+			userEmail: root.user.email
 			
 		success: (data) ->
 			Ti.API.info 'Result success!'

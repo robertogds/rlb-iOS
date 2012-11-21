@@ -14,11 +14,10 @@ root.xhrGPSCities.onload = () ->
 
 root.xhrGPSCities.onerror = (e) ->
 	Ti.API.info "Entra en error de ciudades GPS " + e.error
-	root.initializeGPS() 
+	#root.initializeGPS() 
 
 if Titanium.Network.online is false
 	Ti.API.info "Error ciudades GPS no hay Internet"
-	root.initializeGPS() 
 else
 	root.xhrGPSCities.open('GET', root.url+'/v2/cities')
 	root.xhrGPSCities.setRequestHeader("Accept-Language",Titanium.Locale.currentLanguage)

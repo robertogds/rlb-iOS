@@ -42,7 +42,7 @@
 	<string name="register">Registrarme</string>
 	<string name="acceptTerms">Al hacer clic en Registrarme, aceptas los términos de uso y política de privacidad de ReallyLateBooking que puedes encontrar en la pestaña Opciones</string>
 	<string name="forgotPasswordIntroEmail">Introduce el email que usaste para regístrate y te enviaremos una nueva.</string>
-	<string name="conectionError">La aplicación no puede cargar los datos necesarios.\n\nProbablemente se trate de un problema de conexión a Internet o una caída temporal de nuestros servidores debido a un fallo o tareas de mantenimiento\n\n\nPor favor vuelve a intentarlo en unos minutos.</string>	
+	<string name="conectionError">La aplicación no puede cargar los datos necesarios.\n\nProbablemente se trate de un problema temporal de conexión a Internet\n\n\nPor favor vuelve a intentarlo en unos minutos.</string>	
 	<string name="confirm">Confirmar</string>
 	<string name="cancel">Cancelar</string>
 	<string name="orderSummary">Reserva</string>
@@ -101,8 +101,7 @@
 	<string name="bookingDate">Fecha de la reserva</string>
 	<string name="salePrice">Precio oferta</string>
 	<string name="regularPrice">Precio habitual</string>
-	<string name="oneBookingText">Esta pantalla en tu móvil sirve como justificante en la recepción del hotel.\nPuedes volver a acceder a ella desde la pestaña Mis Reservas
-	</string>
+	<string name="oneBookingText">Esta pantalla en tu móvil sirve como justificante en la recepción del hotel.\nPuedes volver a acceder a ella desde la pestaña Mis Reservas</string>
 	<string name="info">Info</string>
 	<string name="around">Alrededores</string>
 	<string name="detailTitle">Los Detalles</string>
@@ -227,15 +226,15 @@
 	<string name="invite">Invitar</string>
 	<string name="shareandwin">¡Comparte y gana!</string>
 	<string name="use_code">Usa tu código personal: </string>
-	<string name="reward_friend">✓ Le daremos 20€ a tus amigos que se registren y canjeen tu código\n\n✓ Además te daremos 20€ cuando haga su primera reserva.</string>
+	<string name="reward_friend">✓ Le daremos 10€ a tus amigos que se registren y canjeen tu código\n\n✓ Además te daremos 10€ cuando haga su primera reserva.</string>
 	<string name="invite_fb">Invita via Facebook</string>
 	<string name="invite_twitter">Invita via Twitter</string>
 	<string name="invite_email">Invita via Email</string>
-	<string name="invite_facebook_body">Prueba ReallyLateBooking, la mejor app para reservar hoteles en el mismo día.\nUsa el código %s y te llevas 20€ para gastar en tu próxima reserva.</string>
-	<string name="invite_twitter_body">Te regalo 20€ para reservar tu hotel en ReallyLateBooking, usa el código %s http://www.reallylatebooking.com</string>
-	<string name="invite_email_body">Hola,\nTe invito a probar ReallyLateBooking, una app para reservar hoteles en el último minuto desde tu móvil con grandes descuentos, usa el código %s y te llevas 20€ de regalo en tu primera reserva: http://reallylatebooking.com</string>	
-	<string name="invite_email_subject">Te regalo 20€ en RLB</string>
-	<string name="invite_sounds_good">Invita a tus amigos y les daremos 20€ de regalo para su primera reserva\n\nAdemás tu también recibirás 20€ de regalo cuando realizen su reserva.\n\nSuena bien, verdad</string>
+	<string name="invite_facebook_body">Prueba ReallyLateBooking, la mejor app para reservar hoteles en el mismo día.\nUsa el código %s y te llevas 10€ para gastar en tu próxima reserva.</string>
+	<string name="invite_twitter_body">Te regalo 10€ para reservar tu hotel en ReallyLateBooking, usa el código %s http://www.reallylatebooking.com</string>
+	<string name="invite_email_body">Hola,\nTe invito a probar ReallyLateBooking, una app para reservar hoteles en el último minuto desde tu móvil con grandes descuentos, usa el código %s y te llevas 10€ de regalo en tu primera reserva: http://reallylatebooking.com</string>	
+	<string name="invite_email_subject">Te regalo 10€ en RLB</string>
+	<string name="invite_sounds_good">Invita a tus amigos y les daremos 10€ de regalo para su primera reserva\n\nAdemás tu también recibirás 10€ de regalo cuando realizen su reserva.\n\nSuena bien, verdad</string>
 	<string name="invite_and_win">Invita a tus amigos y gana</string>
 	<string name="register_and_invite">Regístrate e invita a tus amigos</string>
 	<string name="your_balance">Tu balance</string>
@@ -244,8 +243,8 @@
 	<string name="invite_more_friends">Invita a más amigos</string>
 	<string name="have_coupon_code">¿Tienes un cupón?</string>
 	<string name="enter_code">Escribe el código</string>
-	<string name="use_first_free_coupon">Sólo por ser tú, usa el código RLB cuadno te hayas registrado y te regalamos 10 € para que hagas tu primera reserva.\n\nAdemás podrás conseguir más créditos invitando a tus amigos desde tu cuenta.</string>
-	<string name="10_euros_free">10€ Para que te animes</string>
+	<string name="use_first_free_coupon">Sólo por ser tú, usa el código RLB cuando te hayas registrado y te regalamos 5€ para que hagas tu primera reserva.\n\nAdemás podrás conseguir más créditos invitando a tus amigos desde tu cuenta.</string>
+	<string name="ten_euros_free">5€ Para que te animes</string>
 	<string name="register_free">Regístrate gratis</string>	
 	<string name="coupon_created">Creado</string>
 	<string name="coupon_expire">Expira</string>
@@ -261,4 +260,5 @@
 	<string name="transaction_failed">Error en la Transacción</string>
 	<string name="transaction_aborted">Transacción Cancelada</string>
 	<string name="gps_location">Ubicación por GPS</string>
+	<string name="code">Código</string>
 </resources>

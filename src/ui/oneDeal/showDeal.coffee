@@ -11,12 +11,12 @@ root.showDealView = (deal) ->
 	root.deal = deal
 	if deal.quantity is 0
 		root.oneDealView.remove(root.bookingButtonLabel)
-		root.priceView.add(root.soldOutLabel)
+		#root.priceView.add(root.soldOutLabel)
 		root.soldOutLabel.show()
 		root.bookingButtonLabel.hide()
 	else
 		root.oneDealView.add(root.bookingButtonLabel)
-		root.priceView.remove(root.soldOutLabel)
+		#root.priceView.remove(root.soldOutLabel)
 		root.soldOutLabel.hide()
 		root.bookingButtonLabel.show()
 	# Map
